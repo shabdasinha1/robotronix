@@ -1198,12 +1198,14 @@ swiper {
     border-bottom: 1px solid beige;
   }
 
-  .mega-box.open {
-    display: block;
-    /* Visible on open */
-    opacity: 1;
-    visibility: visible;
-  }
+.mega-box.open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  max-height: 350px;  /* you can increase/decrease */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
   svg.fright {
     position: relative;

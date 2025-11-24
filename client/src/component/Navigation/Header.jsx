@@ -119,6 +119,7 @@ export const Header = () => {
           <div className="logo">
             <NavLink to="/" className="d-flex align-items-center">
               <img src={logo} alt="Robotronix"></img>
+        
             </NavLink>
           </div>
           <button className="menu-btn" onClick={toggleMenu}>
@@ -177,7 +178,7 @@ export const Header = () => {
                         <span>
                           <TbDeviceMobileCode />
                         </span>{" "}
-                        <NavLink to={"/mobile-app-development"}>
+                        <NavLink to={"/generative-ai"}>
                           Generative AI (Gen AI) Solutions
                         </NavLink>
                       </header>
@@ -209,7 +210,7 @@ export const Header = () => {
                         <span>
                           <CgDigitalocean />
                         </span>{" "}
-                        <NavLink to="/mobile-app-development">
+                        <NavLink to="/ -app-development">
                           Mobile Application Development
                         </NavLink>
                       </header>
@@ -281,7 +282,7 @@ export const Header = () => {
                   </div>
                 </div>
               </li>
-              {/* <li>
+              <li>
                 <NavLink to="" className="desktop-item">
                   Products{" "}
                   <span>
@@ -382,31 +383,7 @@ export const Header = () => {
                     </div>
                   </div>
                 </div>
-              </li> */}
-              <li>
-  <NavLink to="/products" className="desktop-item">
-    Products
-  </NavLink>
-
-  {/* MOBILE simple link */}
-  <div className="mobile-item">
-    <div className="row">
-      <div className="col-12">
-        <NavLink
-          to="/products"
-          style={{
-            color: "var(--nav-color)",
-            fontSize: "16px",
-            fontWeight: "600",
-          }}
-        >
-          Products
-        </NavLink>
-      </div>
-    </div>
-  </div>
-</li>
-
+              </li>
               <li>
                 <NavLink to="" className="desktop-item">
                   About Us
@@ -564,7 +541,7 @@ export const Header = () => {
                   </div>
                 </div>
               </li>
-              {/* <li>
+              <li>
                 <NavLink to="/blogs" className="desktop-item">
                   Blog
                 </NavLink>
@@ -584,7 +561,7 @@ export const Header = () => {
                     </div>
                   </div>
                 </div>
-              </li> */}
+              </li>
               <li>
                 <NavLink to="contact-us" className="desktop-item">
                   Contact Us

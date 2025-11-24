@@ -76,6 +76,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "../Navigation/Header";
 import Footer from "../Navigation/Footer";
 import ScrollToTop from "../Navigation/ScrollToTop";
+import GenerativeAI from "../screen/Gen AI Page/GenerativeAI";
 
 // Lazy Loaded Pages
 const Home = lazy(() => import("../screen/Home"));
@@ -116,15 +117,9 @@ const AllRoutes = () => {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductPage />} />
-            <Route path="/about" element={<AboutCompany />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/careers/:_id" element={<JobDetails />} />
-            <Route path="/clients" element={<ClientTestimonials />} />
-            <Route path="/culture" element={<Culture />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/industries/:industry" element={<HealthCarePage />} />
-
+            
+            
+            {/* Our Services */}
             <Route path="/web-development" element={<WebDevelopment />} />
             <Route path="/web-development/:type" element={<MeanDev />} />
 
@@ -136,15 +131,33 @@ const AllRoutes = () => {
               path="/mobile-app-development/:appType"
               element={<AndriodAppDev />}
             />
-
             <Route path="/digital-evolution" element={<DigitalEvolution />} />
             <Route
               path="/digital-evolution/:digitalType"
               element={<IotDev />}
             />
-
-            <Route path="/contact-us" element={<Contact />} />
             <Route path="/Learning-Platform" element={<OnlineLearning />} />
+            <Route path="/generative-ai" element={<GenerativeAI/>}/>
+
+            {/* Products */}
+            <Route path="/products" element={<ProductPage />} />
+
+            {/* About Us */}
+            <Route path="/about" element={<AboutCompany />} />
+            <Route path="/culture" element={<Culture />} />
+            <Route path="/clients" element={<ClientTestimonials />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/careers/:_id" element={<JobDetails />} />
+
+
+            {/* Industries */}
+            <Route path="/industries/:industry" element={<HealthCarePage />} />
+
+            {/* Portfolio */}
+            <Route path="/portfolio" element={<Portfolio />} />
+            
+            {/* Contact us */}
+             <Route path="/contact-us" element={<Contact />} />
           </Routes>
         </main>
         <Footer />
