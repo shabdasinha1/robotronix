@@ -1,0 +1,43 @@
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: ./client
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./client/package.json
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - "2001:2001"
+    environment:
+      - MONGO_URL=mongodb+srv://robotronix:XN6jgCj9wbCJr4oX@cluster0.h71s6nd.mongodb.net/robotronix_web?retryWrites=true&w=majority&appName=Cluster0
+    develop:
+      watch:
+        - action: sync
+          path: ./server
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./server/package.json
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    command: npm run dev
