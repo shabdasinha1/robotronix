@@ -54,7 +54,7 @@ const ContactUs = () => {
 
               <div className="form-group">
                 <label>Message</label>
-                <textarea placeholder="Write your message..." rows="5" required></textarea>
+                <textarea style={{resize: "none",msOverflowY:"auto"}} placeholder="Write your message..." rows="5" required></textarea>
               </div>
 
               <button type="submit" className="contact-btn">

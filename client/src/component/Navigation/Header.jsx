@@ -18,10 +18,10 @@ import { FaBus } from "react-icons/fa6";
 // import { BiSolidMedal } from "react-icons/bi";
 import { HiOutlineBanknotes } from "react-icons/hi2";
 import { BsGraphUpArrow } from "react-icons/bs";
-import mrdr from "../../assets/img/mrdr.png";
-import relay1 from "../../assets/img/relay1.png";
-import ir2 from "../../assets/img/ir2.png";
-import rfm from "../../assets/img/rfm.jpg";
+// import mrdr from "../../assets/img/mrdr.png";
+// import relay1 from "../../assets/img/relay1.png";
+// import ir2 from "../../assets/img/ir2.png";
+// import rfm from "../../assets/img/rfm.jpg";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false); // Manages overall menu visibility
@@ -119,7 +119,6 @@ export const Header = () => {
           <div className="logo">
             <NavLink to="/" className="d-flex align-items-center">
               <img src={logo} alt="Robotronix"></img>
-        
             </NavLink>
           </div>
           <button className="menu-btn" onClick={toggleMenu}>
@@ -186,6 +185,18 @@ export const Header = () => {
                     <div className="row">
                       <header>
                         <span>
+                          <TbDeviceMobileCode />
+                        </span>{" "}
+                        <NavLink to={"/mobile-app-development"}>
+                          Agents & Agentic AI
+                        </NavLink>
+                      </header>
+                    </div>
+                  </div>
+                  <div className="content">
+                    <div className="row">
+                      <header>
+                        <span>
                           <CgDigitalocean />
                         </span>{" "}
                         <NavLink to="/digital-evolution">
@@ -193,8 +204,6 @@ export const Header = () => {
                         </NavLink>
                       </header>
                     </div>
-                  </div>
-                  <div className="content">
                     <div className="row">
                       <header>
                         <span>
@@ -205,6 +214,7 @@ export const Header = () => {
                         </NavLink>
                       </header>
                     </div>
+
                     <div className="row">
                       <header>
                         <span>
@@ -215,6 +225,8 @@ export const Header = () => {
                         </NavLink>
                       </header>
                     </div>
+                  </div>
+                  <div className="content">
                     <div className="row">
                       <header>
                         <span>
@@ -225,8 +237,6 @@ export const Header = () => {
                         </NavLink>
                       </header>
                     </div>
-                  </div>
-                  <div className="content">
                     <div className="row">
                       <header>
                         <span>
@@ -237,9 +247,19 @@ export const Header = () => {
                         </NavLink>
                       </header>
                     </div>
+                    <div className="row">
+                      {/* <header>
+                        <span>
+                          <CgDigitalocean />
+                        </span>{" "}
+                        <NavLink to="/digital-evolution">
+                          On Demand Software Development
+                        </NavLink>
+                      </header> */}
+                    </div>
                   </div>
-                  <div className="horizontal-line"></div>
-                  <div className="content">
+                  {/* <div className="horizontal-line"></div> */}
+                  {/* <div className="content">
                     <div className="row">
                       <header>
                         <span>
@@ -279,32 +299,32 @@ export const Header = () => {
                         Complete guidance from strategy development to execution
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </li>
               <li>
                 <NavLink to="" className="desktop-item">
                   Products{" "}
-                  <span>
+                  {/* <span>
                     <FaAngleDown className="downArrow" />
                   </span>
                   <span className="upArrow">
                     <FaAngleUp className="uArrow" />
-                  </span>
+                  </span> */}
                 </NavLink>
-                <label className="mobile-item" onClick={toggleProductMenu}>
+                <label className="mobile-item">
                   <div className="row">
                     <div className="col-6">Products</div>
-                    <div className="col-6 text-right">
+                    {/* <div className="col-6 text-right">
                       {submenuProduct ? (
                         <FaAngleDown className="fright" />
                       ) : (
                         <FaAngleRight className="fright" />
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </label>
-                <div className={`mega-box ${submenuProduct ? "open" : ""}`}>
+                {/* <div className={`mega-box ${submenuProduct ? "open" : ""}`}>
                   <div className="content">
                     <div className="row">
                       <div className="logo">
@@ -382,7 +402,7 @@ export const Header = () => {
                       </NavLink>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </li>
               <li>
                 <NavLink to="" className="desktop-item">
@@ -583,6 +603,14 @@ export const Header = () => {
                   </div>
                 </div>
               </li>
+              {/* <div className="menu-footer">
+                <p>
+                  <strong>Call us:</strong> +91 99999 99999
+                </p>
+                <p>
+                  <strong>Email:</strong> info@robotronix.com
+                </p>
+              </div> */}
             </ul>
           </div>
           {menuOpen && <div className="overlay" onClick={toggleMenu}></div>}

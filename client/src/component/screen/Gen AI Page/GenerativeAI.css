@@ -128,8 +128,8 @@
 
 .gradient-bg {
   /* background: linear-gradient(135deg, #e8f5ff, #cfeaff); */
-background: linear-gradient(145deg, #eef7ff, #d7eaff, #b7d8ff);
-
+/* background: linear-gradient(145deg, #eef7ff, #d7eaff, #b7d8ff); */
+ background: linear-gradient(135deg, #eef7ff, #d7eaff, #b7d8ff);
   color: white;
 }
 

@@ -64,7 +64,8 @@ app.use(
       const allowedOrigins = [
         process.env.FRONTEND_URL,
         "http://localhost:3000",
-        "http://192.168.1.22:3000"
+        "http://192.168.1.22:3000",
+        "http://192.168.0.190:3000"
       ];
 
       if (!origin || allowedOrigins.includes(origin)) {
