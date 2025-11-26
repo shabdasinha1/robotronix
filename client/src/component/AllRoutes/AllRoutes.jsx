@@ -77,6 +77,12 @@ import { Header } from "../Navigation/Header";
 import Footer from "../Navigation/Footer";
 import ScrollToTop from "../Navigation/ScrollToTop";
 import GenerativeAI from "../screen/Gen AI Page/GenerativeAI";
+import AIML from "../screen/AI ML Page/AIML";
+import AgentsAI from "../screen/AgentsAl Page/AgentsAI";
+import EmbeddedIoT from "../screen/Embedded Iot Page/EmbeddedIoT";
+import DataScience from "../screen/Data Science Page/DataScience";
+import MobileApplicationDev from "../screen/Mobile Application Page/MobileApplicationDevelopment";
+import WebDev from "../screen/Web Development Page/WebDev";
 
 // Lazy Loaded Pages
 const Home = lazy(() => import("../screen/Home"));
@@ -120,13 +126,9 @@ const AllRoutes = () => {
             
             
             {/* Our Services */}
-            <Route path="/web-development" element={<WebDevelopment />} />
             <Route path="/web-development/:type" element={<MeanDev />} />
 
-            <Route
-              path="/mobile-app-development"
-              element={<MobileAppDevelopment />}
-            />
+            
             <Route
               path="/mobile-app-development/:appType"
               element={<AndriodAppDev />}
@@ -137,7 +139,17 @@ const AllRoutes = () => {
               element={<IotDev />}
             />
             <Route path="/Learning-Platform" element={<OnlineLearning />} />
+           
             <Route path="/generative-ai" element={<GenerativeAI/>}/>
+            <Route path="/ai-ml" element={<AIML/>}/>
+            <Route path="/agents-ai" element={<AgentsAI/>}/>
+            <Route path="/embedded-iot" element={<EmbeddedIoT/>}/>
+            <Route path="/data-science" element={<DataScience/>}/>
+            <Route path="/mobile-application-development" element={<MobileApplicationDev/>}/>
+            <Route path="/web-development" element={<WebDev/>} />
+
+
+
 
             {/* Products */}
             <Route path="/products" element={<ProductPage />} />

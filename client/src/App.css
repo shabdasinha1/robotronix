@@ -149,7 +149,7 @@ nav .wrapper {
   margin-right: 0;
   padding: 5px 20px;
   display: flex;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper .logo a {
@@ -165,7 +165,7 @@ nav .wrapper {
   gap: 40px;
 }
 
-  .downArrow,
+.downArrow,
 .uArrow {
   font-size: 14px;
   transition: transform 0.2s ease;
@@ -272,7 +272,7 @@ li {
   top: 52px;
   right: 0;
   width: 100%;
-  height: 400px;
+  height: 16rem;
   padding: 0;
   opacity: 0;
   visibility: hidden;
@@ -1080,11 +1080,11 @@ swiper {
 /* old contact css was keep here*/
 
 /* Media Queries for Responsiveness */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-
   /* contact css */
   .main {
     position: relative;
@@ -1198,14 +1198,14 @@ swiper {
     border-bottom: 1px solid beige;
   }
 
-.mega-box.open {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  max-height: 350px;  /* you can increase/decrease */
-  overflow-y: auto;
-  overflow-x: hidden;
-}
+  .mega-box.open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    max-height: 350px; /* you can increase/decrease */
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 
   svg.fright {
     position: relative;
@@ -1292,21 +1292,18 @@ swiper {
       opacity 0.25s ease-in-out;
   } */
 
-
-.wrapper .nav-links {
+  .wrapper .nav-links {
     position: fixed;
-    top: 3.75rem;             
-    right: -60%;             
+    top: 3.75rem;
+    right: -60%;
     flex-direction: column;
     width: 60%;
     height: 100vh;
     background: #fff;
     overflow: hidden;
     opacity: 0;
-    transition:
-      right 0.35s ease-in-out, 
-      opacity 0.25s ease-in-out;
-}
+    transition: right 0.35s ease-in-out, opacity 0.25s ease-in-out;
+  }
 
   .nav-links.open {
     right: 0%;
@@ -1406,7 +1403,8 @@ swiper {
   }
 
   .content .row header {
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: 400;
   }
 
   .content .row img {
@@ -1433,21 +1431,19 @@ swiper {
       opacity 0.25s ease-in-out;
   } */
 
-.wrapper .nav-links {
+  .wrapper .nav-links {
     position: fixed;
     gap: 0px;
-    top: 3.75rem;              
-    right: -90%;             
+    top: 3.75rem;
+    right: -90%;
     flex-direction: column;
     width: 90%;
     height: 100vh;
     background: #fff;
     overflow: hidden;
     opacity: 0;
-    transition:
-      right 0.35s ease-in-out, 
-      opacity 0.25s ease-in-out;
-}
+    transition: right 0.35s ease-in-out, opacity 0.25s ease-in-out;
+  }
 
   /* .nav-links.open {
     top: 3.75rem;
@@ -1457,10 +1453,10 @@ swiper {
   } */
 
   .nav-links.open {
-    right: 0%;                 
+    right: 0%;
     width: 90% !important;
     opacity: 1;
-}
+  }
   .wrapper .logo img {
     max-height: 24px;
     margin-right: 4px;
@@ -1497,7 +1493,7 @@ swiper {
     font-weight: 500;
     padding: 0 15px;
   }
-  .hr-text{
+  .hr-text {
     margin: 0px;
   }
 }
@@ -1694,7 +1690,6 @@ nav input {
 
 /* Responsiveness */
 @media (max-width: 1200px) {
-
   /* Adjust grid layout for medium screens */
   .mean-section1 {
     margin-top: 5rem;
@@ -1725,7 +1720,6 @@ nav input {
 }
 
 @media (max-width: 768px) {
-
   /* Adjust for tablets and smaller screens */
   .mean-section1 {
     margin-top: 60px;
@@ -1796,11 +1790,10 @@ nav input {
 }
 
 @media (max-width: 480px) {
-
   /* Mobile responsiveness */
-  .row {
+  /* .row {
     padding: 15px 10px;
-  }
+  } */
 
   .row h1 {
     font-size: 30px;
@@ -1998,12 +1991,21 @@ nav input {
 }
 
 /* Icon Box Shadow on Hover */
-.web-dev .second-section .services-cards-section .service-card:hover .ecommerce-logo {
+.web-dev
+  .second-section
+  .services-cards-section
+  .service-card:hover
+  .ecommerce-logo {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   /* More prominent and smooth shadow on hover */
 }
 
-.web-dev .second-section .services-cards-section .service-card .ecommerce-logo img {
+.web-dev
+  .second-section
+  .services-cards-section
+  .service-card
+  .ecommerce-logo
+  img {
   height: 50px;
   width: 50px;
   margin-top: 5px;
@@ -2392,7 +2394,11 @@ nav input {
   width: 100%;
 }
 
-.contact-location-main-section .location-section .location-card .location-img img {
+.contact-location-main-section
+  .location-section
+  .location-card
+  .location-img
+  img {
   height: 100%;
   width: 100%;
   border-radius: 8px 8px 0px 0px;
@@ -2403,16 +2409,27 @@ nav input {
   font-weight: bolder;
 }
 
-.contact-location-main-section .location-section .location-card .location-content {
+.contact-location-main-section
+  .location-section
+  .location-card
+  .location-content {
   padding: 5px;
 }
 
-.contact-location-main-section .location-section .location-card .location-content h4 {
+.contact-location-main-section
+  .location-section
+  .location-card
+  .location-content
+  h4 {
   font-size: 20px;
   font-weight: bold;
 }
 
-.contact-location-main-section .location-section .location-card .location-content p {
+.contact-location-main-section
+  .location-section
+  .location-card
+  .location-content
+  p {
   font-size: 14px;
   margin-top: 5px;
 }
@@ -2487,7 +2504,10 @@ nav input {
     margin: 10px auto;
   }
 
-  .contact-location-main-section .location-section .location-card .location-content {
+  .contact-location-main-section
+    .location-section
+    .location-card
+    .location-content {
     padding: 15px;
   }
 }
@@ -2512,11 +2532,19 @@ nav input {
     margin: 15px auto;
   }
 
-  .contact-location-main-section .location-section .location-card .location-content h4 {
+  .contact-location-main-section
+    .location-section
+    .location-card
+    .location-content
+    h4 {
     font-size: 18px;
   }
 
-  .contact-location-main-section .location-section .location-card .location-content p {
+  .contact-location-main-section
+    .location-section
+    .location-card
+    .location-content
+    p {
     font-size: 12px;
   }
 
@@ -2566,11 +2594,19 @@ nav input {
     margin: 20px 0;
   } */
 
-  .contact-location-main-section .location-section .location-card .location-content h4 {
+  .contact-location-main-section
+    .location-section
+    .location-card
+    .location-content
+    h4 {
     font-size: 16px;
   }
 
-  .contact-location-main-section .location-section .location-card .location-content p {
+  .contact-location-main-section
+    .location-section
+    .location-card
+    .location-content
+    p {
     font-size: 12px;
   }
 
@@ -2637,7 +2673,8 @@ nav input {
 }
 
 .scrolled .header {
-  box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
+  box-shadow: 0px 0 18px
+    color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 /*--------------------------------------------------------------
@@ -2718,7 +2755,7 @@ nav input {
 }
 
 .goodfirm-details {
-  padding: 0 18px;
+  padding: 7px 18px;
 }
 
 /*--------------------------------------------------------------
@@ -2779,9 +2816,11 @@ nav input {
 
 .page-title:before {
   content: "";
-  background-color: color-mix(in srgb,
-      var(--background-color),
-      transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   position: absolute;
   inset: 0;
 }
@@ -2803,11 +2842,11 @@ nav input {
   font-weight: 400;
 }
 
-.page-title .breadcrumbs ol li+li {
+.page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li+li::before {
+.page-title .breadcrumbs ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -2827,7 +2866,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 60px;
@@ -2934,8 +2972,10 @@ section,
 .services .content .service-item {
   background-color: var(--surface-color);
   padding: 20px 30px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  border-left: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
+  border-left: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
   position: relative;
 }
 
@@ -2969,7 +3009,7 @@ section,
   display: none;
 }
 
-.services .content .service-item .service-item-icon>span {
+.services .content .service-item .service-item-icon > span {
   color: var(--default-color);
   font-size: 4rem;
 }
@@ -2986,22 +3026,26 @@ section,
 
 @media (min-width: 769px) {
   .services .content [class^="col-"]:nth-child(4n + 4) .service-item {
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-right: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
   }
 
   .services .content [class^="col-"]:nth-last-child(-n + 4) .service-item {
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
   }
 }
 
 @media (max-width: 768px) {
   .services .content [class^="col-"]:nth-child(2n + 2) .service-item {
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-right: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
   }
 
   .services .content [class^="col-"]:last-child .service-item,
   .services .content [class^="col-"]:nth-last-child(2) .service-item {
-    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
   }
 }
 
@@ -3281,7 +3325,6 @@ section,
   /* keeps card alignment */
 }
 
-
 .blog-desc {
   font-size: 14px;
   color: #555;
@@ -3298,7 +3341,7 @@ section,
   padding: 6px 12px;
 }
 
-/* About section */
+/*//////// About section///////// */
 
 .about-hero-section {
   background: url("./assets/img/about-hero-section.jpg") no-repeat center center;
@@ -4138,7 +4181,8 @@ section,
 }
 
 /* gallery responsie */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 @media (max-width: 576px) {
   .gallery {
@@ -4580,7 +4624,7 @@ article.job-card:focus {
   -o-border-radius: 50%;
 }
 
-#main-button~button {
+#main-button ~ button {
   visibility: hidden;
   font-weight: 600;
   height: 50px;
@@ -4608,7 +4652,7 @@ article.job-card:focus {
   -o-border-radius: 5px;
 }
 
-#main-button.open~button {
+#main-button.open ~ button {
   visibility: visible;
   right: 70px;
   opacity: 1;
@@ -4619,7 +4663,7 @@ article.job-card:focus {
   -o-transition: 0.4s all cubic-bezier(0, 0.01, 0, 1.27);
 }
 
-#main-button~a {
+#main-button ~ a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4648,19 +4692,19 @@ article.job-card:focus {
   -o-transition: 0.2s all linear;
 }
 
-#main-button~.telegram-color {
+#main-button ~ .telegram-color {
   background: linear-gradient(0deg, #017ab1, #01abe6);
 }
 
-#main-button~.whatsapp-color {
+#main-button ~ .whatsapp-color {
   background: linear-gradient(0deg, #00b100, #09db09);
 }
 
-#main-button~.messenger-color {
+#main-button ~ .messenger-color {
   background: linear-gradient(0deg, #0078ff, #00c6ff);
 }
 
-#main-button.open~a {
+#main-button.open ~ a {
   opacity: 1;
   transition: 0.4s all cubic-bezier(0, 0.01, 0, 1.27);
   -webkit-transition: 0.4s all cubic-bezier(0, 0.01, 0, 1.27);
@@ -4669,15 +4713,15 @@ article.job-card:focus {
   -o-transition: 0.4s all cubic-bezier(0, 0.01, 0, 1.27);
 }
 
-#main-button.open~a:nth-of-type(1) {
+#main-button.open ~ a:nth-of-type(1) {
   bottom: 60px;
 }
 
-#main-button.open~a:nth-of-type(2) {
+#main-button.open ~ a:nth-of-type(2) {
   bottom: 120px;
 }
 
-#main-button.open~a:nth-of-type(3) {
+#main-button.open ~ a:nth-of-type(3) {
   bottom: 180px;
 }
 
@@ -4805,7 +4849,7 @@ article.job-card:focus {
   transform: scaleX(-1) scaleY(-1);
 }
 
-.opinion>.inside {
+.opinion > .inside {
   transform: scaleX(-1) scaleY(-1);
   display: flex;
   flex-direction: row;
@@ -4893,36 +4937,27 @@ article.job-card:focus {
   font-weight: 700;
   background: rgb(30, 184, 240);
   /* Update background color */
-  background: -moz-linear-gradient(to left,
-      rgb(30, 184, 240) 0%,
-      /* Use the new color */
-      #2c3e50 25%,
-      /* Use the dark color */
-      rgb(30, 184, 240) 75%,
-      /* Use the new color */
-      #2c3e50 100%
-      /* Use the dark color */
-    );
-  background: -webkit-linear-gradient(to left,
-      rgba(30, 184, 240, 1) 0%,
-      /* New gradient */
-      rgba(44, 62, 80, 1) 25%,
-      /* Dark color */
-      rgba(30, 184, 240, 1) 75%,
-      /* New gradient */
-      rgba(44, 62, 80, 1) 100%
-      /* Dark color */
-    );
-  background: linear-gradient(to left,
-      rgba(30, 184, 240, 1) 0%,
-      /* New gradient */
-      rgba(44, 62, 80, 1) 25%,
-      /* Dark color */
-      rgba(30, 184, 240, 1) 75%,
-      /* New gradient */
-      rgba(44, 62, 80, 1) 100%
-      /* Dark color */
-    );
+  background: -moz-linear-gradient(
+    to left,
+    rgb(30, 184, 240) 0%,
+    /* Use the new color */ #2c3e50 25%,
+    /* Use the dark color */ rgb(30, 184, 240) 75%,
+    /* Use the new color */ #2c3e50 100% /* Use the dark color */
+  );
+  background: -webkit-linear-gradient(
+    to left,
+    rgba(30, 184, 240, 1) 0%,
+    /* New gradient */ rgba(44, 62, 80, 1) 25%,
+    /* Dark color */ rgba(30, 184, 240, 1) 75%,
+    /* New gradient */ rgba(44, 62, 80, 1) 100% /* Dark color */
+  );
+  background: linear-gradient(
+    to left,
+    rgba(30, 184, 240, 1) 0%,
+    /* New gradient */ rgba(44, 62, 80, 1) 25%,
+    /* Dark color */ rgba(30, 184, 240, 1) 75%,
+    /* New gradient */ rgba(44, 62, 80, 1) 100% /* Dark color */
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1eb8f0', endColorstr='#2c3e50', GradientType=1);
   color: transparent;
   background-clip: text;
@@ -5218,16 +5253,13 @@ article.job-card:focus {
 
   .sec-title .title {
     font-size: 32px;
-    background: linear-gradient(to left,
-        rgba(30, 184, 240, 1) 0%,
-        /* New gradient */
-        rgba(44, 62, 80, 1) 25%,
-        /* Dark color */
-        rgba(30, 184, 240, 1) 75%,
-        /* New gradient */
-        rgba(44, 62, 80, 1) 100%
-        /* Dark color */
-      );
+    background: linear-gradient(
+      to left,
+      rgba(30, 184, 240, 1) 0%,
+      /* New gradient */ rgba(44, 62, 80, 1) 25%,
+      /* Dark color */ rgba(30, 184, 240, 1) 75%,
+      /* New gradient */ rgba(44, 62, 80, 1) 100% /* Dark color */
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1eb8f0', endColorstr='#2c3e50', GradientType=1);
     color: transparent;
     background-clip: text;
@@ -5320,16 +5352,13 @@ article.job-card:focus {
 
   .sec-title .title {
     font-size: 32px;
-    background: linear-gradient(to left,
-        rgba(30, 184, 240, 1) 0%,
-        /* New gradient */
-        rgba(44, 62, 80, 1) 25%,
-        /* Dark color */
-        rgba(30, 184, 240, 1) 75%,
-        /* New gradient */
-        rgba(44, 62, 80, 1) 100%
-        /* Dark color */
-      );
+    background: linear-gradient(
+      to left,
+      rgba(30, 184, 240, 1) 0%,
+      /* New gradient */ rgba(44, 62, 80, 1) 25%,
+      /* Dark color */ rgba(30, 184, 240, 1) 75%,
+      /* New gradient */ rgba(44, 62, 80, 1) 100% /* Dark color */
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1eb8f0', endColorstr='#2c3e50', GradientType=1);
     color: transparent;
     background-clip: text;
@@ -5367,11 +5396,13 @@ article.job-card:focus {
     font-size: 22px;
     bottom: 200px;
     font-weight: 900;
-    background: linear-gradient(to left,
-        rgba(30, 184, 240, 1) 0%,
-        rgba(44, 62, 80, 1) 25%,
-        rgba(30, 184, 240, 1) 75%,
-        rgba(44, 62, 80, 1) 100%);
+    background: linear-gradient(
+      to left,
+      rgba(30, 184, 240, 1) 0%,
+      rgba(44, 62, 80, 1) 25%,
+      rgba(30, 184, 240, 1) 75%,
+      rgba(44, 62, 80, 1) 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1eb8f0', endColorstr='#2c3e50', GradientType=1);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -6677,10 +6708,12 @@ article.job-card:focus {
 }
 
 #featured-services .box-bg {
-  background-image: linear-gradient(0deg,
-      #000000 0%,
-      #242323 50%,
-      #000000 100%);
+  background-image: linear-gradient(
+    0deg,
+    #000000 0%,
+    #242323 50%,
+    #000000 100%
+  );
 }
 
 #featured-services i {
@@ -6885,7 +6918,6 @@ article.job-card:focus {
     padding: 0 10px 27px 10px;
   }
 }
-
 
 /* home page slider demo page end */
 /* about home */
@@ -7255,9 +7287,8 @@ article.job-card:focus {
     width: 100%;
   }
   .about-section {
-  padding: 60px 0px 0px 0px;
-}
-
+    padding: 60px 0px 0px 0px;
+  }
 }
 
 /* partenership */
@@ -7408,10 +7439,12 @@ article.job-card:focus {
   top: 20%;
   right: 0px;
   border-radius: 50%;
-  background: radial-gradient(circle,
-      rgba(248, 165, 11, 0.6) 0%,
-      rgba(248, 165, 11, 0.2) 70%,
-      transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(248, 165, 11, 0.6) 0%,
+    rgba(248, 165, 11, 0.2) 70%,
+    transparent 100%
+  );
   filter: blur(60px);
   z-index: 0;
 }
@@ -7445,9 +7478,11 @@ article.job-card:focus {
   width: max-content;
   padding: 10px 20px;
   border-radius: 20px;
-  background: linear-gradient(to bottom right,
-      rgba(255, 255, 255, 0.253),
-      black);
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.253),
+    black
+  );
 }
 
 .left .product-box h1 {
@@ -7464,10 +7499,12 @@ article.job-card:focus {
   border: 1px solid rgba(255, 255, 255, 0.438);
   border-top: transparent;
   border-left: transparent;
-  background: linear-gradient(to top left,
-      rgba(255, 255, 255, 0.253),
-      black,
-      rgba(221, 18, 102, 0.432));
+  background: linear-gradient(
+    to top left,
+    rgba(255, 255, 255, 0.253),
+    black,
+    rgba(221, 18, 102, 0.432)
+  );
 }
 
 .mid {
@@ -7501,10 +7538,12 @@ article.job-card:focus {
   top: 20%;
   left: 0px;
   border-radius: 50%;
-  background: radial-gradient(circle,
-      rgba(221, 18, 102, 0.432) 0%,
-      rgba(235, 27, 141, 0.2) 70%,
-      transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(221, 18, 102, 0.432) 0%,
+    rgba(235, 27, 141, 0.2) 70%,
+    transparent 100%
+  );
   filter: blur(60px);
   z-index: 0;
 }
@@ -7859,7 +7898,7 @@ article.job-card:focus {
   width: 0;
 }
 
-.accordion-product button[aria-expanded="true"]+.accordion-content {
+.accordion-product button[aria-expanded="true"] + .accordion-content {
   opacity: 1;
   max-height: 21em;
   transition: all 200ms linear;
@@ -8121,7 +8160,6 @@ article.job-card:focus {
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -8635,7 +8673,6 @@ article.job-card:focus {
 }
 
 @keyframes adp-float {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -8647,7 +8684,6 @@ article.job-card:focus {
 }
 
 @keyframes adp-pulse {
-
   0%,
   100% {
     opacity: 0.7;
@@ -9344,7 +9380,6 @@ article.job-card:focus {
 }
 
 @keyframes floatingTile {
-
   0%,
   100% {
     transform: translateY(0px);
@@ -9430,10 +9465,12 @@ article.job-card:focus {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -9997,9 +10034,11 @@ article.job-card:focus {
 .blog-hero-section {
   text-align: center;
   padding: 2rem 0 3rem;
-  background: linear-gradient(135deg,
-      var(--primary-color) 0%,
-      var(--secondary-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
   color: white;
   border-radius: 16px;
   margin-bottom: 1rem;
@@ -10157,9 +10196,11 @@ article.job-card:focus {
 }
 
 .blog-read-more-btn {
-  background: linear-gradient(135deg,
-      var(--primary-color) 0%,
-      var(--primary-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-color) 100%
+  );
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -10371,17 +10412,18 @@ article.job-card:focus {
   line-height: 1.6;
   margin-bottom: 1rem;
 
+  /* Current working line clamp */
   display: -webkit-box;
-  -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 
-  display: box;
-  box-orient: vertical;
+  /* Future standard support (safe, no warnings) */
   line-clamp: 3;
 
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 .blog-card-author {
   display: flex;
@@ -10487,15 +10529,21 @@ article.job-card:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 80%,
+  background: radial-gradient(
+      circle at 20% 80%,
       rgba(120, 119, 198, 0.3) 0%,
-      transparent 50%),
-    radial-gradient(circle at 80% 20%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
       rgb(122 135 159 / 30%) 0%,
-      transparent 50%),
-    radial-gradient(circle at 40% 40%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
       rgba(120, 219, 255, 0.2) 0%,
-      transparent 50%);
+      transparent 50%
+    );
   pointer-events: none;
 }
 
@@ -10522,7 +10570,6 @@ article.job-card:focus {
 }
 
 @keyframes gradientShift {
-
   0%,
   100% {
     background-position: 0% 50%;
@@ -10670,7 +10717,6 @@ article.job-card:focus {
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translateY(0px) scale(1);
@@ -10700,9 +10746,11 @@ article.job-card:focus {
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg,
-      var(--primary-color),
-      var(--secondary-color));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   border-radius: 1px;
 }
 
@@ -11052,7 +11100,6 @@ article.job-card:focus {
   display: flex;
 }
 
-
 /* Online Learning Css */
 /* Main Container */
 .learning-platform-container {
@@ -11129,7 +11176,8 @@ article.job-card:focus {
 .learning-content-card {
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid #e5e7eb;
@@ -11137,7 +11185,8 @@ article.job-card:focus {
 
 .learning-content-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .learning-card-image-container {
@@ -11306,7 +11355,8 @@ article.job-card:focus {
 
 .learning-card-action-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Timeline Section - Different Design */
@@ -11318,7 +11368,7 @@ article.job-card:focus {
 }
 
 .tech-timeline-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -11409,7 +11459,7 @@ article.job-card:focus {
 }
 
 .timeline-left .timeline-content::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -15px;
   top: 50%;
@@ -11421,7 +11471,7 @@ article.job-card:focus {
 }
 
 .timeline-right .timeline-content::after {
-  content: '';
+  content: "";
   position: absolute;
   left: -15px;
   top: 50%;
@@ -11679,7 +11729,7 @@ article.job-card:focus {
 }
 
 .advanced-section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -11709,7 +11759,8 @@ article.job-card:focus {
   background: white;
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
   position: relative;
@@ -11717,7 +11768,7 @@ article.job-card:focus {
 }
 
 .advanced-topic-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -11734,7 +11785,8 @@ article.job-card:focus {
 
 .advanced-topic-card:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1);
   border-color: rgba(59, 130, 246, 0.2);
 }
 
@@ -11927,7 +11979,6 @@ article.job-card:focus {
   outline-offset: 4px;
 }
 
-
 /* slider111 */
 .home-slider-container {
   position: relative;
@@ -11989,7 +12040,11 @@ article.job-card:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5)
+  );
 }
 
 .home-slider-content {
@@ -12358,10 +12413,9 @@ article.job-card:focus {
   .testimonial-swiper-card {
     padding: 1.5rem;
     min-height: 300px !important;
-    width: 90% !important; 
-    margin: 0 auto !important;  
-     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
-
+    width: 90% !important;
+    margin: 0 auto !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
   }
 
   .testimonial-swiper-content {

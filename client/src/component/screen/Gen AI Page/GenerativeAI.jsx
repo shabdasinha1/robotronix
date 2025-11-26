@@ -8,7 +8,7 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import aiHeroImg from "../../../assets/img/generative-ai-banner.jpg"; // <-- Replace with your banner image
+import aiHeroImg from "../../../assets/img/new/generative-ai-banner.jpg"; // <-- Replace with your banner image
 import "./GenerativeAI.css";
 
 
