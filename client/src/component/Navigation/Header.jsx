@@ -240,7 +240,7 @@ export const Header = () => {
                 </div>
               </li>
               <li>
-                <NavLink to="" className="desktop-item">
+                <NavLink to="/products" className="desktop-item">
                   Products{" "}
                  
                 </NavLink>
@@ -252,7 +252,7 @@ export const Header = () => {
               </li>
               <li>
                 <NavLink to="" className="desktop-item">
-                  About Us
+                  About Us{" "}
                   <span>
                     <FaAngleDown className="downArrow" />
                   </span>

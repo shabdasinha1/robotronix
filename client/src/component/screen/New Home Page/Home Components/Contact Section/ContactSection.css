@@ -1,0 +1,212 @@
+/* ===========================
+   WRAPPER
+=========================== */
+.rtx-contact-wrapper {
+  width: 100%;
+  padding: 120px 20px;
+  background: #070d17;
+}
+
+.rtx-contact-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ===========================
+   TITLES (Drop Effect)
+=========================== */
+.rtx-contact-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: 0.6s ease;
+}
+
+.rtx-contact-title span {
+  color: #00b4ff;
+}
+
+.rtx-contact-sub {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin: 10px auto 50px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.6s ease 0.2s;
+}
+
+.rtx-drop-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===========================
+   GRID LAYOUT
+=========================== */
+.rtx-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* ===========================
+   LEFT — FORM (Slide from Left)
+=========================== */
+.rtx-contact-left {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 30px;
+  border-radius: 16px;
+
+  opacity: 0;
+  transform: translateX(-70px);
+  transition: 0.7s ease;
+}
+
+.rtx-left-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rtx-contact-left h3 {
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.rtx-form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.rtx-form-field {
+  width: 100%;
+  text-align: left;
+}
+
+.rtx-form-field label {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.rtx-form-field input,
+.rtx-form-field textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: white;
+}
+
+.rtx-form-field textarea {
+  height: 120px;
+  resize: none;
+}
+
+.rtx-contact-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  background: #00b4ff;
+  color: #04121f;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* ===========================
+   RIGHT — INFO (Slide from Right)
+=========================== */
+.rtx-contact-right {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 30px;
+  border-radius: 16px;
+
+  opacity: 0;
+  transform: translateX(70px);
+  transition: 0.7s ease;
+}
+
+.rtx-right-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rtx-contact-right h3 {
+  color: white;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.rtx-right-desc {
+  color: #cbd5e1;
+  margin-bottom: 25px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.rtx-info-card {
+  text-align: left;
+  padding: 12px 0;
+}
+
+.rtx-info-card h4 {
+  color: #00b4ff;
+  margin-bottom: 4px;
+}
+
+.rtx-info-card p {
+  color: #cbd5e1;
+}
+
+/* ===========================
+   BOTTOM BANNER
+=========================== */
+.rtx-contact-banner {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease 0.35s;
+}
+
+.rtx-contact-banner h4 {
+  color: #00b4ff;
+}
+
+.rtx-contact-banner p {
+  color: #cbd5e1;
+  margin-top: 5px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+  .rtx-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtx-contact-left,
+  .rtx-contact-right {
+    transform: translateY(50px);
+  }
+
+  .rtx-left-visible,
+  .rtx-right-visible {
+    transform: translateY(0);
+  }
+}

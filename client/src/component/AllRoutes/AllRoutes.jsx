@@ -83,9 +83,11 @@ import EmbeddedIoT from "../screen/Embedded Iot Page/EmbeddedIoT";
 import DataScience from "../screen/Data Science Page/DataScience";
 import MobileApplicationDev from "../screen/Mobile Application Page/MobileApplicationDevelopment";
 import WebDev from "../screen/Web Development Page/WebDev";
+import Home from "../screen/New Home Page/Home";
+import NewFooter from "../Navigation/NewFooter";
 
 // Lazy Loaded Pages
-const Home = lazy(() => import("../screen/Home"));
+// const Home = lazy(() => import("../screen/Home"));
 const MeanDev = lazy(() =>
   import("../screen/Web Development Sections/MeanDev")
 );
@@ -122,7 +124,7 @@ const AllRoutes = () => {
           {/* Suspense loader for lazy components */}
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             
             
             {/* Our Services */}
@@ -172,9 +174,11 @@ const AllRoutes = () => {
              <Route path="/contact-us" element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
+        <NewFooter/>
+        {/* <Footer /> */}
       </Suspense>
     </BrowserRouter>
+  
   );
 };
 

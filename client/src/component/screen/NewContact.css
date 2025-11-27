@@ -208,4 +208,11 @@
   .contact-form-card {
     padding: 30px;
   }
+  .contact-btn {
+    font-size: small;
+  }
+  .contact-cta-btn{
+    font-size: small;
+    /* padding: 5px 20px; */
+  }
 }

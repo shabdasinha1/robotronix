@@ -1,0 +1,186 @@
+/* ===========================
+   WRAPPER
+=========================== */
+.rtx-tech-wrapper {
+  width: 100%;
+  padding: 120px 20px;
+  background: #070d17;
+
+}
+
+
+.rtx-tech-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 153, 255, 0.15),
+    transparent
+  );
+  pointer-events: none;
+}
+/* ===========================
+   CONTAINER
+=========================== */
+.rtx-tech-container {
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+.rtx-tech-title {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 700;
+
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: 0.7s ease;
+}
+
+.rtx-tech-title span {
+  color: #00b4ff;
+}
+
+/* ===========================
+   SUBTEXT
+=========================== */
+.rtx-tech-subtext {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  max-width: 650px;
+  margin: 12px auto 45px;
+
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.7s ease 0.2s;
+}
+
+/* ===========================
+   GRID
+=========================== */
+.rtx-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 45px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.rtx-tech-card {
+  width: 150px;
+  padding: 18px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+
+  text-align: center;
+}
+
+.rtx-tech-card h4 {
+  color: white;
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}
+
+.rtx-tech-card span {
+  color: #9bdfff;
+  font-size: 0.8rem;
+}
+
+/* FAST STAGGERED DROPS */
+.rtx-card-delay-1 { transition-delay: 0.15s; }
+.rtx-card-delay-2 { transition-delay: 0.22s; }
+.rtx-card-delay-3 { transition-delay: 0.29s; }
+.rtx-card-delay-4 { transition-delay: 0.36s; }
+.rtx-card-delay-5 { transition-delay: 0.43s; }
+.rtx-card-delay-6 { transition-delay: 0.50s; }
+.rtx-card-delay-7 { transition-delay: 0.57s; }
+.rtx-card-delay-8 { transition-delay: 0.64s; }
+.rtx-card-delay-9 { transition-delay: 0.71s; }
+.rtx-card-delay-10 { transition-delay: 0.78s; }
+.rtx-card-delay-11 { transition-delay: 0.85s; }
+.rtx-card-delay-12 { transition-delay: 0.92s; }
+.rtx-card-delay-13 { transition-delay: 0.99s; }
+.rtx-card-delay-14 { transition-delay: 1.06s; }
+
+.rtx-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CARD HOVER EFFECT */
+.rtx-tech-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 153, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 153, 255, 0.25);
+  transition: 0.15s ease;
+}
+
+/* ===========================
+   FOOTER TEXT + BUTTON
+=========================== */
+.rtx-tech-footer {
+  font-size: 1rem;
+  color: #cbd5e1;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease 0.4s;
+}
+
+.rtx-tech-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 10px;
+  border: 1px solid #00b4ff;
+  color: #00b4ff;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease 0.6s;
+}
+
+.rtx-tech-btn:hover {
+  background: rgba(0, 153, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ===========================
+   VISIBLE TRIGGER
+=========================== */
+.rtx-tech-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .rtx-tech-title {
+    font-size: 2.2rem;
+  }
+
+  .rtx-tech-card {
+    width: 130px;
+  }
+}

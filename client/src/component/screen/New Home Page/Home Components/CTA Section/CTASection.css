@@ -1,0 +1,95 @@
+/* ==========================================
+   CTA SECTION WRAPPER
+========================================== */
+.rtx-cta-wrapper {
+  width: 100%;
+  padding: 120px 20px;
+  background: #070d17;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================
+   CTA BOX (Glass + Glow)
+========================================== */
+.rtx-cta-box {
+  width: 100%;
+  max-width: 950px;
+  padding: 60px 40px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 180, 255, 0.12),
+    rgba(0, 180, 255, 0.05),
+    rgba(255, 255, 255, 0.03)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.rtx-cta-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+.rtx-cta-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: white;
+}
+
+.rtx-cta-title span {
+  color: #00b4ff;
+}
+
+.rtx-cta-sub {
+  color: #cbd5e1;
+  font-size: 1.2rem;
+  margin: 12px 0 30px;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+.rtx-cta-btn {
+  margin-top: 10px;
+  padding: 14px 40px;
+  background: #00b4ff;
+  color: #04121f;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 12px rgba(0, 180, 255, 0.4);
+}
+
+.rtx-cta-btn:hover {
+  background: #22c7ff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 180, 255, 0.6);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media (max-width: 768px) {
+  .rtx-cta-title {
+    font-size: 2rem;
+  }
+
+  .rtx-cta-sub {
+    font-size: 1rem;
+  }
+}

@@ -128,7 +128,7 @@ const WHY_ITEMS = [
       {/* ===================== SECTION 4 – INDUSTRY APPLICATIONS (CARD GRID) ===================== */}
       <section className="genai-section gradient-bg">
         <div className="container">
-          <h2 className="section-heading white">Industry Applications</h2>
+          <h2 className="section-heading">Industry Applications</h2>
 
           <div className="industry-grid">
             {INDUSTRY_ITEMS .map((item, i) => (

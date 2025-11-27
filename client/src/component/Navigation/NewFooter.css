@@ -1,0 +1,168 @@
+/* ===============================
+   FOOTER WRAPPER
+================================ */
+.rtx-footer-wrapper {
+  width: 100%;
+  padding: 100px 20px 40px;
+  background: #050b13;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Fade-in Animation */
+.rtx-footer-container {
+  max-width: 1300px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.rtx-footer-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   FOOTER GRID
+================================ */
+.rtx-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1.2fr 1.5fr;
+  gap: 40px;
+}
+
+/* ===============================
+   COLUMN STYLING
+================================ */
+.rtx-footer-col h4 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.rtx-footer-col h4::after {
+  content: "";
+  width: 35px;
+  height: 3px;
+  background: #00b4ff;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-radius: 3px;
+}
+
+.rtx-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.rtx-footer-col li {
+  color: #cbd5e1;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.rtx-footer-col li:hover {
+  color: #00b4ff;
+}
+
+/* ------------------ Subtitle ------------------ */
+.rtx-footer-subtitle {
+  margin-top: 25px;
+}
+
+/* ===============================
+   CONTACT COLUMN
+================================ */
+.rtx-footer-contact {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.rtx-footer-contact h4 {
+  margin-bottom: 12px;
+  color: white;
+}
+
+.rtx-footer-contact p {
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.rtx-footer-mail {
+  margin-top: 10px;
+  color: #00b4ff !important;
+}
+
+.rtx-footer-address {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* ===============================
+   SOCIAL ICONS
+================================ */
+.rtx-footer-social {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+  margin: 15px 0 10px;
+}
+
+.rtx-footer-social svg {
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.rtx-footer-social svg:hover {
+  color: #00b4ff;
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   RATINGS
+================================ */
+.rtx-footer-ratings {
+  margin-top: 10px;
+  color: #ffb52c;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ===============================
+   COPYRIGHT ROW
+================================ */
+.rtx-footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  color: #8fa3b8;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 20px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1000px) {
+  .rtx-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .rtx-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtx-footer-contact {
+    margin-top: 20px;
+  }
+}

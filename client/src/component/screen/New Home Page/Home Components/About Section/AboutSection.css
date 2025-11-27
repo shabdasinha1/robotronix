@@ -1,0 +1,132 @@
+/* ===========================
+   MAIN WRAPPER
+=========================== */
+.rtx-about-wrapper {
+  width: 100%;
+  padding: 120px 20px;
+    background: #0b141f;
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+.rtx-about-container {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   LEFT IMAGE
+=========================== */
+.rtx-about-left {
+  flex: 1;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.rtx-left-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rtx-about-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+/* ===========================
+   RIGHT CONTENT
+=========================== */
+.rtx-about-right {
+  flex: 1;
+  color: #cbd5e1;
+
+  opacity: 0;
+  transform: translateX(80px);
+  transition: 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.rtx-right-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* BADGE */
+.rtx-about-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(0, 153, 255, 0.15);
+  color: #00b4ff;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* TITLE */
+.rtx-about-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.rtx-about-title span {
+  color: #00b4ff;
+}
+
+/* PARAGRAPH */
+.rtx-about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* FEATURE POINTS */
+.rtx-about-points {
+  margin: 25px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  color: #9bdfff;
+}
+
+/* BUTTON */
+.rtx-about-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 32px;
+  background: #00aaff;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.rtx-about-btn:hover {
+  background: #008cd6;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 153, 255, 0.25);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 992px) {
+  .rtx-about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rtx-about-points {
+    grid-template-columns: 1fr;
+  }
+}

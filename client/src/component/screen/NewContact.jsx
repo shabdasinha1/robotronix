@@ -1,9 +1,14 @@
-import React from "react";
+import React ,{ useRef }  from "react";
 import "./NewContact.css";
 import atulya1 from "../../assets/img/atulya1.jpg";
 import { Clock, MapPin } from "lucide-react";
 
 const ContactUs = () => {
+  const formRef = useRef(null);
+
+const scrollToForm = () => {
+  formRef.current?.scrollIntoView({ behavior: "smooth" });
+};
   const indiaTime = new Date().toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
@@ -25,7 +30,7 @@ const ContactUs = () => {
       </section>
 
       {/* ===================== CONTACT FORM SECTION ===================== */}
-      <section className="contact-section">
+      <section className="contact-section" ref={formRef}>
         <div className="container">
 
           <div className="contact-header">
@@ -77,7 +82,7 @@ const ContactUs = () => {
               you scale smarter and faster.
             </p>
 
-            <button className="contact-cta-btn">
+            <button className="contact-cta-btn" onClick={scrollToForm}>
               Contact Our Team
             </button>
           </div>

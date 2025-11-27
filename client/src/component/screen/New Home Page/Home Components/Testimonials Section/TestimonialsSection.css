@@ -1,0 +1,197 @@
+/* ========================
+   WRAPPER
+========================= */
+.rtx-test-wrapper {
+  width: 100%;
+  padding: 120px 20px;
+  background: #0b141f;
+}
+
+/* ========================
+   CONTAINER
+========================= */
+.rtx-test-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ========================
+   TITLE + SUBTEXT DROP
+========================= */
+.rtx-test-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: 0.7s ease;
+}
+
+.rtx-test-title span {
+  color: #00b4ff;
+}
+
+.rtx-test-subtext {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin: 10px auto 50px;
+
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.7s ease 0.2s;
+}
+
+.rtx-drop-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ========================
+   MAIN SLIDER
+========================= */
+.rtx-test-slider {
+  position: relative;
+  height: 260px;
+  margin-bottom: 20px;
+}
+
+.rtx-test-slide {
+  position: absolute;
+  width: 100%;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.rtx-slide-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================
+   SLIDE CONTENT
+========================= */
+.rtx-test-rating {
+  font-size: 24px;
+  color: #00b4ff;
+  margin-bottom: 12px;
+}
+
+.rtx-test-text {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.rtx-test-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.rtx-test-role {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.rtx-test-company {
+  color: #00b4ff;
+  font-size: 0.95rem;
+}
+
+/* ========================
+   DOT INDICATORS
+========================= */
+.rtx-test-dots {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 40px;
+}
+
+.rtx-test-dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: #3a4b57;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rtx-test-dot.active {
+  background: #00b4ff;
+  transform: scale(1.2);
+}
+
+/* ========================
+   BOTTOM CARDS
+========================= */
+.rtx-test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.rtx-test-card {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.rtx-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* delays */
+.rtx-card-delay-1 { transition-delay: 0.2s; }
+.rtx-card-delay-2 { transition-delay: 0.35s; }
+.rtx-card-delay-3 { transition-delay: 0.5s; }
+
+.rtx-test-rating-small {
+  color: #00b4ff;
+  margin-bottom: 10px;
+}
+
+.rtx-test-card-text {
+  color: #cbd5e1;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.rtx-test-card-name {
+  font-weight: 700;
+  color: white;
+}
+
+.rtx-test-card-company {
+  color: #00b4ff;
+  font-size: 0.85rem;
+}
+
+/* ========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .rtx-test-title {
+    font-size: 2.2rem;
+  }
+
+  .rtx-test-slider {
+    height: 350px;
+  }
+}
