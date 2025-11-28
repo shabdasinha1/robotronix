@@ -1,0 +1,64 @@
+/* MAIN SECTION */
+.rtx-aiimpact-section {
+  width: 100%;
+  padding: 100px 20px;
+  background: #030b15;
+  position: relative;
+  overflow: hidden;
+}
+
+.rtx-aiimpact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none;
+  z-index: 1;
+}
+
+/* WRAPPER */
+.rtx-aiimpact-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.rtx-aiimpact-title {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(0,153,255,0.4);
+}
+
+/* SUBTEXT */
+.rtx-aiimpact-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* DROP ANIMATION */
+.rtx-aiimpact-drop {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: 0.85s ease;
+  transition-delay: var(--delay);
+}
+
+.rtx-aiimpact-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-aiimpact-title {
+    font-size: 2rem;
+  }
+}

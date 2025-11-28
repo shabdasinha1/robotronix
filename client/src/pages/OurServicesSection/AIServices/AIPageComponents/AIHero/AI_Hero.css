@@ -1,0 +1,179 @@
+/* WRAPPER */
+.rtx-aihero-wrapper {
+  width: 100%;
+  padding: 140px 20px;
+  background: #030b15;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PARTICLES BACKGROUND */
+.rtx-aihero-particles {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(0,153,255,0.22), transparent 60%);
+  opacity: 0.7;
+  animation: aiHeroParticleMove 8s infinite linear;
+}
+
+@keyframes aiHeroParticleMove {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* CONTAINER */
+.rtx-aihero-container {
+  max-width: 1150px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* BADGE */
+.rtx-aihero-badge {
+  padding: 8px 22px;
+  display: inline-block;
+  border-radius: 30px;
+  background: rgba(0,140,255,0.12);
+  border: 1px solid rgba(0,140,255,0.35);
+  color: #00b2ff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(6px);
+}
+
+/* TITLE */
+.rtx-aihero-title {
+  font-size: 3.2rem;
+  color: #fff;
+  margin-top: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rtx-aihero-accent {
+  color: #00b2ff;
+  text-shadow: 0 0 15px rgba(0,153,255,0.6);
+}
+
+/* SUBTITLE */
+.rtx-aihero-subtext {
+  max-width: 750px;
+  margin: 20px auto 40px;
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+/* BUTTON GROUP */
+.rtx-aihero-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.rtx-aihero-btn-primary {
+  padding: 14px 34px;
+  background: #00aaff;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.rtx-aihero-btn-primary:hover {
+  background: #008cd6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,153,255,0.4);
+}
+
+.rtx-aihero-btn-secondary {
+  padding: 14px 34px;
+  border: 1px solid rgba(0,153,255,0.4);
+  border-radius: 10px;
+  color: #9bdfff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.rtx-aihero-btn-secondary:hover {
+  background: rgba(0,153,255,0.18);
+  transform: translateY(-4px);
+}
+
+/* --------------------
+   DROP ANIMATIONS  
+----------------------*/
+
+/* MAIN TEXT / BUTTONS DROP */
+.rtx-aihero-drop {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: 0.8s ease;
+  transition-delay: var(--delay);
+}
+
+/* Stats animate separately */
+.rtx-aihero-drop-stat {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: 0.8s ease;
+  transition-delay: var(--delay);
+}
+
+/* When visible */
+.rtx-aihero-visible .rtx-aihero-drop,
+.rtx-aihero-visible .rtx-aihero-drop-stat {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* --------------------
+   STATS SECTION  
+----------------------*/
+.rtx-aihero-stats {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.rtx-aihero-stat-card {
+  padding: 22px 32px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  min-width: 160px;
+  transition: 0.3s ease;
+}
+
+.rtx-aihero-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0 8px 22px rgba(0,153,255,0.25);
+}
+
+.rtx-aihero-stat-card h3 {
+  color: #00b2ff;
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.rtx-aihero-stat-card p {
+  color: #cbd5e1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-aihero-title {
+    font-size: 2.3rem;
+  }
+  .rtx-aihero-subtext {
+    font-size: 1rem;
+  }
+}

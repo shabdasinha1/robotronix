@@ -1,0 +1,802 @@
+/* ===================== HERO SECTION ===================== */
+/* WRAPPER */
+.rtx-genai-hero-wrapper {
+  width: 100%;
+  padding: 140px 20px;
+  background: #030b15;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PARTICLES */
+.rtx-genai-hero-particles {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 25% 20%,
+    rgba(0, 153, 255, 0.22),
+    transparent 65%
+  );
+  opacity: 0.7;
+  animation: rtxGenAIParticleMove 8s infinite linear;
+}
+
+@keyframes rtxGenAIParticleMove {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* CONTAINER */
+.rtx-genai-hero-container {
+  max-width: 1150px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* BADGE */
+.rtx-genai-hero-badge {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 30px;
+  background: rgba(0, 140, 255, 0.12);
+  border: 1px solid rgba(0, 140, 255, 0.35);
+  color: #00b2ff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(6px);
+}
+
+/* TITLE */
+.rtx-genai-hero-title {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 3.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rtx-genai-hero-accent {
+  color: #00b2ff;
+  text-shadow: 0 0 15px rgba(0, 153, 255, 0.6);
+}
+
+/* SUBTEXT */
+.rtx-genai-hero-subtext {
+  max-width: 740px;
+  margin: 20px auto 40px;
+  color: #cbd5e1;
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+/* BUTTON GROUP */
+.rtx-genai-hero-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* PRIMARY BUTTON */
+.rtx-genai-btn-primary {
+  padding: 14px 34px;
+  background: #00aaff;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* SECONDARY BUTTON */
+.rtx-genai-btn-secondary {
+  padding: 14px 34px;
+  border: 1px solid rgba(0, 153, 255, 0.4);
+  border-radius: 10px;
+  color: #9bdfff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.rtx-genai-btn-primary:hover {
+  background: #008cd6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 153, 255, 0.4);
+}
+
+.rtx-genai-btn-secondary:hover {
+  background: rgba(0, 153, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+/* STATS */
+.rtx-genai-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 80px;
+}
+
+.rtx-genai-stat-card {
+  min-width: 160px;
+  padding: 24px 34px;
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+.rtx-genai-stat-card h3 {
+  color: #00b2ff;
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.rtx-genai-stat-card p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.rtx-genai-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0 8px 20px rgba(0,153,255,0.25);
+}
+
+/* ANIMATIONS */
+.rtx-genai-drop-1,
+.rtx-genai-drop-2,
+.rtx-genai-drop-3,
+.rtx-genai-drop-4 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIDropFade 1s ease forwards;
+}
+
+.rtx-genai-drop-1 { animation-delay: 0.2s; }
+.rtx-genai-drop-2 { animation-delay: 0.4s; }
+.rtx-genai-drop-3 { animation-delay: 0.6s; }
+.rtx-genai-drop-4 { animation-delay: 0.8s; }
+
+@keyframes rtxGenAIDropFade {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* STAT CARD ANIMATIONS */
+.rtx-genai-stat-drop-1,
+.rtx-genai-stat-drop-2,
+.rtx-genai-stat-drop-3,
+.rtx-genai-stat-drop-4 {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: rtxGenAICardDrop 0.8s ease forwards;
+}
+
+.rtx-genai-stat-drop-1 { animation-delay: 1.0s; }
+.rtx-genai-stat-drop-2 { animation-delay: 1.2s; }
+.rtx-genai-stat-drop-3 { animation-delay: 1.4s; }
+.rtx-genai-stat-drop-4 { animation-delay: 1.6s; }
+
+@keyframes rtxGenAICardDrop {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-hero-title { font-size: 2.3rem; }
+  .rtx-genai-hero-subtext { font-size: 1rem; }
+}
+
+
+/*---------------------- Generative AI Overview ------------------ */
+
+/* SECTION WRAPPER */
+.rtx-genai-overview-section {
+  width: 100%;
+  padding: 100px 20px;
+  background: #030b15;
+  position: relative;
+}
+
+/* CONTAINER */
+.rtx-genai-overview-container {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* LEFT BLOCK */
+.rtx-genai-overview-left {
+  flex: 1 1 480px;
+}
+
+.rtx-genai-overview-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.rtx-genai-overview-title span {
+  color: #00b2ff;
+  text-shadow: 0 0 12px rgba(0,153,255,0.6);
+}
+
+.rtx-genai-overview-text {
+  color: #cbd5e1;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* RIGHT INFO CARDS */
+.rtx-genai-overview-right {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rtx-genai-info-card {
+  padding: 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  transition: 0.3s;
+}
+
+.rtx-genai-info-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0 8px 22px rgba(0,153,255,0.22);
+}
+
+.rtx-genai-info-card h3 {
+  color: #00b2ff;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.rtx-genai-info-card p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* DROP ANIMATIONS */
+.rtx-genai-ov-drop-1,
+.rtx-genai-ov-drop-2,
+.rtx-genai-ov-drop-3,
+.rtx-genai-ov-drop-4 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIOverviewFade 1s ease forwards;
+}
+
+.rtx-genai-ov-drop-1 { animation-delay: 0.2s; }
+.rtx-genai-ov-drop-2 { animation-delay: 0.4s; }
+.rtx-genai-ov-drop-3 { animation-delay: 0.6s; }
+.rtx-genai-ov-drop-4 { animation-delay: 0.8s; }
+
+@keyframes rtxGenAIOverviewFade {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .rtx-genai-overview-title { font-size: 2.2rem; }
+}
+
+/*-------------------- Generative AI Approach ---------------- */
+
+/* SECTION */
+.rtx-genai-approach-section {
+  width: 100%;
+  padding: 110px 20px;
+  background: #030b15;
+}
+
+/* CONTAINER */
+.rtx-genai-approach-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* HEADER */
+.rtx-genai-approach-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.rtx-genai-approach-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.rtx-genai-approach-title span {
+  color: #00b2ff;
+  text-shadow: 0px 0px 12px rgba(0,153,255,0.6);
+}
+
+.rtx-genai-approach-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+/* GRID */
+.rtx-genai-approach-grid {
+  display: grid;
+  gap: 26px;
+  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* CARDS */
+.rtx-genai-approach-card {
+  padding: 28px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.rtx-genai-approach-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0px 8px 22px rgba(0,153,255,0.25);
+}
+
+.rtx-genai-approach-card h3 {
+  color: #00b2ff;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.rtx-genai-approach-card p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ANIMATIONS */
+.rtx-genai-approach-drop-1,
+.rtx-genai-approach-drop-2,
+.rtx-genai-approach-drop-3,
+.rtx-genai-approach-drop-4,
+.rtx-genai-approach-drop-5 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIApproachFade 1s ease forwards;
+}
+
+.rtx-genai-approach-drop-1 { animation-delay: 0.2s; }
+.rtx-genai-approach-drop-2 { animation-delay: 0.4s; }
+.rtx-genai-approach-drop-3 { animation-delay: 0.6s; }
+.rtx-genai-approach-drop-4 { animation-delay: 0.8s; }
+.rtx-genai-approach-drop-5 { animation-delay: 1.0s; }
+
+@keyframes rtxGenAIApproachFade {
+  0%   { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-approach-title { font-size: 2.2rem; }
+}
+
+/*---------------- Generative AI Industry Applications -------------------- */
+
+/* SECTION */
+.rtx-genai-industries-section {
+  width: 100%;
+  padding: 110px 20px;
+  background: #030b15;
+}
+
+/* CONTAINER */
+.rtx-genai-industries-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* HEADER */
+.rtx-genai-industries-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.rtx-genai-industries-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rtx-genai-industries-title span {
+  color: #00b2ff;
+  text-shadow: 0 0 12px rgba(0,153,255,0.6);
+}
+
+.rtx-genai-industries-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-top: 10px;
+}
+
+/* GRID */
+.rtx-genai-industries-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 40px;
+}
+
+/* CARD */
+.rtx-genai-industry-card {
+  padding: 28px;
+  border-radius: 14px;
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.rtx-genai-industry-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0px 8px 22px rgba(0,153,255,0.25);
+}
+
+.rtx-genai-industry-icon {
+  font-size: 2.3rem;
+  margin-bottom: 14px;
+}
+
+.rtx-genai-industry-card h3 {
+  color: #00b2ff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.rtx-genai-industry-card p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ANIMATIONS */
+.rtx-genai-ind-drop-1,
+.rtx-genai-ind-drop-2,
+.rtx-genai-ind-drop-3,
+.rtx-genai-ind-drop-4,
+.rtx-genai-ind-drop-5,
+.rtx-genai-ind-drop-6,
+.rtx-genai-ind-drop-7,
+.rtx-genai-ind-drop-8,
+.rtx-genai-ind-drop-9 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIIndustriesFade 1s ease forwards;
+}
+
+@keyframes rtxGenAIIndustriesFade {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.rtx-genai-ind-drop-1 { animation-delay: 0.2s; }
+.rtx-genai-ind-drop-2 { animation-delay: 0.4s; }
+.rtx-genai-ind-drop-3 { animation-delay: 0.6s; }
+.rtx-genai-ind-drop-4 { animation-delay: 0.8s; }
+.rtx-genai-ind-drop-5 { animation-delay: 1.0s; }
+.rtx-genai-ind-drop-6 { animation-delay: 1.2s; }
+.rtx-genai-ind-drop-7 { animation-delay: 1.4s; }
+.rtx-genai-ind-drop-8 { animation-delay: 1.6s; }
+.rtx-genai-ind-drop-9 { animation-delay: 1.8s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-industries-title {
+    font-size: 2.2rem;
+  }
+}
+
+
+
+/*------------------ Why Choose Robotronix (Gen AI) --------------- */
+
+/* SECTION */
+.rtx-genai-why-section {
+  width: 100%;
+  padding: 110px 20px;
+  background: #030b15;
+}
+
+/* CONTAINER */
+.rtx-genai-why-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* HEADER */
+.rtx-genai-why-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.rtx-genai-why-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.rtx-genai-why-title span {
+  color: #00b2ff;
+  text-shadow: 0 0 12px rgba(0,153,255,0.6);
+}
+
+.rtx-genai-why-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* GRID */
+.rtx-genai-why-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 40px;
+}
+
+/* CARD */
+.rtx-genai-why-card {
+  padding: 28px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.rtx-genai-why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.4);
+  box-shadow: 0 8px 22px rgba(0,153,255,0.25);
+}
+
+.rtx-genai-why-check {
+  font-size: 1.4rem;
+  color: #00b2ff;
+  margin-bottom: 10px;
+}
+
+.rtx-genai-why-card h3 {
+  color: #00b2ff;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.rtx-genai-why-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ANIMATIONS */
+.rtx-genai-why-drop-1,
+.rtx-genai-why-drop-2,
+.rtx-genai-why-drop-3,
+.rtx-genai-why-drop-4,
+.rtx-genai-why-drop-5,
+.rtx-genai-why-drop-6,
+.rtx-genai-why-drop-7 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIWhyFade 1s ease forwards;
+}
+
+@keyframes rtxGenAIWhyFade {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.rtx-genai-why-drop-1 { animation-delay: 0.2s; }
+.rtx-genai-why-drop-2 { animation-delay: 0.4s; }
+.rtx-genai-why-drop-3 { animation-delay: 0.6s; }
+.rtx-genai-why-drop-4 { animation-delay: 0.8s; }
+.rtx-genai-why-drop-5 { animation-delay: 1.0s; }
+.rtx-genai-why-drop-6 { animation-delay: 1.2s; }
+.rtx-genai-why-drop-7 { animation-delay: 1.4s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-why-title { font-size: 2.2rem; }
+}
+
+/*------------------- Gen AI Impact Banner -------------------- */
+/* FULL-WIDTH BANNER */
+.rtx-genai-impact-section {
+  width: 100%;
+  padding: 100px 20px;
+  background: #030b15; /* matches all sections for consistency */
+  position: relative;
+  overflow: hidden;
+}
+
+/* OPTIONAL subtle glow */
+.rtx-genai-impact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 153, 255, 0.12),
+    transparent 70%
+  );
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* CONTENT WRAPPER */
+.rtx-genai-impact-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.rtx-genai-impact-title {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(0,153,255,0.4);
+}
+
+/* SUBTEXT */
+.rtx-genai-impact-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ANIMATION */
+.rtx-genai-impact-drop-1 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAIImpactFade 1s ease forwards;
+  animation-delay: 0.25s;
+}
+
+@keyframes rtxGenAIImpactFade {
+  0%   { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-impact-title { font-size: 2rem; }
+}
+
+/*----------------- Final CTA ----------------- */
+
+/* SECTION WITH DIFFERENT BACKGROUND */
+.rtx-genai-cta-section {
+  width: 100%;
+  padding: 120px 20px;
+  background: linear-gradient(
+    180deg,
+    #02101f 0%,
+    #030b15 100%
+  ); /* DIFFERENT FROM OTHER SECTIONS */
+  position: relative;
+  overflow: hidden;
+}
+
+/* SUBTLE CENTER GLOW */
+.rtx-genai-cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 153, 255, 0.18),
+    transparent 75%
+  );
+  opacity: 0.85;
+  z-index: 1;
+}
+
+/* CONTAINER */
+.rtx-genai-cta-container {
+  max-width: 780px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.rtx-genai-cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  text-shadow: 0 0 15px rgba(0,153,255,0.4);
+}
+
+/* SUBTEXT */
+.rtx-genai-cta-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  line-height: 1.75;
+}
+
+/* CTA BUTTON */
+.rtx-genai-cta-btn {
+  padding: 15px 40px;
+  background: #00aaff;
+  color: #ffffff;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.rtx-genai-cta-btn:hover {
+  background: #008cd6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,153,255,0.4);
+}
+
+/* ANIMATION */
+.rtx-genai-cta-drop-1 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxGenAICTAFade 1s ease forwards;
+  animation-delay: 0.25s;
+}
+
+@keyframes rtxGenAICTAFade {
+  0%   { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-genai-cta-title { font-size: 2.1rem; }
+}
+
