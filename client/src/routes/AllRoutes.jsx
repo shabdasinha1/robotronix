@@ -22,13 +22,7 @@ const MeanDev = lazy(() =>
   import("../component/screen/Web Development Sections/MeanDev")
 );
 const AndriodAppDev = lazy(() => import("../component/screen/AndriodAppDev"));
-const Contact = lazy(() => import("../component/screen/NewContact"));
-const WebDevelopment = lazy(() =>
-  import("../component/screen/Web Development Sections/WebDevelopment")
-);
-const MobileAppDevelopment = lazy(() =>
-  import("../component/screen/MobileAppDevelopment")
-);
+const Contact = lazy(() => import("../pages/Contact/NewContact"));
 const AboutCompany = lazy(() => import("../component/screen/AboutCompany"));
 const Culture = lazy(() => import("../component/screen/Culture"));
 const Career = lazy(() => import("../component/screen/Career"));
@@ -58,7 +52,7 @@ const AllRoutes = () => {
             
             
             {/* Our Services */}
-            <Route path="/web-development/:type" element={<MeanDev />} />
+            {/* <Route path="/web-development/:type" element={<MeanDev />} /> */}
 
             
             <Route
