@@ -1,0 +1,95 @@
+/* Unique Prefix: rtx-iotind */
+
+.rtx-iotind-wrapper {
+  width: 100%;
+  background: #030b15;
+  padding: 120px 20px;
+}
+
+.rtx-iotind-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* HEADER */
+.rtx-iotind-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.rtx-iotind-header h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.rtx-iotind-header p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  margin-top: 12px;
+  max-width: 760px;
+  line-height: 1.65;
+  margin-inline: auto;
+}
+
+/* GRID */
+.rtx-iotind-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.rtx-iotind-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 26px;
+  border-radius: 16px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  backdrop-filter: blur(8px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.3s ease;
+}
+
+.rtx-iotind-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,153,255,0.35);
+  box-shadow: 0 16px 30px rgba(0,153,255,0.2);
+  color: #00b2ff;
+}
+
+/* BLUE DOT */
+.rtx-iotind-dot {
+  width: 10px;
+  height: 10px;
+  background: #00b2ff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0,153,255,0.8);
+}
+
+/* DROP ANIMATION */
+.rtx-iotind-drop {
+  opacity: 0;
+  transform: translateY(-25px);
+  transition: 0.75s ease;
+  transition-delay: var(--indDelay);
+}
+
+.rtx-iotind-visible .rtx-iotind-drop {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .rtx-iotind-header h2 { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .rtx-iotind-wrapper { padding: 80px 20px; }
+  .rtx-iotind-header h2 { font-size: 1.7rem; }
+}

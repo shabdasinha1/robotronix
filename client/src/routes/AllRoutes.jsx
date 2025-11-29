@@ -11,7 +11,7 @@ import Home from "../pages/NewHomePage/Home";
 import GenerativeAI from "../pages/OurServicesSection/AIServices/GenAIPage/GenerativeAI";
 import AIML from "../pages/OurServicesSection/AIServices/AIMlPage/AIML";
 import AgentsAI from "../pages/OurServicesSection/AIServices/AgentsAlPage/AgentsAI";
-import EmbeddedIoT from "../pages/OurServicesSection/EmbeddedIotPage/EmbeddedIoT";
+import EmbeddedIoT from "../pages/OurServicesSection/EmbeddedIotServices/EmbeddedIoT";
 import DataScience from "../pages/OurServicesSection/DataSciencePage/DataScience";
 import MobileApplicationDev from "../pages/OurServicesSection/MobileApplicationPage/MobileApplicationDevelopment";
 import WebDev from "../pages/OurServicesSection/WebDevelopmentPage/WebDev";

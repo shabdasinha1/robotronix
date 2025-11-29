@@ -1,0 +1,108 @@
+/* Unique Prefix: rtx-iotover */
+
+/* WRAPPER */
+.rtx-iotover-wrapper {
+  width: 100%;
+  background: #030b15;
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CONTAINER */
+.rtx-iotover-container {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT TEXT BOX */
+.rtx-iotover-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.rtx-iotover-title {
+  font-size: 2.4rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.rtx-iotover-title span {
+  color: #00b2ff;
+  text-shadow: 0 0 12px rgba(0,150,255,0.55);
+}
+
+.rtx-iotover-para {
+  color: #cbd5e1;
+  line-height: 1.65;
+  font-size: 1.05rem;
+  max-width: 600px;
+}
+
+/* RIGHT CARDS */
+.rtx-iotover-cards {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rtx-iotover-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 28px;
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.rtx-iotover-card:hover {
+  border-color: rgba(0,153,255,0.35);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,153,255,0.18);
+}
+
+.rtx-iotover-card h3 {
+  color: #00b2ff;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.rtx-iotover-card p {
+  color: #cbd5e1;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+/* DROP ANIMATION */
+.rtx-iotover-drop {
+  opacity: 0;
+  transform: translateY(-25px);
+  transition: 0.75s ease;
+  transition-delay: var(--overDelay);
+}
+
+.rtx-iotover-visible .rtx-iotover-drop {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .rtx-iotover-container { flex-direction: column; }
+  .rtx-iotover-title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .rtx-iotover-wrapper { padding: 80px 20px; }
+  .rtx-iotover-title { font-size: 1.6rem; }
+  .rtx-iotover-card { padding: 22px; }
+}
