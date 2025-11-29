@@ -52,9 +52,7 @@ const AllRoutes = () => {
             
             
             {/* Our Services */}
-            {/* <Route path="/web-development/:type" element={<MeanDev />} /> */}
-
-            
+        
             <Route
               path="/mobile-app-development/:appType"
               element={<AndriodAppDev />}

@@ -311,7 +311,7 @@ export const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/industries/healthCare" className="desktop-item">
                   Industries{" "}
                   <span>
@@ -375,7 +375,7 @@ export const Header = () => {
                     </NavLink>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/portfolio" className="desktop-item">
                   Portfolio <span className="down-icon"></span>
