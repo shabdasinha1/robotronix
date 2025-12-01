@@ -1,4 +1,3 @@
-// src/components/Embedded_IoT_Process.jsx
 import React, { useEffect, useRef } from "react";
 import "./Embedded_IoT_Process.css";
 
