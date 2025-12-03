@@ -1,147 +1,91 @@
 :root {
-    /* =========================================
+  /* =========================================
      BRAND COLORS
   ========================================== */
-  --clr-blue: #00b4ff;              /* Primary brand blue */
-  --clr-blue-light: #9bdfff;        /* Light blue text / highlights */
-  --clr-blue-medium: #00b2ff;       /* Hero accent */
-  --clr-blue-btn: #00aaff;          /* Button primary */
-  --clr-blue-btn-hover: #008cd6;    /* Button hover */
-  --clr-blue-cta-hover: #22c7ff;    /* Strong CTA hover */
+  --clr-blue: #00b4ff; /* Primary brand blue */
+  --clr-blue-light: #9bdfff; /* Light blue text / highlights */
+  --clr-blue-medium: #00b2ff; /* Hero accent */
+  --clr-blue-btn: #00aaff; /* Button primary */
+  --clr-blue-btn-hover: #008cd6; /* Button hover */
+  --clr-blue-cta-hover: #22c7ff; /* Strong CTA hover */
 
-  --clr-white: #ffffff;             /* Pure white */
-  --clr-text-light: #cbd5e1;        /* Main paragraph text */
-  --clr-text-soft: #dfe8f4;         /* Header text */
-  --clr-text-muted: #8fa3b8;        /* Footer muted text */
+  --clr-white: #ffffff; /* Pure white */
+  --clr-text-light: #cbd5e1; /* Main paragraph text */
+  --clr-text-soft: #dfe8f4; /* Header text */
+  --clr-text-muted: #8fa3b8; /* Footer muted text */
 
   /* =========================================
      BACKGROUND COLORS (DARK THEME)
   ========================================== */
-  --bg-dark-1: #070d17;             /* Main dark background */
-  --bg-dark-2: #0b141f;             /* Secondary dark */
-  --bg-dark-3: #0A0F1F;             /* Header / mobile nav dark */
+  --bg-dark-1: #070d17; /* Main dark background */
+  --bg-dark-2: #0b141f; /* Secondary dark */
+  --bg-dark-3: #0a0f1f; /* Header / mobile nav dark */
 
   /* =========================================
      WHITE OPACITY SETS
   ========================================== */
-  --white-01: rgba(255,255,255,0.01);
-  --white-02: rgba(255,255,255,0.02);
-  --white-03: rgba(255,255,255,0.03);
-  --white-05: rgba(255,255,255,0.05);
-  --white-06: rgba(255,255,255,0.06);
-  --white-10: rgba(255,255,255,0.10);
-  --white-12: rgba(255,255,255,0.12);
-  --white-15: rgba(255,255,255,0.15);
+  --white-01: rgba(255, 255, 255, 0.01);
+  --white-02: rgba(255, 255, 255, 0.02);
+  --white-03: rgba(255, 255, 255, 0.03);
+  --white-05: rgba(255, 255, 255, 0.05);
+  --white-06: rgba(255, 255, 255, 0.06);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-12: rgba(255, 255, 255, 0.12);
+  --white-15: rgba(255, 255, 255, 0.15);
 
   /* =========================================
      BLUE OPACITY SETS
   ========================================== */
-  --blue-06: rgba(0,153,255,0.6);
-  --blue-04: rgba(0,153,255,0.4);
-  --blue-03: rgba(0,153,255,0.3);
-  --blue-025: rgba(0,153,255,0.25);
-  --blue-02: rgba(0,153,255,0.2);
-  --blue-018: rgba(0,153,255,0.18);
-  --blue-015: rgba(0,153,255,0.15);
-  --blue-012: rgba(0,153,255,0.12);
-  --blue-012b: rgba(0,180,255,0.12);
-  --blue-005b: rgba(0,180,255,0.05);
+  --blue-06: rgba(0, 153, 255, 0.6);
+  --blue-04: rgba(0, 153, 255, 0.4);
+  --blue-03: rgba(0, 153, 255, 0.3);
+  --blue-025: rgba(0, 153, 255, 0.25);
+  --blue-02: rgba(0, 153, 255, 0.2);
+  --blue-018: rgba(0, 153, 255, 0.18);
+  --blue-015: rgba(0, 153, 255, 0.15);
+  --blue-012: rgba(0, 153, 255, 0.12);
+  --blue-012b: rgba(0, 180, 255, 0.12);
+  --blue-005b: rgba(0, 180, 255, 0.05);
 
   /* =========================================
      SHADOWS
   ========================================== */
-  --shadow-dark-1: rgba(6,9,15,0.45);
-  --shadow-dark-2: rgba(2,6,12,0.6);
+  --shadow-dark-1: rgba(6, 9, 15, 0.45);
+  --shadow-dark-2: rgba(2, 6, 12, 0.6);
 
   /* =========================================
      ACCENTS / MISC
   ========================================== */
-  --accent-gold: #ffb52c;           
-  --grey-dot: #3a4b57;             
-  
+  --accent-gold: #ffb52c;
+  --grey-dot: #3a4b57;
+
   /* ---------------- HEADER VARIABLES ---------------- */
   --header-height: 72px;
 
-  --header-glass-bg: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  --header-solid-bg: #0A0F1F;
+  --header-glass-bg: linear-gradient(
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
 
-  --header-border-light: rgba(255,255,255,0.06);
-  --header-border-solid: rgba(255,255,255,0.04);
-
-  --header-shadow-solid: 0 6px 20px rgba(6,9,15,0.45);
-  --header-shadow-dropdown: 0 8px 30px rgba(2,6,12,0.6);
-  --header-shadow-mobile: -6px 0 30px rgba(2,6,12,0.6);
-
-  --header-text: #dfe8f4;
-  --header-text-hover: #9fe1ff;
-
-  --header-dropdown-bg: rgba(12, 18, 30, 0.98);
-  --header-dropdown-item-hover: rgba(255,255,255,0.02);
-  --header-dropdown-item-hover-text: #bff0ff;
-
-  --header-mobile-bg: #0A0F1F;
-  --header-mobile-backdrop: rgba(0,0,0,0.45);
-
-  --header-mobile-title: #dff6ff;
-  --header-mobile-subitem: #d7e9f6;
+  --header-mobile-backdrop: rgba(0, 0, 0, 0.45);
 
   /* ---------------- FOOTER VARIABLES ---------------- */
---footer-bg: #050b13;
---footer-border: rgba(255, 255, 255, 0.07);
 
---footer-heading-text: #ffffff;
---footer-heading-accent: #00b4ff;
+  --footer-padding-y: 100px;
+  --footer-padding-x: 20px;
 
---footer-link-text: #cbd5e1;
---footer-link-hover: #00b4ff;
+  --footer-grid-gap: 40px;
+  --footer-contact-radius: 16px;
 
---footer-contact-bg: rgba(255, 255, 255, 0.05);
---footer-contact-border: rgba(255, 255, 255, 0.12);
---footer-contact-text: #cbd5e1;
---footer-contact-mail: #00b4ff;
-
---footer-social-color: #ffffff;
---footer-social-hover: #00b4ff;
-
---footer-rating-color: #ffb52c;
---footer-bottom-text: #8fa3b8;
-
---footer-padding-y: 100px;
---footer-padding-x: 20px;
-
---footer-grid-gap: 40px;
---footer-contact-radius: 16px;
-
---footer-title-size: 1.2rem;
---footer-link-size: 0.95rem;
-
+  --footer-title-size: 1.2rem;
 
   /* ------------------- Home Page --------------------  */
 
-   /* ------------------- Hero section --------------------  */
-
-  /* BRAND COLORS */
-  --clr-bg-primary: #030b15;
-  --clr-accent: #00b2ff;
-  --clr-accent-light: #9bdfff;
-
-  /* ACCENT GLOWS & GRADIENTS */
-  --clr-accent-glow: rgba(0, 153, 255, 0.6);
-  --clr-accent-soft: rgba(0, 153, 255, 0.2);
-  --clr-accent-border-light: rgba(0, 140, 255, 0.35);
-  --clr-accent-badge-bg: rgba(0, 140, 255, 0.12);
+  /* ------------------- Hero section --------------------  */
 
   /* TEXT COLORS */
-  --clr-text-white: #ffffff;
+
   --clr-text-light: #cbd5e1;
-
-  /* CARD BACKGROUNDS */
-  --clr-card-bg: rgba(255, 255, 255, 0.08);
-  --clr-card-border: rgba(255, 255, 255, 0.12);
-
-  /* BUTTON COLORS */
-  --clr-btn-primary: #00aaff;
-  --clr-btn-primary-hover: #008cd6;
 
   /* SPACING */
   --space-section-y: 130px;
@@ -159,27 +103,10 @@
   --fs-hero-title-mobile: 2.2rem;
   --fs-hero-subtext: 1.1rem;
 
-  /* SHADOWS */
-  --shadow-accent-strong: 0px 0px 15px rgba(0, 153, 255, 0.6);
-  --shadow-accent-hover: 0px 8px 20px rgba(0, 153, 255, 0.4);
-  --shadow-card-hover: 0px 8px 20px rgba(0, 153, 255, 0.2);
-
   /*---------------- SERVICES SECTION --------------- */
   /* SERVICES SECTION COLORS */
-  --clr-services-bg: #070d17;
 
-  --clr-services-accent: #00b4ff;
   --clr-services-link: #44c6ff;
-  --clr-services-link-hover: #00b4ff;
-
-  --clr-services-card-bg: rgba(255, 255, 255, 0.05);
-  --clr-services-card-border: rgba(255, 255, 255, 0.1);
-
-  --clr-services-icon-bg: rgba(0, 153, 255, 0.18);
-  --clr-services-icon: #00b4ff;
-
-  --clr-services-card-hover-border: rgba(0, 153, 255, 0.3);
-  --clr-services-card-hover-shadow: rgba(0, 153, 255, 0.2);
 
   /* SPACING */
   --space-services-section-y: 100px;
@@ -199,21 +126,6 @@
   --fs-service-desc: 0.95rem;
 
   /*---------------- ABOUT SECTION --------------- */
-  /* ABOUT SECTION COLORS */
-  --clr-about-bg: #0b141f;
-
-  --clr-about-text: #cbd5e1;
-  --clr-about-title: #ffffff;
-  --clr-about-accent: #00b4ff;
-
-  --clr-about-badge-bg: rgba(0, 153, 255, 0.15);
-  --clr-about-badge-text: #00b4ff;
-
-  --clr-about-points: #9bdfff;
-
-  --clr-about-btn: #00aaff;
-  --clr-about-btn-hover: #008cd6;
-  --shadow-about-btn-hover: rgba(0, 153, 255, 0.25);
 
   /* SPACING */
   --space-about-section-y: 120px;
@@ -239,26 +151,7 @@
   --fs-about-title: 2.6rem;
   --fs-about-text: 1.05rem;
 
-/*----------------- TECH STACK ------------------  */
-    /* TECH STACK COLORS */
-  --clr-tech-bg: #070d17;
-  --clr-tech-top-gradient: rgba(0, 153, 255, 0.15);
-
-  --clr-tech-title: #ffffff;
-  --clr-tech-accent: #00b4ff;
-  --clr-tech-subtext: #cbd5e1;
-
-  --clr-tech-card-bg: rgba(255, 255, 255, 0.05);
-  --clr-tech-card-border: rgba(255, 255, 255, 0.12);
-  --clr-tech-card-title: #ffffff;
-  --clr-tech-card-subtitle: #9bdfff;
-
-  --clr-tech-card-hover-border: rgba(0, 153, 255, 0.3);
-  --clr-tech-card-hover-shadow: rgba(0, 153, 255, 0.25);
-
-  --clr-tech-btn-text: #00b4ff;
-  --clr-tech-btn-border: #00b4ff;
-  --clr-tech-btn-hover-bg: rgba(0, 153, 255, 0.2);
+  /*----------------- TECH STACK ------------------  */
 
   /* SPACING */
   --space-tech-section-y: 120px;
@@ -284,23 +177,6 @@
 
   /*----------------- CHOOSE US SECTION ----------------------- */
 
-  /* CHOOSE US SECTION COLORS */
-  --clr-choose-bg: #070d17;
-
-  --clr-choose-title: #ffffff;
-  --clr-choose-accent: #00b4ff;
-  --clr-choose-subtext: #cbd5e1;
-
-  --clr-choose-card-bg: rgba(255, 255, 255, 0.05);
-  --clr-choose-card-border: rgba(255, 255, 255, 0.12);
-
-  --clr-choose-icon: #00b4ff;
-  --clr-choose-value: #00b4ff;
-  --clr-choose-label: #cbd5e1;
-
-  --clr-choose-bottom-bg: rgba(255, 255, 255, 0.06);
-  --clr-choose-bottom-border: rgba(255, 255, 255, 0.12);
-
   /* SPACING */
   --space-choose-section-y: 120px;
   --space-choose-section-x: 20px;
@@ -325,27 +201,6 @@
   --fs-choose-icon: 40px;
 
   /*------------- TESTIMONIALS SECTION ---------- */
-
-  /* TESTIMONIALS SECTION COLORS */
-  --clr-test-bg: #0b141f;
-  
-  --clr-test-title: #ffffff;
-  --clr-test-accent: #00b4ff;
-  --clr-test-subtext: #cbd5e1;
-  
-  --clr-test-slide-bg: rgba(255, 255, 255, 0.06);
-  --clr-test-slide-border: rgba(255, 255, 255, 0.1);
-
-  --clr-test-rating: #00b4ff;
-  --clr-test-text: #ffffff;
-  --clr-test-role: #cbd5e1;
-  --clr-test-company: #00b4ff;
-
-  --clr-test-dot: #3a4b57;
-  --clr-test-dot-active: #00b4ff;
-
-  --clr-test-card-bg: rgba(255, 255, 255, 0.05);
-  --clr-test-card-border: rgba(255, 255, 255, 0.1);
 
   /* SPACING */
   --space-test-section-y: 120px;
@@ -373,25 +228,9 @@
 
   /*------------------ CONTACT SECTION ---------------- */
 
-    /* CONTACT SECTION COLORS */
-  --clr-contact-bg: #070d17;
+  /* CONTACT SECTION COLORS */
 
-  --clr-contact-title: #ffffff;
-  --clr-contact-accent: #00b4ff;
-  --clr-contact-subtext: #cbd5e1;
-
-  --clr-contact-card-bg: rgba(255, 255, 255, 0.06);
-  --clr-contact-card-border: rgba(255, 255, 255, 0.12);
-
-  --clr-contact-input-bg: rgba(255, 255, 255, 0.08);
-  --clr-contact-input-border: rgba(255, 255, 255, 0.15);
-
-  --clr-contact-label: #cbd5e1;
-  --clr-contact-btn: #00b4ff;
   --clr-contact-btn-text: #04121f;
-
-  --clr-contact-banner-bg: rgba(255, 255, 255, 0.05);
-  --clr-contact-banner-border: rgba(255, 255, 255, 0.1);
 
   /* SPACING */
   --space-contact-section-y: 120px;
@@ -415,13 +254,7 @@
   --fs-contact-subtext: 1.1rem;
   --fs-contact-label: 0.9rem;
 
-   /*---------------- PARTNERS SECTION ---------------- */
-
- /* PARTNERS SECTION COLORS */
-  --clr-partners-bg: #0b141f;
-  --clr-partners-title: #ffffff;
-  --clr-partners-accent: #00b4ff;
-  --clr-partners-subtext: #cbd5e1;
+  /*---------------- PARTNERS SECTION ---------------- */
 
   /* SPACING */
   --space-partners-section-y: 120px;
@@ -439,24 +272,8 @@
 
   /*----------------- CTA SECTION -------------- */
   /* CTA SECTION COLORS */
-  --clr-cta-bg: #070d17;
 
-  --clr-cta-title: #ffffff;
-  --clr-cta-accent: #00b4ff;
-  --clr-cta-subtext: #cbd5e1;
-
-  --clr-cta-box-grad-1: rgba(0, 180, 255, 0.12);
-  --clr-cta-box-grad-2: rgba(0, 180, 255, 0.05);
-  --clr-cta-box-grad-3: rgba(255, 255, 255, 0.03);
-
-  --clr-cta-box-border: rgba(255, 255, 255, 0.12);
-
-  --clr-cta-btn: #00b4ff;
-  --clr-cta-btn-hover: #22c7ff;
   --clr-cta-btn-text: #04121f;
-
-  --shadow-cta-btn: rgba(0, 180, 255, 0.4);
-  --shadow-cta-btn-hover: rgba(0, 180, 255, 0.6);
 
   /* SPACING */
   --space-cta-section-y: 120px;
@@ -483,12 +300,9 @@
   --fs-cta-sub-mobile: 1rem;
 
   --fs-cta-btn: 1.1rem;
-
-
-
 }
 
-
-html, body {
+html,
+body {
   overflow-x: hidden !important;
 }
