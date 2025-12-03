@@ -1,3 +1,85 @@
+:root{
+  /* ----------------- Canonical / Shared Design Tokens ----------------- */
+/* Add this near the top of :root so things can use them as primary sources */
+--bg-page: #030b15;            /* overall page bg */
+--bg-dark-1: #050b13;         /* deeper sections */
+--bg-dark-2: #070d17;         /* medium section bg */
+--bg-dark-3: #0b141f;         /* lighter section bg */
+
+--accent-primary: #00b4ff;    /* main UI accent */
+--accent-primary-bright: #00b2ff;
+--accent-soft: #9bdfff;
+--accent-glow: rgba(0,153,255,0.6);
+--accent-border: rgba(0,140,255,0.35);
+
+--text-primary: #ffffff;
+--text-secondary: #cbd5e1;
+--text-muted: #8fa3b8;
+--text-accent: var(--accent-primary);
+
+--surface-1: rgba(255,255,255,0.05);   /* cards / panels */
+--surface-2: rgba(255,255,255,0.06);
+--surface-3: rgba(255,255,255,0.08);
+--surface-border: rgba(255,255,255,0.12);
+
+--btn-primary: #00aaff;
+--btn-primary-hover: #008cd6;
+
+--spacing-section-y: 120px;
+--spacing-section-x: 20px;
+--grid-gap-default: 30px;
+
+--radius-sm: 10px;
+--radius-md: 14px;
+--radius-lg: 18px;
+
+/* ----------------- Backwards-compatible aliases (do NOT remove yet) ----------------- */
+/* Header */
+--header-glass-bg: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+--header-solid-bg: var(--bg-dark-3);
+--header-border-light: rgba(255,255,255,0.06);
+--header-border-solid: rgba(255,255,255,0.04);
+--header-text: var(--text-secondary);
+--header-text-hover: #9fe1ff;
+
+/* Footer */
+--footer-bg: var(--bg-dark-1);
+--footer-border: rgba(255,255,255,0.07);
+--footer-heading-text: var(--text-primary);
+--footer-heading-accent: var(--accent-primary);
+--footer-link-text: var(--text-secondary);
+--footer-link-hover: var(--accent-primary);
+--footer-contact-bg: var(--surface-1);
+--footer-contact-border: var(--surface-border);
+--footer-contact-text: var(--text-secondary);
+--footer-social-color: var(--text-primary);
+--footer-social-hover: var(--accent-primary);
+--footer-bottom-text: var(--text-muted);
+
+/* Home / sections */
+--clr-bg-primary: var(--bg-page);
+--clr-services-bg: var(--bg-dark-2);
+--clr-about-bg: var(--bg-dark-3);
+--clr-test-bg: var(--bg-dark-3);
+--clr-contact-bg: var(--bg-dark-2);
+
+/* Accent mapping */
+--clr-accent: var(--accent-primary);
+--clr-accent-light: var(--accent-soft);
+--clr-accent-glow: var(--accent-glow);
+--clr-accent-border-light: var(--accent-border);
+
+/* Surfaces */
+--clr-card-bg: var(--surface-3);
+--clr-services-card-bg: var(--surface-1);
+--clr-tech-card-bg: var(--surface-1);
+
+/* Text */
+--clr-text-white: var(--text-primary);
+--clr-text-light: var(--text-secondary);
+
+}
+
 html, body {
   overflow-x: hidden !important;
 }
