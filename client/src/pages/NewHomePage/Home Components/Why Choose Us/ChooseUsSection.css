@@ -3,7 +3,7 @@
 =========================== */
 .rtx-choose-wrapper {
   padding: var(--space-choose-section-y) var(--space-choose-section-x);
-  background: var(--clr-choose-bg);
+  background: var(--bg-dark-1);
   width: 100%;
 }
 
@@ -22,7 +22,7 @@
 .rtx-choose-title {
   font-size: var(--fs-choose-title);
   font-weight: 700;
-  color: var(--clr-choose-title);
+  color: var(--clr-white);
 
   opacity: 0;
   transform: translateY(-40px);
@@ -30,12 +30,12 @@
 }
 
 .rtx-choose-title span {
-  color: var(--clr-choose-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-choose-subtext {
   font-size: var(--fs-choose-subtext);
-  color: var(--clr-choose-subtext);
+  color: var(--clr-text-light);
   margin: 10px auto 50px;
   max-width: 700px;
 
@@ -65,8 +65,8 @@
 .rtx-choose-card {
   padding: var(--space-choose-card);
   border-radius: var(--radius-choose-card);
-  background: var(--clr-choose-card-bg);
-  border: 1px solid var(--clr-choose-card-border);
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
   backdrop-filter: blur(6px);
 
   text-align: center;
@@ -76,7 +76,6 @@
   transition: 0.6s ease;
 }
 
-/* Visible */
 .rtx-card-visible {
   opacity: 1;
   transform: scale(1);
@@ -94,18 +93,18 @@
 .rtx-choose-icon {
   font-size: var(--fs-choose-icon);
   margin-bottom: 12px;
-  color: var(--clr-choose-icon);
+  color: var(--clr-blue);
 }
 
 .rtx-choose-value {
   font-size: var(--fs-choose-value);
   font-weight: 700;
-  color: var(--clr-choose-value);
+  color: var(--clr-blue);
   margin-bottom: 6px;
 }
 
 .rtx-choose-label {
-  color: var(--clr-choose-label);
+  color: var(--clr-text-light);
   font-size: var(--fs-choose-label);
 }
 
@@ -116,9 +115,9 @@
   margin-top: var(--space-choose-bottom-margin-top);
   padding: var(--space-choose-bottom);
   border-radius: var(--radius-choose-bottom);
-  background: var(--clr-choose-bottom-bg);
-  border: 1px solid var(--clr-choose-bottom-border);
-
+  background: var(--white-06);
+  border: 1px solid var(--white-12);
+color: var(--clr-text-light);
   opacity: 0;
   transform: translateY(40px);
   transition: 0.7s ease 0.8s;

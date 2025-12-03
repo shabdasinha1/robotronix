@@ -4,7 +4,7 @@
 .rtx-contact-wrapper {
   width: 100%;
   padding: var(--space-contact-section-y) var(--space-contact-section-x);
-  background: var(--clr-contact-bg);
+  background: var(--bg-dark-1);
 }
 
 .rtx-contact-container {
@@ -19,19 +19,19 @@
 .rtx-contact-title {
   font-size: var(--fs-contact-title);
   font-weight: 700;
-  color: var(--clr-contact-title);
+  color: var(--clr-white);
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.6s ease;
 }
 
 .rtx-contact-title span {
-  color: var(--clr-contact-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-contact-sub {
   font-size: var(--fs-contact-subtext);
-  color: var(--clr-contact-subtext);
+  color: var(--clr-text-light);
   margin: 10px auto 50px;
   opacity: 0;
   transform: translateY(-20px);
@@ -56,8 +56,8 @@
    LEFT — FORM
 =========================== */
 .rtx-contact-left {
-  background: var(--clr-contact-card-bg);
-  border: 1px solid var(--clr-contact-card-border);
+  background: var(--white-06);
+  border: 1px solid var(--white-12);
   padding: var(--space-contact-card);
   border-radius: var(--radius-contact-card);
 
@@ -72,7 +72,7 @@
 }
 
 .rtx-contact-left h3 {
-  color: var(--clr-contact-title);
+  color: var(--clr-white);
   margin-bottom: 20px;
   text-align: left;
 }
@@ -88,7 +88,7 @@
 }
 
 .rtx-form-field label {
-  color: var(--clr-contact-label);
+  color: var(--clr-text-light);
   font-size: var(--fs-contact-label);
   margin-bottom: 6px;
   display: block;
@@ -98,10 +98,10 @@
 .rtx-form-field textarea {
   width: 100%;
   padding: var(--space-contact-input);
-  background: var(--clr-contact-input-bg);
-  border: 1px solid var(--clr-contact-input-border);
+  background: var(--white-08);
+  border: 1px solid var(--white-15);
   border-radius: var(--radius-contact-input);
-  color: var(--clr-contact-title);
+  color: var(--clr-white);
 }
 
 .rtx-form-field textarea {
@@ -113,7 +113,7 @@
   margin-top: 20px;
   width: 100%;
   padding: var(--space-contact-btn-y);
-  background: var(--clr-contact-btn);
+  background: var(--clr-blue);
   color: var(--clr-contact-btn-text);
   font-weight: 600;
   border-radius: var(--radius-contact-btn);
@@ -126,8 +126,8 @@
    RIGHT — INFO
 =========================== */
 .rtx-contact-right {
-  background: var(--clr-contact-card-bg);
-  border: 1px solid var(--clr-contact-card-border);
+  background: var(--white-06);
+  border: 1px solid var(--white-12);
   padding: var(--space-contact-card);
   border-radius: var(--radius-contact-card);
 
@@ -142,13 +142,13 @@
 }
 
 .rtx-contact-right h3 {
-  color: var(--clr-contact-title);
+  color: var(--clr-white);
   margin-bottom: 15px;
   text-align: left;
 }
 
 .rtx-right-desc {
-  color: var(--clr-contact-subtext);
+  color: var(--clr-text-light);
   margin-bottom: 25px;
   text-align: left;
   line-height: 1.6;
@@ -160,12 +160,12 @@
 }
 
 .rtx-info-card h4 {
-  color: var(--clr-contact-accent);
+  color: var(--clr-blue);
   margin-bottom: 4px;
 }
 
 .rtx-info-card p {
-  color: var(--clr-contact-subtext);
+  color: var(--clr-text-light);
 }
 
 /* ===========================
@@ -175,8 +175,8 @@
   margin-top: var(--space-contact-banner-margin-top);
   padding: var(--space-contact-banner);
   border-radius: var(--radius-contact-card);
-  background: var(--clr-contact-banner-bg);
-  border: 1px solid var(--clr-contact-banner-border);
+  background: var(--white-05);
+  border: 1px solid var(--white-10);
 
   opacity: 0;
   transform: translateY(40px);
@@ -184,11 +184,11 @@
 }
 
 .rtx-contact-banner h4 {
-  color: var(--clr-contact-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-contact-banner p {
-  color: var(--clr-contact-subtext);
+  color: var(--clr-text-light);
   margin-top: 5px;
 }
 

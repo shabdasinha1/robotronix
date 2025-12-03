@@ -4,7 +4,7 @@
 .rtx-tech-wrapper {
   width: 100%;
   padding: var(--space-tech-section-y) var(--space-tech-section-x);
-  background: var(--clr-tech-bg);
+  background: var(--bg-dark-1);
   position: relative;
 }
 
@@ -17,7 +17,7 @@
   height: 90px;
   background: linear-gradient(
     to bottom,
-    var(--clr-tech-top-gradient),
+    var(--blue-015),
     transparent
   );
   pointer-events: none;
@@ -36,7 +36,7 @@
    TITLE
 =========================== */
 .rtx-tech-title {
-  color: var(--clr-tech-title);
+  color: var(--clr-white);
   font-size: var(--fs-tech-title);
   font-weight: 700;
 
@@ -46,7 +46,7 @@
 }
 
 .rtx-tech-title span {
-  color: var(--clr-tech-accent);
+  color: var(--clr-blue);
 }
 
 /* ===========================
@@ -54,7 +54,7 @@
 =========================== */
 .rtx-tech-subtext {
   font-size: var(--fs-tech-subtext);
-  color: var(--clr-tech-subtext);
+  color: var(--clr-text-light);
   max-width: 650px;
   margin: 12px auto 45px;
 
@@ -80,9 +80,9 @@
 .rtx-tech-card {
   width: 150px;
   padding: var(--space-tech-card-y) var(--space-tech-card-x);
-  background: var(--clr-tech-card-bg);
+  background: var(--white-05);
   border-radius: var(--radius-tech-card);
-  border: 1px solid var(--clr-tech-card-border);
+  border: 1px solid var(--white-12);
   backdrop-filter: blur(6px);
 
   opacity: 0;
@@ -93,13 +93,13 @@
 }
 
 .rtx-tech-card h4 {
-  color: var(--clr-tech-card-title);
+  color: var(--clr-white);
   margin-bottom: 4px;
   font-size: var(--fs-tech-card-title);
 }
 
 .rtx-tech-card span {
-  color: var(--clr-tech-card-subtitle);
+  color: var(--clr-blue-light);
   font-size: var(--fs-tech-card-subtitle);
 }
 
@@ -127,8 +127,8 @@
 /* HOVER */
 .rtx-tech-card:hover {
   transform: translateY(-6px);
-  border-color: var(--clr-tech-card-hover-border);
-  box-shadow: 0 8px 20px var(--clr-tech-card-hover-shadow);
+  border-color: var(--blue-03);
+  box-shadow: 0 8px 20px var(--blue-025);
   transition: 0.15s ease;
 }
 
@@ -137,7 +137,7 @@
 =========================== */
 .rtx-tech-footer {
   font-size: 1rem;
-  color: var(--clr-tech-subtext);
+  color: var(--clr-text-light);
 
   opacity: 0;
   transform: translateY(20px);
@@ -149,8 +149,8 @@
   margin-top: 20px;
   padding: var(--space-tech-btn-y) var(--space-tech-btn-x);
   border-radius: var(--radius-tech-btn);
-  border: 1px solid var(--clr-tech-btn-border);
-  color: var(--clr-tech-btn-text);
+  border: 1px solid var(--clr-blue);
+  color: var(--clr-blue);
   text-decoration: none;
 
   opacity: 0;
@@ -159,7 +159,7 @@
 }
 
 .rtx-tech-btn:hover {
-  background: var(--clr-tech-btn-hover-bg);
+  background: var(--blue-02);
   transform: translateY(-4px);
 }
 

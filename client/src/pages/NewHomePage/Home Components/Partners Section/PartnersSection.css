@@ -4,7 +4,7 @@
 .rtx-partners-wrapper {
   width: 100%;
   padding: var(--space-partners-section-y) var(--space-partners-section-x);
-  background: var(--clr-partners-bg);
+  background: var(--bg-dark-2);
 }
 
 .rtx-partners-container {
@@ -19,19 +19,19 @@
 .rtx-partners-title {
   font-size: var(--fs-partners-title);
   font-weight: 700;
-  color: var(--clr-partners-title);
+  color: var(--clr-white);
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.6s ease;
 }
 
 .rtx-partners-title span {
-  color: var(--clr-partners-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-partners-sub {
   font-size: var(--fs-partners-subtext);
-  color: var(--clr-partners-subtext);
+  color: var(--clr-text-light);
   margin: 10px auto 50px;
   opacity: 0;
   transform: translateY(-20px);

@@ -4,7 +4,7 @@
 .rtx-services-wrapper {
   width: 100%;
   padding: var(--space-services-section-y) var(--space-services-section-x);
-  background: var(--clr-services-bg);
+  background: var(--bg-dark-1);
 }
 
 /* ===========================
@@ -22,7 +22,7 @@
 .rtx-services-title {
   font-size: var(--fs-services-title);
   font-weight: 700;
-  color: var(--clr-text-white);
+  color: var(--clr-white);
 
   opacity: 0;
   transform: translateY(-40px);
@@ -30,7 +30,7 @@
 }
 
 .rtx-services-title span {
-  color: var(--clr-services-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-title-visible {
@@ -70,10 +70,10 @@
    SERVICE CARD
 =========================== */
 .rtx-service-card {
-  background: var(--clr-services-card-bg);
+  background: var(--white-05);
   padding: var(--space-service-card);
   border-radius: var(--radius-service-card);
-  border: 1px solid var(--clr-services-card-border);
+  border: 1px solid var(--white-10);
   text-align: left;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   backdrop-filter: blur(6px);
@@ -104,14 +104,14 @@
 .rtx-service-icon {
   width: 48px;
   height: 48px;
-  background: var(--clr-services-icon-bg);
+  background: var(--blue-018);
   border-radius: var(--radius-service-icon);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
   margin-bottom: 18px;
-  color: var(--clr-services-icon);
+  color: var(--clr-blue);
 }
 
 /* ===========================
@@ -119,7 +119,7 @@
 =========================== */
 .rtx-service-title {
   font-size: var(--fs-service-title);
-  color: var(--clr-text-white);
+  color: var(--clr-white);
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -137,14 +137,14 @@
    LINK
 =========================== */
 .rtx-service-link {
-  color: var(--clr-services-link);
+  color: var(--clr-services-link); /* stays exact */
   font-weight: 500;
   text-decoration: none;
   transition: 0.3s ease;
 }
 
 .rtx-service-link:hover {
-  color: var(--clr-services-link-hover);
+  color: var(--clr-blue);
   text-decoration: underline;
 }
 
@@ -153,8 +153,8 @@
 =========================== */
 .rtx-service-card:hover {
   transform: translateY(-10px);
-  border-color: var(--clr-services-card-hover-border);
-  box-shadow: 0 8px 20px var(--clr-services-card-hover-shadow);
+  border-color: var(--blue-03);
+  box-shadow: 0 8px 20px var(--blue-02);
 }
 
 /* ===========================

@@ -4,7 +4,7 @@
 .rtx-cta-wrapper {
   width: 100%;
   padding: var(--space-cta-section-y) var(--space-cta-section-x);
-  background: var(--clr-cta-bg);
+  background: var(--bg-dark-1);
   display: flex;
   justify-content: center;
 }
@@ -20,12 +20,12 @@
 
   background: linear-gradient(
     135deg,
-    var(--clr-cta-box-grad-1),
-    var(--clr-cta-box-grad-2),
-    var(--clr-cta-box-grad-3)
+    var(--blue-012b),
+    var(--blue-005b),
+    var(--white-03)
   );
 
-  border: 1px solid var(--clr-cta-box-border);
+  border: 1px solid var(--white-12);
   backdrop-filter: blur(10px);
   text-align: center;
 
@@ -45,15 +45,15 @@
 .rtx-cta-title {
   font-size: var(--fs-cta-title);
   font-weight: 700;
-  color: var(--clr-cta-title);
+  color: var(--clr-white);
 }
 
 .rtx-cta-title span {
-  color: var(--clr-cta-accent);
+  color: var(--clr-blue);
 }
 
 .rtx-cta-sub {
-  color: var(--clr-cta-subtext);
+  color: var(--clr-text-light);
   font-size: var(--fs-cta-sub);
   margin: var(--space-cta-subtext-margin);
 }
@@ -64,7 +64,7 @@
 .rtx-cta-btn {
   margin-top: var(--space-cta-btn-margin-top);
   padding: var(--space-cta-btn-y) var(--space-cta-btn-x);
-  background: var(--clr-cta-btn);
+  background: var(--clr-blue);
   color: var(--clr-cta-btn-text);
   border: none;
   font-weight: 700;
@@ -72,13 +72,13 @@
   border-radius: var(--radius-cta-btn);
   cursor: pointer;
   transition: 0.25s ease;
-  box-shadow: 0 0 12px var(--shadow-cta-btn);
+  box-shadow: 0 0 12px var(--blue-04);
 }
 
 .rtx-cta-btn:hover {
-  background: var(--clr-cta-btn-hover);
+  background: var(--clr-blue-cta-hover);
   transform: translateY(-3px);
-  box-shadow: 0 0 18px var(--shadow-cta-btn-hover);
+  box-shadow: 0 0 18px var(--blue-06);
 }
 
 /* ==========================================

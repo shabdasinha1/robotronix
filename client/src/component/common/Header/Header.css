@@ -10,10 +10,9 @@
               backdrop-filter 300ms ease, border-bottom-color 300ms ease;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--header-border-light);
+  border-bottom: 1px solid var(--white-06);
   animation: rtxHeaderFadeIn 420ms ease-out both;
 }
-
 
 /* Glass state */
 .rtx-header-wrapper.rtx-glass {
@@ -23,9 +22,9 @@
 
 /* Solid state */
 .rtx-header-wrapper.rtx-solid {
-  background: var(--header-solid-bg);
-  border-bottom: 1px solid var(--header-border-solid);
-  box-shadow: var(--header-shadow-solid);
+  background: var(--bg-dark-3);
+  border-bottom: 1px solid var(--white-05);
+  box-shadow: var(--shadow-dark-1);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
@@ -68,7 +67,7 @@
 .rtx-header-menu ul li button {
   background: transparent;
   border: none;
-  color: var(--header-text);
+  color: var(--clr-text-soft);
   font-weight: 600;
   font-size: 15.5px;
   cursor: pointer;
@@ -80,7 +79,7 @@
 }
 
 .rtx-header-menu ul li button:hover {
-  color: var(--header-text-hover);
+  color: var(--clr-blue-light);
   transform: translateY(-2px);
 }
 
@@ -99,18 +98,18 @@
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: var(--header-dropdown-bg);
-  color: var(--header-text);
+  background: var(--bg-dark-3);
+  color: var(--clr-text-soft);
   border-radius: 10px;
   padding: 8px 6px;
-  box-shadow: var(--header-shadow-dropdown);
+  box-shadow: var(--shadow-dark-2);
   opacity: 0;
   transform: translateY(8px) scale(0.995);
   pointer-events: none;
   transition: opacity 180ms ease, transform 200ms ease;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid var(--white-03);
 }
 
 .rtx-dropdown.rtx-small {
@@ -126,14 +125,13 @@
 
 /* link gets the padding, hover, and full hit area */
 .rtx-dropdown-item-link {
-   display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
   padding: 10px 14px;
   border-radius: 8px;
-  /* display: block; */
   display: flex;
   align-items: center;
-  transition: 
+  transition:
       background 220ms ease,
       color 220ms ease,
       transform 220ms ease;
@@ -145,10 +143,8 @@
   padding: 0 !important;
 }
 
-
 .rtx-dropdown-item,
 .rtx-dropdown-item-link {
-  /* padding: 10px 14px; */
   font-size: 14.5px;
   color: inherit;
   text-decoration: none;
@@ -158,15 +154,15 @@
 
 .rtx-dropdown-item:hover,
 .rtx-dropdown-item-link:hover {
-  background: var(--header-dropdown-item-hover);
-  color: var(--header-dropdown-item-hover-text);
+  background: var(--white-02);
+  color: var(--clr-blue-light);
 }
 
 /* Mobile hamburger */
 .rtx-mobile-menu-icon {
   display: none;
   cursor: pointer;
-  color: var(--header-text);
+  color: var(--clr-text-soft);
 }
 
 /* Mobile panel */
@@ -177,15 +173,15 @@
   width: 82vw;
   max-width: 380px;
   height: calc(100vh - var(--header-height));
-  background: var(--header-mobile-bg);
-  box-shadow: var(--header-shadow-mobile);
+  background: var(--bg-dark-3);
+  box-shadow: var(--shadow-dark-2);
   transition: right 420ms cubic-bezier(.24, .92, .32, 1.08),
               opacity 380ms ease;
   opacity: 0;
   padding: 22px;
   z-index: 1200;
   overflow-y: auto;
-  border-left: 1px solid rgba(255,255,255,0.02);
+  border-left: 1px solid var(--white-02);
   transform: translateX(20px);
 }
 
@@ -208,7 +204,7 @@
   font-weight: 700;
   font-size: 15.5px;
   cursor: pointer;
-  color: var(--header-mobile-title);
+  color: var(--clr-text-soft);
 }
 
 .rtx-mobile-dropdown-list {
@@ -234,14 +230,14 @@
 .rtx-mobile-subitem-link {
   padding: 8px 0;
   font-size: 15px;
-  color: var(--header-mobile-subitem);
+  color: var(--clr-text-light);
 }
 
 /* Mobile link */
 .rtx-mobile-link {
   font-size: 15.5px;
   font-weight: 700;
-  color: var(--header-mobile-title);
+  color: var(--clr-text-soft);
 }
 
 /* Backdrop */
@@ -275,15 +271,14 @@
 @media (max-width: 600px) {
   .rtx-header-container { width: 96%; padding: 0 8px; }
   .rtx-header-logo img { height: 46px; }
-  .rtx-header-wrapper { border-bottom: 1px solid var(--header-border-solid); }
+  .rtx-header-wrapper { border-bottom: 1px solid var(--white-05); }
 }
 
 /* Remove blur on mobile */
 .rtx-header-wrapper.rtx-no-blur {
   backdrop-filter: none !important;
-  background: var(--header-solid-bg) !important;
+  background: var(--bg-dark-3) !important;
 }
-
 
 @keyframes rtxHeaderFadeIn {
   from {

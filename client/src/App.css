@@ -1,5 +1,64 @@
 :root {
+    /* =========================================
+     BRAND COLORS
+  ========================================== */
+  --clr-blue: #00b4ff;              /* Primary brand blue */
+  --clr-blue-light: #9bdfff;        /* Light blue text / highlights */
+  --clr-blue-medium: #00b2ff;       /* Hero accent */
+  --clr-blue-btn: #00aaff;          /* Button primary */
+  --clr-blue-btn-hover: #008cd6;    /* Button hover */
+  --clr-blue-cta-hover: #22c7ff;    /* Strong CTA hover */
 
+  --clr-white: #ffffff;             /* Pure white */
+  --clr-text-light: #cbd5e1;        /* Main paragraph text */
+  --clr-text-soft: #dfe8f4;         /* Header text */
+  --clr-text-muted: #8fa3b8;        /* Footer muted text */
+
+  /* =========================================
+     BACKGROUND COLORS (DARK THEME)
+  ========================================== */
+  --bg-dark-1: #070d17;             /* Main dark background */
+  --bg-dark-2: #0b141f;             /* Secondary dark */
+  --bg-dark-3: #0A0F1F;             /* Header / mobile nav dark */
+
+  /* =========================================
+     WHITE OPACITY SETS
+  ========================================== */
+  --white-01: rgba(255,255,255,0.01);
+  --white-02: rgba(255,255,255,0.02);
+  --white-03: rgba(255,255,255,0.03);
+  --white-05: rgba(255,255,255,0.05);
+  --white-06: rgba(255,255,255,0.06);
+  --white-10: rgba(255,255,255,0.10);
+  --white-12: rgba(255,255,255,0.12);
+  --white-15: rgba(255,255,255,0.15);
+
+  /* =========================================
+     BLUE OPACITY SETS
+  ========================================== */
+  --blue-06: rgba(0,153,255,0.6);
+  --blue-04: rgba(0,153,255,0.4);
+  --blue-03: rgba(0,153,255,0.3);
+  --blue-025: rgba(0,153,255,0.25);
+  --blue-02: rgba(0,153,255,0.2);
+  --blue-018: rgba(0,153,255,0.18);
+  --blue-015: rgba(0,153,255,0.15);
+  --blue-012: rgba(0,153,255,0.12);
+  --blue-012b: rgba(0,180,255,0.12);
+  --blue-005b: rgba(0,180,255,0.05);
+
+  /* =========================================
+     SHADOWS
+  ========================================== */
+  --shadow-dark-1: rgba(6,9,15,0.45);
+  --shadow-dark-2: rgba(2,6,12,0.6);
+
+  /* =========================================
+     ACCENTS / MISC
+  ========================================== */
+  --accent-gold: #ffb52c;           
+  --grey-dot: #3a4b57;             
+  
   /* ---------------- HEADER VARIABLES ---------------- */
   --header-height: 72px;
 
