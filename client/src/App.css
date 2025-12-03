@@ -78,6 +78,58 @@
 --clr-text-white: var(--text-primary);
 --clr-text-light: var(--text-secondary);
 
+/* ------------------ HERO SECTION FIXED VARIABLES ------------------ */
+--hero-bg: #030b15;
+
+--hero-badge-bg: rgba(0, 140, 255, 0.12);
+--hero-badge-border: rgba(0, 140, 255, 0.35);
+--hero-badge-text: #00b2ff;
+
+--hero-title-color: #ffffff;
+--hero-accent-color: #00b2ff;
+--hero-accent-glow: 0px 0px 15px rgba(0, 153, 255, 0.6);
+
+--hero-subtext-color: #cbd5e1;
+
+--hero-btn-primary-bg: #00aaff;
+--hero-btn-primary-hover: #008cd6;
+
+--hero-btn-secondary-border: rgba(0, 153, 255, 0.4);
+--hero-btn-secondary-hover-bg: rgba(0, 153, 255, 0.18);
+--hero-btn-secondary-text: #9bdfff;
+
+--hero-card-bg: rgba(255,255,255,0.08);
+--hero-card-border: rgba(255,255,255,0.12);
+--hero-card-hover-border: rgba(0,153,255,0.4);
+--hero-card-hover-shadow: 0px 8px 20px rgba(0,153,255,0.2);
+
+/*---------------- SERVICES SECTION --------------- */
+
+--clr-services-bg: #070d17;
+--fs-services-title: 2.8rem;
+--fs-services-title-mobile: 2.2rem;
+--clr-services-subtext: var(--text-secondary);
+
+--clr-services-accent: #00b4ff;
+--clr-services-link: #44c6ff;
+--clr-services-link-hover: #00b4ff;
+
+--clr-services-card-bg: rgba(255, 255, 255, 0.05);
+--clr-services-card-border: rgba(255, 255, 255, 0.1);
+
+--clr-services-icon-bg: rgba(0, 153, 255, 0.18);
+--clr-services-icon: #00b4ff;
+
+--clr-services-card-hover-border: rgba(0, 153, 255, 0.3);
+--clr-services-card-hover-shadow: rgba(0, 153, 255, 0.2);
+
+--space-service-card: 32px;
+--radius-service-card: 20px;
+--radius-service-icon: 12px;
+--space-service-grid-gap: 36px;
+
+
+
 }
 
 html, body {

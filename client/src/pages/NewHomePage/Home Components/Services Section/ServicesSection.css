@@ -3,8 +3,8 @@
 =========================== */
 .rtx-services-wrapper {
   width: 100%;
-  padding: 100px 20px;
-  background: #070d17;
+  padding: var(--space-services-section-y) var(--space-services-section-x);
+  background: var(--clr-services-bg);
 }
 
 /* ===========================
@@ -20,21 +20,20 @@
    TITLE
 =========================== */
 .rtx-services-title {
-  font-size: 2.8rem;
+  font-size: var(--fs-services-title);
   font-weight: 700;
-  color: white;
+  color: var(--clr-text-white);
 
-  /* animation defaults */
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.7s ease;
 }
 
 .rtx-services-title span {
-  color: #00b4ff;
+  color: var(--clr-services-accent);
 }
 
-/* Title becomes visible */
+/* visible */
 .rtx-title-visible {
   opacity: 1;
   transform: translateY(0);
@@ -44,12 +43,11 @@
    SUBTEXT
 =========================== */
 .rtx-services-subtext {
-  color: #cbd5e1;
+  color: var(--clr-services-subtext, #cbd5e1);
   max-width: 700px;
   margin: 10px auto 50px;
-  font-size: 1.1rem;
+  font-size: var(--fs-services-subtext);
 
-  /* animation defaults */
   opacity: 0;
   transform: translateY(-20px);
   transition: 0.7s ease 0.3s;
@@ -66,35 +64,33 @@
 .rtx-services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: var(--space-service-grid-gap);
 }
 
 /* ===========================
    SERVICE CARD
 =========================== */
 .rtx-service-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 32px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--clr-services-card-bg);
+  padding: var(--space-service-card);
+  border-radius: var(--radius-service-card);
+  border: 1px solid var(--clr-services-card-border);
   text-align: left;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   backdrop-filter: blur(6px);
 
-  /* animation defaults */
   opacity: 0;
   transform: translateY(40px);
   transition: 0.4s ease;
 }
 
-/* When card becomes visible */
+/* visible */
 .rtx-card-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* ===========================
-   STAGGERED CARD DROP DELAYS
+   STAGGERED ANIMATIONS
 =========================== */
 .rtx-card-delay-1 { transition-delay: 0.4s; }
 .rtx-card-delay-2 { transition-delay: 0.55s; }
@@ -106,52 +102,52 @@
 .rtx-card-delay-8 { transition-delay: 1.45s; }
 
 /* ===========================
-   SERVICE CARD ICON
+   ICON
 =========================== */
 .rtx-service-icon {
   width: 48px;
   height: 48px;
-  background: rgba(0, 153, 255, 0.18);
-  border-radius: 12px;
+  background: var(--clr-services-icon-bg);
+  border-radius: var(--radius-service-icon);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
   margin-bottom: 18px;
-  color: #00b4ff;
+  color: var(--clr-services-icon);
 }
 
 /* ===========================
-   SERVICE TITLE
+   TITLE
 =========================== */
 .rtx-service-title {
-  font-size: 1.2rem;
-  color: #fff;
+  font-size: var(--fs-service-title);
+  color: var(--clr-text-white);
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 /* ===========================
-   SERVICE DESCRIPTION
+   DESCRIPTION
 =========================== */
 .rtx-service-desc {
-  color: #cbd5e1;
-  font-size: 0.95rem;
+  color: var(--clr-text-light);
+  font-size: var(--fs-service-desc);
   margin-bottom: 18px;
 }
 
 /* ===========================
-   LINK
+   LINKS
 =========================== */
 .rtx-service-link {
-  color: #44c6ff;
+  color: var(--clr-services-link);
   font-weight: 500;
   text-decoration: none;
   transition: 0.3s ease;
 }
 
 .rtx-service-link:hover {
-  color: #00b4ff;
+  color: var(--clr-services-link-hover);
   text-decoration: underline;
 }
 
@@ -160,8 +156,8 @@
 =========================== */
 .rtx-service-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(0, 153, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 153, 255, 0.2);
+  border-color: var(--clr-services-card-hover-border);
+  box-shadow: 0 8px 20px var(--clr-services-card-hover-shadow);
 }
 
 /* ===========================
@@ -169,6 +165,6 @@
 =========================== */
 @media (max-width: 768px) {
   .rtx-services-title {
-    font-size: 2.2rem;
+    font-size: var(--fs-services-title-mobile);
   }
 }
