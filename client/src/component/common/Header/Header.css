@@ -1,37 +1,41 @@
-/* MAIN WRAPPER (transparent glass on top) */
+/* MAIN WRAPPER */
 .rtx-header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: var(--header-height);
   z-index: 1100;
-  transition: background 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease, border-bottom-color 300ms ease;
+  transition: background 300ms ease, box-shadow 300ms ease,
+              backdrop-filter 300ms ease, border-bottom-color 300ms ease;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--header-border-light);
+  animation: rtxHeaderFadeIn 420ms ease-out both;
 }
 
-/* Glass state (top of page) */
+
+/* Glass state */
 .rtx-header-wrapper.rtx-glass {
-  background: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background: var(--header-glass-bg);
   box-shadow: none;
 }
 
-/* Solid state after scroll (D1: #0A0F1F) */
+/* Solid state */
 .rtx-header-wrapper.rtx-solid {
-  background: #0A0F1F;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 6px 20px rgba(6,9,15,0.45);
+  background: var(--header-solid-bg);
+  border-bottom: 1px solid var(--header-border-solid);
+  box-shadow: var(--header-shadow-solid);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
-/* CONTAINER */
+/* Container */
 .rtx-header-container {
   width: 92%;
   max-width: 1320px;
   margin: 0 auto;
-  height: 72px;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,13 +44,14 @@
 /* LOGO */
 .rtx-header-logo img {
   height: 54px;
-  display: block;
   object-fit: contain;
   transition: transform 160ms ease;
 }
-.rtx-header-logo img:hover { transform: translateY(-1px); }
+.rtx-header-logo img:hover {
+  transform: translateY(-1px);
+}
 
-/* DESKTOP MENU */
+/* Desktop menu */
 .rtx-header-menu {
   display: flex;
   align-items: center;
@@ -55,17 +60,15 @@
 .rtx-header-menu ul {
   display: flex;
   gap: 34px;
-  align-items: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
-/* Buttons in menu */
 .rtx-header-menu ul li button {
   background: transparent;
   border: none;
-  color: var(--nav-color, #dfe8f4);
+  color: var(--header-text);
   font-weight: 600;
   font-size: 15.5px;
   cursor: pointer;
@@ -77,27 +80,30 @@
 }
 
 .rtx-header-menu ul li button:hover {
-  color: #9fe1ff;
+  color: var(--header-text-hover);
   transform: translateY(-2px);
 }
 
-/* small icon next to text */
-.rtx-icon { font-size: 13px; opacity: 0.95; }
+.rtx-icon {
+  font-size: 13px;
+  opacity: 0.95;
+}
 
-/* DROPDOWN container */
-.rtx-has-dropdown { position: relative; }
+/* Dropdown */
+.rtx-has-dropdown {
+  position: relative;
+}
 
-/* Dropdown panel base */
 .rtx-dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: rgba(12, 18, 30, 0.98);
-  color: #dbeaf7;
+  background: var(--header-dropdown-bg);
+  color: var(--header-text);
   border-radius: 10px;
   padding: 8px 6px;
-  box-shadow: 0 8px 30px rgba(2,6,12,0.6);
+  box-shadow: var(--header-shadow-dropdown);
   opacity: 0;
   transform: translateY(8px) scale(0.995);
   pointer-events: none;
@@ -107,10 +113,10 @@
   border: 1px solid rgba(255,255,255,0.03);
 }
 
-/* larger dropdown variant */
-.rtx-dropdown.rtx-small { min-width: 180px; }
+.rtx-dropdown.rtx-small {
+  min-width: 180px;
+}
 
-/* open state -> visible */
 .rtx-dropdown.rtx-open,
 .rtx-has-dropdown:hover .rtx-dropdown {
   opacity: 1;
@@ -118,12 +124,32 @@
   pointer-events: auto;
 }
 
-/* dropdown item */
+/* link gets the padding, hover, and full hit area */
+.rtx-dropdown-item-link {
+   display: block;
+    width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  transition: 
+      background 220ms ease,
+      color 220ms ease,
+      transform 220ms ease;
+  transform: translateX(0);
+}
+
+/* inner div only displays text */
+.rtx-dropdown-item {
+  padding: 0 !important;
+}
+
+
 .rtx-dropdown-item,
 .rtx-dropdown-item-link {
-  padding: 10px 14px;
+  /* padding: 10px 14px; */
   font-size: 14.5px;
-  display: block;
   color: inherit;
   text-decoration: none;
   border-radius: 8px;
@@ -132,32 +158,29 @@
 
 .rtx-dropdown-item:hover,
 .rtx-dropdown-item-link:hover {
-  background: rgba(255,255,255,0.02);
-  color: #bff0ff;
+  background: var(--header-dropdown-item-hover);
+  color: var(--header-dropdown-item-hover-text);
 }
 
-/* MOBILE ICON (hamburger) */
+/* Mobile hamburger */
 .rtx-mobile-menu-icon {
   display: none;
   cursor: pointer;
-  color: var(--nav-color, #dfe8f4);
+  color: var(--header-text);
 }
 
-/* MOBILE PANEL - slides from right */
+/* Mobile panel */
 .rtx-mobile-panel {
   position: fixed;
-  top: 72px;
+  top: var(--header-height);
   right: -110%;
   width: 82vw;
   max-width: 380px;
-  height: calc(100vh - 72px);
-   background: #0A0F1F; 
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-  box-shadow: -6px 0 30px rgba(2,6,12,0.6);
-    transition:
-    right 420ms cubic-bezier(.24, .92, .32, 1.08),
-    opacity 380ms ease;
+  height: calc(100vh - var(--header-height));
+  background: var(--header-mobile-bg);
+  box-shadow: var(--header-shadow-mobile);
+  transition: right 420ms cubic-bezier(.24, .92, .32, 1.08),
+              opacity 380ms ease;
   opacity: 0;
   padding: 22px;
   z-index: 1200;
@@ -166,49 +189,40 @@
   transform: translateX(20px);
 }
 
-/* open */
 .rtx-mobile-panel.rtx-open {
   right: 0;
   opacity: 1;
   transform: translateX(0);
 }
 
-/* mobile list */
 .rtx-mobile-ul {
   display: flex;
   flex-direction: column;
-  gap: 38px;   /* increased spacing */
+  gap: 38px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
-
 
 .rtx-mobile-title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-weight: 700;
   font-size: 15.5px;
   cursor: pointer;
-  color: #dff6ff;
+  color: var(--header-mobile-title);
 }
 
-/* SUPER SMOOTH MOBILE DROPDOWN ANIMATION */
 .rtx-mobile-dropdown-list {
   max-height: 0;
-  overflow: hidden;
   opacity: 0;
+  overflow: hidden;
   transform: translateY(-6px);
   padding-left: 8px;
-  transition:
-    max-height 700ms cubic-bezier(.30, .85, .25, 1),
-    opacity 550ms ease,
-    transform 550ms ease,
-    padding-top 550ms ease;
+  transition: max-height 700ms cubic-bezier(.30, .85, .25, 1),
+              opacity 550ms ease,
+              transform 550ms ease,
+              padding-top 550ms ease;
 }
 
-/* OPEN STATE */
 .rtx-mobile-dropdown-list.rtx-show {
   max-height: 600px;
   opacity: 1;
@@ -216,43 +230,35 @@
   padding-top: 8px;
 }
 
-
-/* mobile item */
 .rtx-mobile-subitem,
 .rtx-mobile-subitem-link {
   padding: 8px 0;
   font-size: 15px;
-  color: #d7e9f6;
-  display: block;
-  text-decoration: none;
+  color: var(--header-mobile-subitem);
 }
 
-/* mobile link */
+/* Mobile link */
 .rtx-mobile-link {
   font-size: 15.5px;
   font-weight: 700;
-  color: #dff6ff;
+  color: var(--header-mobile-title);
 }
 
-/* backdrop when mobile is open */
+/* Backdrop */
 .rtx-mobile-backdrop {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.45);
-   backdrop-filter: none !important;
+  background: var(--header-mobile-backdrop);
   z-index: 1150;
   animation: rtxFadeBackdrop 320ms ease both;
 }
 
-
 @keyframes rtxFadeBackdrop {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
 }
 
-/* remove default link underlines */
+/* Remove underline */
 .rtx-header-menu a,
 .rtx-mobile-panel a,
 .rtx-dropdown a {
@@ -260,32 +266,32 @@
   color: inherit !important;
 }
 
-/* small hover niceties for desktop */
-.rtx-header-menu ul li button:focus,
-.rtx-header-menu ul li button:active { outline: none; }
-
-/* Responsive behavior */
+/* Responsive */
 @media (max-width: 992px) {
   .rtx-header-menu { display: none; }
   .rtx-mobile-menu-icon { display: block; }
 }
 
-/* tighter on very small screens */
 @media (max-width: 600px) {
   .rtx-header-container { width: 96%; padding: 0 8px; }
   .rtx-header-logo img { height: 46px; }
-  .rtx-header-wrapper { border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .rtx-header-wrapper { border-bottom: 1px solid var(--header-border-solid); }
 }
 
-/* simple fade in animation */
-@keyframes rtxFadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* REMOVE BLUR FROM HEADER IN MOBILE MODE */
+/* Remove blur on mobile */
 .rtx-header-wrapper.rtx-no-blur {
   backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background: #0A0F1F !important; /* or your preferred solid */
+  background: var(--header-solid-bg) !important;
+}
+
+
+@keyframes rtxHeaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

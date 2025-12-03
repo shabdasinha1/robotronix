@@ -3,8 +3,8 @@
 ================================ */
 .rtx-partners-wrapper {
   width: 100%;
-  padding: 120px 20px;
-  background: #0b141f;
+  padding: var(--space-partners-section-y) var(--space-partners-section-x);
+  background: var(--clr-partners-bg);
 }
 
 .rtx-partners-container {
@@ -17,21 +17,21 @@
    TITLE + DROP EFFECT
 ================================ */
 .rtx-partners-title {
-  font-size: 2.6rem;
+  font-size: var(--fs-partners-title);
   font-weight: 700;
-  color: white;
+  color: var(--clr-partners-title);
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.6s ease;
 }
 
 .rtx-partners-title span {
-  color: #00b4ff;
+  color: var(--clr-partners-accent);
 }
 
 .rtx-partners-sub {
-  font-size: 1.1rem;
-  color: #cbd5e1;
+  font-size: var(--fs-partners-subtext);
+  color: var(--clr-partners-subtext);
   margin: 10px auto 50px;
   opacity: 0;
   transform: translateY(-20px);
@@ -50,7 +50,7 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  margin: 25px 0;
+  margin: var(--space-partners-marquee-margin) 0;
   opacity: 0;
   transform: translateY(30px);
   transition: 0.6s ease;
@@ -63,7 +63,7 @@
 
 .rtx-marquee-track {
   display: inline-flex;
-  gap: 50px;
+  gap: var(--space-partners-logo-gap);
   animation: marqueeMove 16s linear infinite;
 }
 
@@ -75,7 +75,7 @@
    LOGO STYLING
 ================================ */
 .rtx-marquee-track img {
-  height: 60px;
+  height: var(--size-partners-logo);
   opacity: 0.8;
   transition: 0.25s;
   filter: brightness(0.9);
@@ -105,6 +105,6 @@
 ================================ */
 @media (max-width: 768px) {
   .rtx-marquee-track img {
-    height: 50px;
+    height: var(--size-partners-logo-mobile);
   }
 }

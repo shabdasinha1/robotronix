@@ -3,9 +3,8 @@
 =========================== */
 .rtx-about-wrapper {
   width: 100%;
-  padding: 120px 20px;
-    background: #0b141f;
-
+  padding: var(--space-about-section-y) var(--space-about-section-x);
+  background: var(--clr-about-bg);
 }
 
 /* ===========================
@@ -15,7 +14,7 @@
   max-width: 1250px;
   margin: auto;
   display: flex;
-  gap: 60px;
+  gap: var(--space-about-gap);
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -39,7 +38,7 @@
 .rtx-about-img {
   width: 100%;
   max-width: 500px;
-  border-radius: 12px;
+  border-radius: var(--radius-about-img);
 }
 
 /* ===========================
@@ -47,7 +46,7 @@
 =========================== */
 .rtx-about-right {
   flex: 1;
-  color: #cbd5e1;
+  color: var(--clr-about-text);
 
   opacity: 0;
   transform: translateX(80px);
@@ -62,31 +61,31 @@
 /* BADGE */
 .rtx-about-badge {
   display: inline-block;
-  padding: 6px 18px;
-  background: rgba(0, 153, 255, 0.15);
-  color: #00b4ff;
-  border-radius: 12px;
+  padding: var(--space-about-badge-y) var(--space-about-badge-x);
+  background: var(--clr-about-badge-bg);
+  color: var(--clr-about-badge-text);
+  border-radius: var(--radius-about-badge);
   font-size: 14px;
   margin-bottom: 16px;
 }
 
 /* TITLE */
 .rtx-about-title {
-  font-size: 2.6rem;
+  font-size: var(--fs-about-title);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--clr-about-title);
   margin-bottom: 14px;
 }
 
 .rtx-about-title span {
-  color: #00b4ff;
+  color: var(--clr-about-accent);
 }
 
 /* PARAGRAPH */
 .rtx-about-text {
-  font-size: 1.05rem;
+  font-size: var(--fs-about-text);
   line-height: 1.7;
-  margin-bottom: 18px;
+  margin-bottom: var(--space-about-text-gap);
 }
 
 /* FEATURE POINTS */
@@ -94,17 +93,17 @@
   margin: 25px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  color: #9bdfff;
+  gap: var(--space-about-points-gap);
+  color: var(--clr-about-points);
 }
 
 /* BUTTON */
 .rtx-about-btn {
   display: inline-block;
   margin-top: 25px;
-  padding: 14px 32px;
-  background: #00aaff;
-  border-radius: 10px;
+  padding: var(--space-about-btn-y) var(--space-about-btn-x);
+  background: var(--clr-about-btn);
+  border-radius: var(--radius-about-btn);
   color: white;
   font-weight: 600;
   text-decoration: none;
@@ -112,9 +111,9 @@
 }
 
 .rtx-about-btn:hover {
-  background: #008cd6;
+  background: var(--clr-about-btn-hover);
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 153, 255, 0.25);
+  box-shadow: 0 10px 20px var(--shadow-about-btn-hover);
 }
 
 /* ===========================

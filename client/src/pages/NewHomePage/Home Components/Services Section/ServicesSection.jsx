@@ -48,20 +48,6 @@ const ServicesSection = () => {
   const sectionRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
 
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       (entries) => {
-//         if (entries[0].isIntersecting && !isInView) {
-//           setIsInView(true);
-//         }
-//       },
-//       { threshold: 0.3 }
-//     );
-
-//     if (sectionRef.current) observer.observe(sectionRef.current);
-
-//     return () => observer.disconnect();
-//   }, [isInView]);
 
 useEffect(() => {
   const observer = new IntersectionObserver(

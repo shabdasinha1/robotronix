@@ -3,8 +3,8 @@
 =========================== */
 .rtx-contact-wrapper {
   width: 100%;
-  padding: 120px 20px;
-  background: #070d17;
+  padding: var(--space-contact-section-y) var(--space-contact-section-x);
+  background: var(--clr-contact-bg);
 }
 
 .rtx-contact-container {
@@ -14,24 +14,24 @@
 }
 
 /* ===========================
-   TITLES (Drop Effect)
+   TITLES
 =========================== */
 .rtx-contact-title {
-  font-size: 2.8rem;
+  font-size: var(--fs-contact-title);
   font-weight: 700;
-  color: white;
+  color: var(--clr-contact-title);
   opacity: 0;
   transform: translateY(-40px);
   transition: 0.6s ease;
 }
 
 .rtx-contact-title span {
-  color: #00b4ff;
+  color: var(--clr-contact-accent);
 }
 
 .rtx-contact-sub {
-  font-size: 1.1rem;
-  color: #cbd5e1;
+  font-size: var(--fs-contact-subtext);
+  color: var(--clr-contact-subtext);
   margin: 10px auto 50px;
   opacity: 0;
   transform: translateY(-20px);
@@ -44,22 +44,22 @@
 }
 
 /* ===========================
-   GRID LAYOUT
+   GRID
 =========================== */
 .rtx-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: var(--space-contact-grid-gap);
 }
 
 /* ===========================
-   LEFT — FORM (Slide from Left)
+   LEFT — FORM
 =========================== */
 .rtx-contact-left {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 30px;
-  border-radius: 16px;
+  background: var(--clr-contact-card-bg);
+  border: 1px solid var(--clr-contact-card-border);
+  padding: var(--space-contact-card);
+  border-radius: var(--radius-contact-card);
 
   opacity: 0;
   transform: translateX(-70px);
@@ -72,7 +72,7 @@
 }
 
 .rtx-contact-left h3 {
-  color: white;
+  color: var(--clr-contact-title);
   margin-bottom: 20px;
   text-align: left;
 }
@@ -88,8 +88,8 @@
 }
 
 .rtx-form-field label {
-  color: #cbd5e1;
-  font-size: 0.9rem;
+  color: var(--clr-contact-label);
+  font-size: var(--fs-contact-label);
   margin-bottom: 6px;
   display: block;
 }
@@ -97,11 +97,11 @@
 .rtx-form-field input,
 .rtx-form-field textarea {
   width: 100%;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  color: white;
+  padding: var(--space-contact-input);
+  background: var(--clr-contact-input-bg);
+  border: 1px solid var(--clr-contact-input-border);
+  border-radius: var(--radius-contact-input);
+  color: var(--clr-contact-title);
 }
 
 .rtx-form-field textarea {
@@ -112,24 +112,24 @@
 .rtx-contact-btn {
   margin-top: 20px;
   width: 100%;
-  padding: 14px;
-  background: #00b4ff;
-  color: #04121f;
+  padding: var(--space-contact-btn-y);
+  background: var(--clr-contact-btn);
+  color: var(--clr-contact-btn-text);
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: var(--radius-contact-btn);
   border: none;
   cursor: pointer;
   transition: 0.25s;
 }
 
 /* ===========================
-   RIGHT — INFO (Slide from Right)
+   RIGHT — INFO
 =========================== */
 .rtx-contact-right {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 30px;
-  border-radius: 16px;
+  background: var(--clr-contact-card-bg);
+  border: 1px solid var(--clr-contact-card-border);
+  padding: var(--space-contact-card);
+  border-radius: var(--radius-contact-card);
 
   opacity: 0;
   transform: translateX(70px);
@@ -142,13 +142,13 @@
 }
 
 .rtx-contact-right h3 {
-  color: white;
+  color: var(--clr-contact-title);
   margin-bottom: 15px;
   text-align: left;
 }
 
 .rtx-right-desc {
-  color: #cbd5e1;
+  color: var(--clr-contact-subtext);
   margin-bottom: 25px;
   text-align: left;
   line-height: 1.6;
@@ -160,23 +160,23 @@
 }
 
 .rtx-info-card h4 {
-  color: #00b4ff;
+  color: var(--clr-contact-accent);
   margin-bottom: 4px;
 }
 
 .rtx-info-card p {
-  color: #cbd5e1;
+  color: var(--clr-contact-subtext);
 }
 
 /* ===========================
    BOTTOM BANNER
 =========================== */
 .rtx-contact-banner {
-  margin-top: 40px;
-  padding: 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-contact-banner-margin-top);
+  padding: var(--space-contact-banner);
+  border-radius: var(--radius-contact-card);
+  background: var(--clr-contact-banner-bg);
+  border: 1px solid var(--clr-contact-banner-border);
 
   opacity: 0;
   transform: translateY(40px);
@@ -184,11 +184,11 @@
 }
 
 .rtx-contact-banner h4 {
-  color: #00b4ff;
+  color: var(--clr-contact-accent);
 }
 
 .rtx-contact-banner p {
-  color: #cbd5e1;
+  color: var(--clr-contact-subtext);
   margin-top: 5px;
 }
 
@@ -208,5 +208,9 @@
   .rtx-left-visible,
   .rtx-right-visible {
     transform: translateY(0);
+  }
+
+  .rtx-contact-title {
+    font-size: var(--fs-contact-title-mobile);
   }
 }

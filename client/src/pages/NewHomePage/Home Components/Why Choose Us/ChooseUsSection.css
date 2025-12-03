@@ -2,8 +2,8 @@
    WRAPPER
 =========================== */
 .rtx-choose-wrapper {
-  padding: 120px 20px;
-  background: #070d17;
+  padding: var(--space-choose-section-y) var(--space-choose-section-x);
+  background: var(--clr-choose-bg);
   width: 100%;
 }
 
@@ -17,12 +17,12 @@
 }
 
 /* ===========================
-   TITLE + SUBTEXT (DROP EFFECT)
+   TITLE + SUBTEXT
 =========================== */
 .rtx-choose-title {
-  font-size: 2.8rem;
+  font-size: var(--fs-choose-title);
   font-weight: 700;
-  color: white;
+  color: var(--clr-choose-title);
 
   opacity: 0;
   transform: translateY(-40px);
@@ -30,12 +30,12 @@
 }
 
 .rtx-choose-title span {
-  color: #00b4ff;
+  color: var(--clr-choose-accent);
 }
 
 .rtx-choose-subtext {
-  font-size: 1.1rem;
-  color: #cbd5e1;
+  font-size: var(--fs-choose-subtext);
+  color: var(--clr-choose-subtext);
   margin: 10px auto 50px;
   max-width: 700px;
 
@@ -50,23 +50,23 @@
 }
 
 /* ===========================
-   STATS GRID
+   GRID
 =========================== */
 .rtx-choose-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 28px;
+  gap: var(--space-choose-grid-gap);
   margin-top: 30px;
 }
 
 /* ===========================
-   CARD (INSIDE-OUT SCALE)
+   CARD
 =========================== */
 .rtx-choose-card {
-  padding: 36px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: var(--space-choose-card);
+  border-radius: var(--radius-choose-card);
+  background: var(--clr-choose-card-bg);
+  border: 1px solid var(--clr-choose-card-border);
   backdrop-filter: blur(6px);
 
   text-align: center;
@@ -76,13 +76,13 @@
   transition: 0.6s ease;
 }
 
-/* Visible animation */
+/* Visible */
 .rtx-card-visible {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Staggered delays */
+/* Delays */
 .rtx-card-delay-1 { transition-delay: 0.2s; }
 .rtx-card-delay-2 { transition-delay: 0.32s; }
 .rtx-card-delay-3 { transition-delay: 0.44s; }
@@ -92,32 +92,32 @@
    CARD CONTENT
 =========================== */
 .rtx-choose-icon {
-  font-size: 40px;
+  font-size: var(--fs-choose-icon);
   margin-bottom: 12px;
-  color: #00b4ff;
+  color: var(--clr-choose-icon);
 }
 
 .rtx-choose-value {
-  font-size: 2.4rem;
+  font-size: var(--fs-choose-value);
   font-weight: 700;
-  color: #00b4ff;
+  color: var(--clr-choose-value);
   margin-bottom: 6px;
 }
 
 .rtx-choose-label {
-  color: #cbd5e1;
-  font-size: 1rem;
+  color: var(--clr-choose-label);
+  font-size: var(--fs-choose-label);
 }
 
 /* ===========================
    BOTTOM BOX
 =========================== */
 .rtx-choose-bottom {
-  margin-top: 60px;
-  padding: 30px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: var(--space-choose-bottom-margin-top);
+  padding: var(--space-choose-bottom);
+  border-radius: var(--radius-choose-bottom);
+  background: var(--clr-choose-bottom-bg);
+  border: 1px solid var(--clr-choose-bottom-border);
 
   opacity: 0;
   transform: translateY(40px);
@@ -134,10 +134,10 @@
 =========================== */
 @media (max-width: 768px) {
   .rtx-choose-title {
-    font-size: 2.2rem;
+    font-size: var(--fs-choose-title-mobile);
   }
 
   .rtx-choose-card {
-    padding: 28px;
+    padding: var(--space-choose-card-mobile);
   }
 }

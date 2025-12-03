@@ -1,8 +1,8 @@
 /* MAIN WRAPPER */
 .rtx-hero-wrapper {
   width: 100%;
-  padding: 130px 20px;
-  background: #030b15;
+  padding: var(--space-section-y) var(--space-section-x);
+  background: var(--clr-bg-primary);
   position: relative;
   overflow: hidden;
 }
@@ -11,7 +11,11 @@
 .rtx-hero-particles {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(0, 153, 255, 0.2), transparent 60%);
+  background: radial-gradient(
+    circle at 30% 20%,
+    var(--clr-accent-soft),
+    transparent 60%
+  );
   opacity: 0.6;
   animation: particleMove 8s infinite linear;
 }
@@ -35,10 +39,10 @@
 .rtx-hero-badge {
   display: inline-block;
   padding: 8px 20px;
-  border-radius: 30px;
-  background: rgba(0, 140, 255, 0.12);
-  border: 1px solid rgba(0, 140, 255, 0.35);
-  color: #00b2ff;
+  border-radius: var(--radius-pill);
+  background: var(--clr-accent-badge-bg);
+  border: 1px solid var(--clr-accent-border-light);
+  color: var(--clr-accent);
   font-size: 14px;
   letter-spacing: 0.5px;
   backdrop-filter: blur(6px);
@@ -46,24 +50,24 @@
 
 /* TITLE */
 .rtx-hero-title {
-  color: #fff;
-  font-size: 3.2rem;
+  color: var(--clr-text-white);
+  font-size: var(--fs-hero-title);
   font-weight: 700;
   line-height: 1.2;
   margin-top: 20px;
 }
 
 .rtx-hero-accent {
-  color: #00b2ff;
-  text-shadow: 0px 0px 15px rgba(0, 153, 255, 0.6);
+  color: var(--clr-accent);
+  text-shadow: var(--shadow-accent-strong);
 }
 
 /* SUBTEXT */
 .rtx-hero-subtext {
   max-width: 720px;
   margin: 18px auto 40px;
-  color: #cbd5e1;
-  font-size: 1.1rem;
+  color: var(--clr-text-light);
+  font-size: var(--fs-hero-subtext);
   line-height: 1.6;
 }
 
@@ -76,32 +80,32 @@
 }
 
 .rtx-hero-btn-primary {
-  padding: 14px 32px;
-  background: #00aaff;
-  color: #fff;
-  border-radius: 10px;
+  padding: var(--space-btn-y) var(--space-btn-x);
+  background: var(--clr-btn-primary);
+  color: var(--clr-text-white);
+  border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
 }
 
 .rtx-hero-btn-primary:hover {
-  background: #008cd6;
+  background: var(--clr-btn-primary-hover);
   transform: translateY(-4px);
-  box-shadow: 0px 8px 20px rgba(0, 153, 255, 0.4);
+  box-shadow: var(--shadow-accent-hover);
 }
 
 .rtx-hero-btn-secondary {
-  padding: 14px 32px;
-  border: 1px solid rgba(0, 153, 255, 0.4);
-  border-radius: 10px;
-  color: #9bdfff;
+  padding: var(--space-btn-y) var(--space-btn-x);
+  border: 1px solid var(--clr-accent-soft);
+  border-radius: var(--radius-sm);
+  color: var(--clr-accent-light);
   text-decoration: none;
   transition: 0.3s ease;
 }
 
 .rtx-hero-btn-secondary:hover {
-  background: rgba(0, 153, 255, 0.18);
+  background: var(--clr-accent-soft);
   transform: translateY(-4px);
 }
 
@@ -118,30 +122,29 @@
   min-width: 160px;
   padding: 24px 34px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--clr-card-bg);
   backdrop-filter: blur(6px);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-card-border);
   transition: 0.3s ease;
 }
 
 .rtx-hero-stat-card h3 {
-  color: #00b2ff;
+  color: var(--clr-accent);
   font-size: 2rem;
   margin-bottom: 6px;
 }
 
 .rtx-hero-stat-card p {
-  color: #cbd5e1;
+  color: var(--clr-text-light);
   font-size: 0.9rem;
 }
 
 .rtx-hero-stat-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 153, 255, 0.4);
-  box-shadow: 0px 8px 20px rgba(0, 153, 255, 0.2);
+  border-color: var(--clr-accent-soft);
+  box-shadow: var(--shadow-card-hover);
 }
-
 
 /* DROP + FADE ANIMATION FOR CONTENT */
 .rtx-fade-drop-1,
@@ -169,7 +172,6 @@
   }
 }
 
-
 /* STAT CARD DROP-IN */
 .rtx-stat-drop-1,
 .rtx-stat-drop-2,
@@ -196,21 +198,10 @@
   }
 }
 
-
-/* .rtx-hero-animate {
-  animation: rtxSoftAppear 1s ease forwards;
-}
-
-@keyframes rtxSoftAppear {
-  from { opacity: 0; }
-  to { opacity: 1; }
-} */
-
-
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .rtx-hero-title {
-    font-size: 2.2rem;
+    font-size: var(--fs-hero-title-mobile);
   }
 
   .rtx-hero-subtext {

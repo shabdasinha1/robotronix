@@ -1,3 +1,435 @@
+:root {
+
+  /* ---------------- HEADER VARIABLES ---------------- */
+  --header-height: 72px;
+
+  --header-glass-bg: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --header-solid-bg: #0A0F1F;
+
+  --header-border-light: rgba(255,255,255,0.06);
+  --header-border-solid: rgba(255,255,255,0.04);
+
+  --header-shadow-solid: 0 6px 20px rgba(6,9,15,0.45);
+  --header-shadow-dropdown: 0 8px 30px rgba(2,6,12,0.6);
+  --header-shadow-mobile: -6px 0 30px rgba(2,6,12,0.6);
+
+  --header-text: #dfe8f4;
+  --header-text-hover: #9fe1ff;
+
+  --header-dropdown-bg: rgba(12, 18, 30, 0.98);
+  --header-dropdown-item-hover: rgba(255,255,255,0.02);
+  --header-dropdown-item-hover-text: #bff0ff;
+
+  --header-mobile-bg: #0A0F1F;
+  --header-mobile-backdrop: rgba(0,0,0,0.45);
+
+  --header-mobile-title: #dff6ff;
+  --header-mobile-subitem: #d7e9f6;
+
+  /* ---------------- FOOTER VARIABLES ---------------- */
+--footer-bg: #050b13;
+--footer-border: rgba(255, 255, 255, 0.07);
+
+--footer-heading-text: #ffffff;
+--footer-heading-accent: #00b4ff;
+
+--footer-link-text: #cbd5e1;
+--footer-link-hover: #00b4ff;
+
+--footer-contact-bg: rgba(255, 255, 255, 0.05);
+--footer-contact-border: rgba(255, 255, 255, 0.12);
+--footer-contact-text: #cbd5e1;
+--footer-contact-mail: #00b4ff;
+
+--footer-social-color: #ffffff;
+--footer-social-hover: #00b4ff;
+
+--footer-rating-color: #ffb52c;
+--footer-bottom-text: #8fa3b8;
+
+--footer-padding-y: 100px;
+--footer-padding-x: 20px;
+
+--footer-grid-gap: 40px;
+--footer-contact-radius: 16px;
+
+--footer-title-size: 1.2rem;
+--footer-link-size: 0.95rem;
+
+
+  /* ------------------- Home Page --------------------  */
+
+   /* ------------------- Hero section --------------------  */
+
+  /* BRAND COLORS */
+  --clr-bg-primary: #030b15;
+  --clr-accent: #00b2ff;
+  --clr-accent-light: #9bdfff;
+
+  /* ACCENT GLOWS & GRADIENTS */
+  --clr-accent-glow: rgba(0, 153, 255, 0.6);
+  --clr-accent-soft: rgba(0, 153, 255, 0.2);
+  --clr-accent-border-light: rgba(0, 140, 255, 0.35);
+  --clr-accent-badge-bg: rgba(0, 140, 255, 0.12);
+
+  /* TEXT COLORS */
+  --clr-text-white: #ffffff;
+  --clr-text-light: #cbd5e1;
+
+  /* CARD BACKGROUNDS */
+  --clr-card-bg: rgba(255, 255, 255, 0.08);
+  --clr-card-border: rgba(255, 255, 255, 0.12);
+
+  /* BUTTON COLORS */
+  --clr-btn-primary: #00aaff;
+  --clr-btn-primary-hover: #008cd6;
+
+  /* SPACING */
+  --space-section-y: 130px;
+  --space-section-x: 20px;
+  --space-btn-y: 14px;
+  --space-btn-x: 32px;
+
+  /* RADIUS */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-pill: 30px;
+
+  /* TYPOGRAPHY */
+  --fs-hero-title: 3.2rem;
+  --fs-hero-title-mobile: 2.2rem;
+  --fs-hero-subtext: 1.1rem;
+
+  /* SHADOWS */
+  --shadow-accent-strong: 0px 0px 15px rgba(0, 153, 255, 0.6);
+  --shadow-accent-hover: 0px 8px 20px rgba(0, 153, 255, 0.4);
+  --shadow-card-hover: 0px 8px 20px rgba(0, 153, 255, 0.2);
+
+  /*---------------- SERVICES SECTION --------------- */
+  /* SERVICES SECTION COLORS */
+  --clr-services-bg: #070d17;
+
+  --clr-services-accent: #00b4ff;
+  --clr-services-link: #44c6ff;
+  --clr-services-link-hover: #00b4ff;
+
+  --clr-services-card-bg: rgba(255, 255, 255, 0.05);
+  --clr-services-card-border: rgba(255, 255, 255, 0.1);
+
+  --clr-services-icon-bg: rgba(0, 153, 255, 0.18);
+  --clr-services-icon: #00b4ff;
+
+  --clr-services-card-hover-border: rgba(0, 153, 255, 0.3);
+  --clr-services-card-hover-shadow: rgba(0, 153, 255, 0.2);
+
+  /* SPACING */
+  --space-services-section-y: 100px;
+  --space-services-section-x: 20px;
+  --space-service-card: 32px;
+  --space-service-grid-gap: 30px;
+
+  /* RADII */
+  --radius-service-card: 18px;
+  --radius-service-icon: 12px;
+
+  /* TYPOGRAPHY */
+  --fs-services-title: 2.8rem;
+  --fs-services-title-mobile: 2.2rem;
+  --fs-services-subtext: 1.1rem;
+  --fs-service-title: 1.2rem;
+  --fs-service-desc: 0.95rem;
+
+  /*---------------- ABOUT SECTION --------------- */
+  /* ABOUT SECTION COLORS */
+  --clr-about-bg: #0b141f;
+
+  --clr-about-text: #cbd5e1;
+  --clr-about-title: #ffffff;
+  --clr-about-accent: #00b4ff;
+
+  --clr-about-badge-bg: rgba(0, 153, 255, 0.15);
+  --clr-about-badge-text: #00b4ff;
+
+  --clr-about-points: #9bdfff;
+
+  --clr-about-btn: #00aaff;
+  --clr-about-btn-hover: #008cd6;
+  --shadow-about-btn-hover: rgba(0, 153, 255, 0.25);
+
+  /* SPACING */
+  --space-about-section-y: 120px;
+  --space-about-section-x: 20px;
+  --space-about-gap: 60px;
+  --space-about-text-gap: 18px;
+  --space-about-points-gap: 12px;
+
+  /* BADGE */
+  --space-about-badge-y: 6px;
+  --space-about-badge-x: 18px;
+  --radius-about-badge: 12px;
+
+  /* IMAGE */
+  --radius-about-img: 12px;
+
+  /* BUTTON */
+  --space-about-btn-y: 14px;
+  --space-about-btn-x: 32px;
+  --radius-about-btn: 10px;
+
+  /* TYPOGRAPHY */
+  --fs-about-title: 2.6rem;
+  --fs-about-text: 1.05rem;
+
+/*----------------- TECH STACK ------------------  */
+    /* TECH STACK COLORS */
+  --clr-tech-bg: #070d17;
+  --clr-tech-top-gradient: rgba(0, 153, 255, 0.15);
+
+  --clr-tech-title: #ffffff;
+  --clr-tech-accent: #00b4ff;
+  --clr-tech-subtext: #cbd5e1;
+
+  --clr-tech-card-bg: rgba(255, 255, 255, 0.05);
+  --clr-tech-card-border: rgba(255, 255, 255, 0.12);
+  --clr-tech-card-title: #ffffff;
+  --clr-tech-card-subtitle: #9bdfff;
+
+  --clr-tech-card-hover-border: rgba(0, 153, 255, 0.3);
+  --clr-tech-card-hover-shadow: rgba(0, 153, 255, 0.25);
+
+  --clr-tech-btn-text: #00b4ff;
+  --clr-tech-btn-border: #00b4ff;
+  --clr-tech-btn-hover-bg: rgba(0, 153, 255, 0.2);
+
+  /* SPACING */
+  --space-tech-section-y: 120px;
+  --space-tech-section-x: 20px;
+
+  --space-tech-grid-gap: 18px;
+  --space-tech-card-y: 18px;
+  --space-tech-card-x: 10px;
+
+  --space-tech-btn-y: 12px;
+  --space-tech-btn-x: 26px;
+
+  /* RADII */
+  --radius-tech-card: 14px;
+  --radius-tech-btn: 10px;
+
+  /* TYPOGRAPHY */
+  --fs-tech-title: 2.8rem;
+  --fs-tech-title-mobile: 2.2rem;
+  --fs-tech-subtext: 1.1rem;
+  --fs-tech-card-title: 1.1rem;
+  --fs-tech-card-subtitle: 0.8rem;
+
+  /*----------------- CHOOSE US SECTION ----------------------- */
+
+  /* CHOOSE US SECTION COLORS */
+  --clr-choose-bg: #070d17;
+
+  --clr-choose-title: #ffffff;
+  --clr-choose-accent: #00b4ff;
+  --clr-choose-subtext: #cbd5e1;
+
+  --clr-choose-card-bg: rgba(255, 255, 255, 0.05);
+  --clr-choose-card-border: rgba(255, 255, 255, 0.12);
+
+  --clr-choose-icon: #00b4ff;
+  --clr-choose-value: #00b4ff;
+  --clr-choose-label: #cbd5e1;
+
+  --clr-choose-bottom-bg: rgba(255, 255, 255, 0.06);
+  --clr-choose-bottom-border: rgba(255, 255, 255, 0.12);
+
+  /* SPACING */
+  --space-choose-section-y: 120px;
+  --space-choose-section-x: 20px;
+
+  --space-choose-grid-gap: 28px;
+  --space-choose-card: 36px;
+  --space-choose-card-mobile: 28px;
+
+  --space-choose-bottom: 30px;
+  --space-choose-bottom-margin-top: 60px;
+
+  /* RADII */
+  --radius-choose-card: 18px;
+  --radius-choose-bottom: 16px;
+
+  /* TYPOGRAPHY */
+  --fs-choose-title: 2.8rem;
+  --fs-choose-title-mobile: 2.2rem;
+  --fs-choose-subtext: 1.1rem;
+  --fs-choose-value: 2.4rem;
+  --fs-choose-label: 1rem;
+  --fs-choose-icon: 40px;
+
+  /*------------- TESTIMONIALS SECTION ---------- */
+
+  /* TESTIMONIALS SECTION COLORS */
+  --clr-test-bg: #0b141f;
+  
+  --clr-test-title: #ffffff;
+  --clr-test-accent: #00b4ff;
+  --clr-test-subtext: #cbd5e1;
+  
+  --clr-test-slide-bg: rgba(255, 255, 255, 0.06);
+  --clr-test-slide-border: rgba(255, 255, 255, 0.1);
+
+  --clr-test-rating: #00b4ff;
+  --clr-test-text: #ffffff;
+  --clr-test-role: #cbd5e1;
+  --clr-test-company: #00b4ff;
+
+  --clr-test-dot: #3a4b57;
+  --clr-test-dot-active: #00b4ff;
+
+  --clr-test-card-bg: rgba(255, 255, 255, 0.05);
+  --clr-test-card-border: rgba(255, 255, 255, 0.1);
+
+  /* SPACING */
+  --space-test-section-y: 120px;
+  --space-test-section-x: 20px;
+  --space-test-slide: 40px;
+  --space-test-card: 20px;
+  --space-test-grid-gap: 25px;
+
+  /* RADII */
+  --radius-test-slide: 16px;
+  --radius-test-card: 16px;
+
+  /* DOT SIZE */
+  --size-test-dot: 12px;
+
+  /* TYPOGRAPHY */
+  --fs-test-title: 2.8rem;
+  --fs-test-title-mobile: 2.2rem;
+  --fs-test-subtext: 1.1rem;
+  --fs-test-slide-text: 1.2rem;
+  --fs-test-role: 0.9rem;
+  --fs-test-company: 0.95rem;
+  --fs-test-card-text: 0.95rem;
+  --fs-test-card-company: 0.85rem;
+
+  /*------------------ CONTACT SECTION ---------------- */
+
+    /* CONTACT SECTION COLORS */
+  --clr-contact-bg: #070d17;
+
+  --clr-contact-title: #ffffff;
+  --clr-contact-accent: #00b4ff;
+  --clr-contact-subtext: #cbd5e1;
+
+  --clr-contact-card-bg: rgba(255, 255, 255, 0.06);
+  --clr-contact-card-border: rgba(255, 255, 255, 0.12);
+
+  --clr-contact-input-bg: rgba(255, 255, 255, 0.08);
+  --clr-contact-input-border: rgba(255, 255, 255, 0.15);
+
+  --clr-contact-label: #cbd5e1;
+  --clr-contact-btn: #00b4ff;
+  --clr-contact-btn-text: #04121f;
+
+  --clr-contact-banner-bg: rgba(255, 255, 255, 0.05);
+  --clr-contact-banner-border: rgba(255, 255, 255, 0.1);
+
+  /* SPACING */
+  --space-contact-section-y: 120px;
+  --space-contact-section-x: 20px;
+
+  --space-contact-card: 30px;
+  --space-contact-grid-gap: 30px;
+  --space-contact-input: 12px;
+  --space-contact-btn-y: 14px;
+  --space-contact-banner: 20px;
+  --space-contact-banner-margin-top: 40px;
+
+  /* RADII */
+  --radius-contact-card: 16px;
+  --radius-contact-input: 10px;
+  --radius-contact-btn: 10px;
+
+  /* TYPOGRAPHY */
+  --fs-contact-title: 2.8rem;
+  --fs-contact-title-mobile: 2.2rem;
+  --fs-contact-subtext: 1.1rem;
+  --fs-contact-label: 0.9rem;
+
+   /*---------------- PARTNERS SECTION ---------------- */
+
+ /* PARTNERS SECTION COLORS */
+  --clr-partners-bg: #0b141f;
+  --clr-partners-title: #ffffff;
+  --clr-partners-accent: #00b4ff;
+  --clr-partners-subtext: #cbd5e1;
+
+  /* SPACING */
+  --space-partners-section-y: 120px;
+  --space-partners-section-x: 20px;
+  --space-partners-marquee-margin: 25px;
+  --space-partners-logo-gap: 50px;
+
+  /* LOGO SIZE */
+  --size-partners-logo: 60px;
+  --size-partners-logo-mobile: 50px;
+
+  /* TYPOGRAPHY */
+  --fs-partners-title: 2.6rem;
+  --fs-partners-subtext: 1.1rem;
+
+  /*----------------- CTA SECTION -------------- */
+  /* CTA SECTION COLORS */
+  --clr-cta-bg: #070d17;
+
+  --clr-cta-title: #ffffff;
+  --clr-cta-accent: #00b4ff;
+  --clr-cta-subtext: #cbd5e1;
+
+  --clr-cta-box-grad-1: rgba(0, 180, 255, 0.12);
+  --clr-cta-box-grad-2: rgba(0, 180, 255, 0.05);
+  --clr-cta-box-grad-3: rgba(255, 255, 255, 0.03);
+
+  --clr-cta-box-border: rgba(255, 255, 255, 0.12);
+
+  --clr-cta-btn: #00b4ff;
+  --clr-cta-btn-hover: #22c7ff;
+  --clr-cta-btn-text: #04121f;
+
+  --shadow-cta-btn: rgba(0, 180, 255, 0.4);
+  --shadow-cta-btn-hover: rgba(0, 180, 255, 0.6);
+
+  /* SPACING */
+  --space-cta-section-y: 120px;
+  --space-cta-section-x: 20px;
+
+  --space-cta-box-y: 60px;
+  --space-cta-box-x: 40px;
+
+  --space-cta-subtext-margin: 12px 0 30px;
+
+  --space-cta-btn-y: 14px;
+  --space-cta-btn-x: 40px;
+  --space-cta-btn-margin-top: 10px;
+
+  /* RADII */
+  --radius-cta-box: 22px;
+  --radius-cta-btn: 12px;
+
+  /* TYPOGRAPHY */
+  --fs-cta-title: 2.6rem;
+  --fs-cta-title-mobile: 2rem;
+
+  --fs-cta-sub: 1.2rem;
+  --fs-cta-sub-mobile: 1rem;
+
+  --fs-cta-btn: 1.1rem;
+
+
+
+}
+
+
 html, body {
   overflow-x: hidden !important;
 }
