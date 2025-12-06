@@ -78,14 +78,13 @@
   --footer-contact-radius: 16px;
 
   --footer-title-size: 1.2rem;
+  
 
   /* ------------------- Home Page --------------------  */
 
   /* ------------------- Hero section --------------------  */
 
-  /* TEXT COLORS */
-
-  --clr-text-light: #cbd5e1;
+ 
 
   /* SPACING */
   --space-section-y: 130px;
@@ -104,9 +103,7 @@
   --fs-hero-subtext: 1.1rem;
 
   /*---------------- SERVICES SECTION --------------- */
-  /* SERVICES SECTION COLORS */
 
-  --clr-services-link: #44c6ff;
 
   /* SPACING */
   --space-services-section-y: 100px;
@@ -228,9 +225,6 @@
 
   /*------------------ CONTACT SECTION ---------------- */
 
-  /* CONTACT SECTION COLORS */
-
-  --clr-contact-btn-text: #04121f;
 
   /* SPACING */
   --space-contact-section-y: 120px;
@@ -271,9 +265,6 @@
   --fs-partners-subtext: 1.1rem;
 
   /*----------------- CTA SECTION -------------- */
-  /* CTA SECTION COLORS */
-
-  --clr-cta-btn-text: #04121f;
 
   /* SPACING */
   --space-cta-section-y: 120px;

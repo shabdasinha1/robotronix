@@ -137,7 +137,7 @@
    LINK
 =========================== */
 .rtx-service-link {
-  color: var(--clr-services-link); /* stays exact */
+  color: var(--clr-blue-light); 
   font-weight: 500;
   text-decoration: none;
   transition: 0.3s ease;

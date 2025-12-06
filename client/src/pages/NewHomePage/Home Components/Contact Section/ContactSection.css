@@ -114,7 +114,7 @@
   width: 100%;
   padding: var(--space-contact-btn-y);
   background: var(--clr-blue);
-  color: var(--clr-contact-btn-text);
+  color: var(--bg-dark-3);
   font-weight: 600;
   border-radius: var(--radius-contact-btn);
   border: none;

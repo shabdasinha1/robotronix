@@ -65,7 +65,7 @@
   margin-top: var(--space-cta-btn-margin-top);
   padding: var(--space-cta-btn-y) var(--space-cta-btn-x);
   background: var(--clr-blue);
-  color: var(--clr-cta-btn-text);
+  color: var(--bg-dark-3);
   border: none;
   font-weight: 700;
   font-size: var(--fs-cta-btn);
