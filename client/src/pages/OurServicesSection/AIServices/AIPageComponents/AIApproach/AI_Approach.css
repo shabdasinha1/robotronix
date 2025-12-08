@@ -1,8 +1,12 @@
+/* ============================================================
+   AI APPROACH — THEME ALIGNED (DARK + LIGHT)
+============================================================ */
+
 /* SECTION WRAPPER */
 .rtx-aiapproach-section {
   width: 100%;
   padding: 110px 20px;
-  background: #030b15;
+  background: var(--bg-dark-1);
 }
 
 /* CONTAINER */
@@ -11,7 +15,10 @@
   margin: auto;
 }
 
-/* HEADER */
+/* ============================================================
+   HEADER
+============================================================ */
+
 .rtx-aiapproach-header {
   text-align: center;
   max-width: 750px;
@@ -21,22 +28,25 @@
 .rtx-aiapproach-title {
   font-size: 2.6rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--clr-white);
 }
 
 .rtx-aiapproach-title span {
-  color: #00b2ff;
-  text-shadow: 0px 0px 12px rgba(0,153,255,0.6);
+  color: var(--clr-blue);
+  text-shadow: 0px 0px 12px var(--blue-06);
 }
 
 .rtx-aiapproach-subtext {
-  color: #cbd5e1;
+  color: var(--clr-text-light);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-top: 12px;
 }
 
-/* GRID */
+/* ============================================================
+   GRID
+============================================================ */
+
 .rtx-aiapproach-grid {
   display: grid;
   gap: 26px;
@@ -44,34 +54,40 @@
   margin-top: 40px;
 }
 
-/* CARD */
+/* ============================================================
+   CARD
+============================================================ */
+
 .rtx-aiapproach-card {
   padding: 28px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
   backdrop-filter: blur(8px);
   transition: 0.3s ease;
 }
 
 .rtx-aiapproach-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0,153,255,0.4);
-  box-shadow: 0px 8px 22px rgba(0,153,255,0.25);
+  border-color: var(--blue-025);
+  box-shadow: 0px 8px 22px var(--blue-025);
 }
 
 .rtx-aiapproach-card h3 {
-  color: #00b2ff;
+  color: var(--clr-blue);
   font-size: 1.35rem;
   margin-bottom: 10px;
 }
 
 .rtx-aiapproach-card p {
-  color: #cbd5e1;
+  color: var(--clr-text-light);
   line-height: 1.6;
 }
 
-/* DROP ANIMATION */
+/* ============================================================
+   DROP ANIMATION
+============================================================ */
+
 .rtx-aiapproach-drop {
   opacity: 0;
   transform: translateY(-30px);
@@ -84,7 +100,54 @@
   transform: translateY(0) !important;
 }
 
-/* RESPONSIVE */
+/* ============================================================
+   LIGHT THEME — PREMIUM UPGRADE
+============================================================ */
+
+/* Background upgrade */
+:root[data-theme="light"] .rtx-aiapproach-section {
+  background: linear-gradient(
+    135deg,
+    var(--light-bg-1),
+    var(--light-bg-2),
+    var(--light-bg-3)
+  );
+}
+
+/* Text */
+:root[data-theme="light"] .rtx-aiapproach-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-aiapproach-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* Frosted card look */
+:root[data-theme="light"] .rtx-aiapproach-card {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  box-shadow:
+    0 8px 20px var(--border-light-2),
+    0 4px 10px var(--blue-012s);
+  backdrop-filter: blur(12px);
+}
+
+:root[data-theme="light"] .rtx-aiapproach-card:hover {
+  border-color: var(--blue-025s);
+  box-shadow:
+    0 12px 26px var(--border-light-2),
+    0 6px 16px var(--blue-025s);
+}
+
+:root[data-theme="light"] .rtx-aiapproach-card h3 {
+  color: var(--clr-blue);
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
 @media (max-width: 768px) {
   .rtx-aiapproach-title {
     font-size: 2.2rem;

@@ -85,12 +85,13 @@ const toggleTheme = () => {
                             <li
                                 className="rtx-has-dropdown"
                                 onMouseEnter={() => setServiceOpen(true)}
-                                onMouseLeave={(e) => {
-                                    // FIX: only close if mouse actually leaves the whole block including dropdown
-                                    if (!e.currentTarget.contains(e.relatedTarget)) {
-                                        setServiceOpen(false);
-                                    }
-                                }}
+                               onMouseLeave={(e) => {
+    const target = e.relatedTarget;
+    if (target instanceof Node && e.currentTarget && !e.currentTarget.contains(target)) {
+        setServiceOpen(false);
+    }
+}}
+
                             >
                                 <button aria-haspopup="true" aria-expanded={serviceOpen}>
                                     Our Services{" "}

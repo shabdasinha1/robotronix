@@ -1,8 +1,10 @@
-/* MAIN SECTION */
+/* ======================================================
+   MAIN SECTION
+====================================================== */
 .rtx-aiimpact-section {
   width: 100%;
   padding: 100px 20px;
-  background: #030b15;
+  background: var(--bg-dark-1); /* replaced #030b15 */
   position: relative;
   overflow: hidden;
 }
@@ -15,7 +17,9 @@
   z-index: 1;
 }
 
-/* WRAPPER */
+/* ======================================================
+   WRAPPER
+====================================================== */
 .rtx-aiimpact-container {
   max-width: 900px;
   margin: auto;
@@ -24,26 +28,32 @@
   z-index: 2;
 }
 
-/* TITLE */
+/* ======================================================
+   TITLE
+====================================================== */
 .rtx-aiimpact-title {
-  color: #ffffff;
+  color: var(--clr-white);
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 12px;
-  text-shadow: 0 0 10px rgba(0,153,255,0.4);
+  text-shadow: 0 0 10px var(--blue-04); /* replaced rgba(0,153,255,0.4) */
 }
 
-/* SUBTEXT */
+/* ======================================================
+   SUBTEXT
+====================================================== */
 .rtx-aiimpact-subtext {
-  color: #cbd5e1;
+  color: var(--clr-text-light);
   font-size: 1.1rem;
   line-height: 1.75;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* DROP ANIMATION */
+/* ======================================================
+   DROP ANIMATION
+====================================================== */
 .rtx-aiimpact-drop {
   opacity: 0;
   transform: translateY(-30px);
@@ -56,9 +66,27 @@
   transform: translateY(0) !important;
 }
 
-/* RESPONSIVE */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
   .rtx-aiimpact-title {
     font-size: 2rem;
   }
+}
+
+/* ======================================================
+   LIGHT THEME UPGRADE
+====================================================== */
+:root[data-theme="light"] .rtx-aiimpact-section {
+  background: var(--light-bg-1);
+}
+
+:root[data-theme="light"] .rtx-aiimpact-title {
+  color: var(--clr-white);
+  text-shadow: 0 0 10px var(--blue-02s);
+}
+
+:root[data-theme="light"] .rtx-aiimpact-subtext {
+  color: var(--clr-text-soft);
 }
