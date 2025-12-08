@@ -1,7 +1,7 @@
 /* MAIN WRAPPER */
 .rtx-hero-wrapper {
   width: 100%;
-  padding: var(--space-section-y) var(--space-section-x);
+  padding: 130px 20px;
   background: var(--bg-dark-1);
   position: relative;
   overflow: hidden;
@@ -39,9 +39,9 @@
 .rtx-hero-badge {
   display: inline-block;
   padding: 8px 20px;
-  border-radius: var(--radius-pill);
-  background: rgba(0, 140, 255, 0.12);
-  border: 1px solid rgba(0, 140, 255, 0.35);
+  border-radius: 30px;
+  background: var(--blue-012b);
+  border: 1px solid var(--blue-06);
   color: var(--clr-blue-medium);
   font-size: 14px;
   letter-spacing: 0.5px;
@@ -51,7 +51,7 @@
 /* TITLE */
 .rtx-hero-title {
   color: var(--clr-white);
-  font-size: var(--fs-hero-title);
+  font-size: 3.2rem;
   font-weight: 700;
   line-height: 1.2;
   margin-top: 20px;
@@ -67,7 +67,7 @@
   max-width: 720px;
   margin: 18px auto 40px;
   color: var(--clr-text-light);
-  font-size: var(--fs-hero-subtext);
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
@@ -80,10 +80,10 @@
 }
 
 .rtx-hero-btn-primary {
-  padding: var(--space-btn-y) var(--space-btn-x);
+  padding: 14px 32px;
   background: var(--clr-blue-btn);
   color: var(--clr-white);
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
@@ -96,9 +96,9 @@
 }
 
 .rtx-hero-btn-secondary {
-  padding: var(--space-btn-y) var(--space-btn-x);
+  padding: 14px 32px;
   border: 1px solid var(--blue-02);
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   color: var(--clr-blue-light);
   text-decoration: none;
   transition: 0.3s ease;
@@ -124,7 +124,7 @@
   text-align: center;
   background: var(--white-05);
   backdrop-filter: blur(6px);
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   border: 1px solid var(--white-12);
   transition: 0.3s ease;
 }
@@ -162,14 +162,8 @@
 .rtx-fade-drop-4 { animation-delay: 0.8s; }
 
 @keyframes rtxDropFade {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* STAT CARD DROP-IN */
@@ -200,11 +194,83 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .rtx-hero-title {
-    font-size: var(--fs-hero-title-mobile);
-  }
+  .rtx-hero-title { font-size: 2.2rem; }
+  .rtx-hero-subtext { font-size: 1rem; }
+}
 
-  .rtx-hero-subtext {
-    font-size: 1rem;
-  }
+/* ==============================
+   LIGHT THEME — HERO GLOW (SOFT + SMOOTH)
+============================== */
+:root[data-theme="light"] .rtx-hero-wrapper {
+  background: linear-gradient(
+      135deg,
+      var(--light-bg-1) 0%,
+      var(--light-bg-2) 45%,
+      var(--light-bg-3) 100%
+    ),
+    radial-gradient(
+      circle at 50% 22%,
+      var(--blue-01),
+      transparent 70%
+    );
+  background-blend-mode: soft-light;
+}
+
+:root[data-theme="light"] .rtx-hero-particles {
+  background: radial-gradient(
+    circle at 40% 30%,
+    var(--blue-012s),
+    transparent 70%
+  );
+  opacity: 0.45;
+}
+
+/* ==============================
+   LIGHT THEME — BUTTON FIXES
+============================== */
+:root[data-theme="light"] .rtx-hero-btn-primary {
+  background: var(--clr-blue);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 10px var(--blue-02s);
+}
+
+:root[data-theme="light"] .rtx-hero-btn-primary:hover {
+  background: var(--clr-blue-btn-hover);
+  box-shadow: 0 6px 18px var(--blue-025s);
+}
+
+/* SECONDARY */
+:root[data-theme="light"] .rtx-hero-btn-secondary {
+  border: 1px solid var(--blue-03s);
+  color: var(--clr-blue);
+  background: var(--white-045);
+  backdrop-filter: blur(6px);
+}
+
+:root[data-theme="light"] .rtx-hero-btn-secondary:hover {
+  background: var(--blue-008);
+  border-color: var(--blue-025s);
+  color: var(--clr-blue-medium);
+}
+
+
+/* ==============================
+   LIGHT THEME — STAT CARD UPGRADE
+============================== */
+:root[data-theme="light"] .rtx-hero-stat-card {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 20px var(--border-light-2),
+    0 4px 10px var(--blue-012s);
+}
+
+:root[data-theme="light"] .rtx-hero-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-025s);
+  box-shadow:
+    0 12px 28px var(--border-light-2),
+    0 6px 14px var(--blue-025s);
 }

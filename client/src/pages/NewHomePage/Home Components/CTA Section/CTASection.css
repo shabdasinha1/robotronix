@@ -3,7 +3,7 @@
 ========================================== */
 .rtx-cta-wrapper {
   width: 100%;
-  padding: var(--space-cta-section-y) var(--space-cta-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-1);
   display: flex;
   justify-content: center;
@@ -15,8 +15,8 @@
 .rtx-cta-box {
   width: 100%;
   max-width: 950px;
-  padding: var(--space-cta-box-y) var(--space-cta-box-x);
-  border-radius: var(--radius-cta-box);
+  padding: 60px 40px;
+  border-radius: 22px;
 
   background: linear-gradient(
     135deg,
@@ -43,7 +43,7 @@
    TEXT
 ========================================== */
 .rtx-cta-title {
-  font-size: var(--fs-cta-title);
+  font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
 }
@@ -54,22 +54,22 @@
 
 .rtx-cta-sub {
   color: var(--clr-text-light);
-  font-size: var(--fs-cta-sub);
-  margin: var(--space-cta-subtext-margin);
+  font-size: 1.2rem;
+  margin: 12px 0 30px;
 }
 
 /* ==========================================
    BUTTON
 ========================================== */
 .rtx-cta-btn {
-  margin-top: var(--space-cta-btn-margin-top);
-  padding: var(--space-cta-btn-y) var(--space-cta-btn-x);
+  margin-top: 10px;
+  padding: 14px 40px;
   background: var(--clr-blue);
   color: var(--bg-dark-3);
   border: none;
   font-weight: 700;
-  font-size: var(--fs-cta-btn);
-  border-radius: var(--radius-cta-btn);
+  font-size: 1.1rem;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.25s ease;
   box-shadow: 0 0 12px var(--blue-04);
@@ -85,11 +85,88 @@
    RESPONSIVE
 ========================================== */
 @media (max-width: 768px) {
-  .rtx-cta-title {
-    font-size: var(--fs-cta-title-mobile);
-  }
+  .rtx-cta-title { font-size: 2rem; }
+  .rtx-cta-sub { font-size: 1rem; }
+}
 
-  .rtx-cta-sub {
-    font-size: var(--fs-cta-sub-mobile);
-  }
+/* ======================================================
+   LIGHT THEME — FROSTED + SOFT GLOW (Reduced Glow)
+====================================================== */
+:root[data-theme="light"] .rtx-cta-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--light-bg-1),
+    var(--light-bg-2),
+    var(--light-bg-3)
+  );
+}
+
+:root[data-theme="light"] .rtx-cta-box {
+  background: linear-gradient(
+    135deg,
+    var(--white-055),
+    var(--white-045),
+    var(--blue-008)   /* glow reduced (was blue-01) */
+  );
+  border: 1px solid var(--border-light-1);
+
+  /* Glow reduced by 40% */
+  box-shadow:
+    0 8px 20px var(--shadow-dark-1),
+    0 2px 8px var(--blue-012s);
+  backdrop-filter: blur(12px);
+}
+
+:root[data-theme="light"] .rtx-cta-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-cta-sub {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-cta-btn {
+  background: var(--clr-blue);
+  color: white;
+
+  /* Reduced glow */
+  box-shadow:
+    0 4px 12px var(--blue-012s),
+    0 0 4px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-cta-btn:hover {
+  background: var(--clr-blue-btn-hover);
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 16px var(--blue-02s),
+    0 0 8px var(--blue-02s);
+}
+
+/* ======================================================
+   DARK THEME — PREMIUM GLASS + NEON
+====================================================== */
+:root[data-theme="dark"] .rtx-cta-box {
+  background: linear-gradient(
+    135deg,
+    var(--blue-012b),
+    var(--blue-005b),
+    var(--white-03)
+  );
+  border: 1px solid var(--white-12);
+
+  box-shadow:
+    0 10px 28px var(--shadow-dark-1),
+    0 4px 14px var(--blue-015);
+}
+
+:root[data-theme="dark"] .rtx-cta-btn {
+  background: var(--clr-blue);
+  color: var(--clr-white);
+  box-shadow: 0 0 14px var(--blue-04);
+}
+
+:root[data-theme="dark"] .rtx-cta-btn:hover {
+  background: var(--clr-blue-cta-hover);
+  box-shadow: 0 0 22px var(--blue-06);
 }

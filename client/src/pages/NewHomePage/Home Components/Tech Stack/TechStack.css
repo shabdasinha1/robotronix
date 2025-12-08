@@ -3,7 +3,7 @@
 =========================== */
 .rtx-tech-wrapper {
   width: 100%;
-  padding: var(--space-tech-section-y) var(--space-tech-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-1);
   position: relative;
 }
@@ -37,7 +37,7 @@
 =========================== */
 .rtx-tech-title {
   color: var(--clr-white);
-  font-size: var(--fs-tech-title);
+  font-size: 2.8rem;
   font-weight: 700;
 
   opacity: 0;
@@ -53,7 +53,7 @@
    SUBTEXT
 =========================== */
 .rtx-tech-subtext {
-  font-size: var(--fs-tech-subtext);
+  font-size: 1.1rem;
   color: var(--clr-text-light);
   max-width: 650px;
   margin: 12px auto 45px;
@@ -70,7 +70,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-tech-grid-gap);
+  gap: 18px;
   margin-bottom: 45px;
 }
 
@@ -79,9 +79,9 @@
 =========================== */
 .rtx-tech-card {
   width: 150px;
-  padding: var(--space-tech-card-y) var(--space-tech-card-x);
+  padding: 18px 10px;
   background: var(--white-05);
-  border-radius: var(--radius-tech-card);
+  border-radius: 14px;
   border: 1px solid var(--white-12);
   backdrop-filter: blur(6px);
 
@@ -95,12 +95,12 @@
 .rtx-tech-card h4 {
   color: var(--clr-white);
   margin-bottom: 4px;
-  font-size: var(--fs-tech-card-title);
+  font-size: 1.1rem;
 }
 
 .rtx-tech-card span {
   color: var(--clr-blue-light);
-  font-size: var(--fs-tech-card-subtitle);
+  font-size: 0.8rem;
 }
 
 /* Stagger animations */
@@ -147,8 +147,8 @@
 .rtx-tech-btn {
   display: inline-block;
   margin-top: 20px;
-  padding: var(--space-tech-btn-y) var(--space-tech-btn-x);
-  border-radius: var(--radius-tech-btn);
+  padding: 12px 26px;
+  border-radius: 10px;
   border: 1px solid var(--clr-blue);
   color: var(--clr-blue);
   text-decoration: none;
@@ -174,10 +174,80 @@
 =========================== */
 @media (max-width: 768px) {
   .rtx-tech-title {
-    font-size: var(--fs-tech-title-mobile);
+    font-size: 2.2rem;
   }
 
   .rtx-tech-card {
     width: 130px;
   }
+}
+
+/* ============================================================
+   LIGHT THEME – TECH STACK (FROSTED GLASS + PREMIUM LOOK)
+============================================================ */
+
+/* WRAPPER LIGHT ADJUSTMENT */
+:root[data-theme="light"] .rtx-tech-wrapper {
+  background: var(--bg-dark-1);
+}
+
+/* TITLE */
+:root[data-theme="light"] .rtx-tech-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-tech-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* SUBTEXT */
+:root[data-theme="light"] .rtx-tech-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* CARD – FROSTED GLASS + SOFT GLOW */
+:root[data-theme="light"] .rtx-tech-card {
+  background: var(--white-055);                     /* soft frosted */
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 6px 18px var(--border-light-2),              /* depth */
+    0 4px 12px var(--blue-01);                     /* soft blue glow */
+}
+
+/* CARD TEXT */
+:root[data-theme="light"] .rtx-tech-card h4 {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-tech-card span {
+  color: var(--clr-blue-medium);
+}
+
+/* CARD HOVER */
+:root[data-theme="light"] .rtx-tech-card:hover {
+  border-color: var(--blue-025s);
+  box-shadow:
+    0 12px 24px var(--border-light-2),
+    0 6px 16px var(--blue-025s);                   /* stronger neon glow */
+}
+
+/* FOOTER TEXT */
+:root[data-theme="light"] .rtx-tech-footer {
+  color: var(--clr-text-soft);
+}
+
+/* BUTTON */
+:root[data-theme="light"] .rtx-tech-btn {
+  color: var(--clr-blue-medium);
+  border: 1px solid var(--blue-02s);
+  background: var(--white-045);
+  backdrop-filter: blur(8px);
+}
+
+:root[data-theme="light"] .rtx-tech-btn:hover {
+  background: var(--blue-008);
+  border-color: var(--blue-025s);
+  transform: translateY(-4px);
+  color: var(--clr-blue);
 }

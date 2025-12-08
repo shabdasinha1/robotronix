@@ -3,7 +3,7 @@
 =========================== */
 .rtx-contact-wrapper {
   width: 100%;
-  padding: var(--space-contact-section-y) var(--space-contact-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-1);
 }
 
@@ -17,7 +17,7 @@
    TITLES
 =========================== */
 .rtx-contact-title {
-  font-size: var(--fs-contact-title);
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--clr-white);
   opacity: 0;
@@ -30,7 +30,7 @@
 }
 
 .rtx-contact-sub {
-  font-size: var(--fs-contact-subtext);
+  font-size: 1.1rem;
   color: var(--clr-text-light);
   margin: 10px auto 50px;
   opacity: 0;
@@ -49,7 +49,7 @@
 .rtx-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-contact-grid-gap);
+  gap: 30px;
 }
 
 /* ===========================
@@ -58,8 +58,8 @@
 .rtx-contact-left {
   background: var(--white-06);
   border: 1px solid var(--white-12);
-  padding: var(--space-contact-card);
-  border-radius: var(--radius-contact-card);
+  padding: 30px;
+  border-radius: 16px;
 
   opacity: 0;
   transform: translateX(-70px);
@@ -89,7 +89,7 @@
 
 .rtx-form-field label {
   color: var(--clr-text-light);
-  font-size: var(--fs-contact-label);
+  font-size: 0.9rem;
   margin-bottom: 6px;
   display: block;
 }
@@ -97,10 +97,10 @@
 .rtx-form-field input,
 .rtx-form-field textarea {
   width: 100%;
-  padding: var(--space-contact-input);
+  padding: 12px;
   background: var(--white-08);
   border: 1px solid var(--white-15);
-  border-radius: var(--radius-contact-input);
+  border-radius: 10px;
   color: var(--clr-white);
 }
 
@@ -112,11 +112,11 @@
 .rtx-contact-btn {
   margin-top: 20px;
   width: 100%;
-  padding: var(--space-contact-btn-y);
+  padding: 14px;
   background: var(--clr-blue);
   color: var(--bg-dark-3);
   font-weight: 600;
-  border-radius: var(--radius-contact-btn);
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   transition: 0.25s;
@@ -128,8 +128,8 @@
 .rtx-contact-right {
   background: var(--white-06);
   border: 1px solid var(--white-12);
-  padding: var(--space-contact-card);
-  border-radius: var(--radius-contact-card);
+  padding: 30px;
+  border-radius: 16px;
 
   opacity: 0;
   transform: translateX(70px);
@@ -172,9 +172,9 @@
    BOTTOM BANNER
 =========================== */
 .rtx-contact-banner {
-  margin-top: var(--space-contact-banner-margin-top);
-  padding: var(--space-contact-banner);
-  border-radius: var(--radius-contact-card);
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 16px;
   background: var(--white-05);
   border: 1px solid var(--white-10);
 
@@ -211,6 +211,124 @@
   }
 
   .rtx-contact-title {
-    font-size: var(--fs-contact-title-mobile);
+    font-size: 2.2rem;
   }
 }
+
+/* ============================================================
+   LIGHT THEME — CONTACT SECTION (FROSTED + PREMIUM UI)
+============================================================ */
+
+/* WRAPPER */
+:root[data-theme="light"] .rtx-contact-wrapper {
+  background: var(--bg-dark-1);
+}
+
+/* TITLES */
+:root[data-theme="light"] .rtx-contact-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-contact-title span {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-contact-sub {
+  color: var(--clr-text-soft);
+}
+
+/* ============================================================
+   LEFT SIDE — FORM (Frosted + Glow)
+============================================================ */
+:root[data-theme="light"] .rtx-contact-left {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 22px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-contact-left h3 {
+  color: var(--clr-white);
+}
+
+/* INPUTS */
+:root[data-theme="light"] .rtx-form-field label {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-form-field input,
+:root[data-theme="light"] .rtx-form-field textarea {
+  background: var(--white-045);
+  border: 1px solid var(--border-light-2);
+  color: var(--clr-white);
+  backdrop-filter: blur(8px);
+}
+
+:root[data-theme="light"] .rtx-form-field input::placeholder,
+:root[data-theme="light"] .rtx-form-field textarea::placeholder {
+  color: var(--clr-text-muted);
+}
+
+/* BUTTON */
+:root[data-theme="light"] .rtx-contact-btn {
+  background: var(--clr-blue);
+  color: #fff;
+  box-shadow: 0 6px 16px var(--blue-02s);
+}
+
+:root[data-theme="light"] .rtx-contact-btn:hover {
+  background: var(--clr-blue-btn-hover);
+  box-shadow: 0 8px 20px var(--blue-025s);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RIGHT SIDE — CONTACT INFO (Frosted + Glow)
+============================================================ */
+:root[data-theme="light"] .rtx-contact-right {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 22px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-contact-right h3 {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-right-desc {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-info-card h4 {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-info-card p {
+  color: var(--clr-text-soft);
+}
+
+/* ============================================================
+   BOTTOM BANNER (Frosted + Aura)
+============================================================ */
+:root[data-theme="light"] .rtx-contact-banner {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 20px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-contact-banner h4 {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-contact-banner p {
+  color: var(--clr-text-soft);
+}
+

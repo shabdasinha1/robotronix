@@ -3,7 +3,7 @@
 =========================== */
 .rtx-services-wrapper {
   width: 100%;
-  padding: var(--space-services-section-y) var(--space-services-section-x);
+  padding: 100px 20px;
   background: var(--bg-dark-1);
 }
 
@@ -20,7 +20,7 @@
    TITLE
 =========================== */
 .rtx-services-title {
-  font-size: var(--fs-services-title);
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--clr-white);
 
@@ -45,7 +45,7 @@
   color: var(--clr-text-light);
   max-width: 700px;
   margin: 10px auto 50px;
-  font-size: var(--fs-services-subtext);
+  font-size: 1.1rem;
 
   opacity: 0;
   transform: translateY(-20px);
@@ -63,7 +63,7 @@
 .rtx-services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-service-grid-gap);
+  gap: 30px;
 }
 
 /* ===========================
@@ -71,8 +71,8 @@
 =========================== */
 .rtx-service-card {
   background: var(--white-05);
-  padding: var(--space-service-card);
-  border-radius: var(--radius-service-card);
+  padding: 32px;
+  border-radius: 18px;
   border: 1px solid var(--white-10);
   text-align: left;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -105,7 +105,7 @@
   width: 48px;
   height: 48px;
   background: var(--blue-018);
-  border-radius: var(--radius-service-icon);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,7 +118,7 @@
    SERVICE TITLE
 =========================== */
 .rtx-service-title {
-  font-size: var(--fs-service-title);
+  font-size: 1.2rem;
   color: var(--clr-white);
   font-weight: 600;
   margin-bottom: 10px;
@@ -129,7 +129,7 @@
 =========================== */
 .rtx-service-desc {
   color: var(--clr-text-light);
-  font-size: var(--fs-service-desc);
+  font-size: 0.95rem;
   margin-bottom: 18px;
 }
 
@@ -162,6 +162,50 @@
 =========================== */
 @media (max-width: 768px) {
   .rtx-services-title {
-    font-size: var(--fs-services-title-mobile);
+    font-size: 2.2rem;
   }
+}
+
+/* ============================================
+   LIGHT THEME – SERVICE CARD (FROSTED GLASS)
+============================================ */
+:root[data-theme="light"] .rtx-service-card {
+  background: var(--white-055);                  /* frosted glass */
+  border: 1px solid var(--border-light-1);       /* soft border */
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 6px 18px var(--border-light-2),            /* soft depth shadow */
+    0 4px 12px var(--blue-01);                   /* soft neon blue aura */
+  transition: 0.3s ease;
+}
+
+:root[data-theme="light"] .rtx-service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--blue-025s);                /* stronger blue glow border */
+  box-shadow:
+    0 12px 24px var(--border-light-2),           /* deeper shadow */
+    0 6px 16px var(--blue-025s);                 /* stronger neon aura */
+}
+
+/* ICON FIX FOR LIGHT MODE */
+:root[data-theme="light"] .rtx-service-icon {
+  background: var(--blue-01);
+  color: var(--clr-blue);
+}
+
+/* TEXT COLORS LIGHT MODE */
+:root[data-theme="light"] .rtx-service-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-service-desc {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-service-link {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-service-link:hover {
+  color: var(--clr-blue);
 }

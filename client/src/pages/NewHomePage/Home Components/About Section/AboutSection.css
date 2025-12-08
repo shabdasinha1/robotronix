@@ -3,7 +3,7 @@
 =========================== */
 .rtx-about-wrapper {
   width: 100%;
-  padding: var(--space-about-section-y) var(--space-about-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-2);
 }
 
@@ -14,7 +14,7 @@
   max-width: 1250px;
   margin: auto;
   display: flex;
-  gap: var(--space-about-gap);
+  gap: 60px;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -38,7 +38,7 @@
 .rtx-about-img {
   width: 100%;
   max-width: 500px;
-  border-radius: var(--radius-about-img);
+  border-radius: 12px;
 }
 
 /* ===========================
@@ -61,17 +61,17 @@
 /* BADGE */
 .rtx-about-badge {
   display: inline-block;
-  padding: var(--space-about-badge-y) var(--space-about-badge-x);
+  padding: 6px 18px;
   background: var(--blue-015);
   color: var(--clr-blue);
-  border-radius: var(--radius-about-badge);
+  border-radius: 12px;
   font-size: 14px;
   margin-bottom: 16px;
 }
 
 /* TITLE */
 .rtx-about-title {
-  font-size: var(--fs-about-title);
+  font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
   margin-bottom: 14px;
@@ -83,9 +83,9 @@
 
 /* PARAGRAPH */
 .rtx-about-text {
-  font-size: var(--fs-about-text);
+  font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: var(--space-about-text-gap);
+  margin-bottom: 18px;
 }
 
 /* FEATURE POINTS */
@@ -93,7 +93,7 @@
   margin: 25px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-about-points-gap);
+  gap: 12px;
   color: var(--clr-blue-light);
 }
 
@@ -101,9 +101,9 @@
 .rtx-about-btn {
   display: inline-block;
   margin-top: 25px;
-  padding: var(--space-about-btn-y) var(--space-about-btn-x);
+  padding: 14px 32px;
   background: var(--clr-blue-btn);
-  border-radius: var(--radius-about-btn);
+  border-radius: 10px;
   color: white;
   font-weight: 600;
   text-decoration: none;
@@ -128,4 +128,65 @@
   .rtx-about-points {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================================
+   LIGHT THEME — ABOUT SECTION (FROSTED, PREMIUM, GLOW)
+============================================================ */
+
+/* MAIN WRAPPER LIGHT BG */
+:root[data-theme="light"] .rtx-about-wrapper {
+  background: var(--bg-dark-2); /* Already light frosted */
+}
+
+/* RIGHT CONTENT TEXT COLOR TUNING */
+:root[data-theme="light"] .rtx-about-right {
+  color: var(--clr-text-light);
+}
+
+/* BADGE — Light Theme Frosted + Blue Glow */
+:root[data-theme="light"] .rtx-about-badge {
+  background: var(--blue-01);
+  color: var(--clr-blue);
+  border: 1px solid var(--blue-02s);
+  backdrop-filter: blur(8px);
+}
+
+/* TITLE */
+:root[data-theme="light"] .rtx-about-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-about-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* PARAGRAPH */
+:root[data-theme="light"] .rtx-about-text {
+  color: var(--clr-text-soft);
+}
+
+/* POINTS */
+:root[data-theme="light"] .rtx-about-points {
+  color: var(--clr-blue-medium);
+}
+
+/* IMAGE — SOFT BLUE GLOW */
+:root[data-theme="light"] .rtx-about-img {
+  box-shadow:
+    0 10px 28px var(--border-light-2),
+    0 6px 16px var(--blue-012s);
+  border-radius: 12px;
+}
+
+/* BUTTON */
+:root[data-theme="light"] .rtx-about-btn {
+  background: var(--clr-blue);
+  color: #fff;
+  box-shadow: 0 6px 16px var(--blue-02s);
+}
+
+:root[data-theme="light"] .rtx-about-btn:hover {
+  background: var(--clr-blue-btn-hover);
+  box-shadow: 0 8px 22px var(--blue-025s);
 }

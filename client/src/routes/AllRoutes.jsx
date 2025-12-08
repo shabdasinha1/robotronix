@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy,useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -36,6 +36,15 @@ const ProductPage = lazy(() => import("../component/screen/ProductPage"));
 
 
 const AllRoutes = () => {
+  useEffect(() => {
+    // Stop browser from restoring scroll position after reload
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Force top on fresh reload
+    setTimeout(() => window.scrollTo(0, 0), 0);
+  }, []);
   return (
     <BrowserRouter>
       <Suspense>

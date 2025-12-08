@@ -1,29 +1,36 @@
+/* ======================================================
+   GLOBAL ROOT + THEME SYSTEM (CENTRALIZED COLORS)
+====================================================== */
+
 :root {
-  /* =========================================
-     BRAND COLORS
-  ========================================== */
-  --clr-blue: #00b4ff; /* Primary brand blue */
-  --clr-blue-light: #9bdfff; /* Light blue text / highlights */
-  --clr-blue-medium: #00b2ff; /* Hero accent */
-  --clr-blue-btn: #00aaff; /* Button primary */
-  --clr-blue-btn-hover: #008cd6; /* Button hover */
-  --clr-blue-cta-hover: #22c7ff; /* Strong CTA hover */
+  color-scheme: light dark;
+}
 
-  --clr-white: #ffffff; /* Pure white */
-  --clr-text-light: #cbd5e1; /* Main paragraph text */
-  --clr-text-soft: #dfe8f4; /* Header text */
-  --clr-text-muted: #8fa3b8; /* Footer muted text */
+/* =========================================
+   DARK THEME (DEFAULT)
+========================================= */
+:root[data-theme="dark"] {
 
-  /* =========================================
-     BACKGROUND COLORS (DARK THEME)
-  ========================================== */
-  --bg-dark-1: #070d17; /* Main dark background */
-  --bg-dark-2: #0b141f; /* Secondary dark */
-  --bg-dark-3: #0a0f1f; /* Header / mobile nav dark */
+  /* BRAND COLORS */
+  --clr-blue: #00b4ff;
+  --clr-blue-light: #9bdfff;
+  --clr-blue-medium: #00b2ff;
+  --clr-blue-btn: #00aaff;
+  --clr-blue-btn-hover: #008cd6;
+  --clr-blue-cta-hover: #22c7ff;
 
-  /* =========================================
-     WHITE OPACITY SETS
-  ========================================== */
+  /* TEXT */
+  --clr-white: #ffffff;
+  --clr-text-light: #cbd5e1;
+  --clr-text-soft: #dfe8f4;
+  --clr-text-muted: #8fa3b8;
+
+  /* BACKGROUNDS */
+  --bg-dark-1: #070d17;
+  --bg-dark-2: #0b141f;
+  --bg-dark-3: #0a0f1f;
+
+  /* TRANSPARENT WHITES */
   --white-01: rgba(255, 255, 255, 0.01);
   --white-02: rgba(255, 255, 255, 0.02);
   --white-03: rgba(255, 255, 255, 0.03);
@@ -33,9 +40,7 @@
   --white-12: rgba(255, 255, 255, 0.12);
   --white-15: rgba(255, 255, 255, 0.15);
 
-  /* =========================================
-     BLUE OPACITY SETS
-  ========================================== */
+  /* BLUE OPACITIES */
   --blue-06: rgba(0, 153, 255, 0.6);
   --blue-04: rgba(0, 153, 255, 0.4);
   --blue-03: rgba(0, 153, 255, 0.3);
@@ -47,253 +52,110 @@
   --blue-012b: rgba(0, 180, 255, 0.12);
   --blue-005b: rgba(0, 180, 255, 0.05);
 
-  /* =========================================
-     SHADOWS
-  ========================================== */
+  /* SHADOWS */
   --shadow-dark-1: rgba(6, 9, 15, 0.45);
   --shadow-dark-2: rgba(2, 6, 12, 0.6);
 
-  /* =========================================
-     ACCENTS / MISC
-  ========================================== */
+  /* ACCENTS */
   --accent-gold: #ffb52c;
   --grey-dot: #3a4b57;
 
-  /* ---------------- HEADER VARIABLES ---------------- */
-  --header-height: 72px;
-
-  --header-glass-bg: linear-gradient(
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-
+  /* HEADER SPECIFIC (CENTRALIZED!) */
+  --header-glass-bg: linear-gradient(var(--white-02), var(--white-01));
+  --header-solid-bg: var(--bg-dark-3);
+  --header-solid-border: var(--white-05);
+  --header-dropdown-bg: var(--bg-dark-3);
+  --header-dropdown-border: var(--white-03);
+  --header-dropdown-hover-bg: var(--white-02);
   --header-mobile-backdrop: rgba(0, 0, 0, 0.45);
-
-  /* ---------------- FOOTER VARIABLES ---------------- */
-
-  --footer-padding-y: 100px;
-  --footer-padding-x: 20px;
-
-  --footer-grid-gap: 40px;
-  --footer-contact-radius: 16px;
-
-  --footer-title-size: 1.2rem;
-  
-
-  /* ------------------- Home Page --------------------  */
-
-  /* ------------------- Hero section --------------------  */
-
- 
-
-  /* SPACING */
-  --space-section-y: 130px;
-  --space-section-x: 20px;
-  --space-btn-y: 14px;
-  --space-btn-x: 32px;
-
-  /* RADIUS */
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-pill: 30px;
-
-  /* TYPOGRAPHY */
-  --fs-hero-title: 3.2rem;
-  --fs-hero-title-mobile: 2.2rem;
-  --fs-hero-subtext: 1.1rem;
-
-  /*---------------- SERVICES SECTION --------------- */
-
-
-  /* SPACING */
-  --space-services-section-y: 100px;
-  --space-services-section-x: 20px;
-  --space-service-card: 32px;
-  --space-service-grid-gap: 30px;
-
-  /* RADII */
-  --radius-service-card: 18px;
-  --radius-service-icon: 12px;
-
-  /* TYPOGRAPHY */
-  --fs-services-title: 2.8rem;
-  --fs-services-title-mobile: 2.2rem;
-  --fs-services-subtext: 1.1rem;
-  --fs-service-title: 1.2rem;
-  --fs-service-desc: 0.95rem;
-
-  /*---------------- ABOUT SECTION --------------- */
-
-  /* SPACING */
-  --space-about-section-y: 120px;
-  --space-about-section-x: 20px;
-  --space-about-gap: 60px;
-  --space-about-text-gap: 18px;
-  --space-about-points-gap: 12px;
-
-  /* BADGE */
-  --space-about-badge-y: 6px;
-  --space-about-badge-x: 18px;
-  --radius-about-badge: 12px;
-
-  /* IMAGE */
-  --radius-about-img: 12px;
-
-  /* BUTTON */
-  --space-about-btn-y: 14px;
-  --space-about-btn-x: 32px;
-  --radius-about-btn: 10px;
-
-  /* TYPOGRAPHY */
-  --fs-about-title: 2.6rem;
-  --fs-about-text: 1.05rem;
-
-  /*----------------- TECH STACK ------------------  */
-
-  /* SPACING */
-  --space-tech-section-y: 120px;
-  --space-tech-section-x: 20px;
-
-  --space-tech-grid-gap: 18px;
-  --space-tech-card-y: 18px;
-  --space-tech-card-x: 10px;
-
-  --space-tech-btn-y: 12px;
-  --space-tech-btn-x: 26px;
-
-  /* RADII */
-  --radius-tech-card: 14px;
-  --radius-tech-btn: 10px;
-
-  /* TYPOGRAPHY */
-  --fs-tech-title: 2.8rem;
-  --fs-tech-title-mobile: 2.2rem;
-  --fs-tech-subtext: 1.1rem;
-  --fs-tech-card-title: 1.1rem;
-  --fs-tech-card-subtitle: 0.8rem;
-
-  /*----------------- CHOOSE US SECTION ----------------------- */
-
-  /* SPACING */
-  --space-choose-section-y: 120px;
-  --space-choose-section-x: 20px;
-
-  --space-choose-grid-gap: 28px;
-  --space-choose-card: 36px;
-  --space-choose-card-mobile: 28px;
-
-  --space-choose-bottom: 30px;
-  --space-choose-bottom-margin-top: 60px;
-
-  /* RADII */
-  --radius-choose-card: 18px;
-  --radius-choose-bottom: 16px;
-
-  /* TYPOGRAPHY */
-  --fs-choose-title: 2.8rem;
-  --fs-choose-title-mobile: 2.2rem;
-  --fs-choose-subtext: 1.1rem;
-  --fs-choose-value: 2.4rem;
-  --fs-choose-label: 1rem;
-  --fs-choose-icon: 40px;
-
-  /*------------- TESTIMONIALS SECTION ---------- */
-
-  /* SPACING */
-  --space-test-section-y: 120px;
-  --space-test-section-x: 20px;
-  --space-test-slide: 40px;
-  --space-test-card: 20px;
-  --space-test-grid-gap: 25px;
-
-  /* RADII */
-  --radius-test-slide: 16px;
-  --radius-test-card: 16px;
-
-  /* DOT SIZE */
-  --size-test-dot: 12px;
-
-  /* TYPOGRAPHY */
-  --fs-test-title: 2.8rem;
-  --fs-test-title-mobile: 2.2rem;
-  --fs-test-subtext: 1.1rem;
-  --fs-test-slide-text: 1.2rem;
-  --fs-test-role: 0.9rem;
-  --fs-test-company: 0.95rem;
-  --fs-test-card-text: 0.95rem;
-  --fs-test-card-company: 0.85rem;
-
-  /*------------------ CONTACT SECTION ---------------- */
-
-
-  /* SPACING */
-  --space-contact-section-y: 120px;
-  --space-contact-section-x: 20px;
-
-  --space-contact-card: 30px;
-  --space-contact-grid-gap: 30px;
-  --space-contact-input: 12px;
-  --space-contact-btn-y: 14px;
-  --space-contact-banner: 20px;
-  --space-contact-banner-margin-top: 40px;
-
-  /* RADII */
-  --radius-contact-card: 16px;
-  --radius-contact-input: 10px;
-  --radius-contact-btn: 10px;
-
-  /* TYPOGRAPHY */
-  --fs-contact-title: 2.8rem;
-  --fs-contact-title-mobile: 2.2rem;
-  --fs-contact-subtext: 1.1rem;
-  --fs-contact-label: 0.9rem;
-
-  /*---------------- PARTNERS SECTION ---------------- */
-
-  /* SPACING */
-  --space-partners-section-y: 120px;
-  --space-partners-section-x: 20px;
-  --space-partners-marquee-margin: 25px;
-  --space-partners-logo-gap: 50px;
-
-  /* LOGO SIZE */
-  --size-partners-logo: 60px;
-  --size-partners-logo-mobile: 50px;
-
-  /* TYPOGRAPHY */
-  --fs-partners-title: 2.6rem;
-  --fs-partners-subtext: 1.1rem;
-
-  /*----------------- CTA SECTION -------------- */
-
-  /* SPACING */
-  --space-cta-section-y: 120px;
-  --space-cta-section-x: 20px;
-
-  --space-cta-box-y: 60px;
-  --space-cta-box-x: 40px;
-
-  --space-cta-subtext-margin: 12px 0 30px;
-
-  --space-cta-btn-y: 14px;
-  --space-cta-btn-x: 40px;
-  --space-cta-btn-margin-top: 10px;
-
-  /* RADII */
-  --radius-cta-box: 22px;
-  --radius-cta-btn: 12px;
-
-  /* TYPOGRAPHY */
-  --fs-cta-title: 2.6rem;
-  --fs-cta-title-mobile: 2rem;
-
-  --fs-cta-sub: 1.2rem;
-  --fs-cta-sub-mobile: 1rem;
-
-  --fs-cta-btn: 1.1rem;
 }
 
-html,
-body {
+/* =========================================
+   LIGHT THEME
+========================================= */
+:root[data-theme="light"] {
+
+  /* BRAND COLORS — Keep same, they look good */
+  --clr-blue: #008CFF;
+  --clr-blue-light: #3BB3FF;
+  --clr-blue-medium: #007BFF;
+  --clr-blue-btn: #007BFF;
+  --clr-blue-btn-hover: #0062CC;
+  --clr-blue-cta-hover: #0099FF;
+
+  /* TEXT — Make more premium, softer navy */
+  --clr-white: #0A0F18;
+  --clr-text-light: #1C2A3A;
+  --clr-text-soft: #2E3D50;
+  --clr-text-muted: #667A90;
+
+  /* BACKGROUNDS — Add premium depth + gradient */
+  --bg-dark-1: linear-gradient(
+      135deg,
+      #F4F7FB 0%,
+      #E9EEF5 45%,
+      #F7FAFD 100%
+  );
+
+  --bg-dark-2: rgba(255, 255, 255, 0.65); /* Light glass background */
+  --bg-dark-3: rgba(255, 255, 255, 0.45); /* Frosted panels */
+
+    /* LIGHT THEME PREMIUM GRADIENT COLORS */
+  --light-bg-1: #FAFCFF;
+  --light-bg-2: #F3F7FC;
+  --light-bg-3: #FFFFFF;
+
+  /* LIGHT BLUE GLOWS */
+  --blue-01: rgba(0, 123, 255, 0.10);
+  --blue-012s: rgba(0, 140, 255, 0.12);
+  --blue-02s: rgba(0, 123, 255, 0.20);
+  --blue-025s: rgba(0, 123, 255, 0.25);
+  --blue-03s: rgba(0, 123, 255, 0.30);
+  --blue-008: rgba(0, 123, 255, 0.08);
+
+  /* LIGHT THEME GLASS WHITES */
+  --white-045: rgba(255, 255, 255, 0.45);
+  --white-055: rgba(255, 255, 255, 0.55);
+
+  /* LIGHT THEME BORDERS */
+  --border-light-1: rgba(0, 0, 0, 0.06);
+  --border-light-2: rgba(0, 0, 0, 0.12);
+
+
+  /* TRANSPARENT SHADES — premium glass look */
+  --white-01: rgba(255, 255, 255, 0.10);
+  --white-02: rgba(255, 255, 255, 0.15);
+  --white-03: rgba(255, 255, 255, 0.20);
+  --white-05: rgba(255, 255, 255, 0.28);
+  --white-06: rgba(255, 255, 255, 0.35);
+  --white-10: rgba(255, 255, 255, 0.45);
+  --white-12: rgba(255, 255, 255, 0.55);
+  --white-15: rgba(255, 255, 255, 0.65);
+
+  /* SHADOWS — match dark mode depth */
+  --shadow-dark-1: rgba(20, 26, 40, 0.08);
+  --shadow-dark-2: rgba(20, 26, 40, 0.15);
+
+  /* HEADER GLASS — polished premium */
+  --header-glass-bg: linear-gradient(
+      rgba(255, 255, 255, 0.65),
+      rgba(255, 255, 255, 0.35)
+  );
+
+  --header-solid-bg: rgba(255, 255, 255, 0.85);
+  --header-solid-border: rgba(0,0,0,0.06);
+  --header-dropdown-bg: rgba(255, 255, 255, 0.85);
+  --header-dropdown-border: rgba(0,0,0,0.05);
+  --header-dropdown-hover-bg: rgba(255, 255, 255, 0.50);
+
+  /* MOBILE BACKDROP */
+  --header-mobile-backdrop: rgba(255, 255, 255, 0.60);
+}
+
+
+
+
+/* Global overflow */
+html, body {
   overflow-x: hidden !important;
 }

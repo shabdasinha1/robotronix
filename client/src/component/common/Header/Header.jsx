@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
+import { NavLink,useLocation } from "react-router-dom";
+import { FiMenu, FiX,FiSun,FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import logo from "../../../assets/img/logo_c1.png";
 import "./Header.css";
@@ -11,6 +11,30 @@ const Header = () => {
     const [serviceOpen, setServiceOpen] = useState(false);
     const [aboutOpen, setAboutOpen] = useState(false);
     const [headerSolid, setHeaderSolid] = useState(false);
+    const { pathname } = useLocation();
+    
+    // THEME STATE
+const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+);
+const handleLogoClick = (e) => {
+    if (pathname === "/") {
+        e.preventDefault(); // prevent React Router from reloading '/'
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+};
+// APPLY THEME ON LOAD
+useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+}, [theme]);
+
+// HANDLE TOGGLE
+const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+};
+
 
     // toggle mobile panel
     const toggleMobile = () => setMobileOpen((p) => !p);
@@ -49,7 +73,7 @@ const Header = () => {
                 <div className="rtx-header-container">
                     {/* LOGO */}
                     <div className="rtx-header-logo">
-                        <NavLink to="/">
+                        <NavLink to="/" onClick={handleLogoClick}>
                             <img src={logo} alt="Robotronix Logo" />
                         </NavLink>
                     </div>
@@ -123,16 +147,24 @@ const Header = () => {
                             </li>
                         </ul>
                     </nav>
+                    <div className="rtx-header-right">
+                    {/* THEME TOGGLE BUTTON */}
+<button className="rtx-theme-toggle" onClick={toggleTheme}>
+    {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+</button>
 
                     {/* Mobile Hamburger */}
                     <div className="rtx-mobile-menu-icon" onClick={toggleMobile} aria-hidden="true">
                         {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                    </div>
                     </div>
                 </div>
             </header>
 
             {/* Mobile Slide Panel */}
             <aside className={`rtx-mobile-panel ${mobileOpen ? "rtx-open" : ""}`} aria-hidden={!mobileOpen}>
+              
+
                 <ul className="rtx-mobile-ul">
                     <li className="rtx-mobile-dropdown">
                         <div

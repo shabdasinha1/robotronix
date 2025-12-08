@@ -3,7 +3,7 @@
 ========================= */
 .rtx-test-wrapper {
   width: 100%;
-  padding: var(--space-test-section-y) var(--space-test-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-2);
 }
 
@@ -20,7 +20,7 @@
    TITLE + SUBTEXT
 ========================= */
 .rtx-test-title {
-  font-size: var(--fs-test-title);
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--clr-white);
 
@@ -34,7 +34,7 @@
 }
 
 .rtx-test-subtext {
-  font-size: var(--fs-test-subtext);
+  font-size: 1.1rem;
   color: var(--clr-text-light);
   margin: 10px auto 50px;
 
@@ -60,8 +60,8 @@
 .rtx-test-slide {
   position: absolute;
   width: 100%;
-  padding: var(--space-test-slide);
-  border-radius: var(--radius-test-slide);
+  padding: 40px;
+  border-radius: 16px;
   background: var(--white-06);
   border: 1px solid var(--white-10);
 
@@ -85,7 +85,7 @@
 }
 
 .rtx-test-text {
-  font-size: var(--fs-test-slide-text);
+  font-size: 1.2rem;
   color: var(--clr-white);
   margin-bottom: 20px;
   max-width: 900px;
@@ -93,19 +93,19 @@
 }
 
 .rtx-test-name {
-  font-size: var(--fs-test-slide-text);
+  font-size: 1.2rem;
   font-weight: 700;
   margin-top: 10px;
 }
 
 .rtx-test-role {
-  font-size: var(--fs-test-role);
+  font-size: 0.9rem;
   color: var(--clr-text-light);
 }
 
 .rtx-test-company {
   color: var(--clr-blue);
-  font-size: var(--fs-test-company);
+  font-size: 0.95rem;
 }
 
 /* ========================
@@ -118,8 +118,8 @@
 }
 
 .rtx-test-dot {
-  width: var(--size-test-dot);
-  height: var(--size-test-dot);
+  width: 12px;
+  height: 12px;
   margin: 0 6px;
   border-radius: 50%;
   background: var(--grey-dot);
@@ -138,12 +138,12 @@
 .rtx-test-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-test-grid-gap);
+  gap: 25px;
 }
 
 .rtx-test-card {
-  padding: var(--space-test-card);
-  border-radius: var(--radius-test-card);
+  padding: 20px;
+  border-radius: 16px;
   background: var(--white-06);
   border: 1px solid var(--white-10);
 
@@ -169,7 +169,7 @@
 .rtx-test-card-text {
   color: var(--clr-text-light);
   margin-bottom: 14px;
-  font-size: var(--fs-test-card-text);
+  font-size: 0.95rem;
 }
 
 .rtx-test-card-name {
@@ -179,7 +179,7 @@
 
 .rtx-test-card-company {
   color: var(--clr-blue);
-  font-size: var(--fs-test-card-company);
+  font-size: 0.85rem;
 }
 
 /* ========================
@@ -187,10 +187,120 @@
 ========================= */
 @media (max-width: 768px) {
   .rtx-test-title {
-    font-size: var(--fs-test-title-mobile);
+    font-size: 2.2rem;
   }
 
   .rtx-test-slider {
     height: 350px;
   }
 }
+
+/* ============================================================
+   LIGHT THEME — TESTIMONIALS (FROSTED, PREMIUM, GLOW)
+============================================================ */
+
+/* WRAPPER */
+:root[data-theme="light"] .rtx-test-wrapper {
+  background: var(--bg-dark-2);
+}
+
+/* TITLE */
+:root[data-theme="light"] .rtx-test-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-test-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* SUBTEXT */
+:root[data-theme="light"] .rtx-test-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* ============================================================
+   MAIN SLIDER (Glass + Glow)
+============================================================ */
+:root[data-theme="light"] .rtx-test-slide {
+  background: var(--white-055);                   /* frosted surface */
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 22px var(--border-light-2),             /* depth */
+    0 4px 12px var(--blue-01);                   /* soft blue aura */
+}
+
+:root[data-theme="light"] .rtx-test-rating {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-test-text {
+  color: var(--clr-text-light);
+}
+
+:root[data-theme="light"] .rtx-test-name {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-test-role {
+  color: var(--clr-text-muted);
+}
+
+:root[data-theme="light"] .rtx-test-company {
+  color: var(--clr-blue-medium);
+}
+
+/* ============================================================
+   DOTS (Glow + Active Dot Upgrade)
+============================================================ */
+:root[data-theme="light"] .rtx-test-dot {
+  background: var(--white-03);
+  border: 1px solid var(--border-light-2);
+}
+
+:root[data-theme="light"] .rtx-test-dot:hover {
+  transform: scale(1.2);
+  background: var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-test-dot.active {
+  background: var(--clr-blue);
+  box-shadow: 0 0 12px var(--blue-02s);
+}
+
+/* ============================================================
+   BOTTOM CARDS (Glass + Glow)
+============================================================ */
+:root[data-theme="light"] .rtx-test-card {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 6px 18px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-test-rating-small {
+  color: var(--clr-blue-medium);
+}
+
+:root[data-theme="light"] .rtx-test-card-text {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-test-card-name {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-test-card-company {
+  color: var(--clr-blue-medium);
+}
+
+/* HOVER EFFECT FOR BOTTOM CARDS */
+:root[data-theme="light"] .rtx-test-card:hover {
+  border-color: var(--blue-025s);
+  box-shadow:
+    0 12px 26px var(--border-light-2),
+    0 6px 16px var(--blue-025s);
+}
+

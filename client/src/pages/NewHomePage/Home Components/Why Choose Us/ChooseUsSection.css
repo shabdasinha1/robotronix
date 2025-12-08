@@ -2,7 +2,7 @@
    WRAPPER
 =========================== */
 .rtx-choose-wrapper {
-  padding: var(--space-choose-section-y) var(--space-choose-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-1);
   width: 100%;
 }
@@ -20,7 +20,7 @@
    TITLE + SUBTEXT
 =========================== */
 .rtx-choose-title {
-  font-size: var(--fs-choose-title);
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--clr-white);
 
@@ -34,7 +34,7 @@
 }
 
 .rtx-choose-subtext {
-  font-size: var(--fs-choose-subtext);
+  font-size: 1.1rem;
   color: var(--clr-text-light);
   margin: 10px auto 50px;
   max-width: 700px;
@@ -55,7 +55,7 @@
 .rtx-choose-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-choose-grid-gap);
+  gap: 28px;
   margin-top: 30px;
 }
 
@@ -63,8 +63,8 @@
    CARD
 =========================== */
 .rtx-choose-card {
-  padding: var(--space-choose-card);
-  border-radius: var(--radius-choose-card);
+  padding: 36px;
+  border-radius: 18px;
   background: var(--white-05);
   border: 1px solid var(--white-12);
   backdrop-filter: blur(6px);
@@ -91,13 +91,13 @@
    CARD CONTENT
 =========================== */
 .rtx-choose-icon {
-  font-size: var(--fs-choose-icon);
+  font-size: 40px;
   margin-bottom: 12px;
   color: var(--clr-blue);
 }
 
 .rtx-choose-value {
-  font-size: var(--fs-choose-value);
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--clr-blue);
   margin-bottom: 6px;
@@ -105,19 +105,20 @@
 
 .rtx-choose-label {
   color: var(--clr-text-light);
-  font-size: var(--fs-choose-label);
+  font-size: 1rem;
 }
 
 /* ===========================
    BOTTOM BOX
 =========================== */
 .rtx-choose-bottom {
-  margin-top: var(--space-choose-bottom-margin-top);
-  padding: var(--space-choose-bottom);
-  border-radius: var(--radius-choose-bottom);
+  margin-top: 60px;
+  padding: 30px;
+  border-radius: 16px;
   background: var(--white-06);
   border: 1px solid var(--white-12);
-color: var(--clr-text-light);
+  color: var(--clr-text-light);
+
   opacity: 0;
   transform: translateY(40px);
   transition: 0.7s ease 0.8s;
@@ -133,10 +134,89 @@ color: var(--clr-text-light);
 =========================== */
 @media (max-width: 768px) {
   .rtx-choose-title {
-    font-size: var(--fs-choose-title-mobile);
+    font-size: 2.2rem;
   }
 
   .rtx-choose-card {
-    padding: var(--space-choose-card-mobile);
+    padding: 28px;
   }
+}
+
+
+/* ============================================================
+   LIGHT THEME — CHOOSE US SECTION (FROSTED • PREMIUM • GLOW)
+============================================================ */
+
+/* WRAPPER */
+:root[data-theme="light"] .rtx-choose-wrapper {
+  background: var(--bg-dark-1);
+}
+
+/* TITLE */
+:root[data-theme="light"] .rtx-choose-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-choose-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* SUBTEXT */
+:root[data-theme="light"] .rtx-choose-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================
+   LIGHT THEME – CARD (FROSTED + BLUE AURA)
+======================================= */
+:root[data-theme="light"] .rtx-choose-card {
+  background: var(--white-055);                   /* frosted glass */
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 6px 18px var(--border-light-2),            /* soft depth */
+    0 4px 12px var(--blue-01);                   /* light blue glow */
+}
+
+:root[data-theme="light"] .rtx-choose-card:hover {
+  border-color: var(--blue-025s);
+  box-shadow:
+    0 12px 28px var(--border-light-2),
+    0 6px 16px var(--blue-025s);                 /* stronger neon glow */
+}
+
+/* ICON */
+:root[data-theme="light"] .rtx-choose-icon {
+  color: var(--clr-blue-medium);
+}
+
+/* VALUE */
+:root[data-theme="light"] .rtx-choose-value {
+  color: var(--clr-blue);
+}
+
+/* LABEL */
+:root[data-theme="light"] .rtx-choose-label {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================
+   LIGHT THEME – BOTTOM BOX
+======================================= */
+:root[data-theme="light"] .rtx-choose-bottom {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  backdrop-filter: blur(10px);
+  color: var(--clr-text-soft);
+
+  box-shadow:
+    0 8px 20px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+:root[data-theme="light"] .rtx-choose-bottom:hover {
+  border-color: var(--blue-02s);
+  box-shadow:
+    0 12px 26px var(--border-light-2),
+    0 6px 16px var(--blue-025s);
 }

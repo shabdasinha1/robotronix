@@ -3,7 +3,7 @@
 ================================ */
 .rtx-footer-wrapper {
   width: 100%;
-  padding: var(--footer-padding-y) var(--footer-padding-x) 40px;
+  padding: 100px 20px 40px;
   background: var(--bg-dark-1);
   border-top: 1px solid var(--white-06);
 }
@@ -28,7 +28,7 @@
 .rtx-footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1.2fr 1.2fr 1.5fr;
-  gap: var(--footer-grid-gap);
+  gap: 40px;
 }
 
 /* ===============================
@@ -36,13 +36,12 @@
 ================================ */
 .rtx-footer-col h4 {
   color: var(--clr-white);
-  font-size: var(--footer-title-size);
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 15px;
   position: relative;
 }
 
-/* Line under headings */
 .rtx-footer-col h4::after {
   content: "";
   width: 35px;
@@ -67,25 +66,25 @@
   transition: color 0.25s, transform 0.25s ease;
 }
 
-/* Smooth hover animation */
 .rtx-footer-col li:hover {
   color: var(--clr-blue);
   transform: translateX(6px);
 }
 
-/* Subtitle spacing */
 .rtx-footer-subtitle {
   margin-top: 25px;
 }
 
 /* ===============================
-   CONTACT COLUMN
+   CONTACT BOX (Glass Card)
 ================================ */
 .rtx-footer-contact {
   background: var(--white-05);
   padding: 25px;
-  border-radius: var(--footer-contact-radius);
+  border-radius: 16px;
   border: 1px solid var(--white-12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 16px var(--shadow-dark-1);
 }
 
 .rtx-footer-contact h4 {
@@ -124,11 +123,10 @@
   transition: color 0.25s, transform 0.25s ease, filter 0.25s ease;
 }
 
-/* Premium hover animation */
 .rtx-footer-social svg:hover {
   color: var(--clr-blue);
   transform: translateY(-4px) scale(1.15);
-  filter: drop-shadow(0 0 6px rgba(0, 180, 255, 0.35)); /* kept exact */
+  filter: drop-shadow(0 0 6px var(--blue-04));
 }
 
 /* ===============================
@@ -154,6 +152,47 @@
 }
 
 /* ===============================
+   LIGHT THEME UPGRADE (Premium Frosted White)
+================================ */
+:root[data-theme="light"] .rtx-footer-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--light-bg-1),
+    var(--light-bg-2),
+    var(--light-bg-3)
+  );
+  border-top: 1px solid var(--border-light-1);
+}
+
+/* Light theme contact card — reduced glow */
+:root[data-theme="light"] .rtx-footer-contact {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  box-shadow:
+    0 6px 12px var(--shadow-dark-1),
+    0 2px 8px var(--blue-008);
+}
+
+:root[data-theme="light"] .rtx-footer-col h4,
+:root[data-theme="light"] .rtx-footer-contact h4 {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-footer-col li {
+  color: var(--clr-text-soft);
+}
+
+:root[data-theme="light"] .rtx-footer-bottom {
+  color: var(--clr-text-muted);
+  border-top: 1px solid var(--border-light-1);
+}
+
+/* Icons — softer glow in light mode */
+:root[data-theme="light"] .rtx-footer-social svg:hover {
+  filter: drop-shadow(0 0 4px var(--blue-012s));
+}
+
+/* ===============================
    RESPONSIVE
 ================================ */
 @media (max-width: 1000px) {
@@ -166,7 +205,6 @@
   .rtx-footer-grid {
     grid-template-columns: 1fr;
   }
-
   .rtx-footer-contact {
     margin-top: 20px;
   }

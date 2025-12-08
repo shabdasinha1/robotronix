@@ -3,7 +3,7 @@
 ================================ */
 .rtx-partners-wrapper {
   width: 100%;
-  padding: var(--space-partners-section-y) var(--space-partners-section-x);
+  padding: 120px 20px;
   background: var(--bg-dark-2);
 }
 
@@ -17,7 +17,7 @@
    TITLE + DROP EFFECT
 ================================ */
 .rtx-partners-title {
-  font-size: var(--fs-partners-title);
+  font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
   opacity: 0;
@@ -30,7 +30,7 @@
 }
 
 .rtx-partners-sub {
-  font-size: var(--fs-partners-subtext);
+  font-size: 1.1rem;
   color: var(--clr-text-light);
   margin: 10px auto 50px;
   opacity: 0;
@@ -50,7 +50,7 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  margin: var(--space-partners-marquee-margin) 0;
+  margin: 25px 0;
   opacity: 0;
   transform: translateY(30px);
   transition: 0.6s ease;
@@ -63,7 +63,7 @@
 
 .rtx-marquee-track {
   display: inline-flex;
-  gap: var(--space-partners-logo-gap);
+  gap: 50px;
   animation: marqueeMove 16s linear infinite;
 }
 
@@ -75,7 +75,7 @@
    LOGO STYLING
 ================================ */
 .rtx-marquee-track img {
-  height: var(--size-partners-logo);
+  height: 60px;
   opacity: 0.8;
   transition: 0.25s;
   filter: brightness(0.9);
@@ -105,6 +105,119 @@
 ================================ */
 @media (max-width: 768px) {
   .rtx-marquee-track img {
-    height: var(--size-partners-logo-mobile);
+    height: 50px;
   }
+}
+
+/* ======================================================
+   LIGHT THEME — PARTNERS SECTION UPGRADE
+====================================================== */
+:root[data-theme="light"] .rtx-partners-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--light-bg-1),
+    var(--light-bg-2) 40%,
+    var(--light-bg-3)
+  );
+}
+
+/* TITLE + SUBTEXT */
+:root[data-theme="light"] .rtx-partners-title {
+  color: var(--clr-white); /* dark navy text color used as primary heading */
+}
+
+:root[data-theme="light"] .rtx-partners-sub {
+  color: var(--clr-text-soft);
+}
+
+/* MARQUEE ROW GLASS GLOW */
+:root[data-theme="light"] .rtx-marquee-row {
+  background: var(--white-045);
+  border-radius: 14px;
+  border: 1px solid var(--border-light-1);
+  padding: 20px 0;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 10px 24px var(--shadow-dark-1),
+    0 4px 12px var(--blue-01);
+}
+
+/* LOGO STYLING — Enhanced contrast on light theme */
+:root[data-theme="light"] .rtx-marquee-track img {
+  filter: brightness(0.75) saturate(1.1);
+  opacity: 0.9;
+  transition: 0.25s ease;
+}
+
+:root[data-theme="light"] .rtx-marquee-track img:hover {
+  opacity: 1;
+  filter: brightness(1) saturate(1.2);
+  transform: scale(1.06);
+}
+
+/* MARQUEE TRACK SPEED FEELING — Slight smoothing */
+:root[data-theme="light"] .rtx-marquee-track {
+  animation-duration: 18s;
+}
+
+:root[data-theme="light"] .rtx-marquee-reverse .rtx-marquee-track {
+  animation-duration: 20s;
+}
+
+/* ======================================================
+   DARK THEME — PARTNERS SECTION PREMIUM UPGRADE
+====================================================== */
+
+/* WRAPPER — deeper premium gradient */
+:root[data-theme="dark"] .rtx-partners-wrapper {
+  background: linear-gradient(
+    135deg,
+    var(--bg-dark-2),
+    var(--bg-dark-1) 40%,
+    var(--bg-dark-3)
+  );
+}
+
+/* TITLE COLORS (no change needed, but reinforced for clarity) */
+:root[data-theme="dark"] .rtx-partners-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="dark"] .rtx-partners-sub {
+  color: var(--clr-text-light);
+}
+
+/* MARQUEE ROW — Premium frosted dark glass */
+:root[data-theme="dark"] .rtx-marquee-row {
+  background: var(--white-02);
+  border: 1px solid var(--white-05);
+  border-radius: 16px;
+  padding: 22px 0;
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 10px 30px var(--shadow-dark-2),
+    0 4px 14px var(--blue-015);
+}
+
+/* LOGO STYLING — soft neon glow on hover */
+:root[data-theme="dark"] .rtx-marquee-track img {
+  opacity: 0.85;
+  filter: brightness(0.92);
+  transition: 0.25s ease;
+}
+
+:root[data-theme="dark"] .rtx-marquee-track img:hover {
+  opacity: 1;
+  transform: scale(1.06);
+  filter: brightness(1.15) drop-shadow(0 0 6px var(--blue-02));
+}
+
+/* MARQUEE SPEED — slightly deeper smoothness */
+:root[data-theme="dark"] .rtx-marquee-track {
+  animation-duration: 18s;
+}
+
+:root[data-theme="dark"] .rtx-marquee-reverse .rtx-marquee-track {
+  animation-duration: 20s;
 }

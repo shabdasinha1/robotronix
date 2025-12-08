@@ -1,56 +1,73 @@
-/* MAIN WRAPPER */
+/* ============================================================
+   HEADER MAIN WRAPPER (Glass + Solid Scroll)
+=============================================================== */
+
 .rtx-header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
+  height: 72px;
   z-index: 1100;
-  transition: background 300ms ease, box-shadow 300ms ease,
-              backdrop-filter 300ms ease, border-bottom-color 300ms ease;
-  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    background 300ms ease,
+    box-shadow 300ms ease,
+    backdrop-filter 300ms ease,
+    border-bottom-color 300ms ease;
+
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--white-06);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--header-solid-border);
   animation: rtxHeaderFadeIn 420ms ease-out both;
 }
 
-/* Glass state */
+/* GLASS HEADER */
 .rtx-header-wrapper.rtx-glass {
   background: var(--header-glass-bg);
   box-shadow: none;
 }
 
-/* Solid state */
+/* SOLID HEADER (after scroll) */
 .rtx-header-wrapper.rtx-solid {
-  background: var(--bg-dark-3);
-  border-bottom: 1px solid var(--white-05);
+  background: var(--header-solid-bg);
+  border-bottom: 1px solid var(--header-solid-border);
   box-shadow: var(--shadow-dark-1);
-  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-/* Container */
+/* MAIN CONTAINER */
 .rtx-header-container {
   width: 92%;
   max-width: 1320px;
   margin: 0 auto;
-  height: var(--header-height);
+  height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO */
+/* ============================================================
+   LOGO
+=============================================================== */
+
 .rtx-header-logo img {
   height: 54px;
   object-fit: contain;
   transition: transform 160ms ease;
 }
+
 .rtx-header-logo img:hover {
   transform: translateY(-1px);
 }
 
-/* Desktop menu */
+/* ============================================================
+   DESKTOP MENU
+=============================================================== */
+
 .rtx-header-menu {
   display: flex;
   align-items: center;
@@ -67,13 +84,16 @@
 .rtx-header-menu ul li button {
   background: transparent;
   border: none;
+
   color: var(--clr-text-soft);
   font-weight: 600;
   font-size: 15.5px;
+
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   padding: 6px 4px;
   transition: color 180ms ease, transform 150ms ease;
 }
@@ -88,7 +108,10 @@
   opacity: 0.95;
 }
 
-/* Dropdown */
+/* ============================================================
+   DROPDOWNS
+=============================================================== */
+
 .rtx-has-dropdown {
   position: relative;
 }
@@ -98,90 +121,92 @@
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: var(--bg-dark-3);
-  color: var(--clr-text-soft);
+
+  background: var(--header-dropdown-bg);
+  border: 1px solid var(--header-dropdown-border);
   border-radius: 10px;
+
   padding: 8px 6px;
   box-shadow: var(--shadow-dark-2);
-  opacity: 0;
-  transform: translateY(8px) scale(0.995);
-  pointer-events: none;
-  transition: opacity 180ms ease, transform 200ms ease;
-  -webkit-backdrop-filter: blur(8px);
+
   backdrop-filter: blur(8px);
-  border: 1px solid var(--white-03);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: var(--clr-text-soft);
+
+  opacity: 0;
+  transform: translateY(8px) scale(0.99);
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 220ms ease;
 }
 
 .rtx-dropdown.rtx-small {
   min-width: 180px;
 }
 
-.rtx-dropdown.rtx-open,
-.rtx-has-dropdown:hover .rtx-dropdown {
+.rtx-dropdown.rtx-open {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
-/* link gets the padding, hover, and full hit area */
+/* Item Link */
 .rtx-dropdown-item-link {
-  display: block;
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
-  transition:
-      background 220ms ease,
-      color 220ms ease,
-      transform 220ms ease;
-  transform: translateX(0);
-}
 
-/* inner div only displays text */
-.rtx-dropdown-item {
-  padding: 0 !important;
-}
+  width: 100%;
+  padding: 10px 14px;
 
-.rtx-dropdown-item,
-.rtx-dropdown-item-link {
-  font-size: 14.5px;
   color: inherit;
-  text-decoration: none;
+  font-size: 14.5px;
+
   border-radius: 8px;
-  transition: background 160ms ease, color 160ms ease;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
-.rtx-dropdown-item:hover,
 .rtx-dropdown-item-link:hover {
-  background: var(--white-02);
+  background: var(--header-dropdown-hover-bg);
   color: var(--clr-blue-light);
 }
 
-/* Mobile hamburger */
+/* ============================================================
+   MOBILE MENU ICON
+=============================================================== */
+
 .rtx-mobile-menu-icon {
   display: none;
   cursor: pointer;
   color: var(--clr-text-soft);
 }
 
-/* Mobile panel */
+/* ============================================================
+   MOBILE SLIDE PANEL
+=============================================================== */
+
 .rtx-mobile-panel {
   position: fixed;
-  top: var(--header-height);
+  top: 72px;
   right: -110%;
+
   width: 82vw;
   max-width: 380px;
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - 72px);
+
   background: var(--bg-dark-3);
+  border-left: 1px solid var(--header-dropdown-border);
   box-shadow: var(--shadow-dark-2);
-  transition: right 420ms cubic-bezier(.24, .92, .32, 1.08),
-              opacity 380ms ease;
+
+  transition:
+    right 420ms cubic-bezier(.24, .92, .32, 1.08),
+    opacity 380ms ease,
+    transform 300ms ease;
+
   opacity: 0;
   padding: 22px;
   z-index: 1200;
   overflow-y: auto;
-  border-left: 1px solid var(--white-02);
+
   transform: translateX(20px);
 }
 
@@ -198,25 +223,32 @@
   list-style: none;
 }
 
+/* Mobile Titles */
 .rtx-mobile-title {
   display: flex;
   justify-content: space-between;
+
   font-weight: 700;
   font-size: 15.5px;
+
   cursor: pointer;
   color: var(--clr-text-soft);
 }
 
+/* Drop animation */
 .rtx-mobile-dropdown-list {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+
   transform: translateY(-6px);
   padding-left: 8px;
-  transition: max-height 700ms cubic-bezier(.30, .85, .25, 1),
-              opacity 550ms ease,
-              transform 550ms ease,
-              padding-top 550ms ease;
+
+  transition:
+    max-height 700ms cubic-bezier(.30, .85, .25, 1),
+    opacity 450ms ease,
+    transform 450ms ease,
+    padding-top 450ms ease;
 }
 
 .rtx-mobile-dropdown-list.rtx-show {
@@ -226,6 +258,7 @@
   padding-top: 8px;
 }
 
+/* Mobile items */
 .rtx-mobile-subitem,
 .rtx-mobile-subitem-link {
   padding: 8px 0;
@@ -233,14 +266,17 @@
   color: var(--clr-text-light);
 }
 
-/* Mobile link */
+/* Simple links */
 .rtx-mobile-link {
   font-size: 15.5px;
   font-weight: 700;
   color: var(--clr-text-soft);
 }
 
-/* Backdrop */
+/* ============================================================
+   MOBILE BACKDROP
+=============================================================== */
+
 .rtx-mobile-backdrop {
   position: fixed;
   inset: 0;
@@ -251,7 +287,7 @@
 
 @keyframes rtxFadeBackdrop {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 /* Remove underline */
@@ -262,7 +298,10 @@
   color: inherit !important;
 }
 
-/* Responsive */
+/* ============================================================
+   RESPONSIVE
+=============================================================== */
+
 @media (max-width: 992px) {
   .rtx-header-menu { display: none; }
   .rtx-mobile-menu-icon { display: block; }
@@ -271,22 +310,94 @@
 @media (max-width: 600px) {
   .rtx-header-container { width: 96%; padding: 0 8px; }
   .rtx-header-logo img { height: 46px; }
-  .rtx-header-wrapper { border-bottom: 1px solid var(--white-05); }
+  .rtx-header-wrapper { border-bottom: 1px solid var(--header-solid-border); }
 }
 
-/* Remove blur on mobile */
+/* Disable blur when mobile menu is active */
 .rtx-header-wrapper.rtx-no-blur {
   backdrop-filter: none !important;
-  background: var(--bg-dark-3) !important;
+  background: var(--header-solid-bg) !important;
 }
 
+/* Fade-in header animation */
 @keyframes rtxHeaderFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   THEME TOGGLE BUTTON
+=============================================================== */
+
+.rtx-theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  border: 1px solid var(--white-06);
+
+  background: var(--header-glass-bg);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  color: var(--clr-text-soft);
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.rtx-theme-toggle:hover {
+  background: var(--white-05);
+  border-color: var(--white-10);
+  transform: translateY(-2px);
+  color: var(--clr-blue);
+}
+
+.rtx-theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Right side container */
+.rtx-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ============================================================
+   LIGHT THEME — SIMPLE SOLID MOBILE DRAWER (NO GLASS)
+=============================================================== */
+:root[data-theme="light"] .rtx-mobile-panel {
+  background: var(--light-bg-2); /* solid clean white */
+  border-left: 1px solid var(--border-light-1);
+  box-shadow: var(--shadow-light-2);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  color: var(--clr-text-light);
+}
+
+/* Text colors aligned with light theme */
+:root[data-theme="light"] .rtx-mobile-title,
+:root[data-theme="light"] .rtx-mobile-link,
+:root[data-theme="light"] .rtx-mobile-subitem {
+  color: var(--clr-text-soft) !important;
+}
+
+/* Dropdown hover */
+:root[data-theme="light"] .rtx-mobile-subitem-link:hover {
+  color: var(--clr-blue-medium) !important;
+}
+
+/* Backdrop behind drawer */
+:root[data-theme="light"] .rtx-mobile-backdrop {
+  background: var(--header-mobile-backdrop);
 }
