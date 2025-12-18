@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import "./AI_Hero.css";
+import { useEffect, useRef } from "react";
 
 const AI_Hero = ({
   badge,
@@ -12,7 +11,6 @@ const AI_Hero = ({
   secondaryLink,
   stats = [],
 }) => {
-
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -21,6 +19,7 @@ const AI_Hero = ({
       (entries) => {
         if (entries[0].isIntersecting) {
           section.classList.add("rtx-aihero-visible");
+          observer.disconnect();
         }
       },
       { threshold: 0.2 }
@@ -32,59 +31,51 @@ const AI_Hero = ({
 
   return (
     <section className="rtx-aihero-wrapper" ref={heroRef}>
-
-      {/* Background Particles */}
       <div className="rtx-aihero-particles"></div>
 
       <div className="rtx-aihero-container">
-
-        {/* Badge */}
         <span className="rtx-aihero-badge rtx-aihero-drop" style={{ "--delay": "0.2s" }}>
           {badge}
         </span>
 
-        {/* Title */}
         <h1 className="rtx-aihero-title rtx-aihero-drop" style={{ "--delay": "0.4s" }}>
           {title} <br />
           <span className="rtx-aihero-accent">{accent}</span>
         </h1>
 
-        {/* Subtitle */}
         <p className="rtx-aihero-subtext rtx-aihero-drop" style={{ "--delay": "0.6s" }}>
           {subtitle}
         </p>
 
-        {/* Buttons */}
+        {/* ✅ GLOBAL BUTTON SYSTEM */}
         <div className="rtx-aihero-btn-group rtx-aihero-drop" style={{ "--delay": "0.8s" }}>
-          <a href={primaryLink} className="rtx-aihero-btn-primary">
+          <a href={primaryLink} className="btn btn-primary">
             {primaryText}
           </a>
 
           {secondaryText && (
-            <a href={secondaryLink} className="rtx-aihero-btn-secondary">
+            <a href={secondaryLink} className="btn btn-outline">
               {secondaryText}
             </a>
           )}
         </div>
 
-        {/* Stats Section */}
+        {/* ✅ GLOBAL CARD SYSTEM */}
         {stats.length > 0 && (
           <div className="rtx-aihero-stats">
             {stats.map((item, i) => (
               <div
                 key={i}
-                className="rtx-aihero-stat-card rtx-aihero-drop-stat"
+                className="card card-glass rtx-aihero-drop"
                 style={{ "--delay": `${1 + i * 0.2}s` }}
               >
-                <h3>{item.value}</h3>
-                <p>{item.label}</p>
+                <h3 className="text-accent">{item.value}</h3>
+                <p className="text-muted">{item.label}</p>
               </div>
             ))}
           </div>
         )}
-
       </div>
-
     </section>
   );
 };

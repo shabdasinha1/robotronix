@@ -3,11 +3,17 @@
 ====================================================== */
 
 .card {
-  background: var(--white-05);
+  padding: 32px;
   border-radius: 18px;
-  border: 1px solid var(--white-10);
-  backdrop-filter: blur(6px);
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(8px);
   transition: 0.3s ease;
+}
+.card-glass:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-02);
+  box-shadow: 0 8px 20px var(--blue-02);
 }
 
 /* SMALL CARD VARIANT (for tech stack) */
@@ -24,6 +30,15 @@
   transform: translateY(-10px);
   border-color: var(--blue-03);
   box-shadow: 0 8px 20px var(--blue-02);
+}
+
+/* TEXT HELPERS */
+.text-accent {
+  color: var(--clr-blue-medium);
+}
+
+.text-muted {
+  color: var(--clr-text-light);
 }
 
 /* LIGHT MODE */

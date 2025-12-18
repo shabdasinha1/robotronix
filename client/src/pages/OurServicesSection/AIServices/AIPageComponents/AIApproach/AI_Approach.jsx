@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./AI_Approach.css";
+
 
 const AI_Approach = ({ 
   title, 
@@ -39,17 +39,18 @@ const AI_Approach = ({
 
         {/* GRID OF CARDS */}
         <div className="rtx-aiapproach-grid">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="rtx-aiapproach-card rtx-aiapproach-drop"
-              style={{ "--delay": `${0.4 + index * 0.2}s` }}
-            >
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-            </div>
-          ))}
-        </div>
+  {steps.map((step, index) => (
+    <div
+      key={index}
+      className="card card-glass rtx-aiapproach-drop"
+      style={{ "--delay": `${0.4 + index * 0.2}s` }}
+    >
+      <h3 className="text-accent">{step.title}</h3>
+      <p className="text-muted">{step.desc}</p>
+    </div>
+  ))}
+</div>
+
 
       </div>
     </section>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./AI_Industries.css";
+
 
 const AI_Industries = ({ 
   title,
@@ -40,18 +40,20 @@ const AI_Industries = ({
 
         {/* GRID BLOCK */}
         <div className="rtx-aiindustries-grid">
-          {industries.map((item, index) => (
-            <div
-              key={index}
-              className="rtx-aiindustries-card rtx-aiindustries-drop"
-              style={{ "--delay": `${0.4 + index * 0.2}s` }}
-            >
-              <div className="rtx-aiindustries-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
+  {industries.map((item, index) => (
+    <div
+      key={index}
+      className="card card-glass rtx-aiindustries-drop"
+      style={{ "--delay": `${0.4 + index * 0.2}s` }}
+    >
+      <div className="rtx-aiindustries-icon">{item.icon}</div>
+
+      <h3 className="text-accent">{item.title}</h3>
+      <p className="text-muted">{item.desc}</p>
+    </div>
+  ))}
+</div>
+
 
       </div>
     </section>

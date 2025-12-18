@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./AI_WhyChoose.css";
+
 
 const AI_WhyChoose = ({ 
   title,
@@ -39,19 +39,21 @@ const AI_WhyChoose = ({
         </div>
 
         {/* Grid of cards */}
-        <div className="rtx-aiwhy-grid">
-          {points.map((item, index) => (
-            <div
-              key={index}
-              className="rtx-aiwhy-card rtx-aiwhy-drop"
-              style={{ "--delay": `${0.4 + index * 0.2}s` }}
-            >
-              <div className="rtx-aiwhy-check">✔</div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
+       <div className="rtx-aiwhy-grid">
+  {points.map((item, index) => (
+    <div
+      key={index}
+      className="card card-glass rtx-aiwhy-drop"
+      style={{ "--delay": `${0.4 + index * 0.2}s` }}
+    >
+      <div className="rtx-aiwhy-check">✔</div>
+
+      <h3 className="text-accent">{item.title}</h3>
+      <p className="text-muted">{item.desc}</p>
+    </div>
+  ))}
+</div>
+
 
       </div>
     </section>

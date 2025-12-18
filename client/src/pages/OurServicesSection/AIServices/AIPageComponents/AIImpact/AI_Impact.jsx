@@ -1,22 +1,23 @@
-import React, { useEffect, useRef } from "react";
-import "./AI_Impact.css";
+import { useEffect, useRef } from "react";
+
 
 const AI_Impact = ({ title, subtitle }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
+    const section = sectionRef.current;
+    const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          const items = sectionRef.current.querySelectorAll(".rtx-aiimpact-drop");
-          items.forEach((el) => el.classList.add("rtx-aiimpact-visible"));
+          section.classList.add("rtx-aiimpact-visible");
+          observer.disconnect();
         }
       },
       { threshold: 0.25 }
     );
 
-    obs.observe(sectionRef.current);
-    return () => obs.disconnect();
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   return (

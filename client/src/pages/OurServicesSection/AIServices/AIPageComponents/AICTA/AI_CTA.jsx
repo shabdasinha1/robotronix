@@ -1,35 +1,31 @@
-import React, { useEffect, useRef } from "react";
-import "./AI_CTA.css";
+import { useEffect, useRef } from "react";
 
 const AI_CTA = ({ title, subtitle, buttonText, buttonLink }) => {
-  const sectionRef = useRef(null);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          const box = sectionRef.current.querySelectorAll(".rtx-aicta-drop");
-          box.forEach((el) => el.classList.add("rtx-aicta-visible"));
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          ref.current.classList.add("rtx-drop-visible");
+          observer.disconnect();
         }
       },
       { threshold: 0.25 }
     );
 
-    obs.observe(sectionRef.current);
-    return () => obs.disconnect();
+    observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="rtx-aicta-section" ref={sectionRef}>
-      <div
-        className="rtx-aicta-container rtx-aicta-drop"
-        style={{ "--delay": "0.25s" }}
-      >
-        <h2 className="rtx-aicta-title">{title}</h2>
-        <p className="rtx-aicta-subtext">{subtitle}</p>
+    <section className="rtx-service-cta">
+      <div className="rtx-service-cta-box" ref={ref}>
+        <h2 className="rtx-service-cta-title">{title}</h2>
+        <p className="rtx-service-cta-sub">{subtitle}</p>
 
-        <a href={buttonLink} className="rtx-aicta-btn">
-          {buttonText}
+        <a href={buttonLink} className="btn btn-primary btn-lg">
+          {buttonText} 
         </a>
       </div>
     </section>
