@@ -1,0 +1,88 @@
+/* ======================================================
+   GLOBAL BUTTON SYSTEM (MATCHES HERO DESIGN)
+====================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* =========================
+   SIZES
+========================= */
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.btn-md {
+  padding: 12px 26px;
+  font-size: 1rem;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   PRIMARY (Hero primary)
+========================= */
+.btn-primary {
+  background: var(--clr-blue-btn);
+  color: var(--clr-white);
+}
+
+.btn-primary:hover {
+  background: var(--clr-blue-btn-hover);
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 20px var(--blue-04);
+}
+
+/* =========================
+   OUTLINE (Hero secondary)
+========================= */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--blue-02);
+  color: var(--clr-blue-light);
+}
+
+.btn-outline:hover {
+  background: var(--blue-02);
+  transform: translateY(-4px);
+}
+
+/* =========================
+   LIGHT THEME FIXES
+========================= */
+:root[data-theme="light"] .btn-primary {
+  background: var(--clr-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 10px var(--blue-02s);
+}
+
+:root[data-theme="light"] .btn-primary:hover {
+  background: var(--clr-blue-btn-hover);
+  box-shadow: 0 6px 18px var(--blue-025s);
+}
+
+:root[data-theme="light"] .btn-outline {
+  border: 1px solid var(--blue-03s);
+  color: var(--clr-blue);
+  background: var(--white-045);
+  backdrop-filter: blur(6px);
+}
+
+:root[data-theme="light"] .btn-outline:hover {
+  background: var(--blue-008);
+  border-color: var(--blue-025s);
+  color: var(--clr-blue-medium);
+}

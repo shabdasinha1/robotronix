@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./CTASection.css";
+
 
 const CTASection = () => {
   const sectionRef = useRef(null);
@@ -30,9 +30,10 @@ const CTASection = () => {
           Let’s work together to build innovative, scalable, and future-ready digital solutions.
         </p>
 
-        <button className="rtx-cta-btn">
-          Get Started 🚀
-        </button>
+       <button className="btn btn-primary btn-lg">
+  Get Started 🚀
+</button>
+
 
       </div>
     </section>

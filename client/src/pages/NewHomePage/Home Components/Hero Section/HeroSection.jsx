@@ -1,14 +1,14 @@
 import React from "react";
-import "./HeroSection.css";
 
 const HeroSection = () => {
   return (
     <div className="rtx-hero-wrapper rtx-hero-animate">
-      {/* Particle Background */}
       <div className="rtx-hero-particles"></div>
 
       <div className="rtx-hero-container">
-        <span className="rtx-hero-badge rtx-fade-drop-1">Next-Gen IT Solutions</span>
+        <span className="rtx-hero-badge rtx-fade-drop-1">
+          Next-Gen IT Solutions
+        </span>
 
         <h1 className="rtx-hero-title rtx-fade-drop-2">
           Transform Your <br />
@@ -22,11 +22,14 @@ const HeroSection = () => {
         </p>
 
         <div className="rtx-hero-btn-group rtx-fade-drop-4">
-          <a href="/" className="rtx-hero-btn-primary">Get Started →</a>
-          <a href="/" className="rtx-hero-btn-secondary">View Portfolio</a>
+          <a href="/" className="btn btn-primary btn-lg">
+            Get Started →
+          </a>
+          <a href="/" className="btn btn-outline btn-lg">
+            View Portfolio
+          </a>
         </div>
 
-        {/* Stats */}
         <div className="rtx-hero-stats">
           <div className="rtx-hero-stat-card rtx-stat-drop-1">
             <h3>500+</h3>

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./TestimonialsSection.css";
 
 const testimonials = [
   {
@@ -102,11 +101,12 @@ const TestimonialsSection = () => {
         <div className="rtx-test-grid">
           {testimonials.map((item, index) => (
             <div
-              key={index}
-              className={`rtx-test-card ${
-                visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
-              }`}
-            >
+  key={index}
+  className={`card card-sm card-hover rtx-test-card ${
+    visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
+  }`}
+>
+
               <div className="rtx-test-rating-small">
                 {"★".repeat(item.rating)}
               </div>

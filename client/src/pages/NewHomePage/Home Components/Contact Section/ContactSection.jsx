@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./ContactSection.css";
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
@@ -63,9 +62,10 @@ const ContactSection = () => {
               <textarea placeholder="Tell us about your project..." />
             </div>
 
-            <button className="rtx-contact-btn">
-              Send Message ✈
-            </button>
+            <button className="btn btn-primary btn-lg w-100">
+  Send Message ✈
+</button>
+
           </div>
 
           {/* RIGHT — CONTACT INFO */}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./ChooseUsSection.css";
+
 
 const stats = [
   { icon: "👥", value: 500, label: "Happy Clients" },
@@ -72,12 +72,13 @@ const ChooseUsSection = () => {
         {/* Stats Grid */}
         <div className="rtx-choose-grid">
           {stats.map((item, index) => (
-            <div
-              key={index}
-              className={`rtx-choose-card ${
-                visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
-              }`}
-            >
+           <div
+  key={index}
+  className={`card card-md card-hover rtx-choose-card ${
+    visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
+  }`}
+>
+
               <div className="rtx-choose-icon">{item.icon}</div>
               <h3 className="rtx-choose-value">{counts[index]}+</h3>
               <p className="rtx-choose-label">{item.label}</p>

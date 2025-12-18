@@ -1,0 +1,47 @@
+/* =========================
+   DROP + FADE ANIMATIONS
+========================= */
+.rtx-fade-drop-1,
+.rtx-fade-drop-2,
+.rtx-fade-drop-3,
+.rtx-fade-drop-4 {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: rtxDropFade 1s ease forwards;
+}
+
+.rtx-fade-drop-1 { animation-delay: 0.2s; }
+.rtx-fade-drop-2 { animation-delay: 0.4s; }
+.rtx-fade-drop-3 { animation-delay: 0.6s; }
+.rtx-fade-drop-4 { animation-delay: 0.8s; }
+
+@keyframes rtxDropFade {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   STAT CARD DROP
+========================= */
+.rtx-stat-drop-1,
+.rtx-stat-drop-2,
+.rtx-stat-drop-3,
+.rtx-stat-drop-4 {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: rtxCardDrop 0.8s ease forwards;
+}
+
+.rtx-stat-drop-1 { animation-delay: 1s; }
+.rtx-stat-drop-2 { animation-delay: 1.2s; }
+.rtx-stat-drop-3 { animation-delay: 1.4s; }
+.rtx-stat-drop-4 { animation-delay: 1.6s; }
+
+@keyframes rtxCardDrop {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.w-100 {
+  width: 100%;
+}

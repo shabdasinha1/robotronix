@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./TechStack.css";
+
 
 const techItems = [
   { name: "React", type: "Frontend" },
@@ -57,9 +57,11 @@ const TechStack = () => {
         <div className="rtx-tech-grid">
           {techItems.map((item, index) => (
             <div
-              key={index}
-              className={`rtx-tech-card ${visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
-            >
+  key={index}
+  className={`card card-sm card-hover rtx-tech-card 
+    ${visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
+>
+
               <h4>{item.name}</h4>
               <span>{item.type}</span>
             </div>
@@ -70,9 +72,13 @@ const TechStack = () => {
           And many more technologies in our arsenal
         </p>
 
-        <a href="/" className={`rtx-tech-btn ${visible ? "rtx-tech-visible" : ""}`}>
-          View Full Tech Stack →
-        </a>
+        <a
+  href="/"
+  className={`btn btn-outline btn-md ${visible ? "rtx-tech-visible" : ""}`}
+>
+  View Full Tech Stack →
+</a>
+
 
       </div>
     </section>

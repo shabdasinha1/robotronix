@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./AboutSection.css";
+
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -67,7 +67,8 @@ const AboutSection = () => {
             <div>✔ Global delivery capabilities</div>
           </div>
 
-          <a href="/" className="rtx-about-btn">Discover Our Story</a>
+          <a href="/" className="btn btn-primary btn-lg">Discover Our Story</a>
+
 
         </div>
 

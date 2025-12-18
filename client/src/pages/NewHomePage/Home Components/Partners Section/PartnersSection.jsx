@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./PartnersSection.css";
 
 const PartnersSection = () => {
   const sectionRef = useRef(null);

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./ServicesSection.css";
+
 
 const servicesList = [
   {
@@ -86,10 +86,11 @@ useEffect(() => {
         <div className="rtx-services-grid">
           {servicesList.map((service, index) => (
             <div
-              key={index}
-              className={`rtx-service-card 
-                ${isInView ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
-            >
+  key={index}
+  className={`card card-md card-hover rtx-service-card 
+    ${isInView ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
+>
+
               <div className="rtx-service-icon">{service.icon}</div>
               <h3 className="rtx-service-title">{service.title}</h3>
               <p className="rtx-service-desc">{service.desc}</p>
