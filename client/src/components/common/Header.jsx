@@ -93,8 +93,8 @@ const Header = () => {
                 <NavItem title="Embedded System & IoT Solutions" to="/embedded-iot" />
                 <NavItem title="Data Science & Data Analytics" to="/data-science" />
                 <NavItem title="Mobile Application Development" to="/mobile-application-development" />
-                <NavItem title="Web Development & Digital Solutions" to="/" />
-                <NavItem title="On Demand Software Development" to="/" />
+                <NavItem title="Web Development & Digital Solutions" to="/web-development" />
+                <NavItem title="On Demand Software Development" to="/on-demand-software-development" />
               </DesktopDropdown>
 
               <NavButton to="/products" label="Products" />
@@ -149,8 +149,8 @@ const Header = () => {
             <NavItem mobile title="Embedded System & IoT Solutions" to="/embedded-iot" onClick={() => setMobileOpen(false)} />
             <NavItem mobile title="Data Science & Data Analytics" to="/data-science" onClick={() => setMobileOpen(false)} />
             <NavItem mobile title="Mobile Application Development" to="/mobile-application-development" onClick={() => setMobileOpen(false)} />
-            <NavItem mobile title="Web Development & Digital Solutions" to="/" onClick={() => setMobileOpen(false)} />
-  <NavItem mobile title="On Demand Software Development" to="/" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Web Development & Digital Solutions" to="/web-development" onClick={() => setMobileOpen(false)} />
+  <NavItem mobile title="On Demand Software Development" to="/on-demand-software-development" onClick={() => setMobileOpen(false)} />
           </MobileDropdown>
 
           <NavButton to="/products" label="Products" mobile onClick={() => setMobileOpen(false)} />

@@ -14,6 +14,10 @@ import GenerativeAI from "../pages/services/ai/GenerativeAI";
 import AIML from "../pages/services/ai/AIML";
 import AgentsAI from "../pages/services/ai/AgentsAI";
 import EmbeddedIoT from "../pages/services/embedded-Iot/EmbeddedIoT";
+import DataScience from "../pages/services/data-science/DataScience";
+import MobileAppDev from "../pages/services/mobile-app-development/MobileAppDev";
+import WebDev from "../pages/services/web-development/WebDev";
+import OnDemandSoftwareDev from "../pages/services/on-demand-software-dev/OnDemandSoftwareDev";
 
 
 // Contact (lazy)
@@ -43,9 +47,11 @@ const AllRoutes = () => {
             <Route path="/ai-ml" element={<AIML />} />
             <Route path="/agents-ai" element={<AgentsAI />} />
             <Route path="/embedded-iot" element={<EmbeddedIoT />} />
-            <Route path="/data-science" element={<Home/>} />
-            <Route path="/mobile-application-development" element={<Home/>} />
-            {/* <Route path="/w" element={<Home/>}/> */}
+            <Route path="/data-science" element={<DataScience/>} />
+            <Route path="/mobile-application-development" element={<MobileAppDev/>} />
+          <Route path="/web-development" element={<WebDev/>}/> 
+          <Route path="/on-demand-software-development" element={<OnDemandSoftwareDev/>}/> 
+
 
             {/* Contact */}
             <Route path="/contact-us" element={<Contact />} />
