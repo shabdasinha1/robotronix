@@ -1,10 +1,10 @@
-import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-const ServicesApproach = ({
+const ServicesWhyChoose = ({ 
   title,
   accent,
   subtitle,
-  steps = [],
+  points = [] 
 }) => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
@@ -15,36 +15,37 @@ const ServicesApproach = ({
   return (
     <section
       ref={ref}
-      className={`rtx-service-approach-section u-section ${
+      className={`rtx-service-why-section u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-service-approach-container u-container">
+      <div className="rtx-service-why-container u-container">
 
         {/* HEADER */}
         <div
-          className="rtx-service-approach-header u-drop"
+          className="rtx-service-why-header u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-service-approach-title u-title">
+          <h2 className="rtx-service-why-title u-title">
             {title} <span>{accent}</span>
           </h2>
-
-          <p className="rtx-service-approach-subtext u-subtext">
+          <p className="rtx-service-why-subtext u-subtext">
             {subtitle}
           </p>
         </div>
 
         {/* GRID */}
-        <div className="rtx-service-approach-grid u-grid-auto">
-          {steps.map((step, index) => (
+        <div className="rtx-service-why-grid u-grid-auto">
+          {points.map((item, index) => (
             <div
               key={index}
               className="card card-glass u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
-              <h3 className="text-accent">{step.title}</h3>
-              <p className="text-muted">{step.desc}</p>
+              <div className="rtx-service-why-check">✔</div>
+
+              <h3 className="text-accent">{item.title}</h3>
+              <p className="text-muted">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -54,4 +55,4 @@ const ServicesApproach = ({
   );
 };
 
-export default ServicesApproach;
+export default ServicesWhyChoose;

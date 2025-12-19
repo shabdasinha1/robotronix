@@ -1,11 +1,11 @@
 import React from "react";
-import ServicesHero from "../ServicesComponents/ServicesHero";
-import ServicesOverview from "../ServicesComponents/ServicesOverview";
-import ServicesApproach from "../ServicesComponents/ServicesApproach";
-import ServicesIndustries from "../ServicesComponents/ServicesIndustries";
-import ServicesWhyChoose from "../ServicesComponents/ServicesWhyChoose";
-import ServicesImpact from "../ServicesComponents/ServicesImpact";
-import ServicesCTA from "../ServicesComponents/ServicesCTA";
+import ServicesHero from "../../../components/services/ServicesHero";
+import ServicesOverview from "../../../components/services/ServicesOverview";
+import ServicesApproach from "../../../components/services/ServicesApproach";
+import ServicesIndustries from "../../../components/services/ServicesIndustries";
+import ServicesWhyChoose from "../../../components/services/ServicesWhyChoose";
+import ServicesImpact from "../../../components/services/ServicesImpact";
+import ServicesCTA from "../../../components/services/ServicesCTA";
 
 
 const AIML = () => {

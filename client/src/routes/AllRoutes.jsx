@@ -2,20 +2,20 @@ import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Common
-import ScrollToTop from "../component/common/ScrollToTop/ScrollToTop";
-import Header from "../component/common/Header/Header";
-import NewFooter from "../component/common/Footer/NewFooter";
+import ScrollToTop from "../components/common/ScrollToTop/ScrollToTop";
+import Header from "../components/common/Header/Header";
+import NewFooter from "../components/common/Footer/NewFooter";
 
 // Home
-import Home from "../pages/NewHomePage/Home";
+import Home from "../pages/home/Home";
 
 // Our Services
-import GenerativeAI from "../pages/OurServicesSection/AIServices/GenerativeAI";
-import AIML from "../pages/OurServicesSection/AIServices/AIML";
-import AgentsAI from "../pages/OurServicesSection/AIServices/AgentsAI";
-import EmbeddedIoT from "../pages/OurServicesSection/EmbeddedIotServices/EmbeddedIoT";
-import DataScience from "../pages/OurServicesSection/DataSciencePage/DataScience";
-import MobileApplicationDev from "../pages/OurServicesSection/MobileApplicationPage/MobileApplicationDevelopment";
+import GenerativeAI from "../pages/services/ai/GenerativeAI";
+import AIML from "../pages/services/ai/AIML";
+import AgentsAI from "../pages/services/ai/AgentsAI";
+import EmbeddedIoT from "../pages/services/embedded-Iot/EmbeddedIoT";
+import DataScience from "../pages/services/data-science/DataScience";
+import MobileApplicationDev from "../pages/services/mobile-application/MobileApplicationDevelopment";
 
 
 // Contact (lazy)

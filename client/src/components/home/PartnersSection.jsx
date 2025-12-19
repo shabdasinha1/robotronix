@@ -1,4 +1,4 @@
-import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const PartnersSection = () => {
   const { ref, visible } = useRevealOnScroll({

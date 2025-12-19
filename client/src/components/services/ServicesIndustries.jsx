@@ -1,10 +1,10 @@
-import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-const ServicesWhyChoose = ({ 
+const ServicesIndustries = ({ 
   title,
   accent,
   subtitle,
-  points = [] 
+  industries = [],
 }) => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
@@ -15,34 +15,36 @@ const ServicesWhyChoose = ({
   return (
     <section
       ref={ref}
-      className={`rtx-service-why-section u-section ${
+      className={`rtx-service-industries-section u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-service-why-container u-container">
+      <div className="rtx-service-industries-container u-container">
 
         {/* HEADER */}
         <div
-          className="rtx-service-why-header u-drop"
+          className="rtx-service-industries-header u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-service-why-title u-title">
+          <h2 className="rtx-service-industries-title u-title">
             {title} <span>{accent}</span>
           </h2>
-          <p className="rtx-service-why-subtext u-subtext">
+          <p className="rtx-service-industries-subtext u-subtext">
             {subtitle}
           </p>
         </div>
 
         {/* GRID */}
-        <div className="rtx-service-why-grid u-grid-auto">
-          {points.map((item, index) => (
+        <div className="rtx-service-industries-grid u-grid-auto">
+          {industries.map((item, index) => (
             <div
               key={index}
               className="card card-glass u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
-              <div className="rtx-service-why-check">✔</div>
+              <div className="rtx-service-industries-icon">
+                {item.icon}
+              </div>
 
               <h3 className="text-accent">{item.title}</h3>
               <p className="text-muted">{item.desc}</p>
@@ -55,4 +57,4 @@ const ServicesWhyChoose = ({
   );
 };
 
-export default ServicesWhyChoose;
+export default ServicesIndustries;

@@ -1,4 +1,4 @@
-import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
   const { ref, visible } = useRevealOnScroll({
