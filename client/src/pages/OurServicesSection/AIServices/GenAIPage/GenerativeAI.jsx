@@ -1,12 +1,12 @@
 import React from "react";
 
-import AI_Hero from "../AIPageComponents/AIHero/AI_Hero";
-import AI_Overview from "../AIPageComponents/AIOverview/AI_Overview";
-import AI_Approach from "../AIPageComponents/AIApproach/AI_Approach";
-import AI_Industries from "../AIPageComponents/AIIndustries/AI_Industries";
-import AI_WhyChoose from "../AIPageComponents/AIWhyChoose/AI_WhyChoose";
-import AI_Impact from "../AIPageComponents/AIImpact/AI_Impact";
-import AI_CTA from "../AIPageComponents/AICTA/AI_CTA";
+import AI_Hero from "../AIPageComponents/AI_Hero";
+import AI_Overview from "../AIPageComponents/AI_Overview";
+import AI_Approach from "../AIPageComponents/AI_Approach";
+import AI_Industries from "../AIPageComponents/AI_Industries";
+import AI_WhyChoose from "../AIPageComponents/AI_WhyChoose";
+import AI_Impact from "../AIPageComponents/AI_Impact";
+import AI_CTA from "../AIPageComponents/AI_CTA";
 
 const GenerativeAI = () => {
   const steps = [

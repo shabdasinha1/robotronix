@@ -1,19 +1,22 @@
 import { useEffect, useRef } from "react";
 
-
 const AI_Impact = ({ title, subtitle }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          section.classList.add("rtx-aiimpact-visible");
+          section.classList.add("u-drop-visible");
           observer.disconnect();
         }
       },
-      { threshold: 0.25 }
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
+      }
     );
 
     observer.observe(section);
@@ -21,9 +24,12 @@ const AI_Impact = ({ title, subtitle }) => {
   }, []);
 
   return (
-    <section className="rtx-aiimpact-section" ref={sectionRef}>
+    <section
+      className="rtx-aiimpact-section u-section u-section-sm"
+      ref={sectionRef}
+    >
       <div
-        className="rtx-aiimpact-container rtx-aiimpact-drop"
+        className="rtx-aiimpact-container u-drop"
         style={{ "--delay": "0.2s" }}
       >
         <h2 className="rtx-aiimpact-title">{title}</h2>

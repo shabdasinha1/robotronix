@@ -1,11 +1,13 @@
 /* =====================================
-   AI HERO (SERVICES PAGE)
+   AI SERVICES PAGE START
 ===================================== */
 
+/* =====================================
+   AI HERO (SERVICES PAGE)
+===================================== */
+/* HERO WRAPPER (unique spacing & particles) */
 .rtx-aihero-wrapper {
-  width: 100%;
   padding: 130px 20px;
-  background: var(--bg-dark-1);
   position: relative;
   overflow: hidden;
 }
@@ -23,14 +25,11 @@
 }
 
 .rtx-aihero-container {
-  max-width: 1150px;
-  margin: auto;
-  text-align: center;
   position: relative;
   z-index: 2;
 }
 
-/* TEXT */
+/* HERO TEXT */
 .rtx-aihero-badge {
   display: inline-block;
   padding: 8px 20px;
@@ -78,60 +77,18 @@
   margin-top: 80px;
 }
 
-/* ANIMATION */
-.rtx-aihero-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.8s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aihero-visible .rtx-aihero-drop {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* =====================================
    AI OVERVIEW (SERVICES PAGE)
 ===================================== */
-
-.rtx-aioverview-section {
-  width: 100%;
-  padding: 100px 20px;
-  background: var(--bg-dark-1);
-}
-
 .rtx-aioverview-container {
-  max-width: 1150px;
-  margin: auto;
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-
 .rtx-aioverview-left {
   flex: 1 1 480px;
-}
-
-.rtx-aioverview-title {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--clr-white);
-  margin-bottom: 18px;
-}
-
-.rtx-aioverview-title span {
-  color: var(--clr-blue);
-  text-shadow: 0 0 12px var(--blue-06);
-}
-
-.rtx-aioverview-text {
-  color: var(--clr-text-light);
-  line-height: 1.7;
-  font-size: 1.1rem;
-  margin-bottom: 18px;
 }
 
 .rtx-aioverview-right {
@@ -141,45 +98,14 @@
   gap: 22px;
 }
 
-/* Animation */
-.rtx-aioverview-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.9s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aioverview-visible .rtx-aioverview-drop {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =====================================
-   AI OVERVIEW — TEXT FIX (DARK + LIGHT)
-===================================== */
-
-:root[data-theme="dark"] .rtx-aioverview-text {
-  color: var(--clr-text-light);
-}
-
-:root[data-theme="light"] .rtx-aioverview-text {
-  color: var(--clr-text-soft);
+.rtx-aioverview-text {
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 
 /* ============================================================
    AI SERVICES — APPROACH (SYSTEM MODE)
 ============================================================ */
-
-.rtx-aiapproach-section {
-  width: 100%;
-  padding: 110px 20px;
-  background: var(--bg-dark-1);
-}
-
-.rtx-aiapproach-container {
-  max-width: 1150px;
-  margin: auto;
-}
 
 .rtx-aiapproach-header {
   text-align: center;
@@ -198,62 +124,14 @@
 }
 
 .rtx-aiapproach-subtext {
-  color: var(--clr-text-light);
   font-size: 1.1rem;
   margin-top: 12px;
-}
-
-/* GRID ONLY (cards are global) */
-.rtx-aiapproach-grid {
-  display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  margin-top: 40px;
-}
-
-/* Animation */
-.rtx-aiapproach-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.9s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aiapproach-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Light Theme */
-:root[data-theme="light"] .rtx-aiapproach-section {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
-}
-
-:root[data-theme="light"] .rtx-aiapproach-subtext {
-  color: var(--clr-text-soft);
 }
 
 /* ============================================================
    AI SERVICES — INDUSTRIES (SYSTEM MODE)
 ============================================================ */
 
-.rtx-aiindustries-section {
-  width: 100%;
-  padding: 110px 20px;
-  background: var(--bg-dark-1);
-}
-
-.rtx-aiindustries-container {
-  max-width: 1150px;
-  margin: auto;
-}
-
-/* HEADER */
 .rtx-aiindustries-header {
   text-align: center;
   max-width: 750px;
@@ -271,65 +149,20 @@
 }
 
 .rtx-aiindustries-subtext {
-  color: var(--clr-text-light);
-  margin-top: 12px;
   font-size: 1.1rem;
+  margin-top: 12px;
 }
 
-/* GRID ONLY */
-.rtx-aiindustries-grid {
-  display: grid;
-  gap: 26px;
-  margin-top: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-/* ICON ONLY (allowed section-specific) */
 .rtx-aiindustries-icon {
   font-size: 2.2rem;
   margin-bottom: 14px;
   color: var(--clr-blue);
 }
 
-/* Animation */
-.rtx-aiindustries-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.85s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aiindustries-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Light theme */
-:root[data-theme="light"] .rtx-aiindustries-section {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
-}
-
 /* ============================================================
    AI SERVICES — WHY CHOOSE US (SYSTEM MODE)
 ============================================================ */
 
-.rtx-aiwhy-section {
-  width: 100%;
-  padding: 110px 20px;
-  background: var(--bg-dark-1);
-}
-
-.rtx-aiwhy-container {
-  max-width: 1150px;
-  margin: auto;
-}
-
-/* HEADER */
 .rtx-aiwhy-header {
   text-align: center;
   max-width: 760px;
@@ -347,56 +180,20 @@
 }
 
 .rtx-aiwhy-subtext {
-  color: var(--clr-text-light);
   font-size: 1.1rem;
 }
 
-/* GRID ONLY */
-.rtx-aiwhy-grid {
-  display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  margin-top: 40px;
-}
-
-/* ICON ONLY */
 .rtx-aiwhy-check {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: var(--clr-blue);
 }
 
-/* ANIMATION */
-.rtx-aiwhy-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.85s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aiwhy-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* LIGHT THEME */
-:root[data-theme="light"] .rtx-aiwhy-section {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
-}
-
 /* ======================================================
-   AI IMPACT — PUNCH SECTION (DO NOT OVER-CENTRALISE)
+   AI IMPACT — PUNCH SECTION 
 ====================================================== */
 
 .rtx-aiimpact-section {
-  width: 100%;
-  padding: 100px 20px;
-  background: var(--bg-dark-1);
   position: relative;
   overflow: hidden;
 }
@@ -419,24 +216,10 @@
 
 /* SUBTEXT */
 .rtx-aiimpact-subtext {
-  color: var(--clr-text-light);
   font-size: 1.1rem;
   line-height: 1.75;
   max-width: 700px;
   margin: 0 auto;
-}
-
-/* ANIMATION */
-.rtx-aiimpact-drop {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: 0.85s ease;
-  transition-delay: var(--delay);
-}
-
-.rtx-aiimpact-visible .rtx-aiimpact-drop {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* RESPONSIVE */
@@ -446,33 +229,11 @@
   }
 }
 
-/* LIGHT THEME */
-:root[data-theme="light"] .rtx-aiimpact-section {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
-}
-
-:root[data-theme="light"] .rtx-aiimpact-title {
-  color: var(--clr-white);
-  text-shadow: 0 0 10px var(--blue-02s);
-}
-
-:root[data-theme="light"] .rtx-aiimpact-subtext {
-  color: var(--clr-text-soft);
-}
-
 /* =========================================
-   SERVICE CTA (SAME AS HOME CTA)
+   SERVICE CTA 
 ========================================= */
 
 .rtx-service-cta {
-  width: 100%;
-  padding: 120px 20px;
-  background: var(--bg-dark-1);
   display: flex;
   justify-content: center;
 }
@@ -493,15 +254,6 @@
   border: 1px solid var(--white-12);
   backdrop-filter: blur(10px);
   text-align: center;
-
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.7s ease;
-}
-
-.rtx-drop-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* TEXT */
@@ -512,7 +264,6 @@
 }
 
 .rtx-service-cta-sub {
-  color: var(--clr-text-light);
   font-size: 1.2rem;
   margin: 12px 0 30px;
 }
@@ -528,25 +279,6 @@
   }
 }
 
-/* LIGHT THEME */
-:root[data-theme="light"] .rtx-service-cta {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
-}
-
-:root[data-theme="light"] .rtx-service-cta-box {
-  background: linear-gradient(
-    135deg,
-    var(--white-055),
-    var(--white-045),
-    var(--blue-008)
-  );
-  border: 1px solid var(--border-light-1);
-  box-shadow:
-    0 8px 20px var(--border-light-2),
-    0 4px 12px var(--blue-012s);
-}
+/* =====================================
+   AI SERVICES PAGE END
+===================================== */

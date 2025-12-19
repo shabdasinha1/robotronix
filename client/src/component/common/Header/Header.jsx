@@ -105,6 +105,9 @@ const toggleTheme = () => {
                                     <NavItem title="Embedded System & IoT Solutions" to="/embedded-iot" />
                                     <NavItem title="Data Science & Data Analytics" to="/data-science" />
                                     <NavItem title="Mobile Application Development" to="/mobile-application-development" />
+                                    <NavItem title="Web Development & Digital Solutions" to="/" />
+                                    <NavItem title="On Demand Software Development" to="/" />
+
                                 </div>
                             </li>
 
