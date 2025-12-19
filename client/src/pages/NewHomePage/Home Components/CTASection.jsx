@@ -1,32 +1,18 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const CTASection = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.2,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-cta-wrapper u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-cta-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div
         className="rtx-cta-box u-drop"

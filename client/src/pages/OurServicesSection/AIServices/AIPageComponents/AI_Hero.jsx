@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
 
 const AI_Hero = ({
   badge,
@@ -11,29 +11,17 @@ const AI_Hero = ({
   secondaryLink,
   stats = [],
 }) => {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const section = heroRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.2,
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-aihero-wrapper u-section"
-      ref={heroRef}
+      ref={ref}
+      className={`rtx-aihero-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-aihero-particles" />
 

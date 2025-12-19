@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
 
 const AI_Overview = ({
   title,
@@ -8,33 +8,18 @@ const AI_Overview = ({
   btnText,
   btnLink = "#",
 }) => {
-  const overviewRef = useRef(null);
-
-  useEffect(() => {
-    const section = overviewRef.current;
-
-   const observer = new IntersectionObserver(
-  (entries) => {
-    if (entries[0].isIntersecting) {
-      section.classList.add("u-drop-visible");
-      observer.disconnect();
-    }
-  },
-  {
+  const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
-  }
-);
-
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-aioverview-section u-section u-section-sm"
-      ref={overviewRef}
+      ref={ref}
+      className={`rtx-aioverview-section u-section u-section-sm ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-aioverview-container u-container">
 

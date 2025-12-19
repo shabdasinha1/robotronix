@@ -1,46 +1,45 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const ContactSection = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
 
   return (
-    <section className="rtx-contact-wrapper u-section" ref={sectionRef}>
+    <section
+      ref={ref}
+      className={`rtx-contact-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-contact-container u-container-center">
 
         {/* TITLE */}
-        <h2 className="rtx-contact-title u-drop" style={{ "--delay": "0.2s" }}>
+        <h2
+          className="rtx-contact-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Let’s Build Something <span>Amazing Together</span>
         </h2>
 
-        <p className="rtx-contact-sub u-drop" style={{ "--delay": "0.4s" }}>
-          Ready to transform your business? Get in touch and let's discuss your next project.
+        <p
+          className="rtx-contact-sub u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
+          Ready to transform your business? Get in touch and let's discuss your
+          next project.
         </p>
 
         {/* GRID */}
         <div className="rtx-contact-grid">
 
           {/* LEFT — FORM */}
-          <div className="rtx-contact-left u-drop" style={{ "--delay": "0.6s" }}>
+          <div
+            className="rtx-contact-left u-drop"
+            style={{ "--delay": "0.6s" }}
+          >
             <h3>Send us a message</h3>
 
             <div className="rtx-form-row">
@@ -71,12 +70,15 @@ const ContactSection = () => {
           </div>
 
           {/* RIGHT — INFO */}
-          <div className="rtx-contact-right u-drop" style={{ "--delay": "0.8s" }}>
+          <div
+            className="rtx-contact-right u-drop"
+            style={{ "--delay": "0.8s" }}
+          >
             <h3>Get in Touch</h3>
 
             <p className="rtx-right-desc">
-              Have a question or ready to start your project?
-              Reach out through any of the channels below.
+              Have a question or ready to start your project? Reach out through
+              any of the channels below.
             </p>
 
             <div className="rtx-info-card">
@@ -97,7 +99,10 @@ const ContactSection = () => {
         </div>
 
         {/* BOTTOM BANNER */}
-        <div className="rtx-contact-banner u-drop" style={{ "--delay": "1s" }}>
+        <div
+          className="rtx-contact-banner u-drop"
+          style={{ "--delay": "1s" }}
+        >
           <h4>⚡ Quick Response</h4>
           <p>We typically respond within 24 hours during business days.</p>
         </div>

@@ -8,19 +8,15 @@
   border-top: 1px solid var(--white-06);
 }
 
-/* Fade-in Animation */
-.rtx-footer-container {
-  max-width: 1300px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.7s ease;
-}
+/* NOTE:
+   .u-container handles:
+   - max-width
+   - center alignment
 
-.rtx-footer-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+   .u-drop + .u-drop-visible handle:
+   - opacity
+   - translateY animation
+*/
 
 /* ===============================
    FOOTER GRID
@@ -63,7 +59,7 @@
   color: var(--clr-text-light);
   margin-bottom: 10px;
   cursor: pointer;
-  transition: color 0.25s, transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .rtx-footer-col li:hover {
@@ -120,7 +116,7 @@
 .rtx-footer-social svg {
   color: var(--clr-white);
   cursor: pointer;
-  transition: color 0.25s, transform 0.25s ease, filter 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease, filter 0.25s ease;
 }
 
 .rtx-footer-social svg:hover {
@@ -152,7 +148,7 @@
 }
 
 /* ===============================
-   LIGHT THEME UPGRADE (Premium Frosted White)
+   LIGHT THEME (Premium Frosted)
 ================================ */
 :root[data-theme="light"] .rtx-footer-wrapper {
   background: linear-gradient(
@@ -164,7 +160,6 @@
   border-top: 1px solid var(--border-light-1);
 }
 
-/* Light theme contact card — reduced glow */
 :root[data-theme="light"] .rtx-footer-contact {
   background: var(--white-055);
   border: 1px solid var(--border-light-1);
@@ -187,7 +182,6 @@
   border-top: 1px solid var(--border-light-1);
 }
 
-/* Icons — softer glow in light mode */
 :root[data-theme="light"] .rtx-footer-social svg:hover {
   filter: drop-shadow(0 0 4px var(--blue-012s));
 }
@@ -205,6 +199,7 @@
   .rtx-footer-grid {
     grid-template-columns: 1fr;
   }
+
   .rtx-footer-contact {
     margin-top: 20px;
   }

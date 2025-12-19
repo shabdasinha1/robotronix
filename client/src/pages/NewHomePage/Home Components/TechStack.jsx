@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const techItems = [
   { name: "React", type: "Frontend" },
@@ -18,42 +18,34 @@ const techItems = [
 ];
 
 const TechStack = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-tech-wrapper u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-tech-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-tech-container u-container-center">
 
         {/* TITLE */}
-        <h2 className="rtx-tech-title u-drop" style={{ "--delay": "0.2s" }}>
+        <h2
+          className="rtx-tech-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Technology <span>Stack</span>
         </h2>
 
         {/* SUBTEXT */}
-        <p className="rtx-tech-subtext u-drop" style={{ "--delay": "0.4s" }}>
+        <p
+          className="rtx-tech-subtext u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
           We leverage cutting-edge technologies to build robust, scalable solutions.
         </p>
 
@@ -71,7 +63,10 @@ const TechStack = () => {
           ))}
         </div>
 
-        <p className="rtx-tech-footer u-drop" style={{ "--delay": "1.8s" }}>
+        <p
+          className="rtx-tech-footer u-drop"
+          style={{ "--delay": "1.8s" }}
+        >
           And many more technologies in our arsenal
         </p>
 

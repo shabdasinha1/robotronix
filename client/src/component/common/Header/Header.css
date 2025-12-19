@@ -1,6 +1,31 @@
 /* ============================================================
    HEADER MAIN WRAPPER (Glass + Solid Scroll)
 =============================================================== */
+/* TOP-LEVEL NAVLINKS (Products, Portfolio, Contact) */
+.rtx-header-menu ul li > a {
+  background: transparent;
+  border: none;
+
+  height: 32px;
+  line-height: 1;
+
+  color: var(--clr-text-soft) !important;
+  font-weight: 600;
+  font-size: 15.5px;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  padding: 0px 4px;
+  transition: color 180ms ease, transform 150ms ease;
+}
+
+/* Hover same as button */
+.rtx-header-menu ul li > a:hover,.rtx-header-menu ul li > a.active  {
+  color: var(--clr-blue-light) !important;
+  transform: translateY(-2px);
+}
 
 .rtx-header-wrapper {
   position: fixed;
@@ -79,22 +104,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .rtx-header-menu ul li button {
   background: transparent;
   border: none;
-
+  height: 32px;
+  line-height: 1;
   color: var(--clr-text-soft);
   font-weight: 600;
   font-size: 15.5px;
 
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
+  
   gap: 8px;
 
-  padding: 6px 4px;
+  padding: 0px 4px;
   transition: color 180ms ease, transform 150ms ease;
 }
 

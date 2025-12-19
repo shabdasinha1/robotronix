@@ -1,37 +1,23 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
 
-const AI_Approach = ({ 
-  title, 
-  accent, 
-  subtitle, 
-  steps = [] 
+const AI_Approach = ({
+  title,
+  accent,
+  subtitle,
+  steps = [],
 }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-aiapproach-section u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-aiapproach-section u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-aiapproach-container u-container">
 
@@ -43,6 +29,7 @@ const AI_Approach = ({
           <h2 className="rtx-aiapproach-title u-title">
             {title} <span>{accent}</span>
           </h2>
+
           <p className="rtx-aiapproach-subtext u-subtext">
             {subtitle}
           </p>

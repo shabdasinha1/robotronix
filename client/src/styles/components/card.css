@@ -57,3 +57,7 @@
     0 12px 24px var(--border-light-2),
     0 6px 16px var(--blue-025s);
 }
+
+:root[data-theme="dark"] .text-muted {
+  color: var(--clr-text-light) !important;
+}

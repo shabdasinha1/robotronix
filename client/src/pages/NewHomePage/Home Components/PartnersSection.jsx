@@ -1,46 +1,41 @@
-import { useEffect, useRef } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const PartnersSection = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible", "rtx-marquee-active");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
 
   return (
     <section
-      className="rtx-partners-wrapper u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-partners-wrapper u-section ${
+        visible ? "u-drop-visible rtx-marquee-active" : ""
+      }`}
     >
       <div className="rtx-partners-container u-container-center">
 
         {/* TITLE */}
-        <h2 className="rtx-partners-title u-drop" style={{ "--delay": "0.2s" }}>
+        <h2
+          className="rtx-partners-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Trusted By <span>Industry Leaders</span>
         </h2>
 
-        <p className="rtx-partners-sub u-drop" style={{ "--delay": "0.4s" }}>
+        <p
+          className="rtx-partners-sub u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
           Companies around the world rely on us for cutting-edge solutions.
         </p>
 
         {/* ROW 1 */}
-        <div className="rtx-marquee-row u-drop" style={{ "--delay": "0.6s" }}>
+        <div
+          className="rtx-marquee-row u-drop"
+          style={{ "--delay": "0.6s" }}
+        >
           <div className="rtx-marquee-track">
             {[...Array(2)].map((_, i) => (
               <div className="rtx-marquee-set" key={i}>
@@ -55,7 +50,10 @@ const PartnersSection = () => {
         </div>
 
         {/* ROW 2 */}
-        <div className="rtx-marquee-row rtx-marquee-reverse u-drop" style={{ "--delay": "0.8s" }}>
+        <div
+          className="rtx-marquee-row rtx-marquee-reverse u-drop"
+          style={{ "--delay": "0.8s" }}
+        >
           <div className="rtx-marquee-track">
             {[...Array(2)].map((_, i) => (
               <div className="rtx-marquee-set" key={i}>

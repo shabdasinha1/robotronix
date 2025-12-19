@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const stats = [
   { icon: "👥", value: 500, label: "Happy Clients" },
@@ -8,34 +9,17 @@ const stats = [
 ];
 
 const ChooseUsSection = () => {
-  const sectionRef = useRef(null);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
+
   const [counts, setCounts] = useState(stats.map(() => 0));
-  const hasAnimated = useRef(false);
 
-  /* Intersection Observer */
+  /* Counter Animation — starts only when visible */
   useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
-          section.classList.add("u-drop-visible");
-          hasAnimated.current = true;
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  /* Counter Animation */
-  useEffect(() => {
-    if (!hasAnimated.current) return;
+    if (!visible) return;
 
     const duration = 1200;
     const frames = 60;
@@ -60,21 +44,29 @@ const ChooseUsSection = () => {
         });
       }, incrementTime);
     });
-  }, []);
+  }, [visible]);
 
   return (
     <section
-      className="rtx-choose-wrapper u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-choose-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-choose-container u-container-center">
 
         {/* TITLE */}
-        <h2 className="rtx-choose-title u-drop" style={{ "--delay": "0.2s" }}>
+        <h2
+          className="rtx-choose-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Why <span>Choose Us</span>
         </h2>
 
-        <p className="rtx-choose-subtext u-drop" style={{ "--delay": "0.4s" }}>
+        <p
+          className="rtx-choose-subtext u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
           Numbers that speak for our commitment to excellence and innovation.
         </p>
 

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const testimonials = [
   {
@@ -25,29 +26,13 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  const sectionRef = useRef(null);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px",
+    once: true,
+  });
+
   const [active, setActive] = useState(0);
-
-  /* Scroll animation */
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          section.classList.add("u-drop-visible");
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   /* Auto slider */
   useEffect(() => {
@@ -60,22 +45,33 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="rtx-test-wrapper u-section"
-      ref={sectionRef}
+      ref={ref}
+      className={`rtx-test-wrapper u-section ${
+        visible ? "u-drop-visible" : ""
+      }`}
     >
       <div className="rtx-test-container u-container-center">
 
         {/* TITLE */}
-        <h2 className="rtx-test-title u-drop" style={{ "--delay": "0.2s" }}>
+        <h2
+          className="rtx-test-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Client <span>Testimonials</span>
         </h2>
 
-        <p className="rtx-test-subtext u-drop" style={{ "--delay": "0.4s" }}>
+        <p
+          className="rtx-test-subtext u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
           Hear what our clients have to say about working with us.
         </p>
 
         {/* MAIN SLIDER */}
-        <div className="rtx-test-slider u-drop" style={{ "--delay": "0.6s" }}>
+        <div
+          className="rtx-test-slider u-drop"
+          style={{ "--delay": "0.6s" }}
+        >
           {testimonials.map((item, index) => (
             <div
               key={index}
@@ -97,13 +93,16 @@ const TestimonialsSection = () => {
         </div>
 
         {/* DOTS */}
-        <div className="rtx-test-dots u-drop" style={{ "--delay": "0.8s" }}>
+        <div
+          className="rtx-test-dots u-drop"
+          style={{ "--delay": "0.8s" }}
+        >
           {testimonials.map((_, index) => (
             <div
               key={index}
               className={`rtx-test-dot ${active === index ? "active" : ""}`}
               onClick={() => setActive(index)}
-            ></div>
+            />
           ))}
         </div>
 

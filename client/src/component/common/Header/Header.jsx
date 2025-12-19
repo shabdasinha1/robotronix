@@ -1,254 +1,241 @@
 import React, { useState, useEffect } from "react";
-import { NavLink,useLocation } from "react-router-dom";
-import { FiMenu, FiX,FiSun,FiMoon } from "react-icons/fi";
+import { NavLink, useLocation } from "react-router-dom";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import logo from "../../../assets/img/logo_c1.png";
 import "./Header.css";
 
-
 const Header = () => {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [serviceOpen, setServiceOpen] = useState(false);
-    const [aboutOpen, setAboutOpen] = useState(false);
-    const [headerSolid, setHeaderSolid] = useState(false);
-    const { pathname } = useLocation();
-    
-    // THEME STATE
-const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "dark"
-);
-const handleLogoClick = (e) => {
-    if (pathname === "/") {
-        e.preventDefault(); // prevent React Router from reloading '/'
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-};
-// APPLY THEME ON LOAD
-useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-}, [theme]);
+  const { pathname } = useLocation();
 
-// HANDLE TOGGLE
-const toggleTheme = () => {
+  /* ===============================
+     STATE
+  =============================== */
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState(null); // "services" | "about"
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [headerSolid, setHeaderSolid] = useState(false);
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  );
+
+  /* ===============================
+     EFFECTS
+  =============================== */
+
+  // Apply theme
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  // Header solid on scroll
+  useEffect(() => {
+    const onScroll = () => setHeaderSolid(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock body scroll on mobile
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+  }, [mobileOpen]);
+
+  /* ===============================
+     HANDLERS
+  =============================== */
+
+  const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     localStorage.setItem("theme", next);
-};
+  };
 
-
-    // toggle mobile panel
-    const toggleMobile = () => setMobileOpen((p) => !p);
-
-    // scroll listener: toggle solid header after 40px
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 40) setHeaderSolid(true);
-            else setHeaderSolid(false);
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-
-    useEffect(() => {
-        if (mobileOpen) {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden"; // prevent background scroll
-        } else {
-            document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
-        }
-    }, [mobileOpen]);
-
-    return (
-        <>
-            <header
-                className={`rtx-header-wrapper 
-    ${headerSolid ? "rtx-solid" : "rtx-glass"} 
-    ${mobileOpen ? "rtx-no-blur" : ""}
-  `}
-            >
-
-                <div className="rtx-header-container">
-                    {/* LOGO */}
-                    <div className="rtx-header-logo">
-                        <NavLink to="/" onClick={handleLogoClick}>
-                            <img src={logo} alt="Robotronix Logo" />
-                        </NavLink>
-                    </div>
-
-                    {/* Desktop Menu */}
-                    <nav className="rtx-header-menu" aria-label="Primary Navigation">
-                        <ul>
-                            {/* SERVICES */}
-                            <li
-                                className="rtx-has-dropdown"
-                                onMouseEnter={() => setServiceOpen(true)}
-                               onMouseLeave={(e) => {
-    const target = e.relatedTarget;
-    if (target instanceof Node && e.currentTarget && !e.currentTarget.contains(target)) {
-        setServiceOpen(false);
+  const handleLogoClick = (e) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-}}
+  };
 
-                            >
-                                <button aria-haspopup="true" aria-expanded={serviceOpen}>
-                                    Our Services{" "}
-                                    {serviceOpen ? <FaAngleUp className="rtx-icon" /> : <FaAngleDown className="rtx-icon" />}
-                                </button>
+  /* ===============================
+     RENDER
+  =============================== */
 
-                                <div className={`rtx-dropdown ${serviceOpen ? "rtx-open" : ""}`}>
-                                    <NavItem title="AI & Machine Learning Solutions" to="/ai-ml" />
-                                    <NavItem title="Generative AI (Gen AI) Solutions" to="/generative-ai" />
-                                    <NavItem title="Agents & Agentic AI" to="/agents-ai" />
-                                    <NavItem title="Embedded System & IoT Solutions" to="/embedded-iot" />
-                                    <NavItem title="Data Science & Data Analytics" to="/data-science" />
-                                    <NavItem title="Mobile Application Development" to="/mobile-application-development" />
-                                    <NavItem title="Web Development & Digital Solutions" to="/" />
-                                    <NavItem title="On Demand Software Development" to="/" />
+  return (
+    <>
+      <header
+        className={`rtx-header-wrapper 
+          ${headerSolid ? "rtx-solid" : "rtx-glass"} 
+          ${mobileOpen ? "rtx-no-blur" : ""}
+        `}
+      >
+        <div className="rtx-header-container">
 
-                                </div>
-                            </li>
+          {/* LOGO */}
+          <NavLink to="/" className="rtx-header-logo" onClick={handleLogoClick}>
+            <img src={logo} alt="Robotronix Logo" />
+          </NavLink>
 
-                            {/* PRODUCTS */}
-                            <li>
-                                <NavLink to="/products">
-                                    <button>Products</button>
-                                </NavLink>
-                            </li>
+          {/* DESKTOP NAV */}
+          <nav className="rtx-header-menu">
+            <ul>
+              <DesktopDropdown
+                label="Our Services"
+                open={desktopDropdown === "services"}
+                onOpen={() => setDesktopDropdown("services")}
+                onClose={() => setDesktopDropdown(null)}
+              >
+                <NavItem title="AI & Machine Learning Solutions" to="/ai-ml" />
+                <NavItem title="Generative AI (Gen AI) Solutions" to="/generative-ai" />
+                <NavItem title="Agents & Agentic AI" to="/agents-ai" />
+                <NavItem title="Embedded System & IoT Solutions" to="/embedded-iot" />
+                <NavItem title="Data Science & Data Analytics" to="/data-science" />
+                <NavItem title="Mobile Application Development" to="/mobile-application-development" />
+                <NavItem title="Web Development & Digital Solutions" to="/" />
+                <NavItem title="On Demand Software Development" to="/" />
+              </DesktopDropdown>
 
-                            {/* ABOUT */}
-                            <li
-                                className="rtx-has-dropdown"
-                                onMouseEnter={() => setAboutOpen(true)}
-                                onMouseLeave={() => setAboutOpen(false)}
-                            >
-                                <button aria-haspopup="true" aria-expanded={aboutOpen}>
-                                    About Us{" "}
-                                    {aboutOpen ? <FaAngleUp className="rtx-icon" /> : <FaAngleDown className="rtx-icon" />}
-                                </button>
+              <NavButton to="/products" label="Products" />
 
-                                <div className={`rtx-dropdown rtx-small ${aboutOpen ? "rtx-open" : ""}`}>
-                                    <NavItem title="Company Overview" to="/about" />
-                                    <NavItem title="Leadership Team" to="/culture" />
-                                    <NavItem title="Vision & Mission" to="/vision" />
-                                </div>
-                            </li>
+              <DesktopDropdown
+                label="About Us"
+                open={desktopDropdown === "about"}
+                onOpen={() => setDesktopDropdown("about")}
+                onClose={() => setDesktopDropdown(null)}
+                small
+              >
+                <NavItem title="Company Overview" to="/about" />
+                <NavItem title="Leadership Team" to="/culture" />
+                <NavItem title="Vision & Mission" to="/vision" />
+              </DesktopDropdown>
 
-                            {/* PORTFOLIO */}
-                            <li>
-                                <NavLink to="/portfolio">
-                                    <button>Portfolio</button>
-                                </NavLink>
-                            </li>
+              <NavButton to="/portfolio" label="Portfolio" />
+              <NavButton to="/contact-us" label="Contact Us" />
+            </ul>
+          </nav>
 
-                            {/* CONTACT */}
-                            <li>
-                                <NavLink to="/contact-us">
-                                    <button>Contact Us</button>
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div className="rtx-header-right">
-                    {/* THEME TOGGLE BUTTON */}
-<button className="rtx-theme-toggle" onClick={toggleTheme}>
-    {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
-</button>
+          {/* RIGHT */}
+          <div className="rtx-header-right">
+            <button className="rtx-theme-toggle" onClick={toggleTheme}>
+              {theme === "dark" ? <FiSun /> : <FiMoon />}
+            </button>
 
-                    {/* Mobile Hamburger */}
-                    <div className="rtx-mobile-menu-icon" onClick={toggleMobile} aria-hidden="true">
-                        {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-                    </div>
-                    </div>
-                </div>
-            </header>
+            <div
+              className="rtx-mobile-menu-icon"
+              onClick={() => setMobileOpen((p) => !p)}
+            >
+              {mobileOpen ? <FiX /> : <FiMenu />}
+            </div>
+          </div>
+        </div>
+      </header>
 
-            {/* Mobile Slide Panel */}
-            <aside className={`rtx-mobile-panel ${mobileOpen ? "rtx-open" : ""}`} aria-hidden={!mobileOpen}>
-              
+      {/* MOBILE PANEL */}
+      <aside className={`rtx-mobile-panel ${mobileOpen ? "rtx-open" : ""}`}>
+        <ul className="rtx-mobile-ul">
 
-                <ul className="rtx-mobile-ul">
-                    <li className="rtx-mobile-dropdown">
-                        <div
-                            className="rtx-mobile-title"
-                            onClick={() => {
-                                if (!serviceOpen) {
-                                    setAboutOpen(false);
-                                    setTimeout(() => setServiceOpen(true), 100);
-                                } else {
-                                    setServiceOpen(false);
-                                }
-                            }}
+          <MobileDropdown
+            label="Our Services"
+            open={mobileDropdown === "services"}
+            onToggle={() =>
+              setMobileDropdown(mobileDropdown === "services" ? null : "services")
+            }
+          >
+            <NavItem mobile title="AI & Machine Learning Solutions" to="/ai-ml" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Generative AI (Gen AI) Solutions" to="/generative-ai" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Agents & Agentic AI" to="/agents-ai" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Embedded System & IoT Solutions" to="/embedded-iot" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Data Science & Data Analytics" to="/data-science" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Mobile Application Development" to="/mobile-application-development" onClick={() => setMobileOpen(false)} />
+          </MobileDropdown>
 
-                        >
+          <NavButton to="/products" label="Products" mobile onClick={() => setMobileOpen(false)} />
 
-                            <span>Our Services</span>
-                            {serviceOpen ? <FaAngleUp /> : <FaAngleDown />}
-                        </div>
+          <MobileDropdown
+            label="About Us"
+            open={mobileDropdown === "about"}
+            onToggle={() =>
+              setMobileDropdown(mobileDropdown === "about" ? null : "about")
+            }
+          >
+            <NavItem mobile title="Company Overview" to="/about" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Leadership Team" to="/culture" onClick={() => setMobileOpen(false)} />
+            <NavItem mobile title="Vision & Mission" to="/vision" onClick={() => setMobileOpen(false)} />
+          </MobileDropdown>
 
-                        <div className={`rtx-mobile-dropdown-list ${serviceOpen ? "rtx-show" : ""}`}>
-                            <NavItem title="AI & Machine Learning Solutions" to="/ai-ml" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Generative AI (Gen AI) Solutions" to="/generative-ai" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Agents & Agentic AI" to="/agents-ai" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Embedded System & IoT Solutions" to="/embedded-iot" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Data Science & Data Analytics" to="/data-science" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Mobile Application Development" to="/mobile-application-development" mobile onClick={() => setMobileOpen(false)} />
-                        </div>
-                    </li>
+          <NavButton to="/portfolio" label="Portfolio" mobile onClick={() => setMobileOpen(false)} />
+          <NavButton to="/contact-us" label="Contact Us" mobile onClick={() => setMobileOpen(false)} />
+        </ul>
+      </aside>
 
-                    <li>
-                        <NavLink to="/products" onClick={() => setMobileOpen(false)}>
-                            <span className="rtx-mobile-link">Products</span>
-                        </NavLink>
-                    </li>
-
-                    <li className="rtx-mobile-dropdown">
-                        <div
-                            className="rtx-mobile-title"
-                            onClick={() => {
-                                if (!aboutOpen) {
-                                    setServiceOpen(false);
-                                    setTimeout(() => setAboutOpen(true), 100);
-                                } else {
-                                    setAboutOpen(false);
-                                }
-                            }}
-
-                        >
-
-                            <span>About Us</span>
-                            {aboutOpen ? <FaAngleUp /> : <FaAngleDown />}
-                        </div>
-
-                        <div className={`rtx-mobile-dropdown-list ${aboutOpen ? "rtx-show" : ""}`}>
-                            <NavItem title="Company Overview" to="/about" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Leadership Team" to="/culture" mobile onClick={() => setMobileOpen(false)} />
-                            <NavItem title="Vision & Mission" to="/vision" mobile onClick={() => setMobileOpen(false)} />
-                        </div>
-                    </li>
-
-                    <li>
-                        <NavLink to="/portfolio" onClick={() => setMobileOpen(false)}><span className="rtx-mobile-link">Portfolio</span></NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/contact-us" onClick={() => setMobileOpen(false)}><span className="rtx-mobile-link">Contact Us</span></NavLink>
-                    </li>
-                </ul>
-            </aside>
-
-            {/* Backdrop */}
-            {mobileOpen && <div className="rtx-mobile-backdrop" onClick={() => setMobileOpen(false)}></div>}
-        </>
-    );
+      {mobileOpen && <div className="rtx-mobile-backdrop" onClick={() => setMobileOpen(false)} />}
+    </>
+  );
 };
 
-const NavItem = ({ title, to = "/", mobile = false, onClick = () => { } }) => (
-    <NavLink to={to} onClick={onClick} className={mobile ? "rtx-mobile-subitem-link" : "rtx-dropdown-item-link"}>
-        <div className={mobile ? "rtx-mobile-subitem" : "rtx-dropdown-item"}>{title}</div>
+/* ===============================
+   HELPERS
+=============================== */
+
+const DesktopDropdown = ({ label, open, onOpen, onClose, small, children }) => (
+  <li
+    className="rtx-has-dropdown"
+    onMouseEnter={onOpen}
+    onMouseLeave={onClose}
+  >
+    <button>
+      {label}
+      {open ? <FaAngleUp /> : <FaAngleDown />}
+    </button>
+
+    <div className={`rtx-dropdown ${small ? "rtx-small" : ""} ${open ? "rtx-open" : ""}`}>
+      {children}
+    </div>
+  </li>
+);
+
+const MobileDropdown = ({ label, open, onToggle, children }) => (
+  <li className="rtx-mobile-dropdown">
+    <div className="rtx-mobile-title" onClick={onToggle}>
+      <span>{label}</span>
+      {open ? <FaAngleUp /> : <FaAngleDown />}
+    </div>
+    <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
+      {children}
+    </div>
+  </li>
+);
+
+const NavButton = ({ to, label, mobile, onClick }) => (
+  <li>
+    <NavLink
+      to={to}
+      onClick={onClick}
+      className={({ isActive }) =>
+        mobile
+          ? "rtx-mobile-link"
+          : `rtx-nav-btn ${isActive ? "rtx-active" : ""}`
+      }
+    >
+      {label}
     </NavLink>
+  </li>
+);
+
+
+const NavItem = ({ title, to, mobile, onClick }) => (
+  <NavLink
+    to={to}
+    onClick={onClick}
+    className={mobile ? "rtx-mobile-subitem-link" : "rtx-dropdown-item-link"}
+  >
+    <div className={mobile ? "rtx-mobile-subitem" : "rtx-dropdown-item"}>
+      {title}
+    </div>
+  </NavLink>
 );
 
 export default Header;

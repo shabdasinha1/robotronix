@@ -1,30 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 import "./NewFooter.css";
-import { FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 
 const NewFooter = () => {
-  const footerRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (footerRef.current) observer.observe(footerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.2,
+  });
 
   return (
-    <footer className="rtx-footer-wrapper" ref={footerRef}>
-      <div className={`rtx-footer-container ${visible ? "rtx-footer-visible" : ""}`}>
-
+    <footer className="rtx-footer-wrapper" ref={ref}>
+      <div
+        className={`u-container u-drop ${
+          visible ? "u-drop-visible" : ""
+        }`}
+      >
         {/* -------- GRID -------- */}
         <div className="rtx-footer-grid">
-
           {/* SERVICES */}
           <div className="rtx-footer-col">
             <h4>Services</h4>
@@ -58,7 +55,7 @@ const NewFooter = () => {
             </ul>
           </div>
 
-          {/* ABOUT US */}
+          {/* ABOUT */}
           <div className="rtx-footer-col">
             <h4>About Us</h4>
             <ul>
@@ -75,7 +72,7 @@ const NewFooter = () => {
             </ul>
           </div>
 
-          {/* CONTACT BOX */}
+          {/* CONTACT */}
           <div className="rtx-footer-contact">
             <h4>India</h4>
 
@@ -83,7 +80,9 @@ const NewFooter = () => {
             <p>77248 52726</p>
             <p>0731-2970998</p>
 
-            <p className="rtx-footer-mail">info@robotronix.co.in</p>
+            <p className="rtx-footer-mail">
+              info@robotronix.co.in
+            </p>
 
             <p className="rtx-footer-address">
               402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
@@ -91,7 +90,6 @@ const NewFooter = () => {
               Indore, Madhya Pradesh 452001
             </p>
 
-            {/* SOCIAL ICONS */}
             <div className="rtx-footer-social">
               <FaLinkedinIn />
               <FaInstagram />
@@ -100,14 +98,13 @@ const NewFooter = () => {
               <FaYoutube />
             </div>
 
-            {/* Ratings */}
             <div className="rtx-footer-ratings">
               ⭐⭐⭐⭐⭐ 5.0 — Based on Clutch Reviews
             </div>
           </div>
         </div>
 
-        {/* -------- COPYRIGHT -------- */}
+        {/* COPYRIGHT */}
         <div className="rtx-footer-bottom">
           © 2025 ROBOTRONIX ENGINEERING TECH PVT. LTD. — All Rights Reserved
         </div>
