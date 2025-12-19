@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { icon: "👥", value: 500, label: "Happy Clients" },
@@ -10,29 +9,35 @@ const stats = [
 
 const ChooseUsSection = () => {
   const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const hasAnimated = useRef(false);
 
-  // Detect section in viewport
+  /* Intersection Observer */
   useEffect(() => {
+    const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !visible) {
-          setVisible(true);
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          section.classList.add("u-drop-visible");
+          hasAnimated.current = true;
         }
       },
-      { threshold: 0, rootMargin: "0px 0px -35% 0px" }
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
+      }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(section);
     return () => observer.disconnect();
-  }, [visible]);
+  }, []);
 
-  // Number Counter Animation
+  /* Counter Animation */
   useEffect(() => {
-    if (!visible) return;
+    if (!hasAnimated.current) return;
 
-    const duration = 1200; // 1.2s fast count
+    const duration = 1200;
     const frames = 60;
     const incrementTime = duration / frames;
 
@@ -42,6 +47,7 @@ const ChooseUsSection = () => {
 
       const counter = setInterval(() => {
         current += increment;
+
         if (current >= stat.value) {
           current = stat.value;
           clearInterval(counter);
@@ -54,31 +60,32 @@ const ChooseUsSection = () => {
         });
       }, incrementTime);
     });
-  }, [visible]);
+  }, []);
 
   return (
-    <section className="rtx-choose-wrapper" ref={sectionRef}>
-      <div className="rtx-choose-container">
+    <section
+      className="rtx-choose-wrapper u-section"
+      ref={sectionRef}
+    >
+      <div className="rtx-choose-container u-container-center">
 
-        {/* Heading */}
-        <h2 className={`rtx-choose-title ${visible ? "rtx-drop-visible" : ""}`}>
+        {/* TITLE */}
+        <h2 className="rtx-choose-title u-drop" style={{ "--delay": "0.2s" }}>
           Why <span>Choose Us</span>
         </h2>
 
-        <p className={`rtx-choose-subtext ${visible ? "rtx-drop-visible" : ""}`}>
+        <p className="rtx-choose-subtext u-drop" style={{ "--delay": "0.4s" }}>
           Numbers that speak for our commitment to excellence and innovation.
         </p>
 
-        {/* Stats Grid */}
+        {/* STATS */}
         <div className="rtx-choose-grid">
           {stats.map((item, index) => (
-           <div
-  key={index}
-  className={`card card-md card-hover rtx-choose-card ${
-    visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
-  }`}
->
-
+            <div
+              key={index}
+              className="card card-md card-hover rtx-choose-card u-drop-scale"
+              style={{ "--delay": `${0.6 + index * 0.15}s` }}
+            >
               <div className="rtx-choose-icon">{item.icon}</div>
               <h3 className="rtx-choose-value">{counts[index]}+</h3>
               <p className="rtx-choose-label">{item.label}</p>
@@ -86,11 +93,10 @@ const ChooseUsSection = () => {
           ))}
         </div>
 
-        {/* Bottom Box */}
+        {/* BOTTOM BOX */}
         <div
-          className={`rtx-choose-bottom ${
-            visible ? "rtx-bottom-visible" : ""
-          }`}
+          className="rtx-choose-bottom u-drop"
+          style={{ "--delay": "1.4s" }}
         >
           <h3>Trusted by Industry Leaders</h3>
           <p>
@@ -98,6 +104,7 @@ const ChooseUsSection = () => {
             to deliver cutting-edge technology solutions that drive real results.
           </p>
         </div>
+
       </div>
     </section>
   );

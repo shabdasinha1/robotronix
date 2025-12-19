@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
 
 const techItems = [
   { name: "React", type: "Frontend" },
@@ -20,36 +19,41 @@ const techItems = [
 
 const TechStack = () => {
   const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setVisible(true);
+          section.classList.add("u-drop-visible");
+          observer.disconnect();
         }
       },
       {
-        threshold: 0,
-        rootMargin: "0px 0px -35% 0px",
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
       }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="rtx-tech-wrapper" ref={sectionRef}>
-      <div className="rtx-tech-container">
+    <section
+      className="rtx-tech-wrapper u-section"
+      ref={sectionRef}
+    >
+      <div className="rtx-tech-container u-container-center">
 
         {/* TITLE */}
-        <h2 className={`rtx-tech-title ${visible ? "rtx-tech-visible" : ""}`}>
+        <h2 className="rtx-tech-title u-drop" style={{ "--delay": "0.2s" }}>
           Technology <span>Stack</span>
         </h2>
 
         {/* SUBTEXT */}
-        <p className={`rtx-tech-subtext ${visible ? "rtx-tech-visible" : ""}`}>
+        <p className="rtx-tech-subtext u-drop" style={{ "--delay": "0.4s" }}>
           We leverage cutting-edge technologies to build robust, scalable solutions.
         </p>
 
@@ -57,28 +61,27 @@ const TechStack = () => {
         <div className="rtx-tech-grid">
           {techItems.map((item, index) => (
             <div
-  key={index}
-  className={`card card-sm card-hover rtx-tech-card 
-    ${visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
->
-
+              key={index}
+              className="card card-sm card-hover rtx-tech-card u-drop"
+              style={{ "--delay": `${0.6 + index * 0.08}s` }}
+            >
               <h4>{item.name}</h4>
               <span>{item.type}</span>
             </div>
           ))}
         </div>
 
-        <p className={`rtx-tech-footer ${visible ? "rtx-tech-visible" : ""}`}>
+        <p className="rtx-tech-footer u-drop" style={{ "--delay": "1.8s" }}>
           And many more technologies in our arsenal
         </p>
 
         <a
-  href="/"
-  className={`btn btn-outline btn-md ${visible ? "rtx-tech-visible" : ""}`}
->
-  View Full Tech Stack →
-</a>
-
+          href="/"
+          className="btn btn-outline btn-md u-drop"
+          style={{ "--delay": "2s" }}
+        >
+          View Full Tech Stack →
+        </a>
 
       </div>
     </section>

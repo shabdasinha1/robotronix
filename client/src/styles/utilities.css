@@ -126,6 +126,40 @@
   transform: translateY(0);
 }
 
+/* Directional animations */
+.u-drop-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.u-drop-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.u-drop-visible .u-drop-left,
+.u-drop-visible .u-drop-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ======================================
+   SCALE DROP (STATS / NUMBERS)
+====================================== */
+.u-drop-scale {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: 0.6s ease;
+}
+
+.u-drop-visible .u-drop-scale {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 /* ======================================================
    LIGHT THEME SECTION BG
 ====================================================== */

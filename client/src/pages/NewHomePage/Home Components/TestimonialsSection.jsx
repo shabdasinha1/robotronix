@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -26,23 +26,30 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
   const [active, setActive] = useState(0);
 
-  // Scroll detection
+  /* Scroll animation */
   useEffect(() => {
+    const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) setVisible(true);
+        if (entries[0].isIntersecting) {
+          section.classList.add("u-drop-visible");
+          observer.disconnect();
+        }
       },
-      { threshold: 0, rootMargin: "0px 0px -40% 0px" }
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
+      }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  // Auto slider
+  /* Auto slider */
   useEffect(() => {
     const timer = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
@@ -52,20 +59,23 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="rtx-test-wrapper" ref={sectionRef}>
-      <div className="rtx-test-container">
+    <section
+      className="rtx-test-wrapper u-section"
+      ref={sectionRef}
+    >
+      <div className="rtx-test-container u-container-center">
 
         {/* TITLE */}
-        <h2 className={`rtx-test-title ${visible ? "rtx-drop-visible" : ""}`}>
+        <h2 className="rtx-test-title u-drop" style={{ "--delay": "0.2s" }}>
           Client <span>Testimonials</span>
         </h2>
 
-        <p className={`rtx-test-subtext ${visible ? "rtx-drop-visible" : ""}`}>
+        <p className="rtx-test-subtext u-drop" style={{ "--delay": "0.4s" }}>
           Hear what our clients have to say about working with us.
         </p>
 
         {/* MAIN SLIDER */}
-        <div className="rtx-test-slider">
+        <div className="rtx-test-slider u-drop" style={{ "--delay": "0.6s" }}>
           {testimonials.map((item, index) => (
             <div
               key={index}
@@ -87,7 +97,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* DOTS */}
-        <div className="rtx-test-dots">
+        <div className="rtx-test-dots u-drop" style={{ "--delay": "0.8s" }}>
           {testimonials.map((_, index) => (
             <div
               key={index}
@@ -97,16 +107,14 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* BOTTOM SMALL CARDS */}
+        {/* BOTTOM CARDS */}
         <div className="rtx-test-grid">
           {testimonials.map((item, index) => (
             <div
-  key={index}
-  className={`card card-sm card-hover rtx-test-card ${
-    visible ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""
-  }`}
->
-
+              key={index}
+              className="card card-sm card-hover rtx-test-card u-drop"
+              style={{ "--delay": `${1 + index * 0.15}s` }}
+            >
               <div className="rtx-test-rating-small">
                 {"★".repeat(item.rating)}
               </div>

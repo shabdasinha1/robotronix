@@ -2,10 +2,10 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="rtx-hero-wrapper rtx-hero-animate">
+    <section className="rtx-hero-wrapper u-section">
       <div className="rtx-hero-particles"></div>
 
-      <div className="rtx-hero-container">
+      <div className="rtx-hero-container u-container-center">
         <span className="rtx-hero-badge rtx-fade-drop-1">
           Next-Gen IT Solutions
         </span>
@@ -52,7 +52,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

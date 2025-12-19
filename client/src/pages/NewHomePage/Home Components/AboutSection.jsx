@@ -1,44 +1,47 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setIsVisible(true);
+          section.classList.add("u-drop-visible");
+          observer.disconnect();
         }
       },
       {
-        threshold: 0,
-        rootMargin: "0px 0px -30% 0px",
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
       }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-
+    observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="rtx-about-wrapper" ref={sectionRef}>
-      <div className="rtx-about-container">
-        
+    <section
+      className="rtx-about-wrapper u-section"
+      ref={sectionRef}
+    >
+      <div className="rtx-about-container u-container">
+
         {/* LEFT IMAGE */}
-        <div className={`rtx-about-left ${isVisible ? "rtx-left-visible" : ""}`}>
-          <img 
-            src="https://nexus-glow-prime.lovable.app/assets/about-illustration-OLpSSyJv.png" 
-            alt="About Section" 
+        <div className="rtx-about-left u-drop-left">
+          <img
+            src="https://nexus-glow-prime.lovable.app/assets/about-illustration-OLpSSyJv.png"
+            alt="About RoboTronix"
             className="rtx-about-img"
           />
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className={`rtx-about-right ${isVisible ? "rtx-right-visible" : ""}`}>
-          
+        <div className="rtx-about-right u-drop-right">
+
           <span className="rtx-about-badge">About RoboTronix</span>
 
           <h2 className="rtx-about-title">
@@ -46,16 +49,16 @@ const AboutSection = () => {
           </h2>
 
           <p className="rtx-about-text">
-            We are a leading IT solutions provider committed to transforming 
-            businesses through innovative technology. Our team of experts delivers 
-            cutting-edge solutions that drive digital transformation and 
-            sustainable growth.
+            We are a leading IT solutions provider committed to transforming
+            businesses through innovative technology. Our team of experts
+            delivers cutting-edge solutions that drive digital transformation
+            and sustainable growth.
           </p>
 
           <p className="rtx-about-text">
-            From cloud infrastructure to AI-powered applications, we partner with 
-            enterprises worldwide to build scalable, secure, and future-ready 
-            technology ecosystems.
+            From cloud infrastructure to AI-powered applications, we partner
+            with enterprises worldwide to build scalable, secure, and
+            future-ready technology ecosystems.
           </p>
 
           <div className="rtx-about-points">
@@ -67,9 +70,9 @@ const AboutSection = () => {
             <div>✔ Global delivery capabilities</div>
           </div>
 
-          <a href="/" className="btn btn-primary btn-lg">Discover Our Story</a>
-
-
+          <a href="/" className="btn btn-primary btn-lg">
+            Discover Our Story
+          </a>
         </div>
 
       </div>

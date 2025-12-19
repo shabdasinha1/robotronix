@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
 
 const servicesList = [
   {
@@ -46,55 +45,65 @@ const servicesList = [
 
 const ServicesSection = () => {
   const sectionRef = useRef(null);
-  const [isInView, setIsInView] = useState(false);
 
+  useEffect(() => {
+    const section = sectionRef.current;
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        setIsInView(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          section.classList.add("u-drop-visible");
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -120px 0px",
       }
-    },
-    {
-      threshold: 0,
-      rootMargin: "0px 0px -40% 0px", 
-    }
-  );
+    );
 
-  if (sectionRef.current) observer.observe(sectionRef.current);
-
-  return () => observer.disconnect();
-}, []);
-
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="rtx-services-wrapper" ref={sectionRef}>
-      <div className="rtx-services-container">
+    <section
+      className="rtx-services-wrapper u-section"
+      ref={sectionRef}
+    >
+      <div className="rtx-services-container u-container-center">
 
         {/* TITLE */}
-        <h2 className={`rtx-services-title ${isInView ? "rtx-title-visible" : ""}`}>
+        <h2
+          className="rtx-services-title u-drop"
+          style={{ "--delay": "0.2s" }}
+        >
           Our <span>Services</span>
         </h2>
 
-        {/* SUBHEADING */}
-        <p className={`rtx-services-subtext ${isInView ? "rtx-sub-visible" : ""}`}>
-          Comprehensive technology solutions designed to accelerate your digital transformation journey.
+        {/* SUBTEXT */}
+        <p
+          className="rtx-services-subtext u-drop"
+          style={{ "--delay": "0.4s" }}
+        >
+          Comprehensive technology solutions designed to accelerate your digital
+          transformation journey.
         </p>
 
         {/* SERVICE CARDS */}
-        <div className="rtx-services-grid">
+        <div className="rtx-services-grid u-grid-auto">
           {servicesList.map((service, index) => (
             <div
-  key={index}
-  className={`card card-md card-hover rtx-service-card 
-    ${isInView ? `rtx-card-visible rtx-card-delay-${index + 1}` : ""}`}
->
-
+              key={index}
+              className="card card-md card-hover rtx-service-card u-drop"
+              style={{ "--delay": `${0.6 + index * 0.15}s` }}
+            >
               <div className="rtx-service-icon">{service.icon}</div>
               <h3 className="rtx-service-title">{service.title}</h3>
               <p className="rtx-service-desc">{service.desc}</p>
-              <a href="/" className="rtx-service-link">Learn more →</a>
+              <a href="/" className="rtx-service-link">
+                Learn more →
+              </a>
             </div>
           ))}
         </div>
