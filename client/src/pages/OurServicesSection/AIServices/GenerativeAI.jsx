@@ -1,12 +1,11 @@
 import React from "react";
-
-import AI_Hero from "../AIPageComponents/AI_Hero";
-import AI_Overview from "../AIPageComponents/AI_Overview";
-import AI_Approach from "../AIPageComponents/AI_Approach";
-import AI_Industries from "../AIPageComponents/AI_Industries";
-import AI_WhyChoose from "../AIPageComponents/AI_WhyChoose";
-import AI_Impact from "../AIPageComponents/AI_Impact";
-import AI_CTA from "../AIPageComponents/AI_CTA";
+import ServicesHero from "../ServicesComponents/ServicesHero";
+import ServicesOverview from "../ServicesComponents/ServicesOverview";
+import ServicesApproach from "../ServicesComponents/ServicesApproach";
+import ServicesIndustries from "../ServicesComponents/ServicesIndustries";
+import ServicesWhyChoose from "../ServicesComponents/ServicesWhyChoose";
+import ServicesImpact from "../ServicesComponents/ServicesImpact";
+import ServicesCTA from "../ServicesComponents/ServicesCTA";
 
 const GenerativeAI = () => {
   const steps = [
@@ -101,7 +100,7 @@ const GenerativeAI = () => {
   return (
     <>
       {/* HERO */}
-      <AI_Hero
+      <ServicesHero
         badge="Transforming Creativity with AI"
         title="Generative AI"
         accent="Solutions"
@@ -119,7 +118,7 @@ const GenerativeAI = () => {
       />
 
       {/* OVERVIEW */}
-      <AI_Overview
+      <ServicesOverview
         title="What is"
         accent="Generative AI?"
         paragraphs={["Generative AI (Gen AI) enables machines to create original content — including text, images, video, code, and designs using deep learning and LLMs.","Robotronix builds cutting-edge Gen AI tools that accelerate creativity, enhance workflows, and deliver high-impact automation."]}
@@ -140,7 +139,7 @@ const GenerativeAI = () => {
       />
 
       {/* APPROACH */}
-      <AI_Approach
+      <ServicesApproach
         title="Our"
         accent="Generative AI Approach"
         subtitle="We combine creativity with engineering excellence to develop scalable, adaptive, and powerful Gen AI systems."
@@ -148,7 +147,7 @@ const GenerativeAI = () => {
       />
 
       {/* INDUSTRIES */}
-      <AI_Industries
+      <ServicesIndustries
         title="Generative AI"
         accent="Industry Applications"
         subtitle="Gen AI is transforming industries by accelerating creativity, automating workflows, and unlocking innovation."
@@ -156,7 +155,7 @@ const GenerativeAI = () => {
       />
 
       {/* WHY CHOOSE */}
-      <AI_WhyChoose
+      <ServicesWhyChoose
         title="Why Choose"
         accent="Robotronix for Gen AI?"
         subtitle="We build powerful, scalable, and intelligent Generative AI systems designed to transform your workflows and creativity."
@@ -164,13 +163,13 @@ const GenerativeAI = () => {
       />
 
       {/* IMPACT */}
-      <AI_Impact
+      <ServicesImpact
         title="Shaping the Future with Generative AI"
         subtitle="Robotronix enables enterprises to unlock the full power of Generative AI — delivering creativity, automation, and intelligent transformation."
       />
 
       {/* FINAL CTA */}
-      <AI_CTA
+      <ServicesCTA
         title="Ready to Build Your Generative AI Solution?"
         subtitle="From creative automation to AI content engines — Robotronix helps you innovate with Gen AI and lead the future."
         buttonText="Talk to Our Experts →"

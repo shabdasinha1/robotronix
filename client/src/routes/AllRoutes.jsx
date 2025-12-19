@@ -10,13 +10,13 @@ import NewFooter from "../component/common/Footer/NewFooter";
 import Home from "../pages/NewHomePage/Home";
 
 // Our Services
-import GenerativeAI from "../pages/OurServicesSection/AIServices/GenAIPage/GenerativeAI";
-import AIML from "../pages/OurServicesSection/AIServices/AIMlPage/AIML";
-import AgentsAI from "../pages/OurServicesSection/AIServices/AgentsAlPage/AgentsAI";
+import GenerativeAI from "../pages/OurServicesSection/AIServices/GenerativeAI";
+import AIML from "../pages/OurServicesSection/AIServices/AIML";
+import AgentsAI from "../pages/OurServicesSection/AIServices/AgentsAI";
 import EmbeddedIoT from "../pages/OurServicesSection/EmbeddedIotServices/EmbeddedIoT";
 import DataScience from "../pages/OurServicesSection/DataSciencePage/DataScience";
 import MobileApplicationDev from "../pages/OurServicesSection/MobileApplicationPage/MobileApplicationDevelopment";
-import WebDev from "../pages/OurServicesSection/WebDevelopmentPage/WebDev";
+
 
 // Contact (lazy)
 const Contact = lazy(() => import("../pages/Contact/NewContact"));
@@ -47,7 +47,7 @@ const AllRoutes = () => {
             <Route path="/embedded-iot" element={<EmbeddedIoT />} />
             <Route path="/data-science" element={<DataScience />} />
             <Route path="/mobile-application-development" element={<MobileApplicationDev />} />
-            <Route path="/web-development" element={<WebDev />} />
+            <Route path="/" element={<Home/>}/>
 
             {/* Contact */}
             <Route path="/contact-us" element={<Contact />} />

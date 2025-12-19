@@ -1,6 +1,6 @@
-import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
-const AI_Hero = ({
+const ServicesHero = ({
   badge,
   title,
   accent,
@@ -19,30 +19,30 @@ const AI_Hero = ({
   return (
     <section
       ref={ref}
-      className={`rtx-aihero-wrapper u-section ${
+      className={`rtx-service-hero-wrapper u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-aihero-particles" />
+      <div className="rtx-service-hero-particles" />
 
-      <div className="rtx-aihero-container u-container-center">
+      <div className="rtx-service-hero-container u-container-center">
         <span
-          className="rtx-aihero-badge u-drop"
+          className="rtx-service-hero-badge u-drop"
           style={{ "--delay": "0.2s" }}
         >
           {badge}
         </span>
 
         <h1
-          className="rtx-aihero-title u-drop"
+          className="rtx-service-hero-title u-drop"
           style={{ "--delay": "0.4s" }}
         >
           {title} <br />
-          <span className="rtx-aihero-accent">{accent}</span>
+          <span className="rtx-service-hero-accent">{accent}</span>
         </h1>
 
         <p
-          className="rtx-aihero-subtext u-drop"
+          className="rtx-service-hero-subtext u-drop"
           style={{ "--delay": "0.6s" }}
         >
           {subtitle}
@@ -50,7 +50,7 @@ const AI_Hero = ({
 
         {/* GLOBAL BUTTON SYSTEM */}
         <div
-          className="rtx-aihero-btn-group u-drop"
+          className="rtx-service-hero-btn-group u-drop"
           style={{ "--delay": "0.8s" }}
         >
           <a href={primaryLink} className="btn btn-primary">
@@ -66,7 +66,7 @@ const AI_Hero = ({
 
         {/* GLOBAL CARD SYSTEM */}
         {stats.length > 0 && (
-          <div className="rtx-aihero-stats">
+          <div className="rtx-service-hero-stats">
             {stats.map((item, i) => (
               <div
                 key={i}
@@ -84,4 +84,4 @@ const AI_Hero = ({
   );
 };
 
-export default AI_Hero;
+export default ServicesHero;

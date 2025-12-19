@@ -1,11 +1,11 @@
 import React from "react";
-import AI_Hero from "../AIPageComponents/AI_Hero";
-import AI_Overview from "../AIPageComponents/AI_Overview";
-import AI_Approach from "../AIPageComponents/AI_Approach";
-import AI_Industries from "../AIPageComponents/AI_Industries";
-import AI_WhyChoose from "../AIPageComponents/AI_WhyChoose";
-import AI_Impact from "../AIPageComponents/AI_Impact";
-import AI_CTA from "../AIPageComponents/AI_CTA";
+import ServicesHero from "../ServicesComponents/ServicesHero";
+import ServicesOverview from "../ServicesComponents/ServicesOverview";
+import ServicesApproach from "../ServicesComponents/ServicesApproach";
+import ServicesIndustries from "../ServicesComponents/ServicesIndustries";
+import ServicesWhyChoose from "../ServicesComponents/ServicesWhyChoose";
+import ServicesImpact from "../ServicesComponents/ServicesImpact";
+import ServicesCTA from "../ServicesComponents/ServicesCTA";
 
 
 const AIML = () => {
@@ -110,7 +110,7 @@ const AIML = () => {
   return (
     <>
     {/* -------------- Hero Secton -------------------*/}
-   <AI_Hero
+   <ServicesHero
     badge="AI & Machine Learning Solutions"
   title="Powering Intelligent"
   accent="Digital Transformation"
@@ -128,7 +128,7 @@ const AIML = () => {
    />
 
     {/*-------------------- AIML Overview --------------------*/}
-<AI_Overview
+<ServicesOverview
   title="AI & Machine Learning"
   accent="Overview"
   paragraphs={[
@@ -140,7 +140,7 @@ const AIML = () => {
 
 
     {/*-------------------------- AIML_Approach-------------------- */}
-    <AI_Approach
+    <ServicesApproach
   title="Our"
   accent="AI & ML Approach"
   subtitle="A research-driven, scalable workflow designed to build future-ready solutions."
@@ -149,7 +149,7 @@ const AIML = () => {
 
       
    {/*------------- AIML Industries ------------------*/}
-    <AI_Industries
+    <ServicesIndustries
   title="AI & ML"
   accent="Industry Applications"
   subtitle="Our intelligent solutions empower multiple industries with automation and predictive insights."
@@ -158,7 +158,7 @@ const AIML = () => {
 
 
     {/*--------------- AIML WhyChoose --------------------- */}
-   <AI_WhyChoose
+   <ServicesWhyChoose
   title="Why Choose"
   accent="Robotronix?"
   subtitle="We combine deep technical expertise, innovative engineering, and industry-driven intelligence."
@@ -167,14 +167,14 @@ const AIML = () => {
 
 
      {/*----------- AIML Impact --------------- */}
-       <AI_Impact
+       <ServicesImpact
   title="Building Intelligent Ecosystems for a Smarter Tomorrow"
   subtitle="At Robotronix Engineering Tech Pvt. Ltd., we transform ideas into powerful AI & ML solutions that accelerate innovation, intelligence, and business growth."
 />
 
 
     {/*----------------- Final CTA -------------------------*/}
-  <AI_CTA
+  <ServicesCTA
   title="Ready to Build the Future with AI & ML?"
   subtitle="Partner with Robotronix Engineering Tech Pvt. Ltd. to transform your ideas into intelligent, high-impact digital solutions."
   buttonText="Talk to Our Experts →"

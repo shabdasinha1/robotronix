@@ -1,18 +1,18 @@
 /* =====================================
-   AI SERVICES PAGE START
+   SERVICES PAGE START (UNIVERSAL)
 ===================================== */
 
 /* =====================================
-   AI HERO (SERVICES PAGE)
+   SERVICE HERO
 ===================================== */
-/* HERO WRAPPER (unique spacing & particles) */
-.rtx-aihero-wrapper {
+
+.rtx-service-hero-wrapper {
   padding: 130px 20px;
   position: relative;
   overflow: hidden;
 }
 
-.rtx-aihero-particles {
+.rtx-service-hero-particles {
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -24,13 +24,12 @@
   animation: particleMove 8s infinite linear;
 }
 
-.rtx-aihero-container {
+.rtx-service-hero-container {
   position: relative;
   z-index: 2;
 }
 
-/* HERO TEXT */
-.rtx-aihero-badge {
+.rtx-service-hero-badge {
   display: inline-block;
   padding: 8px 20px;
   border-radius: 30px;
@@ -41,35 +40,33 @@
   backdrop-filter: blur(6px);
 }
 
-.rtx-aihero-title {
+.rtx-service-hero-title {
   font-size: 3.2rem;
   font-weight: 700;
   color: var(--clr-white);
   margin-top: 20px;
 }
 
-.rtx-aihero-accent {
+.rtx-service-hero-accent {
   color: var(--clr-blue-medium);
   text-shadow: 0 0 15px var(--blue-06);
 }
 
-.rtx-aihero-subtext {
+.rtx-service-hero-subtext {
   max-width: 720px;
   margin: 18px auto 40px;
   color: var(--clr-text-light);
   font-size: 1.1rem;
 }
 
-/* BUTTON GROUP */
-.rtx-aihero-btn-group {
+.rtx-service-hero-btn-group {
   display: flex;
   justify-content: center;
   gap: 18px;
   margin-top: 25px;
 }
 
-/* STATS */
-.rtx-aihero-stats {
+.rtx-service-hero-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -78,134 +75,134 @@
 }
 
 /* =====================================
-   AI OVERVIEW (SERVICES PAGE)
+   SERVICE OVERVIEW
 ===================================== */
-.rtx-aioverview-container {
+
+.rtx-service-overview-container {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.rtx-aioverview-left {
+.rtx-service-overview-left {
   flex: 1 1 480px;
 }
 
-.rtx-aioverview-right {
+.rtx-service-overview-right {
   flex: 1 1 420px;
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
-.rtx-aioverview-text {
+.rtx-service-overview-text {
   line-height: 1.7;
   margin-bottom: 18px;
 }
 
-/* ============================================================
-   AI SERVICES — APPROACH (SYSTEM MODE)
-============================================================ */
+/* =====================================
+   SERVICE APPROACH
+===================================== */
 
-.rtx-aiapproach-header {
+.rtx-service-approach-header {
   text-align: center;
   max-width: 750px;
   margin: 0 auto 50px;
 }
 
-.rtx-aiapproach-title {
+.rtx-service-approach-title {
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
 }
 
-.rtx-aiapproach-title span {
+.rtx-service-approach-title span {
   color: var(--clr-blue);
 }
 
-.rtx-aiapproach-subtext {
+.rtx-service-approach-subtext {
   font-size: 1.1rem;
   margin-top: 12px;
 }
 
-/* ============================================================
-   AI SERVICES — INDUSTRIES (SYSTEM MODE)
-============================================================ */
+/* =====================================
+   SERVICE INDUSTRIES
+===================================== */
 
-.rtx-aiindustries-header {
+.rtx-service-industries-header {
   text-align: center;
   max-width: 750px;
   margin: 0 auto 50px;
 }
 
-.rtx-aiindustries-title {
+.rtx-service-industries-title {
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
 }
 
-.rtx-aiindustries-title span {
+.rtx-service-industries-title span {
   color: var(--clr-blue);
 }
 
-.rtx-aiindustries-subtext {
+.rtx-service-industries-subtext {
   font-size: 1.1rem;
   margin-top: 12px;
 }
 
-.rtx-aiindustries-icon {
+.rtx-service-industries-icon {
   font-size: 2.2rem;
   margin-bottom: 14px;
   color: var(--clr-blue);
 }
 
-/* ============================================================
-   AI SERVICES — WHY CHOOSE US (SYSTEM MODE)
-============================================================ */
+/* =====================================
+   SERVICE WHY CHOOSE
+===================================== */
 
-.rtx-aiwhy-header {
+.rtx-service-why-header {
   text-align: center;
   max-width: 760px;
   margin: 0 auto 50px;
 }
 
-.rtx-aiwhy-title {
+.rtx-service-why-title {
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--clr-white);
 }
 
-.rtx-aiwhy-title span {
+.rtx-service-why-title span {
   color: var(--clr-blue);
 }
 
-.rtx-aiwhy-subtext {
+.rtx-service-why-subtext {
   font-size: 1.1rem;
 }
 
-.rtx-aiwhy-check {
+.rtx-service-why-check {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: var(--clr-blue);
 }
 
-/* ======================================================
-   AI IMPACT — PUNCH SECTION 
-====================================================== */
+/* =====================================
+   SERVICE IMPACT
+===================================== */
 
-.rtx-aiimpact-section {
+.rtx-service-impact-section {
   position: relative;
   overflow: hidden;
 }
 
-.rtx-aiimpact-container {
+.rtx-service-impact-container {
   max-width: 900px;
   margin: auto;
   text-align: center;
 }
 
-/* TITLE — KEEP BIG & IMPACTFUL */
-.rtx-aiimpact-title {
+.rtx-service-impact-title {
   color: var(--clr-white);
   font-size: 2.4rem;
   font-weight: 700;
@@ -214,24 +211,22 @@
   text-shadow: 0 0 10px var(--blue-04);
 }
 
-/* SUBTEXT */
-.rtx-aiimpact-subtext {
+.rtx-service-impact-subtext {
   font-size: 1.1rem;
   line-height: 1.75;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .rtx-aiimpact-title {
+  .rtx-service-impact-title {
     font-size: 2rem;
   }
 }
 
-/* =========================================
-   SERVICE CTA 
-========================================= */
+/* =====================================
+   SERVICE CTA (UNCHANGED – ALREADY UNIVERSAL)
+===================================== */
 
 .rtx-service-cta {
   display: flex;
@@ -256,7 +251,6 @@
   text-align: center;
 }
 
-/* TEXT */
 .rtx-service-cta-title {
   font-size: 2.6rem;
   font-weight: 700;
@@ -268,7 +262,6 @@
   margin: 12px 0 30px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .rtx-service-cta-title {
     font-size: 2rem;
@@ -280,5 +273,5 @@
 }
 
 /* =====================================
-   AI SERVICES PAGE END
+   SERVICES PAGE END
 ===================================== */

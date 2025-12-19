@@ -1,10 +1,10 @@
-import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
-const AI_Industries = ({ 
+const ServicesWhyChoose = ({ 
   title,
   accent,
   subtitle,
-  industries = [],
+  points = [] 
 }) => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
@@ -15,36 +15,34 @@ const AI_Industries = ({
   return (
     <section
       ref={ref}
-      className={`rtx-aiindustries-section u-section ${
+      className={`rtx-service-why-section u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-aiindustries-container u-container">
+      <div className="rtx-service-why-container u-container">
 
         {/* HEADER */}
         <div
-          className="rtx-aiindustries-header u-drop"
+          className="rtx-service-why-header u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-aiindustries-title u-title">
+          <h2 className="rtx-service-why-title u-title">
             {title} <span>{accent}</span>
           </h2>
-          <p className="rtx-aiindustries-subtext u-subtext">
+          <p className="rtx-service-why-subtext u-subtext">
             {subtitle}
           </p>
         </div>
 
         {/* GRID */}
-        <div className="rtx-aiindustries-grid u-grid-auto">
-          {industries.map((item, index) => (
+        <div className="rtx-service-why-grid u-grid-auto">
+          {points.map((item, index) => (
             <div
               key={index}
               className="card card-glass u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
-              <div className="rtx-aiindustries-icon">
-                {item.icon}
-              </div>
+              <div className="rtx-service-why-check">✔</div>
 
               <h3 className="text-accent">{item.title}</h3>
               <p className="text-muted">{item.desc}</p>
@@ -57,4 +55,4 @@ const AI_Industries = ({
   );
 };
 
-export default AI_Industries;
+export default ServicesWhyChoose;

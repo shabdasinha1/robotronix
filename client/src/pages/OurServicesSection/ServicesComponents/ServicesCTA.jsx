@@ -1,6 +1,6 @@
-import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
-const AI_CTA = ({ title, subtitle, buttonText, buttonLink }) => {
+const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -29,4 +29,4 @@ const AI_CTA = ({ title, subtitle, buttonText, buttonLink }) => {
   );
 };
 
-export default AI_CTA;
+export default ServicesCTA;

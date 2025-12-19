@@ -1,6 +1,6 @@
-import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
-const AI_Approach = ({
+const ServicesApproach = ({
   title,
   accent,
   subtitle,
@@ -15,28 +15,28 @@ const AI_Approach = ({
   return (
     <section
       ref={ref}
-      className={`rtx-aiapproach-section u-section ${
+      className={`rtx-service-approach-section u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-aiapproach-container u-container">
+      <div className="rtx-service-approach-container u-container">
 
         {/* HEADER */}
         <div
-          className="rtx-aiapproach-header u-drop"
+          className="rtx-service-approach-header u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-aiapproach-title u-title">
+          <h2 className="rtx-service-approach-title u-title">
             {title} <span>{accent}</span>
           </h2>
 
-          <p className="rtx-aiapproach-subtext u-subtext">
+          <p className="rtx-service-approach-subtext u-subtext">
             {subtitle}
           </p>
         </div>
 
         {/* GRID */}
-        <div className="rtx-aiapproach-grid u-grid-auto">
+        <div className="rtx-service-approach-grid u-grid-auto">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -54,4 +54,4 @@ const AI_Approach = ({
   );
 };
 
-export default AI_Approach;
+export default ServicesApproach;

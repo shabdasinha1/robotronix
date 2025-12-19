@@ -1,12 +1,11 @@
 import React from "react";
-
-import AI_Hero from "../AIPageComponents/AI_Hero";
-import AI_Overview from "../AIPageComponents/AI_Overview";
-import AI_Approach from "../AIPageComponents/AI_Approach";
-import AI_Industries from "../AIPageComponents/AI_Industries";
-import AI_WhyChoose from "../AIPageComponents/AI_WhyChoose";
-import AI_Impact from "../AIPageComponents/AI_Impact";
-import AI_CTA from "../AIPageComponents/AI_CTA";
+import ServicesHero from "../ServicesComponents/ServicesHero";
+import ServicesOverview from "../ServicesComponents/ServicesOverview";
+import ServicesApproach from "../ServicesComponents/ServicesApproach";
+import ServicesIndustries from "../ServicesComponents/ServicesIndustries";
+import ServicesWhyChoose from "../ServicesComponents/ServicesWhyChoose";
+import ServicesImpact from "../ServicesComponents/ServicesImpact";
+import ServicesCTA from "../ServicesComponents/ServicesCTA";
 
 
 const AgentsAI = () => {
@@ -91,7 +90,7 @@ const AgentsAI = () => {
   return (
     <>
       {/* HERO */}
-      <AI_Hero
+      <ServicesHero
         badge="Autonomous AI Workforce"
         title="Build Intelligent"
         accent="AI Agents"
@@ -109,7 +108,7 @@ const AgentsAI = () => {
       />
 
       {/* OVERVIEW */}
-      <AI_Overview
+      <ServicesOverview
         title="What Are"
         accent="AI Agents?"
         paragraphs={[
@@ -133,7 +132,7 @@ const AgentsAI = () => {
       />
 
       {/* APPROACH */}
-      <AI_Approach
+      <ServicesApproach
         title="Our"
         accent="AI Agent Approach"
         subtitle="We engineer intelligent, autonomous agents designed to take action—not just provide insights."
@@ -141,7 +140,7 @@ const AgentsAI = () => {
       />
 
       {/* INDUSTRIES */}
-      <AI_Industries
+      <ServicesIndustries
         title="AI Agent"
         accent="Industry Applications"
         subtitle="AI Agents transform industries by autonomously performing tasks, handling operations, and executing complex workflows."
@@ -149,7 +148,7 @@ const AgentsAI = () => {
       />
 
       {/* WHY CHOOSE */}
-      <AI_WhyChoose
+      <ServicesWhyChoose
         title="Why Choose"
         accent="Robotronix for AI Agents?"
         subtitle="We help enterprises build action-driven digital workers powered by advanced agentic AI—designed for autonomy, reliability, and security."
@@ -157,13 +156,13 @@ const AgentsAI = () => {
       />
 
       {/* IMPACT */}
-      <AI_Impact
+      <ServicesImpact
         title="The Future of Workforce Automation"
         subtitle="AI Agents enable 24/7 autonomous productivity—eliminating repetitive work, scaling operations instantly, and improving efficiency across the enterprise."
       />
 
       {/* CTA */}
-      <AI_CTA
+      <ServicesCTA
         title="Ready to Deploy Your AI Agents?"
         subtitle="Build intelligent digital workers that transform productivity, optimize workflows, and enhance your business performance."
         buttonText="Talk to Our Experts →"

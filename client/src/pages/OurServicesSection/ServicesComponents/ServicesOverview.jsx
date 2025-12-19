@@ -1,6 +1,6 @@
-import useRevealOnScroll from "../../../../hooks/useRevealOnScroll";
+import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
-const AI_Overview = ({
+const ServicesOverview = ({
   title,
   accent,
   paragraphs = [],
@@ -17,23 +17,26 @@ const AI_Overview = ({
   return (
     <section
       ref={ref}
-      className={`rtx-aioverview-section u-section u-section-sm ${
+      className={`rtx-service-overview-section u-section u-section-sm ${
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-aioverview-container u-container">
+      <div className="rtx-service-overview-container u-container">
 
         {/* LEFT */}
         <div
-          className="rtx-aioverview-left u-drop"
+          className="rtx-service-overview-left u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-aioverview-title u-title">
+          <h2 className="rtx-service-overview-title u-title">
             {title} <span>{accent}</span>
           </h2>
 
           {paragraphs.map((text, idx) => (
-            <p key={idx} className="rtx-aioverview-text u-subtext">
+            <p
+              key={idx}
+              className="rtx-service-overview-text u-subtext"
+            >
               {text}
             </p>
           ))}
@@ -46,7 +49,7 @@ const AI_Overview = ({
         </div>
 
         {/* RIGHT */}
-        <div className="rtx-aioverview-right">
+        <div className="rtx-service-overview-right">
           {infoCards.map((card, idx) => (
             <div
               key={idx}
@@ -64,4 +67,4 @@ const AI_Overview = ({
   );
 };
 
-export default AI_Overview;
+export default ServicesOverview;

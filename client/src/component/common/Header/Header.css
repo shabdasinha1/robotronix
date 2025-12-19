@@ -2,7 +2,7 @@
    HEADER MAIN WRAPPER (Glass + Solid Scroll)
 =============================================================== */
 /* TOP-LEVEL NAVLINKS (Products, Portfolio, Contact) */
-.rtx-header-menu ul li > a {
+.rtx-header-menu ul li > a ,.rtx-mobile-link {
   background: transparent;
   border: none;
 
@@ -10,7 +10,7 @@
   line-height: 1;
 
   color: var(--clr-text-soft) !important;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 15.5px;
 
   cursor: pointer;
@@ -22,7 +22,7 @@
 }
 
 /* Hover same as button */
-.rtx-header-menu ul li > a:hover,.rtx-header-menu ul li > a.active  {
+.rtx-header-menu ul li > a:hover,.rtx-header-menu ul li > a.active,.rtx-mobile-link:hover  {
   color: var(--clr-blue-light) !important;
   transform: translateY(-2px);
 }
@@ -278,10 +278,11 @@
 }
 
 .rtx-mobile-dropdown-list.rtx-show {
-  max-height: 600px;
+  max-height: 2000px;
   opacity: 1;
   transform: translateY(0);
   padding-top: 8px;
+  overflow: visible;
 }
 
 /* Mobile items */
@@ -289,7 +290,7 @@
 .rtx-mobile-subitem-link {
   padding: 8px 0;
   font-size: 15px;
-  color: var(--clr-text-light);
+  color: var(--clr-text-light) !important;
 }
 
 /* Simple links */
@@ -420,10 +421,53 @@
 
 /* Dropdown hover */
 :root[data-theme="light"] .rtx-mobile-subitem-link:hover {
-  color: var(--clr-blue-medium) !important;
+  color: var(--clr-blue-light) !important;
 }
 
 /* Backdrop behind drawer */
 :root[data-theme="light"] .rtx-mobile-backdrop {
   background: var(--header-mobile-backdrop);
+}
+
+/* ============================================================
+   MOBILE NAV — COLOR & VISIBILITY FIX (FINAL)
+=============================================================== */
+
+/* Top-level mobile NavLinks (Products, Portfolio, Contact Us) */
+.rtx-mobile-ul > li > a {
+  color: var(--clr-text-soft) !important;
+  font-weight: 700;
+}
+
+/* Span inside NavLink */
+.rtx-mobile-ul > li > a .rtx-mobile-link {
+  color: inherit !important;
+}
+
+/* Hover */
+.rtx-mobile-ul > li > a:hover,
+.rtx-mobile-ul > li > a:hover .rtx-mobile-link {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Active route */
+.rtx-mobile-ul > li > a.active,
+.rtx-mobile-ul > li > a.active .rtx-mobile-link {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Dropdown titles (Our Services / About Us) */
+.rtx-mobile-title {
+  color: var(--clr-text-soft) !important;
+}
+
+/* Dropdown sub-items */
+.rtx-mobile-subitem,
+.rtx-mobile-subitem-link {
+  color: var(--clr-text-light) !important;
+}
+
+/* Sub-item hover */
+.rtx-mobile-subitem-link:hover {
+  color: var(--clr-blue-light) !important;
 }
