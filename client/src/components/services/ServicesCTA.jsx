@@ -2,7 +2,7 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
   const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
+    threshold: 0.2,
     rootMargin: "0px 0px -120px 0px",
     once: true,
   });
@@ -10,16 +10,21 @@ const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
   return (
     <section
       ref={ref}
-      className={`rtx-service-cta u-section u-section-sm ${
+      className={`rtx-cta-wrapper u-section ${
         visible ? "u-drop-visible" : ""
       }`}
     >
       <div
-        className="rtx-service-cta-box u-drop"
+        className="rtx-cta-box u-drop"
         style={{ "--delay": "0.2s" }}
       >
-        <h2 className="rtx-service-cta-title">{title}</h2>
-        <p className="rtx-service-cta-sub">{subtitle}</p>
+        <h2 className="rtx-cta-title">
+          {title}
+        </h2>
+
+        <p className="rtx-cta-sub">
+          {subtitle}
+        </p>
 
         <a href={buttonLink} className="btn btn-primary btn-lg">
           {buttonText}

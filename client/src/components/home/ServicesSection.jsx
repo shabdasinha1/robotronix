@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 const servicesList = [
@@ -5,41 +6,49 @@ const servicesList = [
     title: "Artificial Intelligence & Machine Learning Solutions",
     desc: "Advanced AI & ML systems that automate processes, optimize operations, and deliver predictive analytics.",
     icon: "🤖",
+    path: "/ai-ml",
   },
   {
     title: "Generative AI (Gen AI) Solutions",
     desc: "Build cutting-edge GenAI applications such as chatbots, content generators, and intelligent automation tools.",
     icon: "✨",
+    path: "/generative-ai",
   },
   {
     title: "Agents & Agentic AI",
     desc: "Autonomous AI agents that can plan, reason, and execute workflows with minimal human input.",
     icon: "🧠",
+    path: "/agents-ai",
   },
   {
     title: "Embedded System & IoT Solutions",
     desc: "Smart embedded systems, IoT-connected devices, and real-time monitoring solutions.",
     icon: "📡",
+    path: "/embedded-iot",
   },
   {
     title: "Data Science & Data Analytics",
     desc: "Insights-driven data pipelines, dashboards, and analytical models for data-driven decisions.",
     icon: "📊",
+    path: "/data-science",
   },
   {
     title: "Mobile Application Development",
     desc: "High-performance Android & iOS apps built with modern scalable architectures.",
     icon: "📱",
+    path: "/mobile-application-development",
   },
   {
     title: "Web Development & Digital Solutions",
     desc: "Full-stack web applications, business automation portals, and enterprise software platforms.",
     icon: "🌐",
+    path: "/web-development",
   },
   {
     title: "On-Demand Software Development",
     desc: "Custom solutions tailored to your business needs—fast, scalable, and future-ready.",
     icon: "⚙️",
+    path: "/on-demand-software-development",
   },
 ];
 
@@ -85,11 +94,21 @@ const ServicesSection = () => {
               style={{ "--delay": `${0.6 + index * 0.15}s` }}
             >
               <div className="rtx-service-icon">{service.icon}</div>
-              <h3 className="rtx-service-title">{service.title}</h3>
-              <p className="rtx-service-desc">{service.desc}</p>
-              <a href="/" className="rtx-service-link">
+
+              <h3 className="rtx-service-title">
+                {service.title}
+              </h3>
+
+              <p className="rtx-service-desc">
+                {service.desc}
+              </p>
+
+              <NavLink
+                to={service.path}
+                className="rtx-service-link"
+              >
                 Learn more →
-              </a>
+              </NavLink>
             </div>
           ))}
         </div>

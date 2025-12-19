@@ -21,7 +21,7 @@ import OnDemandSoftwareDev from "../pages/services/on-demand-software-dev/OnDema
 
 
 // Contact (lazy)
-const Contact = lazy(() => import("../pages/Contact/NewContact"));
+const Contact = lazy(() => import("../pages/contact/ContactUs"));
 
 const AllRoutes = () => {
   useEffect(() => {

@@ -1,0 +1,115 @@
+/* =====================================
+   CONTACT — HERO ONLY
+===================================== */
+
+.rtx-contact-hero-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.rtx-contact-hero-particles {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 35% 25%,
+    var(--blue-03),
+    transparent 60%
+  );
+  opacity: 0.7;
+  animation: rtxContactParticleMove 8s infinite linear;
+}
+
+@keyframes rtxContactParticleMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+.rtx-contact-hero-badge {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 30px;
+  background: var(--blue-012b);
+  border: 1px solid var(--blue-03);
+  color: var(--clr-blue);
+}
+
+.rtx-contact-hero-title {
+  font-size: 3.1rem;
+  margin-top: 22px;
+}
+
+.rtx-contact-hero-accent {
+  color: var(--clr-blue);
+  text-shadow: 0 0 15px var(--blue-06);
+}
+
+.rtx-contact-hero-subtext {
+  max-width: 750px;
+  margin: 20px auto 40px;
+}
+
+/* =====================================
+   OFFICE IMAGE
+===================================== */
+
+.rtx-office-image {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 25px var(--blue-025);
+}
+
+.rtx-office-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================
+   FORM INPUTS (PAGE-SPECIFIC)
+===================================== */
+
+.rtx-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.rtx-input-group input,
+.rtx-input-group textarea {
+  width: 100%;
+  padding: 14px 16px 14px 45px;
+  border-radius: 10px;
+  background: var(--white-06);
+  border: 1px solid var(--white-15);
+  color: var(--clr-white);
+}
+
+.rtx-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--clr-blue);
+}
+
+.rtx-textarea-group .rtx-input-icon {
+  top: 18px;
+}
+
+/* =====================================
+   MAP
+===================================== */
+
+.cb-office-map-box {
+  max-width: 900px;
+  margin: 40px auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--blue-03);
+  box-shadow: 0 0 25px var(--blue-025);
+}
+
+.cb-office-map-box iframe {
+  width: 100%;
+  min-height: 420px;
+  border: none;
+}
