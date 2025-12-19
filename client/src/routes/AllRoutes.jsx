@@ -2,9 +2,9 @@ import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Common
-import ScrollToTop from "../components/common/ScrollToTop/ScrollToTop";
-import Header from "../components/common/Header/Header";
-import NewFooter from "../components/common/Footer/NewFooter";
+import ScrollToTop from "../components/common/ScrollToTop";
+import Header from "../components/common/Header";
+import NewFooter from "../components/common/NewFooter";
 
 // Home
 import Home from "../pages/home/Home";
@@ -14,8 +14,6 @@ import GenerativeAI from "../pages/services/ai/GenerativeAI";
 import AIML from "../pages/services/ai/AIML";
 import AgentsAI from "../pages/services/ai/AgentsAI";
 import EmbeddedIoT from "../pages/services/embedded-Iot/EmbeddedIoT";
-import DataScience from "../pages/services/data-science/DataScience";
-import MobileApplicationDev from "../pages/services/mobile-application/MobileApplicationDevelopment";
 
 
 // Contact (lazy)
@@ -45,9 +43,9 @@ const AllRoutes = () => {
             <Route path="/ai-ml" element={<AIML />} />
             <Route path="/agents-ai" element={<AgentsAI />} />
             <Route path="/embedded-iot" element={<EmbeddedIoT />} />
-            <Route path="/data-science" element={<DataScience />} />
-            <Route path="/mobile-application-development" element={<MobileApplicationDev />} />
-            <Route path="/" element={<Home/>}/>
+            <Route path="/data-science" element={<Home/>} />
+            <Route path="/mobile-application-development" element={<Home/>} />
+            {/* <Route path="/w" element={<Home/>}/> */}
 
             {/* Contact */}
             <Route path="/contact-us" element={<Contact />} />

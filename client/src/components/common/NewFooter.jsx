@@ -1,5 +1,5 @@
-import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
-import "./NewFooter.css";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+
 import {
   FaInstagram,
   FaFacebookF,

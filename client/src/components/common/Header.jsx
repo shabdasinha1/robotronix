@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import logo from "../../../assets/img/logo_c1.png";
-import "./Header.css";
+import logo from "../../assets/img/logo_c1.png";
 
 const Header = () => {
   const { pathname } = useLocation();
