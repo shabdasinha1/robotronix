@@ -97,6 +97,7 @@ export const routesConfig = [
   // ===== MAIN NAV =====
   {
     path: "/products",
+    component: lazy(() => import("../pages/products/Products")),
     label: "Products",
     nav: "main",
   },

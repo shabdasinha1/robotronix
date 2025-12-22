@@ -1,0 +1,438 @@
+/* =====================================
+   PRODUCTS HERO
+===================================== */
+
+.rtx-products-hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+      circle at 25% 20%,
+      var(--blue-02),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      var(--blue-03),
+      transparent 60%
+    ),
+    var(--bg-dark-1);
+}
+
+/* subtle tech grid */
+.rtx-products-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+  background-size: 52px 52px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* =====================================
+   EYEBROW
+===================================== */
+
+.rtx-products-eyebrow {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-blue-medium);
+  background: var(--blue-012b);
+  border: 1px solid var(--blue-06);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* =====================================
+   TITLE
+===================================== */
+
+.rtx-products-title {
+  max-width: 960px;
+  margin: 0 auto 26px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--clr-white);
+}
+
+.rtx-products-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* =====================================
+   SUBTEXT
+===================================== */
+
+.rtx-products-subtext {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--clr-text-muted);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+  .rtx-products-title {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .rtx-products-subtext {
+    font-size: 16px;
+  }
+}
+
+/* =====================================
+   PRODUCTS STATS
+===================================== */
+
+.rtx-products-stats {
+  background: var(--bg-dark-2);
+}
+
+/* GRID */
+.rtx-products-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+/* CARD */
+.rtx-products-stat-card {
+  text-align: center;
+  padding: 26px 18px;
+  background: var(--bg-dark-1);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.rtx-products-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-06);
+}
+
+/* VALUE */
+.rtx-products-stat-card h3 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--clr-blue-medium);
+}
+
+/* LABEL */
+.rtx-products-stat-card p {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-products-stat-card h3 {
+    font-size: 28px;
+  }
+}
+
+/* =====================================
+   PRODUCTS GRID
+===================================== */
+
+.rtx-products-grid {
+  background: var(--bg-dark-1);
+}
+
+/* GRID */
+.rtx-products-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* CARD */
+.rtx-product-card {
+  padding: 26px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.rtx-product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-06);
+}
+
+/* IMAGE */
+.rtx-product-image {
+  height: 160px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: var(--bg-dark-1);
+  border: 1px dashed var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-muted);
+  font-size: 14px;
+}
+
+/* TITLE */
+.rtx-product-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--clr-white);
+}
+
+/* DESC */
+.rtx-product-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--clr-text-muted);
+  margin-bottom: 14px;
+}
+
+/* HIGHLIGHT */
+.rtx-product-highlight {
+  font-size: 13px;
+  color: var(--clr-blue-medium);
+  margin-bottom: 18px;
+}
+
+/* LINK */
+.rtx-product-link {
+  margin-top: auto;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--clr-blue-medium);
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.rtx-product-link:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-product-image {
+    height: 140px;
+  }
+}
+
+/* =====================================
+   PRODUCT DETAIL SECTION
+===================================== */
+
+.rtx-product-detail {
+  background: var(--bg-dark-2);
+}
+
+/* GRID */
+.rtx-product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* IMAGE */
+.rtx-product-image-box {
+  height: 320px;
+  border-radius: 18px;
+  background: var(--bg-dark-1);
+  border: 1px dashed var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text-muted);
+  font-size: 14px;
+}
+
+/* CATEGORY */
+.rtx-product-category {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-blue-medium);
+}
+
+/* DESCRIPTION */
+.rtx-product-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--clr-text-muted);
+  margin-bottom: 16px;
+}
+
+/* SPECS & FEATURES */
+.rtx-product-specs,
+.rtx-product-features {
+  margin-top: 24px;
+}
+
+.rtx-product-specs h4,
+.rtx-product-features h4 {
+  margin-bottom: 12px;
+  color: var(--clr-white);
+}
+
+.rtx-product-specs ul,
+.rtx-product-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rtx-product-specs li,
+.rtx-product-features li {
+  font-size: 14px;
+  padding: 6px 0;
+  color: var(--clr-text-light);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .rtx-product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtx-product-image-box {
+    height: 260px;
+  }
+}
+
+/* =====================================
+   WHY ROBOTRONIX PRODUCTS
+===================================== */
+
+.rtx-products-why {
+  background: var(--bg-dark-1);
+}
+
+/* GRID */
+.rtx-products-why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+/* CARD */
+.rtx-products-why-card {
+  padding: 28px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.rtx-products-why-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-06);
+}
+
+/* TITLE */
+.rtx-products-why-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--clr-white);
+}
+
+/* TEXT */
+.rtx-products-why-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--clr-text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-products-why-card {
+    padding: 22px;
+  }
+}
+
+/* =====================================
+   PRODUCTS CTA
+===================================== */
+
+.rtx-products-cta {
+  position: relative;
+  text-align: center;
+  background: radial-gradient(
+      circle at 50% 30%,
+      var(--blue-02),
+      transparent 60%
+    ),
+    var(--bg-dark-2);
+  overflow: hidden;
+}
+
+/* TITLE */
+.rtx-products-cta-title {
+  max-width: 920px;
+  margin: 0 auto 22px;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  color: var(--clr-white);
+}
+
+.rtx-products-cta-title span {
+  color: var(--clr-blue-medium);
+}
+
+/* TEXT */
+.rtx-products-cta-text {
+  max-width: 780px;
+  margin: 0 auto 36px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--clr-text-muted);
+}
+
+/* ACTIONS */
+.rtx-products-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rtx-products-cta-title {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+
+  .rtx-products-cta-text {
+    font-size: 16px;
+  }
+}
