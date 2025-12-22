@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink } from "react-router-dom";
 
-import atulya1 from "../../assets/img/atulya1.jpg";
+import atulya1 from "../../assets/images/atulya1.jpg";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
 
