@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import { NavLink } from "react-router-dom";
 
 import atulya1 from "../../assets/img/atulya1.jpg";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
@@ -60,43 +61,48 @@ const ContactUs = () => {
       {/* ================= HERO ================= */}
       <section
         ref={hero.ref}
-        className={`rtx-contact-hero-wrapper u-section ${
-          hero.visible ? "u-drop-visible" : ""
-        }`}
+        className={`rtx-cpage-hero-wrapper u-section ${hero.visible ? "u-drop-visible" : ""}`}
       >
-        <div className="rtx-contact-hero-particles"></div>
+        <div className="rtx-cpage-hero-particles"></div>
 
         <div className="u-container-center">
 
-          <span className="rtx-contact-hero-badge u-drop">
+          <span className="rtx-cpage-hero-badge u-drop">
             We’re Here to Help
           </span>
 
-          <h1 className="rtx-contact-hero-title u-drop">
+          <h1 className="rtx-cpage-hero-title u-drop">
             Get in Touch with <br />
-            <span className="rtx-contact-hero-accent">
+            <span className="rtx-cpage-hero-accent">
               Robotronix Engineering Tech Pvt. Ltd.
             </span>
           </h1>
 
-          <p className="rtx-contact-hero-subtext u-drop">
+          <p className="rtx-cpage-hero-subtext u-drop">
             Whether you want support, collaboration, or a custom project —
             our team is ready to assist you 24/7.
           </p>
 
-          <div className="rtx-contact-hero-btn-group u-drop">
-            <a href="/contact" className="btn btn-primary btn-lg">
+          <div className="rtx-contact-hero-btn-group u-drop d-flex justify-content-center gap-3">
+            <NavLink to="/contact" className="btn btn-primary btn-lg">
               Contact Our Team →
-            </a>
-            <a href="tel:+919999999999" className="btn btn-outline btn-lg">
+            </NavLink>
+
+            <NavLink to="tel:+919993150998" className="btn btn-outline btn-lg">
               Call Us
-            </a>
+            </NavLink>
           </div>
 
-          <div className="rtx-contact-quick">
-            <a href="mailto:info@robotronix.co.in">📧 info@robotronix.co.in</a>
-            <span>•</span>
-            <span>📞 0731-2970998, 9993150998</span>
+          <div className="rtx-cpage-quick">
+            <NavLink to="mailto:info@robotronix.co.in">
+              📧 info@robotronix.co.in
+            </NavLink>
+
+            <span className="divider">•</span>
+
+            <NavLink to="tel:+917312970998">
+              📞 0731-2970998, 9993150998
+            </NavLink>
           </div>
 
         </div>
@@ -105,9 +111,7 @@ const ContactUs = () => {
       {/* ================= INFO GRID ================= */}
       <section
         ref={infoGrid.ref}
-        className={`u-section ${
-          infoGrid.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section ${infoGrid.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container u-grid-auto">
 
@@ -131,13 +135,11 @@ const ContactUs = () => {
       {/* ================= OFFICE ================= */}
       <section
         ref={office.ref}
-        className={`u-section ${
-          office.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section ${office.visible ? "u-drop-visible" : ""}`}
       >
-        <div className="u-container rtx-office-container">
+        <div className="u-container rtx-cpage-office-container">
 
-          <div className="rtx-office-image u-drop">
+          <div className="rtx-cpage-office-image u-drop">
             <img src={atulya1} alt="Robotronix Office" />
           </div>
 
@@ -146,13 +148,13 @@ const ContactUs = () => {
               Visit Our <span>Office</span>
             </h2>
 
-            <p className="rtx-office-text">
+            <p className="rtx-cpage-office-text">
               ✔ Product & service-based organization <br />
               ✔ Exceeding client expectations <br />
               ✔ Driving tech innovation
             </p>
 
-            <a href="/contact" className="btn btn-primary">
+            <a href="/contact" className="btn btn-primary btn-lg">
               Schedule a Visit →
             </a>
           </div>
@@ -163,13 +165,11 @@ const ContactUs = () => {
       {/* ================= FORM ================= */}
       <section
         ref={form.ref}
-        className={`u-section ${
-          form.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
       >
-        <div className="u-container rtx-contact-container">
+        <div className="u-container rtx-cpage-contact-container">
 
-          <div className="rtx-contact-form card card-glass u-drop">
+          <div className="rtx-cpage-form card card-glass u-drop">
             <h2 className="u-title">
               Contact <span>Our Team</span>
             </h2>
@@ -180,23 +180,23 @@ const ContactUs = () => {
 
             <form onSubmit={handleSubmit}>
 
-              <div className="rtx-input-group">
-                <User className="rtx-input-icon" />
+              <div className="rtx-cpage-input-group">
+                <User className="rtx-cpage-input-icon" />
                 <input name="name" placeholder="Your Name" required onChange={handleChange} />
               </div>
 
-              <div className="rtx-input-group">
-                <Mail className="rtx-input-icon" />
+              <div className="rtx-cpage-input-group">
+                <Mail className="rtx-cpage-input-icon" />
                 <input name="email" placeholder="Your Email" required onChange={handleChange} />
               </div>
 
-              <div className="rtx-input-group">
-                <Phone className="rtx-input-icon" />
+              <div className="rtx-cpage-input-group">
+                <Phone className="rtx-cpage-input-icon" />
                 <input name="phone" placeholder="Phone Number" required onChange={handleChange} />
               </div>
 
-              <div className="rtx-input-group rtx-textarea-group">
-                <MessageSquare className="rtx-input-icon" />
+              <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
+                <MessageSquare className="rtx-cpage-input-icon" />
                 <textarea name="message" rows="5" placeholder="Your Message" required onChange={handleChange} />
               </div>
 
@@ -206,14 +206,14 @@ const ContactUs = () => {
             </form>
           </div>
 
-          <div className="rtx-contact-info card card-glass u-drop">
+          <div className="rtx-cpage-contact-info card card-glass u-drop">
             <h3 className="text-accent">Quick Contact</h3>
 
-            <div className="rtx-info-box"><Mail /> info@robotronix.co.in</div>
-            <div className="rtx-info-box"><Phone /> 0731-2970998</div>
-            <div className="rtx-info-box"><MapPin /> Atulya IT Park, Indore</div>
+            <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
+            <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
+            <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
 
-            <p className="rtx-info-text">
+            <p className="rtx-cpage-info-text">
               We respond within 24 hours.
             </p>
           </div>
@@ -224,9 +224,7 @@ const ContactUs = () => {
       {/* ================= MAP ================= */}
       <section
         ref={map.ref}
-        className={`u-section ${
-          map.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section ${map.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container-center">
 
@@ -238,10 +236,10 @@ const ContactUs = () => {
             Come visit us — we’re happy to help.
           </p>
 
-          <div className="cb-office-map-box u-drop">
+          <div className="rtx-cpage-map-box u-drop">
             <iframe
               title="Robotronix Office"
-              src="https://www.google.com/maps/embed?pb=!1m18..."
+              src="https://www.google.com/maps?q=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD.&output=embed"
               loading="lazy"
             />
           </div>
@@ -252,9 +250,7 @@ const ContactUs = () => {
       {/* ================= DETAILS ================= */}
       <section
         ref={details.ref}
-        className={`u-section ${
-          details.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section ${details.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container-center">
 

@@ -6,26 +6,35 @@ const useRevealOnScroll = ({
   once = true,
 } = {}) => {
   const ref = useRef(null);
+  const observerRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node || visible) return;
 
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          if (once) observer.disconnect();
+
+          if (once && observerRef.current) {
+            observerRef.current.disconnect();
+          }
         }
       },
       { threshold, rootMargin }
     );
 
-    observer.observe(node);
+    observerRef.current.observe(node);
 
-    return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
+  }, [threshold, rootMargin, once, visible]);
 
   return { ref, visible };
 };

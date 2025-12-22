@@ -1,0 +1,1118 @@
+/* ======================================================
+   COMPANY OVERVIEW START
+====================================================== */
+
+/* ======================================================
+   ABOUT OVERVIEW HERO
+====================================================== */
+
+.rtx-overview-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle futuristic background grid */
+.rtx-overview-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      var(--blue-012b),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      var(--blue-012),
+      transparent 60%
+    );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Badge (reuse hero style but calmer) */
+.rtx-overview-hero .rtx-hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  margin-bottom: 22px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 30px;
+  background: var(--blue-005b);
+  border: 1px solid var(--blue-02);
+  color: var(--clr-blue-light);
+  backdrop-filter: blur(6px);
+}
+
+/* Title spacing refinement */
+.rtx-overview-hero .u-title {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Subtext tuning */
+.rtx-overview-hero .u-subtext {
+  max-width: 820px;
+  margin: 18px auto 0;
+  line-height: 1.7;
+}
+
+/* Inline highlights */
+.rtx-overview-highlights {
+  margin-top: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Highlight pill */
+.rtx-overview-highlights span {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  color: var(--clr-text-light);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+/* Hover micro-interaction */
+.rtx-overview-highlights span:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-02);
+  box-shadow: 0 6px 18px var(--blue-02);
+  color: var(--clr-white);
+}
+
+/* ======================================================
+   LIGHT THEME FIXES
+====================================================== */
+
+:root[data-theme="light"] .rtx-overview-hero::before {
+  opacity: 0.35;
+}
+
+:root[data-theme="light"] .rtx-overview-highlights span {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  box-shadow: 0 4px 10px var(--border-light-2);
+}
+
+:root[data-theme="light"] .rtx-overview-highlights span:hover {
+  box-shadow:
+    0 10px 24px var(--border-light-2),
+    0 6px 14px var(--blue-02s);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-overview-highlights {
+    gap: 12px;
+  }
+
+  .rtx-overview-highlights span {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+}
+
+
+/* ======================================================
+   WHO WE ARE SECTION
+====================================================== */
+
+.rtx-who-wrapper {
+  position: relative;
+}
+
+/* Grid layout */
+.rtx-who-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Text block */
+.rtx-who-text .u-title {
+  margin-bottom: 24px;
+}
+
+.rtx-who-text .u-subtext {
+  margin-top: 16px;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ======================================================
+   FUTURISTIC VISUAL BLOCK
+====================================================== */
+
+.rtx-who-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rtx-who-core {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at center,
+      var(--blue-012b),
+      transparent 60%
+    );
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(10px);
+}
+
+/* Central glow */
+.rtx-who-core::before {
+  content: "";
+  position: absolute;
+  inset: 35%;
+  border-radius: 50%;
+  background: var(--clr-blue);
+  opacity: 0.35;
+  filter: blur(24px);
+}
+
+/* Nodes */
+.rtx-who-core .node {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--clr-blue-light);
+  box-shadow: 0 0 14px var(--blue-06);
+}
+
+/* Node positions */
+.rtx-who-core .n1 { top: 15%; left: 50%; transform: translateX(-50%); }
+.rtx-who-core .n2 { bottom: 18%; left: 25%; }
+.rtx-who-core .n3 { bottom: 18%; right: 25%; }
+.rtx-who-core .n4 { top: 50%; right: 15%; transform: translateY(-50%); }
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-who-core {
+  background: radial-gradient(
+    circle at center,
+    var(--blue-02s),
+    transparent 65%
+  );
+  border: 1px solid var(--border-light-1);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .rtx-who-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .rtx-who-text .u-subtext {
+    max-width: 100%;
+  }
+}
+
+/* ======================================================
+   OUR APPROACH SECTION
+====================================================== */
+
+.rtx-approach-wrapper {
+  position: relative;
+}
+
+/* Flow container */
+.rtx-approach-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+  position: relative;
+}
+
+/* Connector line (desktop) */
+.rtx-approach-flow::before {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--blue-03),
+    transparent
+  );
+}
+
+/* Step card */
+.rtx-approach-step {
+  position: relative;
+  padding: 28px 22px;
+  border-radius: 16px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.rtx-approach-step:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-02);
+  box-shadow: 0 8px 22px var(--blue-02);
+}
+
+/* Step index */
+.rtx-approach-step .step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--blue-005b);
+  border: 1px solid var(--blue-02);
+  color: var(--clr-blue-light);
+  font-weight: 600;
+}
+
+/* Titles */
+.rtx-approach-step h4 {
+  font-size: 1.05rem;
+  color: var(--clr-white);
+  margin-bottom: 10px;
+}
+
+/* Description */
+.rtx-approach-step p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-approach-step {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  box-shadow: 0 6px 14px var(--border-light-2);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 1024px) {
+  .rtx-approach-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rtx-approach-flow::before {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .rtx-approach-flow {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======================================================
+   CORE STRENGTHS
+====================================================== */
+
+.rtx-strengths-wrapper {
+  position: relative;
+}
+
+/* Card title */
+.rtx-strengths-wrapper h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+/* Card text */
+.rtx-strengths-wrapper p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Slight visual rhythm improvement */
+.rtx-strengths-wrapper .card {
+  min-height: 180px;
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-strengths-wrapper .card {
+  box-shadow:
+    0 6px 18px var(--border-light-2),
+    0 4px 12px var(--blue-01);
+}
+
+/* ======================================================
+   IMPACT & TRUST METRICS
+====================================================== */
+
+.rtx-impact-wrapper {
+  position: relative;
+}
+
+/* Grid */
+.rtx-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-top: 50px;
+}
+
+/* Card */
+.rtx-impact-card {
+  padding: 36px 20px;
+  border-radius: 18px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+/* Value */
+.rtx-impact-card h3 {
+  font-size: 2.1rem;
+  color: var(--clr-blue);
+  margin-bottom: 10px;
+  text-shadow: 0 0 14px var(--blue-06);
+}
+
+/* Label */
+.rtx-impact-card p {
+  font-size: 0.95rem;
+  color: var(--clr-text-light);
+}
+
+/* Hover */
+.rtx-impact-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-02);
+  box-shadow: 0 8px 22px var(--blue-02);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-impact-card {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+  box-shadow: 0 6px 16px var(--border-light-2);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 1024px) {
+  .rtx-impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rtx-impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======================================================
+   COMPANY PHILOSOPHY
+====================================================== */
+
+.rtx-philosophy-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+/* Quote */
+.rtx-philosophy-quote {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--clr-white);
+  max-width: 900px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+/* Accent underline */
+.rtx-philosophy-quote::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin: 26px auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--clr-blue),
+    transparent
+  );
+  box-shadow: 0 0 12px var(--blue-06);
+}
+
+/* Supporting text */
+.rtx-philosophy-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  max-width: 780px;
+  margin: 18px auto 0;
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-philosophy-quote {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-philosophy-text {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-philosophy-quote {
+    font-size: 1.6rem;
+  }
+
+  .rtx-philosophy-text {
+    font-size: 1rem;
+  }
+}
+
+
+/* ======================================================
+   COMPANY OVERVIEW END
+====================================================== */
+
+/* ======================================================
+   CULTURE START
+====================================================== */
+
+/* ======================================================
+   CULTURE HERO
+====================================================== */
+
+.rtx-culture-hero {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+/* Eyebrow */
+.rtx-culture-eyebrow {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-blue-medium);
+}
+
+/* Big editorial title */
+.rtx-culture-title {
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--clr-white);
+  max-width: 820px;
+}
+
+/* Supporting paragraph */
+.rtx-culture-subtext {
+  margin-top: 32px;
+  max-width: 680px;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-culture-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-culture-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-culture-hero {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .rtx-culture-subtext {
+    font-size: 1.05rem;
+  }
+}
+
+/* ======================================================
+   CULTURE VALUES
+====================================================== */
+
+.rtx-culture-values {
+  position: relative;
+}
+
+/* Individual row */
+.rtx-value-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+/* Alternating alignment */
+.rtx-value-row.align-left {
+  justify-content: flex-start;
+}
+
+.rtx-value-row.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Big faded index */
+.rtx-value-index {
+  position: absolute;
+  font-size: clamp(6rem, 14vw, 12rem);
+  font-weight: 700;
+  color: var(--white-02);
+  z-index: 0;
+  user-select: none;
+}
+
+.align-left .rtx-value-index {
+  left: 0;
+}
+
+.align-right .rtx-value-index {
+  right: 0;
+}
+
+/* Content block */
+.rtx-value-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.rtx-value-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: var(--clr-white);
+}
+
+.rtx-value-content p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-value-index {
+  color: var(--white-01);
+}
+
+:root[data-theme="light"] .rtx-value-content p {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .rtx-value-row {
+    margin-bottom: 80px;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .rtx-value-index {
+    font-size: 5rem;
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+
+/* ======================================================
+   CULTURE — LEARNING & GROWTH
+====================================================== */
+
+.rtx-culture-learning {
+  position: relative;
+}
+
+/* Header */
+.rtx-culture-learning-header {
+  margin-bottom: 40px;
+}
+
+/* Content block */
+.rtx-culture-learning-content {
+  max-width: 780px;
+  position: relative;
+  padding-top: 24px;
+}
+
+/* Soft divider */
+.rtx-culture-learning-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--clr-blue),
+    transparent
+  );
+  box-shadow: 0 0 10px var(--blue-06);
+}
+
+/* Paragraphs */
+.rtx-culture-learning-content p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--clr-text-light);
+  margin-top: 22px;
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-culture-learning-content p {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-culture-learning-content p {
+    font-size: 1.02rem;
+  }
+}
+
+/* ======================================================
+   CULTURE — WORK ETHOS
+====================================================== */
+
+.rtx-culture-ethos {
+  position: relative;
+}
+
+/* Ethos list */
+.rtx-ethos-list {
+  margin-top: 40px;
+  max-width: 720px;
+}
+
+/* Individual lines */
+.rtx-ethos-line {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--clr-white);
+  margin-bottom: 26px;
+  position: relative;
+  padding-left: 28px;
+}
+
+/* Subtle accent bar */
+.rtx-ethos-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 10px;
+  height: 2px;
+  background: var(--clr-blue);
+  box-shadow: 0 0 8px var(--blue-06);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-ethos-line {
+  color: var(--clr-white);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-ethos-line {
+    font-size: 1.2rem;
+  }
+}
+
+/* ======================================================
+   CULTURE — CTA
+====================================================== */
+
+.rtx-culture-cta {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+/* Supporting text */
+.rtx-culture-cta-text {
+  max-width: 720px;
+  margin: 24px auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-culture-cta-text {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-culture-cta {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .rtx-culture-cta-text {
+    font-size: 1.02rem;
+  }
+}
+
+/* ======================================================
+   CULTURE END
+====================================================== */
+
+/* ======================================================
+   VISION & MISSION START
+====================================================== */
+
+/* ======================================================
+   VISION & MISSION — HERO
+====================================================== */
+
+.rtx-vm-hero {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+/* Eyebrow */
+.rtx-vm-eyebrow {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-blue-medium);
+}
+
+/* Big statement */
+.rtx-vm-title {
+  font-size: clamp(3rem, 6.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--clr-white);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Supporting text */
+.rtx-vm-subtext {
+  margin-top: 28px;
+  font-size: 1.1rem;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-vm-title {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-vm-subtext {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-vm-hero {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .rtx-vm-subtext {
+    font-size: 1.02rem;
+  }
+}
+
+/* ======================================================
+   VISION SECTION
+====================================================== */
+
+.rtx-vision-section {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+/* Title */
+.rtx-vision-title {
+  font-size: 2.6rem;
+  margin-bottom: 42px;
+  color: var(--clr-white);
+}
+
+/* Main vision statement */
+.rtx-vision-statement {
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  color: var(--clr-white);
+}
+
+/* Supporting text */
+.rtx-vision-text {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-vision-statement {
+  color: var(--clr-white);
+}
+
+:root[data-theme="light"] .rtx-vision-text {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-vision-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .rtx-vision-statement {
+    font-size: 1.5rem;
+  }
+}
+
+/* ======================================================
+   MISSION SECTION
+====================================================== */
+
+.rtx-mission-section {
+  position: relative;
+}
+
+/* Grid */
+.rtx-mission-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Text */
+.rtx-mission-text .u-title {
+  margin-bottom: 28px;
+}
+
+.rtx-mission-statement {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--clr-white);
+  margin-bottom: 28px;
+  max-width: 640px;
+}
+
+.rtx-mission-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  margin-top: 18px;
+  max-width: 640px;
+}
+
+/* ======================================================
+   VISUAL RHYTHM (RIGHT SIDE)
+====================================================== */
+
+.rtx-mission-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.vm-line {
+  width: 180px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--clr-blue),
+    transparent
+  );
+  box-shadow: 0 0 12px var(--blue-06);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-mission-desc {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .rtx-mission-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .rtx-mission-visual {
+    display: none;
+  }
+}
+
+/* ======================================================
+   VISION & MISSION — CLOSING
+====================================================== */
+
+.rtx-vm-closing {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+/* Title */
+.rtx-vm-closing-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  color: var(--clr-white);
+}
+
+/* Supporting text */
+.rtx-vm-closing-text {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--clr-text-light);
+}
+
+/* ======================================================
+   LIGHT THEME
+====================================================== */
+
+:root[data-theme="light"] .rtx-vm-closing-text {
+  color: var(--clr-text-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-vm-closing {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .rtx-vm-closing-title {
+    font-size: 1.8rem;
+  }
+}

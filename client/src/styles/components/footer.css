@@ -23,7 +23,7 @@
 ================================ */
 .rtx-footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1.2fr 1.5fr;
+  grid-template-columns: 1.4fr 1.4fr 1.6fr;
   gap: 40px;
 }
 
@@ -203,4 +203,13 @@
   .rtx-footer-contact {
     margin-top: 20px;
   }
+}
+
+.rtx-footer-col a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rtx-footer-col a.active {
+  color: var(--clr-blue);
 }

@@ -1,13 +1,14 @@
 /* =====================================
-   CONTACT — HERO ONLY
+   CONTACT PAGE — HERO
 ===================================== */
 
-.rtx-contact-hero-wrapper {
+.rtx-cpage-hero-wrapper {
   position: relative;
   overflow: hidden;
+  color: var(--clr-white);
 }
 
-.rtx-contact-hero-particles {
+.rtx-cpage-hero-particles {
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -16,15 +17,15 @@
     transparent 60%
   );
   opacity: 0.7;
-  animation: rtxContactParticleMove 8s infinite linear;
+  animation: rtxCPageParticleMove 8s infinite linear;
 }
 
-@keyframes rtxContactParticleMove {
+@keyframes rtxCPageParticleMove {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-18px); }
 }
 
-.rtx-contact-hero-badge {
+.rtx-cpage-hero-badge {
   display: inline-block;
   padding: 8px 22px;
   border-radius: 30px;
@@ -33,83 +34,214 @@
   color: var(--clr-blue);
 }
 
-.rtx-contact-hero-title {
-  font-size: 3.1rem;
+.rtx-cpage-hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
   margin-top: 22px;
+  color: var(--clr-white);
 }
 
-.rtx-contact-hero-accent {
-  color: var(--clr-blue);
-  text-shadow: 0 0 15px var(--blue-06);
-}
-
-.rtx-contact-hero-subtext {
+.rtx-cpage-hero-subtext {
   max-width: 750px;
   margin: 20px auto 40px;
+  color: var(--clr-text-light);
+}
+
+.rtx-cpage-hero-accent {
+  color: var(--clr-blue);
+  text-shadow: 0 0 12px var(--blue-06);
+}
+
+/* HERO QUICK CONTACT */
+.rtx-cpage-quick {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: var(--clr-text-light);
+}
+
+.rtx-cpage-quick a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-blue-light);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.rtx-cpage-quick a:hover {
+  color: var(--clr-blue);
+  text-shadow: 0 0 10px var(--blue-03);
+}
+
+.rtx-cpage-quick .divider {
+  opacity: 0.5;
 }
 
 /* =====================================
-   OFFICE IMAGE
+   OFFICE SECTION
 ===================================== */
 
-.rtx-office-image {
+.rtx-cpage-office-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.rtx-cpage-office-image {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 25px var(--blue-025);
 }
 
-.rtx-office-image img {
+.rtx-cpage-office-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.rtx-cpage-office-text {
+  margin: 18px 0 26px;
+  color: var(--clr-text-light);
+  line-height: 1.7;
+}
+
 /* =====================================
-   FORM INPUTS (PAGE-SPECIFIC)
+   CONTACT FORM
 ===================================== */
 
-.rtx-input-group {
+.rtx-cpage-contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 36px;
+  align-items: start;
+}
+
+.rtx-cpage-form h2 {
+  margin-bottom: 10px;
+}
+
+.rtx-cpage-input-group {
   position: relative;
   margin-bottom: 20px;
 }
 
-.rtx-input-group input,
-.rtx-input-group textarea {
+.rtx-cpage-input-group input,
+.rtx-cpage-input-group textarea {
   width: 100%;
   padding: 14px 16px 14px 45px;
   border-radius: 10px;
   background: var(--white-06);
   border: 1px solid var(--white-15);
   color: var(--clr-white);
+  font-size: 0.95rem;
+  transition: 0.25s ease;
 }
 
-.rtx-input-icon {
+.rtx-cpage-input-group input::placeholder,
+.rtx-cpage-input-group textarea::placeholder {
+  color: var(--clr-text-muted);
+}
+
+.rtx-cpage-input-group input:focus-visible,
+.rtx-cpage-input-group textarea:focus-visible {
+  outline: none;
+  border-color: var(--blue-03);
+  background: var(--white-10);
+  box-shadow: 0 0 0 3px var(--blue-012);
+}
+
+.rtx-cpage-input-icon {
   position: absolute;
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--clr-blue);
+  opacity: 0.9;
 }
 
-.rtx-textarea-group .rtx-input-icon {
+.rtx-cpage-textarea-group .rtx-cpage-input-icon {
   top: 18px;
+}
+
+/* =====================================
+   QUICK CONTACT BOX
+===================================== */
+
+.rtx-cpage-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rtx-cpage-info-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--clr-text-light);
+}
+
+.rtx-cpage-info-text {
+  margin-top: 10px;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
 }
 
 /* =====================================
    MAP
 ===================================== */
 
-.cb-office-map-box {
+.rtx-cpage-map-box {
+  position: relative;
   max-width: 900px;
   margin: 40px auto 0;
-  border-radius: 16px;
+  height: clamp(260px, 50vh, 420px);
+
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid var(--blue-03);
-  box-shadow: 0 0 25px var(--blue-025);
+
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 30px var(--shadow-dark-1),
+    0 0 18px var(--blue-015);
+
+  transition: 0.35s ease;
 }
 
-.cb-office-map-box iframe {
+.rtx-cpage-map-box:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px var(--shadow-dark-2),
+    0 0 25px var(--blue-02);
+}
+
+.rtx-cpage-map-box iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-height: 420px;
+  height: 100%;
   border: none;
+}
+
+/* =====================================
+   LIGHT THEME FIXES
+===================================== */
+
+:root[data-theme="light"] .rtx-cpage-input-group input,
+:root[data-theme="light"] .rtx-cpage-input-group textarea {
+  background: var(--white-055);
+  color: var(--clr-text-soft);
+  border: 1px solid var(--border-light-1);
+}
+
+:root[data-theme="light"] .rtx-cpage-input-group input:focus-visible,
+:root[data-theme="light"] .rtx-cpage-input-group textarea:focus-visible {
+  box-shadow: 0 0 0 3px var(--blue-01);
 }

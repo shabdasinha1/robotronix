@@ -1,9 +1,9 @@
 import "./App.css";
-import AllRoutes from "./routes/AllRoutes";
+import AppRoutes from "./routes/AppRoutes";
 
 
 function App() {
-  return <AllRoutes />;
+  return <AppRoutes />;
 }
 
 export default App;

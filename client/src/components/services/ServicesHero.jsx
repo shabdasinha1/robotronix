@@ -53,12 +53,12 @@ const ServicesHero = ({
           className="rtx-service-hero-btn-group u-drop"
           style={{ "--delay": "0.8s" }}
         >
-          <a href={primaryLink} className="btn btn-primary">
+          <a href={primaryLink} className="btn btn-primary btn-lg">
             {primaryText}
           </a>
 
           {secondaryText && (
-            <a href={secondaryLink} className="btn btn-outline">
+            <a href={secondaryLink} className="btn btn-outline btn-lg">
               {secondaryText}
             </a>
           )}

@@ -21,7 +21,7 @@ const HeroSection = () => {
           of innovation.
         </p>
 
-        <div className="rtx-hero-btn-group rtx-fade-drop-4">
+        <div className="rtx-fade-drop-4 d-flex justify-content-center gap-3">
           <a href="/" className="btn btn-primary btn-lg">
             Get Started →
           </a>
