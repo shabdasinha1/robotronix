@@ -300,7 +300,7 @@ const strengths = [
     philosophy.visible ? "u-drop-visible" : ""
   }`}
 >
-
+  
       <div className="u-container-center">
 
         {/* QUOTE */}

@@ -102,6 +102,7 @@ export const routesConfig = [
   },
   {
     path: "/portfolio",
+    component: lazy(() => import("../pages/portfolio/Portfolio")),
     label: "Portfolio",
     nav: "main",
   },
