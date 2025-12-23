@@ -18,6 +18,22 @@ const Products = () => {
     threshold: 0.2,
     once: true,
   });
+  const product1 = useRevealOnScroll({
+    threshold: 0.2,
+    once: true,
+  });
+  const product2 = useRevealOnScroll({
+    threshold: 0.2,
+    once: true,
+  });
+  const product3 = useRevealOnScroll({
+    threshold: 0.2,
+    once: true,
+  });
+  const product4 = useRevealOnScroll({
+    threshold: 0.2,
+    once: true,
+  });
     const ctaSec = useRevealOnScroll({
     threshold: 0.2,
     once: true,
@@ -222,9 +238,9 @@ const Products = () => {
 
     {/*------------ L293D Detail Section ------------- */}
      <section
-      ref={section.ref}
+      ref={product1.ref}
       className={`u-section rtx-product-detail ${
-        section.visible ? "u-drop-visible" : ""
+        product1.visible ? "u-drop-visible" : ""
       }`}
       id="l293d"
     >
@@ -296,9 +312,9 @@ const Products = () => {
 
     {/*----------------- DETAIL — RELAY MODULE ------------------------ */}
       <section
-      ref={section.ref}
+      ref={product2.ref}
       className={`u-section rtx-product-detail ${
-        section.visible ? "u-drop-visible" : ""
+        product2.visible ? "u-drop-visible" : ""
       }`}
       id="relay-module"
     >
@@ -369,9 +385,9 @@ const Products = () => {
 
     {/* ---------------- IR Sensor Detail ---------------- */}
      <section
-      ref={section.ref}
+      ref={product3.ref}
       className={`u-section rtx-product-detail ${
-        section.visible ? "u-drop-visible" : ""
+        product3.visible ? "u-drop-visible" : ""
       }`}
       id="ir-sensor"
     >
@@ -446,9 +462,9 @@ const Products = () => {
 
     {/*------------------- DETAIL — RF MODULE --------------- */}
      <section
-      ref={section.ref}
+      ref={product4.ref}
       className={`u-section rtx-product-detail ${
-        section.visible ? "u-drop-visible" : ""
+        product4.visible ? "u-drop-visible" : ""
       }`}
       id="rf-module"
     >
