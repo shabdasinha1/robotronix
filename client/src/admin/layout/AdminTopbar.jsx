@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const AdminTopbar = () => {
+const AdminTopbar = ({toggleSidebar}) => {
   const navigate = useNavigate();
 
   // 🔹 THEME STATE (SHARED SOURCE)
@@ -31,6 +31,14 @@ const AdminTopbar = () => {
 
       {/* LEFT */}
       <div className="rtx-admin-topbar-left u-drop">
+         <button
+    className="rtx-admin-sidebar-toggle"
+    onClick={toggleSidebar}
+    aria-label="Toggle sidebar"
+    type="button"
+  >
+    ☰
+  </button>
         <h1 className="rtx-admin-page-title">
           Admin Dashboard
         </h1>

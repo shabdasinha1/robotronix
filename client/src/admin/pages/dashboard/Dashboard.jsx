@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <section
       ref={ref}
-      className={`rtx-admin-dashboard u-section ${
+      className={`rtx-admin-dashboard  ${
         visible ? "u-drop-visible" : ""
       }`}
     >

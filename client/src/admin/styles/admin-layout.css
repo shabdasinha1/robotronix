@@ -1,5 +1,5 @@
 /* ======================================================
-   ADMIN LAYOUT
+   ADMIN LAYOUT (DENSE & DATA-FOCUSED)
 ====================================================== */
 
 .rtx-admin-layout {
@@ -18,6 +18,8 @@
   box-shadow: 4px 0 20px var(--shadow-dark-2);
   position: relative;
   z-index: 10;
+  overflow: hidden;
+  transition: width 0.35s ease;
 }
 
 /* ================= MAIN AREA ================= */
@@ -44,11 +46,30 @@
 
 .rtx-admin-content {
   flex: 1;
-  padding-top: 40px;
-  padding-bottom: 60px;
+
+  /* ⬇ Reduced spacing for admin density */
+  padding: 20px 0 32px;
 }
 
-/* REMOVE PUBLIC SECTION PADDING FEEL */
+/* Override public section padding feel */
 .rtx-admin-content.u-section-sm {
   background: transparent;
+}
+
+/* ================= INNER CONTAINER ================= */
+
+/* Compact container only for admin */
+.rtx-admin-content .u-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1400px;
+}
+
+/* Wider screens get a bit more breathing room */
+@media (min-width: 1600px) {
+  .rtx-admin-content .u-container {
+    max-width: 1600px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
 }

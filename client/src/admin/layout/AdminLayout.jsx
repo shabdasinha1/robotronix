@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
+
 import "../styles/admin-layout.css";
 import "../styles/admin-sidebar.css";
 import "../styles/admin-topbar.css";
@@ -12,6 +13,8 @@ import "../styles/admin-auth.css";
 // Layout components (to be created next)
 import AdminSidebar from "./AdminSidebar";
 import AdminTopbar from "./AdminTopbar";
+import { useState } from "react";
+
 
 const AdminLayout = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -19,31 +22,36 @@ const AdminLayout = () => {
     once: true,
   });
 
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(prev => !prev);
+  };
+
   return (
     <div
       ref={ref}
-      className={`rtx-admin-layout ${visible ? "u-drop-visible" : ""}`}
+      className={`rtx-admin-layout 
+        ${visible ? "u-drop-visible" : ""} 
+        ${sidebarCollapsed ? "rtx-sidebar-collapsed" : ""}
+      `}
     >
-      {/* ========== SIDEBAR ========== */}
+      {/* SIDEBAR */}
       <aside className="rtx-admin-sidebar u-drop-left">
         <AdminSidebar />
       </aside>
 
-      {/* ========== MAIN AREA ========== */}
+      {/* MAIN */}
       <div className="rtx-admin-main">
-
-        {/* TOPBAR */}
         <header className="rtx-admin-topbar u-drop">
-          <AdminTopbar />
+          <AdminTopbar toggleSidebar={toggleSidebar} />
         </header>
 
-        {/* CONTENT */}
         <section className="rtx-admin-content u-section-sm">
           <div className="u-container">
             <Outlet />
           </div>
         </section>
-
       </div>
     </div>
   );

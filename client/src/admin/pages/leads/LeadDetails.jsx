@@ -12,7 +12,7 @@ const LeadDetails = () => {
   return (
     <section
       ref={ref}
-      className={`rtx-admin-lead-details u-section ${
+      className={`rtx-admin-lead-details${
         visible ? "u-drop-visible" : ""
       }`}
     >

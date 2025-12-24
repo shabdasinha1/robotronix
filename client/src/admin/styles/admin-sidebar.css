@@ -2,14 +2,44 @@
    ADMIN SIDEBAR
 ====================================================== */
 
+/* =============== SIDEBAR SHELL ================= */
+
+.rtx-admin-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--bg-dark-2);
+  border-right: 1px solid var(--white-05);
+  box-shadow: 4px 0 20px var(--shadow-dark-2);
+  position: relative;
+  z-index: 10;
+
+  /* 🔥 critical */
+  overflow: hidden;
+  transition: width 0.35s ease;
+}
+
+/* COLLAPSED WIDTH */
+.rtx-sidebar-collapsed .rtx-admin-sidebar {
+  width: 72px;
+}
+
+/* =============== INNER CONTAINER ================= */
+
 .rtx-admin-sidebar-inner {
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 28px 20px;
+  transition: padding 0.3s ease;
+  overflow-y: auto;
 }
 
-/* ================= BRAND ================= */
+/* Reduce padding when collapsed */
+.rtx-sidebar-collapsed .rtx-admin-sidebar-inner {
+  padding: 20px 10px;
+}
+
+/* =============== BRAND ================= */
 
 .rtx-admin-brand {
   margin-bottom: 40px;
@@ -20,15 +50,24 @@
   font-weight: 700;
   color: var(--clr-white);
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .rtx-admin-logo span {
   color: var(--clr-blue);
   text-shadow: 0 0 10px var(--blue-06);
   font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* ================= NAV LIST ================= */
+/* Hide brand text on collapse */
+.rtx-sidebar-collapsed .rtx-admin-logo span {
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+}
+
+/* =============== NAV LIST ================= */
 
 .rtx-admin-nav {
   list-style: none;
@@ -49,7 +88,12 @@
   color: var(--clr-text-light);
   font-size: 0.95rem;
   text-decoration: none;
-  transition: 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Center icons when collapsed */
+.rtx-sidebar-collapsed .rtx-admin-nav li a {
+  justify-content: center;
 }
 
 /* ICON */
@@ -59,13 +103,26 @@
   text-align: center;
 }
 
+/* NAV TEXT */
+.rtx-admin-nav-text {
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Hide text on collapse */
+.rtx-sidebar-collapsed .rtx-admin-nav-text {
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+}
+
 /* HOVER */
 .rtx-admin-nav li a:hover {
   background: var(--white-03);
   color: var(--clr-white);
 }
 
-/* ACTIVE (NavLink auto adds .active) */
+/* ACTIVE STATE */
 .rtx-admin-nav li a.active {
   background: linear-gradient(
     90deg,
@@ -76,7 +133,13 @@
   color: var(--clr-white);
 }
 
-/* ================= SECTION LABEL ================= */
+/* Active fix for collapsed mode */
+.rtx-sidebar-collapsed .rtx-admin-nav li a.active {
+  border-left: none;
+  background: var(--blue-012b);
+}
+
+/* =============== SECTION LABEL ================= */
 
 .rtx-admin-nav-section {
   margin-top: 18px;
@@ -89,15 +152,18 @@
   text-transform: uppercase;
   color: var(--clr-text-muted);
   padding-left: 8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* ================= SCROLL (FUTURE SAFE) ================= */
-
-.rtx-admin-sidebar-inner {
-  overflow-y: auto;
+/* Hide section labels when collapsed */
+.rtx-sidebar-collapsed .rtx-admin-nav-section-title {
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
 }
 
-/* SCROLLBAR (SUBTLE) */
+/* =============== SCROLLBAR ================= */
+
 .rtx-admin-sidebar-inner::-webkit-scrollbar {
   width: 6px;
 }
