@@ -1,0 +1,80 @@
+import { NavLink } from "react-router-dom";
+
+const AdminSidebar = () => {
+  return (
+    <nav className="rtx-admin-sidebar-inner">
+
+      {/* ================= BRAND / LOGO ================= */}
+      <div className="rtx-admin-brand u-drop">
+        <h2 className="rtx-admin-logo">
+          Robotronix <span>Admin</span>
+        </h2>
+      </div>
+
+      {/* ================= NAV SECTIONS ================= */}
+      <ul className="rtx-admin-nav">
+
+        {/* DASHBOARD */}
+        <li className="u-drop" style={{ "--delay": "0.1s" }}>
+          <NavLink to="/admin/dashboard">
+            <span className="rtx-admin-nav-icon">📊</span>
+            <span className="rtx-admin-nav-text">Dashboard</span>
+          </NavLink>
+        </li>
+
+        {/* LEADS */}
+        <li className="u-drop" style={{ "--delay": "0.2s" }}>
+          <NavLink to="/admin/leads">
+            <span className="rtx-admin-nav-icon">📩</span>
+            <span className="rtx-admin-nav-text">Leads</span>
+          </NavLink>
+        </li>
+
+        {/* CONTENT MANAGEMENT */}
+        <li className="rtx-admin-nav-section u-drop" style={{ "--delay": "0.3s" }}>
+          <span className="rtx-admin-nav-section-title">
+            Content
+          </span>
+        </li>
+
+        <li className="u-drop" style={{ "--delay": "0.35s" }}>
+          <NavLink to="/admin/content/services">
+            <span className="rtx-admin-nav-icon">🧠</span>
+            <span className="rtx-admin-nav-text">Services</span>
+          </NavLink>
+        </li>
+
+        <li className="u-drop" style={{ "--delay": "0.4s" }}>
+          <NavLink to="/admin/content/testimonials">
+            <span className="rtx-admin-nav-icon">💬</span>
+            <span className="rtx-admin-nav-text">Testimonials</span>
+          </NavLink>
+        </li>
+
+        <li className="u-drop" style={{ "--delay": "0.45s" }}>
+          <NavLink to="/admin/content/partners">
+            <span className="rtx-admin-nav-icon">🤝</span>
+            <span className="rtx-admin-nav-text">Partners</span>
+          </NavLink>
+        </li>
+
+        {/* SETTINGS */}
+        <li className="rtx-admin-nav-section u-drop" style={{ "--delay": "0.5s" }}>
+          <span className="rtx-admin-nav-section-title">
+            Settings
+          </span>
+        </li>
+
+        <li className="u-drop" style={{ "--delay": "0.55s" }}>
+          <NavLink to="/admin/settings">
+            <span className="rtx-admin-nav-icon">⚙️</span>
+            <span className="rtx-admin-nav-text">Site Settings</span>
+          </NavLink>
+        </li>
+
+      </ul>
+    </nav>
+  );
+};
+
+export default AdminSidebar;

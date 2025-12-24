@@ -1,18 +1,20 @@
 import { Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ThemeInitializer from "../theme/ThemeInitializer";
 
 // Common
 import ScrollToTop from "../components/common/ScrollToTop";
 import Header from "../components/common/Header";
 import NewFooter from "../components/common/Footer";
 
-// Routes config
+// Routes
 import { routesConfig } from "./RouteConfig";
+import { adminRoutesConfig } from "../admin/routes/AdminRoutesConfig";
 
-/**
- * Lightweight fallback
- * Avoids layout shift & improves perceived performance
- */
+// Admin
+import AdminLayout from "../admin/layout/AdminLayout";
+import AdminProtectedRoute from "../admin/pages/auth/AdminProtectedRoute";
+
 const PageFallback = () => null;
 
 const AppRoutes = () => {
@@ -25,28 +27,60 @@ const AppRoutes = () => {
 
   return (
     <BrowserRouter>
-      <Header />
+     <ThemeInitializer />
+      <ScrollToTop />
 
-      <main>
-        <ScrollToTop />
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
 
-        <Suspense fallback={<PageFallback />}>
-          <Routes>
-            {routesConfig.map(
-              ({ path, component: Component, hidden }) =>
-                Component && (
-                  <Route
-                    key={path}
-                    path={path}
-                    element={<Component />}
-                  />
-                )
-            )}
-          </Routes>
-        </Suspense>
-      </main>
+          {/* ================= ADMIN LOGIN ================= */}
+          <Route
+            path="/admin/login"
+            element={
+              localStorage.getItem("admin_auth") === "true"
+                ? <Navigate to="/admin/dashboard" replace />
+                : (() => {
+                    const LoginComp =
+                      adminRoutesConfig.find(r => r.path === "login")?.component;
+                    return LoginComp ? <LoginComp /> : null;
+                  })()
+            }
+          />
 
-      <NewFooter />
+          {/* ================= PROTECTED ADMIN ================= */}
+          <Route element={<AdminProtectedRoute />}>
+            <Route path="/admin/*" element={<AdminLayout />}>
+              {adminRoutesConfig
+                .filter(r => r.path !== "login")
+                .map(({ path, component: Component }) => (
+                  <Route key={path} path={path} element={<Component />} />
+                ))}
+            </Route>
+          </Route>
+
+          {/* ================= PUBLIC ================= */}
+          <Route
+            path="/*"
+            element={
+              <>
+                <Header />
+                <main>
+                  <Routes>
+                    {routesConfig.map(
+                      ({ path, component: Component }) =>
+                        Component && (
+                          <Route key={path} path={path} element={<Component />} />
+                        )
+                    )}
+                  </Routes>
+                </main>
+                <NewFooter />
+              </>
+            }
+          />
+
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };

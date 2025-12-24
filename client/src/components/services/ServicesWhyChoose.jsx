@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const ServicesWhyChoose = ({ 
   title,
@@ -37,16 +38,17 @@ const ServicesWhyChoose = ({
         {/* GRID */}
         <div className="rtx-service-why-grid u-grid-auto">
           {points.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-glass u-drop"
+              variant="glass"
+              className="u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
               <div className="rtx-service-why-check">✔</div>
 
               <h3 className="text-accent">{item.title}</h3>
               <p className="text-muted">{item.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -56,3 +58,4 @@ const ServicesWhyChoose = ({
 };
 
 export default ServicesWhyChoose;
+     

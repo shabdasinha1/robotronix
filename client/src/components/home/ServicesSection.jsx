@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../common/Card";
+import { NavLink } from "react-router-dom";
 
 const servicesList = [
   {
@@ -88,9 +89,11 @@ const ServicesSection = () => {
         {/* SERVICE CARDS */}
         <div className="rtx-services-grid u-grid-auto">
           {servicesList.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-md card-hover rtx-service-card u-drop"
+              size="md"
+              variant="hover"
+              className="rtx-service-card u-drop"
               style={{ "--delay": `${0.6 + index * 0.15}s` }}
             >
               <div className="rtx-service-icon">{service.icon}</div>
@@ -103,13 +106,14 @@ const ServicesSection = () => {
                 {service.desc}
               </p>
 
+              {/* unchanged */}
               <NavLink
                 to={service.path}
                 className="rtx-service-link"
               >
                 Learn more →
               </NavLink>
-            </div>
+            </Card>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
 
 const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
   const { ref, visible } = useRevealOnScroll({
@@ -26,9 +27,15 @@ const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
           {subtitle}
         </p>
 
-        <a href={buttonLink} className="btn btn-primary btn-lg">
+        {/* BUTTON (replaces <a>) */}
+        <Button
+          to={buttonLink}
+          variant="primary"
+          size="lg"
+        >
           {buttonText}
-        </a>
+        </Button>
+
       </div>
     </section>
   );

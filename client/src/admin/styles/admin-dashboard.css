@@ -1,0 +1,69 @@
+/* ======================================================
+   ADMIN DASHBOARD
+====================================================== */
+
+/* HEADER */
+.rtx-admin-dashboard-header {
+  margin-bottom: 40px;
+}
+
+/* ================= STATS ================= */
+
+.rtx-admin-stat-card {
+  padding: 28px 26px;
+  border-radius: 18px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--white-05);
+  box-shadow: 0 14px 30px var(--shadow-dark-1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rtx-admin-stat-card h4 {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+}
+
+.rtx-admin-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+}
+
+/* ================= SECTIONS ================= */
+
+.rtx-admin-dashboard-sections {
+  margin-top: 50px;
+}
+
+/* ================= GENERIC ADMIN CARD ================= */
+
+.rtx-admin-card {
+  padding: 26px;
+  border-radius: 18px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--white-05);
+  box-shadow: 0 18px 36px var(--shadow-dark-1);
+}
+
+/* CARD HEADER */
+.rtx-admin-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: 14px;
+}
+
+/* CARD BODY */
+.rtx-admin-card-body {
+  color: var(--clr-text-light);
+  font-size: 0.95rem;
+}
+
+/* PLACEHOLDER TEXT */
+.rtx-admin-placeholder {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+}

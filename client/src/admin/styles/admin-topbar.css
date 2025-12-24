@@ -1,0 +1,123 @@
+/* ======================================================
+   ADMIN TOPBAR
+====================================================== */
+
+.rtx-admin-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 26px;
+}
+
+/* ================= LEFT ================= */
+
+.rtx-admin-topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.rtx-admin-page-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--clr-white);
+}
+
+/* ================= RIGHT ================= */
+
+.rtx-admin-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* THEME TOGGLE */
+
+.rtx-admin-theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--white-06);
+  background: var(--bg-dark-3);
+  color: var(--clr-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s ease;
+}
+
+.rtx-admin-theme-toggle:hover {
+  background: var(--white-03);
+}
+
+/* ================= PROFILE ================= */
+
+.rtx-admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--white-05);
+  background: var(--bg-dark-3);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.rtx-admin-profile:hover {
+  background: var(--white-03);
+}
+
+/* AVATAR */
+
+.rtx-admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--clr-blue),
+    var(--clr-blue-light)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+/* PROFILE TEXT */
+
+.rtx-admin-profile-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.rtx-admin-name {
+  font-size: 0.85rem;
+  color: var(--clr-white);
+}
+
+.rtx-admin-role {
+  font-size: 0.7rem;
+  color: var(--clr-text-muted);
+}
+
+/* LOGOUT BUTTON */
+
+.rtx-admin-logout-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--white-06);
+  background: transparent;
+  color: var(--clr-text-light);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.rtx-admin-logout-btn:hover {
+  background: var(--white-03);
+  color: var(--clr-white);
+}

@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
 
 const AboutSection = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -56,9 +57,10 @@ const AboutSection = () => {
             <div>✔ Global delivery capabilities</div>
           </div>
 
-          <a href="/" className="btn btn-primary btn-lg">
+          {/* BUTTON */}
+          <Button to="" variant="primary" size="lg">
             Discover Our Story
-          </a>
+          </Button>
 
         </div>
       </div>

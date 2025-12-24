@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
 
 const ContactSection = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -64,9 +65,15 @@ const ContactSection = () => {
               <textarea placeholder="Tell us about your project..." />
             </div>
 
-            <button className="btn btn-primary btn-lg w-100">
+            {/* BUTTON (replaces <button>) */}
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="w-100"
+            >
               Send Message ✈
-            </button>
+            </Button>
           </div>
 
           {/* RIGHT — INFO */}

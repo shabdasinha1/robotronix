@@ -1,4 +1,6 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
+import Card from "../../components/common/Card";
 
 const ServicesHero = ({
   badge,
@@ -53,14 +55,14 @@ const ServicesHero = ({
           className="rtx-service-hero-btn-group u-drop"
           style={{ "--delay": "0.8s" }}
         >
-          <a href={primaryLink} className="btn btn-primary btn-lg">
+          <Button to={primaryLink} variant="primary" size="lg">
             {primaryText}
-          </a>
+          </Button>
 
           {secondaryText && (
-            <a href={secondaryLink} className="btn btn-outline btn-lg">
+            <Button to={secondaryLink} variant="outline" size="lg">
               {secondaryText}
-            </a>
+            </Button>
           )}
         </div>
 
@@ -68,14 +70,15 @@ const ServicesHero = ({
         {stats.length > 0 && (
           <div className="rtx-service-hero-stats">
             {stats.map((item, i) => (
-              <div
+              <Card
                 key={i}
-                className="card card-glass u-drop"
+                variant="glass"
+                className="u-drop"
                 style={{ "--delay": `${1 + i * 0.2}s` }}
               >
                 <h3 className="text-accent">{item.value}</h3>
                 <p className="text-muted">{item.label}</p>
-              </div>
+              </Card>
             ))}
           </div>
         )}

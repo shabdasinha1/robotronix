@@ -1,0 +1,112 @@
+/* ======================================================
+   ADMIN SIDEBAR
+====================================================== */
+
+.rtx-admin-sidebar-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px;
+}
+
+/* ================= BRAND ================= */
+
+.rtx-admin-brand {
+  margin-bottom: 40px;
+}
+
+.rtx-admin-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  letter-spacing: 0.5px;
+}
+
+.rtx-admin-logo span {
+  color: var(--clr-blue);
+  text-shadow: 0 0 10px var(--blue-06);
+  font-weight: 600;
+}
+
+/* ================= NAV LIST ================= */
+
+.rtx-admin-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* NAV ITEM */
+.rtx-admin-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: var(--clr-text-light);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+/* ICON */
+.rtx-admin-nav-icon {
+  font-size: 1.1rem;
+  width: 22px;
+  text-align: center;
+}
+
+/* HOVER */
+.rtx-admin-nav li a:hover {
+  background: var(--white-03);
+  color: var(--clr-white);
+}
+
+/* ACTIVE (NavLink auto adds .active) */
+.rtx-admin-nav li a.active {
+  background: linear-gradient(
+    90deg,
+    var(--blue-012b),
+    transparent
+  );
+  border-left: 3px solid var(--clr-blue);
+  color: var(--clr-white);
+}
+
+/* ================= SECTION LABEL ================= */
+
+.rtx-admin-nav-section {
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.rtx-admin-nav-section-title {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  padding-left: 8px;
+}
+
+/* ================= SCROLL (FUTURE SAFE) ================= */
+
+.rtx-admin-sidebar-inner {
+  overflow-y: auto;
+}
+
+/* SCROLLBAR (SUBTLE) */
+.rtx-admin-sidebar-inner::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rtx-admin-sidebar-inner::-webkit-scrollbar-thumb {
+  background: var(--white-06);
+  border-radius: 6px;
+}
+
+.rtx-admin-sidebar-inner::-webkit-scrollbar-track {
+  background: transparent;
+}

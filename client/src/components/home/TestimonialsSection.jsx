@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const testimonials = [
   {
@@ -109,9 +110,11 @@ const TestimonialsSection = () => {
         {/* BOTTOM CARDS */}
         <div className="rtx-test-grid">
           {testimonials.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-sm card-hover rtx-test-card u-drop"
+              size="sm"
+              variant="hover"
+              className="rtx-test-card u-drop"
               style={{ "--delay": `${1 + index * 0.15}s` }}
             >
               <div className="rtx-test-rating-small">
@@ -124,7 +127,7 @@ const TestimonialsSection = () => {
 
               <h4 className="rtx-test-card-name">{item.name}</h4>
               <p className="rtx-test-card-company">{item.company}</p>
-            </div>
+            </Card>
           ))}
         </div>
 

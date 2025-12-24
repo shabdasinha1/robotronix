@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const ServicesIndustries = ({ 
   title,
@@ -37,9 +38,10 @@ const ServicesIndustries = ({
         {/* GRID */}
         <div className="rtx-service-industries-grid u-grid-auto">
           {industries.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-glass u-drop"
+              variant="glass"
+              className="u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
               <div className="rtx-service-industries-icon">
@@ -48,7 +50,7 @@ const ServicesIndustries = ({
 
               <h3 className="text-accent">{item.title}</h3>
               <p className="text-muted">{item.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
 

@@ -1,0 +1,76 @@
+/* ======================================================
+   ADMIN AUTH (LOGIN)
+====================================================== */
+
+.rtx-admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* HEADER */
+.rtx-admin-login-header {
+  margin-bottom: 40px;
+}
+
+/* CARD */
+.rtx-admin-login .rtx-admin-card {
+  max-width: 420px;
+  margin: auto;
+  padding: 40px 36px;
+  background: var(--bg-dark-2);
+  border-radius: 18px;
+  border: 1px solid var(--white-05);
+  box-shadow: 0 20px 40px var(--shadow-dark-1);
+}
+
+/* FORM */
+.rtx-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* FORM GROUP */
+.rtx-admin-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rtx-admin-form-group label {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+}
+
+/* INPUT */
+.rtx-admin-form-group input {
+  padding: 14px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--white-06);
+  background: var(--bg-dark-3);
+  color: var(--clr-white);
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.rtx-admin-form-group input::placeholder {
+  color: var(--clr-text-muted);
+}
+
+.rtx-admin-form-group input:focus {
+  border-color: var(--clr-blue);
+  box-shadow: 0 0 0 3px var(--blue-015);
+}
+
+/* ERROR */
+.rtx-admin-error {
+  font-size: 0.9rem;
+  color: #ff6b6b;
+  text-align: center;
+}
+
+/* BUTTON OVERRIDE (USES YOUR GLOBAL BUTTON SYSTEM) */
+.rtx-admin-login .btn {
+  margin-top: 10px;
+}

@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
 
 const CTASection = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -26,9 +27,11 @@ const CTASection = () => {
           Let’s work together to build innovative, scalable, and future-ready digital solutions.
         </p>
 
-        <button className="btn btn-primary btn-lg">
+        {/* BUTTON (replaces <button>) */}
+        <Button variant="primary" size="lg">
           Get Started 🚀
-        </button>
+        </Button>
+
       </div>
     </section>
   );

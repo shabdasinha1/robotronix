@@ -1,4 +1,6 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Button from "../../components/common/Button";
+import Card from "../../components/common/Card";
 
 const techItems = [
   { name: "React", type: "Frontend" },
@@ -52,14 +54,16 @@ const TechStack = () => {
         {/* CARDS */}
         <div className="rtx-tech-grid">
           {techItems.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-sm card-hover rtx-tech-card u-drop"
+              size="sm"
+              variant="hover"
+              className="rtx-tech-card u-drop"
               style={{ "--delay": `${0.6 + index * 0.08}s` }}
             >
               <h4>{item.name}</h4>
               <span>{item.type}</span>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -70,13 +74,16 @@ const TechStack = () => {
           And many more technologies in our arsenal
         </p>
 
-        <a
-          href="/"
-          className="btn btn-outline btn-md u-drop"
+
+        <Button
+          to=""
+          variant="outline"
+          size="md"
+          className="u-drop"
           style={{ "--delay": "2s" }}
         >
           View Full Tech Stack →
-        </a>
+        </Button>
 
       </div>
     </section>

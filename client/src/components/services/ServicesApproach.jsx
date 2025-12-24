@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const ServicesApproach = ({
   title,
@@ -38,14 +39,15 @@ const ServicesApproach = ({
         {/* GRID */}
         <div className="rtx-service-approach-grid u-grid-auto">
           {steps.map((step, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-glass u-drop"
+              variant="glass"
+              className="u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
               <h3 className="text-accent">{step.title}</h3>
               <p className="text-muted">{step.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
 

@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "../common/Button";
+import Card from "../common/Card";
 
 const HeroSection = () => {
   return (
@@ -22,34 +24,47 @@ const HeroSection = () => {
         </p>
 
         <div className="rtx-fade-drop-4 d-flex justify-content-center gap-3">
-          <a href="/" className="btn btn-primary btn-lg">
+          <Button to="" variant="primary" size="lg">
             Get Started →
-          </a>
-          <a href="/portfolio" className="btn btn-outline btn-lg">
+          </Button>
+
+          <Button to="/portfolio" variant="outline" size="lg">
             View Portfolio
-          </a>
+          </Button>
         </div>
 
         <div className="rtx-hero-stats">
-          <div className="rtx-hero-stat-card rtx-stat-drop-1">
+          <Card
+            variant="glass"
+            className="rtx-hero-stat-card rtx-stat-drop-1"
+          >
             <h3>500+</h3>
             <p>Projects Delivered</p>
-          </div>
+          </Card>
 
-          <div className="rtx-hero-stat-card rtx-stat-drop-2">
+          <Card
+            variant="glass"
+            className="rtx-hero-stat-card rtx-stat-drop-2"
+          >
             <h3>98%</h3>
             <p>Client Satisfaction</p>
-          </div>
+          </Card>
 
-          <div className="rtx-hero-stat-card rtx-stat-drop-3">
+          <Card
+            variant="glass"
+            className="rtx-hero-stat-card rtx-stat-drop-3"
+          >
             <h3>50+</h3>
             <p>Industry Awards</p>
-          </div>
+          </Card>
 
-          <div className="rtx-hero-stat-card rtx-stat-drop-4">
+          <Card
+            variant="glass"
+            className="rtx-hero-stat-card rtx-stat-drop-4"
+          >
             <h3>24/7</h3>
             <p>Support Available</p>
-          </div>
+          </Card>
         </div>
       </div>
     </section>

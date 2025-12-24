@@ -1,4 +1,5 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const ServicesOverview = ({
   title,
@@ -41,6 +42,7 @@ const ServicesOverview = ({
             </p>
           ))}
 
+          {/* BUTTON — UNCHANGED */}
           {btnText && (
             <a href={btnLink} className="btn btn-outline">
               {btnText} →
@@ -51,14 +53,15 @@ const ServicesOverview = ({
         {/* RIGHT */}
         <div className="rtx-service-overview-right">
           {infoCards.map((card, idx) => (
-            <div
+            <Card
               key={idx}
-              className="card card-glass u-drop"
+              variant="glass"
+              className="u-drop"
               style={{ "--delay": `${0.4 + idx * 0.2}s` }}
             >
               <h3 className="text-accent">{card.title}</h3>
               <p className="text-muted">{card.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
 

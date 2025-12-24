@@ -1,0 +1,54 @@
+/* ======================================================
+   ADMIN LAYOUT
+====================================================== */
+
+.rtx-admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-dark-1);
+}
+
+/* ================= SIDEBAR ================= */
+
+.rtx-admin-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--bg-dark-2);
+  border-right: 1px solid var(--white-05);
+  box-shadow: 4px 0 20px var(--shadow-dark-2);
+  position: relative;
+  z-index: 10;
+}
+
+/* ================= MAIN AREA ================= */
+
+.rtx-admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ================= TOPBAR ================= */
+
+.rtx-admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: var(--header-solid-bg);
+  border-bottom: 1px solid var(--header-solid-border);
+  backdrop-filter: blur(10px);
+}
+
+/* ================= CONTENT ================= */
+
+.rtx-admin-content {
+  flex: 1;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* REMOVE PUBLIC SECTION PADDING FEEL */
+.rtx-admin-content.u-section-sm {
+  background: transparent;
+}

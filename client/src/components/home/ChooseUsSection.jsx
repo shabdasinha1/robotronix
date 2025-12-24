@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import Card from "../../components/common/Card";
 
 const stats = [
   { icon: "👥", value: 500, label: "Happy Clients" },
@@ -73,15 +74,17 @@ const ChooseUsSection = () => {
         {/* STATS */}
         <div className="rtx-choose-grid">
           {stats.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="card card-md card-hover rtx-choose-card u-drop-scale"
+              size="md"
+              variant="hover"
+              className="rtx-choose-card u-drop-scale"
               style={{ "--delay": `${0.6 + index * 0.15}s` }}
             >
               <div className="rtx-choose-icon">{item.icon}</div>
               <h3 className="rtx-choose-value">{counts[index]}+</h3>
               <p className="rtx-choose-label">{item.label}</p>
-            </div>
+            </Card>
           ))}
         </div>
 
