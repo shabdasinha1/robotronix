@@ -24,7 +24,7 @@ const HeroSection = () => {
         </p>
 
         <div className="rtx-fade-drop-4 d-flex justify-content-center gap-3">
-          <Button to="" variant="primary" size="lg">
+          <Button to="/contact-us" variant="primary" size="lg">
             Get Started →
           </Button>
 

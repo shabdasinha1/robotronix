@@ -14,22 +14,26 @@ const Header = () => {
 
   const services = routesConfig.filter((r) => r.nav === "services");
 
+  const aboutRoutes = routesConfig.filter(
+    (r) => r.nav === "about" && !r.hidden
+  );
 
   const mainNav = routesConfig.filter(
-    (r) => r.nav === "main" && r.path !== "/" && !r.hidden
+    (r) =>
+      r.nav === "main" &&
+      r.path !== "/" &&
+      r.path !== "/portfolio" &&
+      !r.hidden
   );
 
   const isServicesActive = services.some(
     (r) => pathname === r.path || pathname.startsWith(r.path + "/")
   );
 
-const aboutRoutes = routesConfig.filter(
-  (r) => r.nav === "about" && !r.hidden
-);
+  const isAboutActive = aboutRoutes.some(
+    (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+  );
 
-const isAboutActive = aboutRoutes.some(
-  (r) => pathname === r.path || pathname.startsWith(r.path + "/")
-);
   /* ===============================
      STATE
   =============================== */
@@ -85,7 +89,6 @@ const isAboutActive = aboutRoutes.some(
           {/* DESKTOP */}
           <nav className="rtx-header-menu">
             <ul>
-              {/* SERVICES */}
               <DesktopDropdown
                 label="Our Services"
                 open={desktopDropdown === "services"}
@@ -98,16 +101,11 @@ const isAboutActive = aboutRoutes.some(
                 ))}
               </DesktopDropdown>
 
-              {/* PRODUCTS */}
-              <NavButton to="/products" label="Products" />
-
-              {/* ABOUT */}
               <DesktopDropdown
                 label="About Us"
                 open={desktopDropdown === "about"}
                 onOpen={() => setDesktopDropdown("about")}
                 onClose={() => setDesktopDropdown(null)}
-                small
                 active={isAboutActive}
               >
                 {aboutRoutes.map(({ path, label }) => (
@@ -115,18 +113,14 @@ const isAboutActive = aboutRoutes.some(
                 ))}
               </DesktopDropdown>
 
-              {/* REST */}
-              {mainNav
-                .filter(
-                  (r) => !["/products"].includes(r.path)
-                )
-                .map(({ path, label }) => (
-                  <NavButton key={path} to={path} label={label} />
-                ))}
+              {mainNav.map(({ path, label }) => (
+                <NavButton key={path} to={path} label={label} />
+              ))}
+
+              <NavButton to="/portfolio" label="Portfolio" />
             </ul>
           </nav>
 
-          {/* RIGHT */}
           <div className="rtx-header-right">
             <button className="rtx-theme-toggle" onClick={toggleTheme}>
               {theme === "dark" ? <FiSun /> : <FiMoon />}
@@ -165,8 +159,6 @@ const isAboutActive = aboutRoutes.some(
             ))}
           </MobileDropdown>
 
-          <NavButton mobile to="/products" label="Products" onClick={() => setMobileOpen(false)} />
-
           <MobileDropdown
             label="About Us"
             open={mobileDropdown === "about"}
@@ -187,19 +179,22 @@ const isAboutActive = aboutRoutes.some(
             ))}
           </MobileDropdown>
 
-          {mainNav
-            .filter(
-              (r) => !["/products"].includes(r.path)
-            )
-            .map(({ path, label }) => (
-              <NavButton
-                key={path}
-                mobile
-                to={path}
-                label={label}
-                onClick={() => setMobileOpen(false)}
-              />
-            ))}
+          {mainNav.map(({ path, label }) => (
+            <NavButton
+              key={path}
+              mobile
+              to={path}
+              label={label}
+              onClick={() => setMobileOpen(false)}
+            />
+          ))}
+
+          <NavButton
+            mobile
+            to="/portfolio"
+            label="Portfolio"
+            onClick={() => setMobileOpen(false)}
+          />
         </ul>
       </aside>
 
@@ -214,7 +209,7 @@ const isAboutActive = aboutRoutes.some(
 };
 
 /* ===============================
-   HELPERS 
+   HELPERS
 =============================== */
 
 const DesktopDropdown = ({ label, open, onOpen, onClose, active, children }) => (

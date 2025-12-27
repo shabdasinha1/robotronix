@@ -10,7 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const NewFooter = () => {
+const Footer = () => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.2,
   });
@@ -98,4 +98,4 @@ const NewFooter = () => {
   );
 };
 
-export default NewFooter;
+export default Footer;

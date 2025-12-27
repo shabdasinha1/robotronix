@@ -1,9 +1,9 @@
 import { lazy } from "react";
+import { ROUTE_PATHS } from "./RoutePaths";
 
 export const routesConfig = [
-  // ===== HOME =====
   {
-    path: "/",
+    path: ROUTE_PATHS.HOME,
     component: lazy(() => import("../pages/home/Home")),
     label: "Home",
     nav: "main",
@@ -11,25 +11,25 @@ export const routesConfig = [
 
   // ===== SERVICES =====
   {
-    path: "/ai-ml",
+    path: ROUTE_PATHS.AI_ML,
     component: lazy(() => import("../pages/services/ai/AIML")),
     label: "AI & Machine Learning Solutions",
     nav: "services",
   },
   {
-    path: "/generative-ai",
+    path: ROUTE_PATHS.GENERATIVE_AI,
     component: lazy(() => import("../pages/services/ai/GenerativeAI")),
     label: "Generative AI (Gen AI) Solutions",
     nav: "services",
   },
   {
-    path: "/agents-ai",
+    path: ROUTE_PATHS.AGENTS_AI,
     component: lazy(() => import("../pages/services/ai/AgentsAI")),
     label: "Agents & Agentic AI",
     nav: "services",
   },
   {
-    path: "/embedded-iot",
+    path: ROUTE_PATHS.EMBEDDED_IOT,
     component: lazy(() =>
       import("../pages/services/embedded-Iot/EmbeddedIoT")
     ),
@@ -37,7 +37,7 @@ export const routesConfig = [
     nav: "services",
   },
   {
-    path: "/data-science",
+    path: ROUTE_PATHS.DATA_SCIENCE,
     component: lazy(() =>
       import("../pages/services/data-science/DataScience")
     ),
@@ -45,7 +45,7 @@ export const routesConfig = [
     nav: "services",
   },
   {
-    path: "/mobile-application-development",
+    path: ROUTE_PATHS.MOBILE_APP_DEV,
     component: lazy(() =>
       import("../pages/services/mobile-app-development/MobileAppDev")
     ),
@@ -53,7 +53,7 @@ export const routesConfig = [
     nav: "services",
   },
   {
-    path: "/web-development",
+    path: ROUTE_PATHS.WEB_DEV,
     component: lazy(() =>
       import("../pages/services/web-development/WebDev")
     ),
@@ -61,16 +61,17 @@ export const routesConfig = [
     nav: "services",
   },
   {
-    path: "/on-demand-software-development",
+    path: ROUTE_PATHS.ON_DEMAND_DEV,
     component: lazy(() =>
       import("../pages/services/on-demand-software-dev/OnDemandSoftwareDev")
     ),
     label: "On Demand Software Development",
     nav: "services",
   },
-  // ===== ABOUT US ===== 
+
+  // ===== ABOUT =====
   {
-    path: "/about-us",
+    path: ROUTE_PATHS.ABOUT_US,
     component: lazy(() =>
       import("../pages/about-us/company-overview/CompanyOverview")
     ),
@@ -78,7 +79,7 @@ export const routesConfig = [
     nav: "about",
   },
   {
-    path: "/culture",
+    path: ROUTE_PATHS.CULTURE,
     component: lazy(() =>
       import("../pages/about-us/culture/Culture")
     ),
@@ -86,7 +87,7 @@ export const routesConfig = [
     nav: "about",
   },
   {
-    path: "/vision-mission",
+    path: ROUTE_PATHS.VISION_MISSION,
     component: lazy(() =>
       import("../pages/about-us/vision-mission/VisionMission")
     ),
@@ -94,27 +95,26 @@ export const routesConfig = [
     nav: "about",
   },
 
-  // ===== MAIN NAV =====
+  // ===== MAIN =====
   {
-    path: "/products",
-    component: lazy(() => import("../pages/products/Products")),
-    label: "Products",
+    path: ROUTE_PATHS.CAREER,
+    component: lazy(() => import("../pages/career/Career")),
+    label: "Career",
     nav: "main",
   },
   {
-    path: "/portfolio",
+    path: ROUTE_PATHS.PORTFOLIO,
     component: lazy(() => import("../pages/portfolio/Portfolio")),
     label: "Portfolio",
     nav: "main",
   },
   {
-    path: "/contact-us",
+    path: ROUTE_PATHS.CONTACT_US,
     component: lazy(() => import("../pages/contact/ContactUs")),
     label: "Contact Us",
     nav: "main",
   },
 
-  // ===== 404 =====
   {
     path: "*",
     component: lazy(() => import("../pages/not-found/NotFound")),

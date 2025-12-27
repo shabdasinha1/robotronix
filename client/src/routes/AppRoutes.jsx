@@ -5,7 +5,7 @@ import ThemeInitializer from "../theme/ThemeInitializer";
 // Common
 import ScrollToTop from "../components/common/ScrollToTop";
 import Header from "../components/common/Header";
-import NewFooter from "../components/common/Footer";
+import Footer from "../components/common/Footer";
 
 // Routes
 import { routesConfig } from "./RouteConfig";
@@ -74,7 +74,7 @@ const AppRoutes = () => {
                     )}
                   </Routes>
                 </main>
-                <NewFooter />
+                <Footer />
               </>
             }
           />
