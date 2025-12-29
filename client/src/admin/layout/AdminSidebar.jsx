@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import RoboImg from "../../assets/images/robo_icon.png";
 
 const AdminSidebar = () => {
   return (
@@ -6,7 +7,13 @@ const AdminSidebar = () => {
 
       {/* ================= BRAND / LOGO ================= */}
       <div className="rtx-admin-brand u-drop">
-        <h2 className="rtx-admin-logo">
+        <img
+          src={RoboImg}
+          alt="Robotronix"
+          className="rtx-admin-logo-img"
+        />
+
+        <h2 className="rtx-admin-logo-text">
           Robotronix <span>Admin</span>
         </h2>
       </div>
@@ -27,6 +34,14 @@ const AdminSidebar = () => {
           <NavLink to="/admin/leads">
             <span className="rtx-admin-nav-icon">📩</span>
             <span className="rtx-admin-nav-text">Leads</span>
+          </NavLink>
+        </li>
+
+        {/* MESSAGES (NEW) */}
+        <li className="u-drop" style={{ "--delay": "0.25s" }}>
+          <NavLink to="/admin/messages">
+            <span className="rtx-admin-nav-icon">💬</span>
+            <span className="rtx-admin-nav-text">Messages</span>
           </NavLink>
         </li>
 

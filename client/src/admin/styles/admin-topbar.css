@@ -121,3 +121,66 @@
   background: var(--white-03);
   color: var(--clr-white);
 }
+
+/* ================= SIDEBAR TOGGLE ================= */
+
+.rtx-admin-sidebar-toggle {
+  width: 42px;
+  height: 42px;
+  margin-right: 14px; /* 🔑 spacing before title */
+  border-radius: 12px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.rtx-admin-sidebar-toggle:hover {
+  background: var(--white-10);
+  box-shadow: 0 6px 16px var(--shadow-dark-1);
+  transform: translateY(-2px);
+}
+
+.rtx-admin-sidebar-toggle:active {
+  transform: scale(0.96);
+}
+
+/* hamburger bars */
+.rtx-toggle-bar {
+  width: 18px;
+  height: 2px;
+  background: var(--clr-white);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ================= COLLAPSED ANIMATION ================= */
+
+.rtx-sidebar-collapsed .rtx-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.rtx-sidebar-collapsed .rtx-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.rtx-sidebar-collapsed .rtx-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================= LIGHT MODE ================= */
+
+:root[data-theme="light"] .rtx-admin-sidebar-toggle {
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
+}
+
+:root[data-theme="light"] .rtx-toggle-bar {
+  background: var(--clr-text-soft);
+}

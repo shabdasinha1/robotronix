@@ -8,8 +8,7 @@ import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 
 // Routes
-import { routesConfig } from "./RouteConfig";
-import { adminRoutesConfig } from "../admin/routes/AdminRoutesConfig";
+import { routesConfig, adminRoutesConfig } from "./RouteConfig";
 
 // Admin
 import AdminLayout from "../admin/layout/AdminLayout";

@@ -1,26 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const AdminTopbar = ({toggleSidebar}) => {
+const AdminTopbar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
 
-  // 🔹 THEME STATE (SHARED SOURCE)
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || "dark"
   );
 
-  // 🔹 APPLY THEME
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // 🔹 TOGGLE THEME
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme(prev => (prev === "dark" ? "light" : "dark"));
   };
 
-  // 🔹 LOGOUT
   const handleLogout = () => {
     localStorage.removeItem("admin_auth");
     navigate("/", { replace: true });
@@ -31,14 +27,19 @@ const AdminTopbar = ({toggleSidebar}) => {
 
       {/* LEFT */}
       <div className="rtx-admin-topbar-left u-drop">
-         <button
-    className="rtx-admin-sidebar-toggle"
-    onClick={toggleSidebar}
-    aria-label="Toggle sidebar"
-    type="button"
-  >
-    ☰
-  </button>
+
+        {/* ✅ ONLY ONE SIDEBAR TOGGLE */}
+        <button
+          className="rtx-admin-sidebar-toggle"
+          onClick={toggleSidebar}
+          aria-label="Toggle sidebar"
+          type="button"
+        >
+          <span className="rtx-toggle-bar" />
+          <span className="rtx-toggle-bar" />
+          <span className="rtx-toggle-bar" />
+        </button>
+
         <h1 className="rtx-admin-page-title">
           Admin Dashboard
         </h1>
@@ -47,7 +48,7 @@ const AdminTopbar = ({toggleSidebar}) => {
       {/* RIGHT */}
       <div className="rtx-admin-topbar-right">
 
-        {/* ✅ WORKING THEME TOGGLE */}
+        {/* THEME TOGGLE (you accidentally removed this earlier) */}
         <button
           className="rtx-admin-theme-toggle u-drop"
           type="button"

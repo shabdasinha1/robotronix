@@ -1,11 +1,12 @@
 /* ======================================================
-   ADMIN LAYOUT (DENSE & DATA-FOCUSED)
+   ADMIN LAYOUT (STRUCTURE FIX)
 ====================================================== */
 
 .rtx-admin-layout {
   display: flex;
   min-height: 100vh;
   background: var(--bg-dark-1);
+  overflow: hidden; /* 🔑 prevent double scroll */
 }
 
 /* ================= SIDEBAR ================= */
@@ -15,20 +16,26 @@
   flex-shrink: 0;
   background: var(--bg-dark-2);
   border-right: 1px solid var(--white-05);
-  box-shadow: 4px 0 20px var(--shadow-dark-2);
+  box-shadow: 4px 0 18px var(--shadow-dark-2);
   position: relative;
   z-index: 10;
-  overflow: hidden;
+  height: 100vh;
   transition: width 0.35s ease;
 }
 
-/* ================= MAIN AREA ================= */
+/* COLLAPSED */
+.rtx-sidebar-collapsed .rtx-admin-sidebar {
+  width: 78px;
+}
+
+/* ================= MAIN ================= */
 
 .rtx-admin-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  height: 100vh;
 }
 
 /* ================= TOPBAR ================= */
@@ -46,30 +53,12 @@
 
 .rtx-admin-content {
   flex: 1;
-
-  /* ⬇ Reduced spacing for admin density */
-  padding: 20px 0 32px;
+  overflow-y: auto; /* ✅ only content scrolls */
+  padding: 28px 24px;
 }
 
-/* Override public section padding feel */
-.rtx-admin-content.u-section-sm {
-  background: transparent;
-}
-
-/* ================= INNER CONTAINER ================= */
-
-/* Compact container only for admin */
+/* tighter admin container */
 .rtx-admin-content .u-container {
-  padding-left: 20px;
-  padding-right: 20px;
-  max-width: 1400px;
-}
-
-/* Wider screens get a bit more breathing room */
-@media (min-width: 1600px) {
-  .rtx-admin-content .u-container {
-    max-width: 1600px;
-    padding-left: 28px;
-    padding-right: 28px;
-  }
+  max-width: 100%;
+  padding: 0;
 }

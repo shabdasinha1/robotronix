@@ -1,0 +1,152 @@
+/* ======================================================
+   ADMIN MESSAGES PAGE
+====================================================== */
+
+.rtx-admin-messages {
+  width: 100%;
+}
+
+/* HEADER */
+.rtx-admin-page-header {
+  margin-bottom: 30px;
+}
+
+/* TABLE WRAPPER */
+.rtx-admin-table-wrapper {
+  background: var(--bg-dark-2);
+  border: 1px solid var(--white-05);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 30px var(--shadow-dark-2);
+  overflow-x: auto;
+}
+
+/* TABLE */
+.rtx-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rtx-admin-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--clr-text-soft);
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--white-05);
+  font-size: 0.9rem;
+}
+
+.rtx-admin-table td {
+  padding: 14px 12px;
+  color: var(--clr-text-light);
+  border-bottom: 1px solid var(--white-03);
+  font-size: 0.9rem;
+}
+
+/* MESSAGE PREVIEW */
+.rtx-message-preview {
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* VIEW BUTTON */
+.rtx-btn-view {
+  background: linear-gradient(
+    135deg,
+    var(--clr-blue),
+    var(--clr-blue-medium)
+  );
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.3s ease;
+}
+
+.rtx-btn-view:hover {
+  background: var(--clr-blue-btn-hover);
+  box-shadow: 0 0 12px var(--blue-025);
+}
+
+/* ======================================================
+   MODAL OVERLAY
+====================================================== */
+
+.rtx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MODAL */
+.rtx-modal {
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--white-06);
+  border-radius: 18px;
+  box-shadow: 0 25px 60px var(--shadow-dark-2);
+  padding: 22px;
+  animation: rtxDropFade 0.6s ease;
+}
+
+/* HEADER */
+.rtx-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--white-05);
+  padding-bottom: 12px;
+}
+
+.rtx-modal-header h3 {
+  color: var(--clr-white);
+  font-size: 1.2rem;
+}
+
+.rtx-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--clr-text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.rtx-modal-close:hover {
+  color: var(--clr-white);
+}
+
+/* BODY */
+.rtx-modal-body {
+  padding-top: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.rtx-modal-row span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-text-muted);
+}
+
+.rtx-modal-row p {
+  margin-top: 4px;
+  color: var(--clr-text-soft);
+  line-height: 1.5;
+}
+
+.rtx-modal-row.full p {
+  background: var(--white-03);
+  padding: 12px;
+  border-radius: 10px;
+}

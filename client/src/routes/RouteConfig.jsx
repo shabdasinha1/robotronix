@@ -121,3 +121,43 @@ export const routesConfig = [
     hidden: true,
   },
 ];
+
+
+
+export const adminRoutesConfig = [
+  // ===== AUTH =====
+  {
+    path: "login",
+    component: lazy(() =>
+      import("../admin/pages/auth/AdminLogin")
+    ),
+  },
+
+  // ===== DASHBOARD =====
+  {
+    path: "dashboard",
+    component: lazy(() =>
+      import("../admin/pages/dashboard/Dashboard")
+    ),
+  },
+
+  // ===== LEADS =====
+  {
+    path: "leads",
+    component: lazy(() =>
+      import("../admin//pages/leads/LeadsList")
+    ),
+  },
+
+  // ===== LEAD DETAILS (FUTURE-READY) =====
+  {
+    path: "leads/:id",
+    component: lazy(() =>
+      import("../admin//pages/leads/LeadDetails")
+    ),
+  },
+  {
+    path: "messages",
+    component: lazy(() => import("../admin/pages/messages/AdminMessages")),
+  },
+];
