@@ -2,6 +2,7 @@ import crypto from "crypto";
 import Admin from "./auth.model.js";
 import ApiError from "../../utils/ApiError.js";
 import generateToken from "../../utils/generateToken.js";
+import sendEmail from "../../utils/email.js";
 
 /* ===============================
    CREATE 
@@ -80,6 +81,67 @@ export const resetPassword = async (token, newPassword) => {
   admin.password = newPassword;
   admin.resetPasswordToken = undefined;
   admin.resetPasswordExpire = undefined;
+
+  await admin.save();
+
+  return true;
+};
+
+
+/* ===============================
+   SEND OTP
+================================ */
+export const sendForgotOtp = async (email) => {
+  const admin = await Admin.findOne({ email });
+  if (!admin) throw new ApiError(404, "Admin not found");
+
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+  admin.otp = crypto.createHash("sha256").update(otp).digest("hex");
+  admin.otpExpire = Date.now() + 10 * 60 * 1000; // 10 mins
+
+  await admin.save({ validateBeforeSave: false });
+
+  await sendEmail({
+    to: email,
+    subject: "Password Reset OTP - Robotronix",
+    html: `
+      <h2>Password Reset OTP</h2>
+      <p>Your OTP is:</p>
+      <h1>${otp}</h1>
+      <p>Valid for 10 minutes</p>
+    `,
+  });
+
+  return true;
+};
+
+/* ===============================
+   RESET PASSWORD USING OTP
+================================ */
+export const resetPasswordWithOtp = async ({
+  email,
+  otp,
+  newPassword,
+}) => {
+  const hashedOtp = crypto
+    .createHash("sha256")
+    .update(otp)
+    .digest("hex");
+
+  const admin = await Admin.findOne({
+    email,
+    otp: hashedOtp,
+    otpExpire: { $gt: Date.now() },
+  });
+
+  if (!admin) {
+    throw new ApiError(400, "Invalid or expired OTP");
+  }
+
+  admin.password = newPassword;
+  admin.otp = undefined;
+  admin.otpExpire = undefined;
 
   await admin.save();
 

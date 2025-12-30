@@ -51,6 +51,7 @@ const Header = () => {
      EFFECTS
   =============================== */
 
+
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import authApi from "../../api/auth.api";
 
 const AdminTopbar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
@@ -17,10 +18,11 @@ const AdminTopbar = ({ toggleSidebar }) => {
     setTheme(prev => (prev === "dark" ? "light" : "dark"));
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("admin_auth");
-    navigate("/", { replace: true });
-  };
+ 
+const handleLogout = () => {
+  authApi.logout();
+  navigate("/admin/login", { replace: true });
+};
 
   return (
     <div className="rtx-admin-topbar-inner">

@@ -1,11 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-/**
- * TEMP AUTH CHECK
- * Later replace with real auth (JWT / API)
- */
+/* ===============================
+   JWT AUTH CHECK
+================================ */
 const isAdminAuthenticated = () => {
-  return localStorage.getItem("admin_auth") === "true";
+  return !!localStorage.getItem("admin_token");
 };
 
 const AdminProtectedRoute = () => {

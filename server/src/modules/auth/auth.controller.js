@@ -5,7 +5,8 @@ import {
   forgotPassword,
   resetPassword,
 } from "./auth.service.js";
-import { createAdmin } from "./auth.service.js";
+import { createAdmin,  sendForgotOtp,
+  resetPasswordWithOtp, } from "./auth.service.js";
 
 
 export const registerAdmin = asyncHandler(async (req, res) => {
@@ -41,5 +42,33 @@ export const reset = asyncHandler(async (req, res) => {
 
   res.json(
     new ApiResponse({ message: "Password reset successful" })
+  );
+});
+
+
+
+/* ===============================
+   FORGOT PASSWORD (OTP)
+================================ */
+export const forgotPasswordOtp = asyncHandler(async (req, res) => {
+  await sendForgotOtp(req.body.email);
+
+  res.json(
+    new ApiResponse({
+      message: "OTP sent to registered email",
+    })
+  );
+});
+
+/* ===============================
+   RESET PASSWORD (OTP)
+================================ */
+export const resetPasswordOtp = asyncHandler(async (req, res) => {
+  await resetPasswordWithOtp(req.body);
+
+  res.json(
+    new ApiResponse({
+      message: "Password reset successful",
+    })
   );
 });

@@ -22,7 +22,9 @@ const authSchema = new mongoose.Schema(
       enum: ["admin"],
       default: "admin",
     },
-
+    
+    otp: String,
+    otpExpire: Date,
     resetPasswordToken: String,
     resetPasswordExpire: Date,
   },

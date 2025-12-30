@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
-
+import authApi from "../../../api/auth.api";
+import useApi from "../../../hooks/useApi";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -10,12 +11,12 @@ const AdminLogin = () => {
     once: true,
   });
 
+  const { execute, loading, error } = useApi();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -24,23 +25,21 @@ const AdminLogin = () => {
     });
   };
 
-  /**
-   * TEMP LOGIN HANDLER
-   * Replace later with API + JWT
-   */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // TEMP credentials
-    if (
-      formData.email === "admin@robotronix.com" &&
-      formData.password === "admin"
-    ) {
-      localStorage.setItem("admin_auth", "true");
-      navigate("/admin/dashboard");
-    } else {
-      setError("Invalid admin credentials");
-    }
+    await execute(
+      () => authApi.login(formData),
+      {
+        onSuccess: (res) => {
+          // Store JWT
+          localStorage.setItem("admin_token", res.data.token);
+
+          // Redirect
+          navigate("/admin/dashboard");
+        },
+      }
+    );
   };
 
   return (
@@ -104,8 +103,9 @@ const AdminLogin = () => {
             <button
               type="submit"
               className="btn btn-primary btn-lg w-100"
+              disabled={loading}
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
 
           </form>
