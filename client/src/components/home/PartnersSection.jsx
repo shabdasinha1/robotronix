@@ -1,6 +1,7 @@
+import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-const PartnersSection = () => {
+const PartnersSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -15,7 +16,6 @@ const PartnersSection = () => {
       }`}
     >
       <div className="rtx-partners-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-partners-title u-drop"
@@ -66,10 +66,9 @@ const PartnersSection = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
-};
+});
 
 export default PartnersSection;

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../common/Button";
 import Card from "../common/Card";
 
-const HeroSection = () => {
+const HeroSection = React.memo(() => {
   return (
     <section className="rtx-hero-wrapper u-section">
       <div className="rtx-hero-particles"></div>
@@ -69,6 +69,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default HeroSection;

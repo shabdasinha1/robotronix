@@ -1,96 +1,132 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
-import ServicesOverview from "../../../components/services/ServicesOverview";
-import ServicesApproach from "../../../components/services/ServicesApproach";
-import ServicesIndustries from "../../../components/services/ServicesIndustries";
-import ServicesWhyChoose from "../../../components/services/ServicesWhyChoose";
-import ServicesImpact from "../../../components/services/ServicesImpact";
-import ServicesCTA from "../../../components/services/ServicesCTA";
+
+/* ===============================
+   STATIC DATA (MOVED OUT)
+=============================== */
+
+const steps = [
+  {
+    title: "Product Discovery & UI/UX Design",
+    desc: "Understanding business goals, user journeys, and crafting intuitive Flutter-first UI/UX designs.",
+  },
+  {
+    title: "Flutter Architecture Setup",
+    desc: "Scalable Flutter architecture using clean code principles, state management, and modular design.",
+  },
+  {
+    title: "Cross-Platform Development",
+    desc: "Single Flutter codebase delivering high-performance Android and iOS applications.",
+  },
+  {
+    title: "Backend & API Integration",
+    desc: "Secure integration with REST APIs, Firebase, cloud services, and third-party SDKs.",
+  },
+  {
+    title: "Testing, Deployment & Optimization",
+    desc: "Thorough testing, App Store & Play Store deployment, and performance optimization.",
+  },
+];
+
+const industries = [
+  {
+    icon: "🛒",
+    title: "E-Commerce",
+    desc: "High-performance Flutter apps for shopping, payments, order tracking, and customer engagement.",
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare",
+    desc: "Secure medical apps for patient management, telemedicine, and health monitoring.",
+  },
+  {
+    icon: "🏦",
+    title: "FinTech",
+    desc: "Flutter apps for digital wallets, banking, payments, and financial dashboards.",
+  },
+  {
+    icon: "🚗",
+    title: "Logistics & Transportation",
+    desc: "Real-time tracking, fleet management, and delivery optimization apps.",
+  },
+  {
+    icon: "🎓",
+    title: "EdTech",
+    desc: "Learning platforms, course apps, live classes, and student engagement solutions.",
+  },
+  {
+    icon: "🏠",
+    title: "Real Estate",
+    desc: "Property listing apps, virtual tours, CRM integration, and lead management.",
+  },
+];
+
+const points = [
+  {
+    title: "Flutter Specialists",
+    desc: "Dedicated Flutter developers with deep expertise in Dart and cross-platform app development.",
+  },
+  {
+    title: "Single Codebase Advantage",
+    desc: "One Flutter codebase for Android & iOS — faster delivery and lower development cost.",
+  },
+  {
+    title: "High-Performance Apps",
+    desc: "Smooth UI, fast rendering, and near-native performance using Flutter’s rendering engine.",
+  },
+  {
+    title: "Scalable App Architecture",
+    desc: "Clean, modular, and scalable Flutter architecture built for long-term growth.",
+  },
+  {
+    title: "Secure & Reliable",
+    desc: "Secure authentication, encrypted storage, and best practices for mobile security.",
+  },
+  {
+    title: "End-to-End Delivery",
+    desc: "From idea and design to deployment, support, and future enhancements.",
+  },
+];
+
+const infoCards = [
+  {
+    title: "Cross-Platform Excellence",
+    desc: "One Flutter app that runs flawlessly on both Android and iOS.",
+  },
+  {
+    title: "Beautiful UI & Animations",
+    desc: "Pixel-perfect UI with smooth animations and responsive layouts.",
+  },
+  {
+    title: "Scalable & Maintainable",
+    desc: "Clean Flutter architecture designed for future scalability.",
+  },
+];
+
+/* ===============================
+   LAZY SECTIONS
+=============================== */
+
+const ServicesOverview = lazy(() =>
+  import("../../../components/services/ServicesOverview")
+);
+const ServicesApproach = lazy(() =>
+  import("../../../components/services/ServicesApproach")
+);
+const ServicesIndustries = lazy(() =>
+  import("../../../components/services/ServicesIndustries")
+);
+const ServicesWhyChoose = lazy(() =>
+  import("../../../components/services/ServicesWhyChoose")
+);
+const ServicesImpact = lazy(() =>
+  import("../../../components/services/ServicesImpact")
+);
+const ServicesCTA = lazy(() =>
+  import("../../../components/services/ServicesCTA")
+);
 
 const MobileAppDev = () => {
-  const steps = [
-    {
-      title: "Product Discovery & UI/UX Design",
-      desc: "Understanding business goals, user journeys, and crafting intuitive Flutter-first UI/UX designs.",
-    },
-    {
-      title: "Flutter Architecture Setup",
-      desc: "Scalable Flutter architecture using clean code principles, state management, and modular design.",
-    },
-    {
-      title: "Cross-Platform Development",
-      desc: "Single Flutter codebase delivering high-performance Android and iOS applications.",
-    },
-    {
-      title: "Backend & API Integration",
-      desc: "Secure integration with REST APIs, Firebase, cloud services, and third-party SDKs.",
-    },
-    {
-      title: "Testing, Deployment & Optimization",
-      desc: "Thorough testing, App Store & Play Store deployment, and performance optimization.",
-    },
-  ];
-
-  const industries = [
-    {
-      icon: "🛒",
-      title: "E-Commerce",
-      desc: "High-performance Flutter apps for shopping, payments, order tracking, and customer engagement.",
-    },
-    {
-      icon: "🏥",
-      title: "Healthcare",
-      desc: "Secure medical apps for patient management, telemedicine, and health monitoring.",
-    },
-    {
-      icon: "🏦",
-      title: "FinTech",
-      desc: "Flutter apps for digital wallets, banking, payments, and financial dashboards.",
-    },
-    {
-      icon: "🚗",
-      title: "Logistics & Transportation",
-      desc: "Real-time tracking, fleet management, and delivery optimization apps.",
-    },
-    {
-      icon: "🎓",
-      title: "EdTech",
-      desc: "Learning platforms, course apps, live classes, and student engagement solutions.",
-    },
-    {
-      icon: "🏠",
-      title: "Real Estate",
-      desc: "Property listing apps, virtual tours, CRM integration, and lead management.",
-    },
-  ];
-
-  const points = [
-    {
-      title: "Flutter Specialists",
-      desc: "Dedicated Flutter developers with deep expertise in Dart and cross-platform app development.",
-    },
-    {
-      title: "Single Codebase Advantage",
-      desc: "One Flutter codebase for Android & iOS — faster delivery and lower development cost.",
-    },
-    {
-      title: "High-Performance Apps",
-      desc: "Smooth UI, fast rendering, and near-native performance using Flutter’s rendering engine.",
-    },
-    {
-      title: "Scalable App Architecture",
-      desc: "Clean, modular, and scalable Flutter architecture built for long-term growth.",
-    },
-    {
-      title: "Secure & Reliable",
-      desc: "Secure authentication, encrypted storage, and best practices for mobile security.",
-    },
-    {
-      title: "End-to-End Delivery",
-      desc: "From idea and design to deployment, support, and future enhancements.",
-    },
-  ];
-
   return (
     <>
       {/* HERO */}
@@ -111,67 +147,56 @@ const MobileAppDev = () => {
         ]}
       />
 
-      {/* OVERVIEW */}
-      <ServicesOverview
-        title="Flutter"
-        accent="Mobile App Development"
-        paragraphs={[
-          "At Robotronix Engineering Tech Pvt. Ltd., we specialize exclusively in Flutter mobile application development. Our focus allows us to build faster, more reliable, and cost-effective mobile apps without compromising on performance or user experience.",
-          "Using Flutter, we create cross-platform applications with native-like performance, beautiful UI, and seamless user interactions — all from a single, maintainable codebase.",
-        ]}
-        infoCards={[
-          {
-            title: "Cross-Platform Excellence",
-            desc: "One Flutter app that runs flawlessly on both Android and iOS.",
-          },
-          {
-            title: "Beautiful UI & Animations",
-            desc: "Pixel-perfect UI with smooth animations and responsive layouts.",
-          },
-          {
-            title: "Scalable & Maintainable",
-            desc: "Clean Flutter architecture designed for future scalability.",
-          },
-        ]}
-      />
+      <Suspense fallback={null}>
+        {/* OVERVIEW */}
+        <ServicesOverview
+          title="Flutter"
+          accent="Mobile App Development"
+          paragraphs={[
+            "At Robotronix Engineering Tech Pvt. Ltd., we specialize exclusively in Flutter mobile application development. Our focus allows us to build faster, more reliable, and cost-effective mobile apps without compromising on performance or user experience.",
+            "Using Flutter, we create cross-platform applications with native-like performance, beautiful UI, and seamless user interactions — all from a single, maintainable codebase.",
+          ]}
+          infoCards={infoCards}
+        />
 
-      {/* APPROACH */}
-      <ServicesApproach
-        title="Our"
-        accent="Flutter Development Process"
-        subtitle="A streamlined process designed to deliver fast, scalable, and reliable Flutter applications."
-        steps={steps}
-      />
+        {/* APPROACH */}
+        <ServicesApproach
+          title="Our"
+          accent="Flutter Development Process"
+          subtitle="A streamlined process designed to deliver fast, scalable, and reliable Flutter applications."
+          steps={steps}
+        />
 
-      {/* INDUSTRIES */}
-      <ServicesIndustries
-        title="Flutter App"
-        accent="Industry Solutions"
-        subtitle="We build Flutter applications tailored for diverse industries and business needs."
-        industries={industries}
-      />
+        {/* INDUSTRIES */}
+        <ServicesIndustries
+          title="Flutter App"
+          accent="Industry Solutions"
+          subtitle="We build Flutter applications tailored for diverse industries and business needs."
+          industries={industries}
+        />
 
-      {/* WHY CHOOSE */}
-      <ServicesWhyChoose
-        title="Why Choose"
-        accent="Robotronix for Flutter?"
-        subtitle="We focus only on Flutter — ensuring deep expertise, better quality, and faster delivery."
-        points={points}
-      />
+        {/* WHY CHOOSE */}
+        <ServicesWhyChoose
+          title="Why Choose"
+          accent="Robotronix for Flutter?"
+          subtitle="We focus only on Flutter — ensuring deep expertise, better quality, and faster delivery."
+          points={points}
+        />
 
-      {/* IMPACT */}
-      <ServicesImpact
-        title="One Codebase. Unlimited Possibilities."
-        subtitle="Flutter enables faster development, consistent UI, and scalable mobile apps that grow with your business."
-      />
+        {/* IMPACT */}
+        <ServicesImpact
+          title="One Codebase. Unlimited Possibilities."
+          subtitle="Flutter enables faster development, consistent UI, and scalable mobile apps that grow with your business."
+        />
 
-      {/* CTA */}
-      <ServicesCTA
-        title="Ready to Build Your Flutter App?"
-        subtitle="Let’s turn your idea into a high-performance Flutter app for Android and iOS."
-        buttonText="Talk to Flutter Experts →"
-        buttonLink="/contact-us"
-      />
+        {/* CTA */}
+        <ServicesCTA
+          title="Ready to Build Your Flutter App?"
+          subtitle="Let’s turn your idea into a high-performance Flutter app for Android and iOS."
+          buttonText="Talk to Flutter Experts →"
+          buttonLink="/contact-us"
+        />
+      </Suspense>
     </>
   );
 };

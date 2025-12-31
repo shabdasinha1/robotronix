@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../../components/common/Card";
 
@@ -9,7 +9,7 @@ const stats = [
   { icon: "🌍", value: 35, label: "Countries Served" },
 ];
 
-const ChooseUsSection = () => {
+const ChooseUsSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -17,8 +17,9 @@ const ChooseUsSection = () => {
   });
 
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const intervalsRef = useRef([]);
 
-  /* Counter Animation — starts only when visible */
+  /* Counter Animation — starts only once when visible */
   useEffect(() => {
     if (!visible) return;
 
@@ -39,12 +40,20 @@ const ChooseUsSection = () => {
         }
 
         setCounts((prev) => {
+          if (prev[idx] === Math.floor(current)) return prev;
           const updated = [...prev];
           updated[idx] = Math.floor(current);
           return updated;
         });
       }, incrementTime);
+
+      intervalsRef.current.push(counter);
     });
+
+    return () => {
+      intervalsRef.current.forEach(clearInterval);
+      intervalsRef.current = [];
+    };
   }, [visible]);
 
   return (
@@ -55,7 +64,6 @@ const ChooseUsSection = () => {
       }`}
     >
       <div className="rtx-choose-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-choose-title u-drop"
@@ -75,7 +83,7 @@ const ChooseUsSection = () => {
         <div className="rtx-choose-grid">
           {stats.map((item, index) => (
             <Card
-              key={index}
+              key={item.label}
               size="md"
               variant="hover"
               className="rtx-choose-card u-drop-scale"
@@ -99,10 +107,9 @@ const ChooseUsSection = () => {
             to deliver cutting-edge technology solutions that drive real results.
           </p>
         </div>
-
       </div>
     </section>
   );
-};
+});
 
 export default ChooseUsSection;

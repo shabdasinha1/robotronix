@@ -156,36 +156,132 @@
   margin-bottom: 14px;
   color: var(--clr-blue);
 }
-
 /* =====================================
-   SERVICE WHY CHOOSE
+   SERVICE WHY CHOOSE – NEURAL SIGNAL
 ===================================== */
 
+/* ===== HEADER ===== */
 .rtx-service-why-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 50px;
+  margin: 0 auto 80px;
 }
 
-.rtx-service-why-title {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--clr-white);
+/* ===== NEURAL LIST WRAPPER ===== */
+.rtx-neural-list {
+  position: relative;
+  display: grid;
+  gap: 46px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 60px;
 }
 
-.rtx-service-why-title span {
-  color: var(--clr-blue);
+/* ===== CENTRAL NEURAL SPINE ===== */
+.rtx-neural-list::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(
+    transparent,
+    var(--blue-02),
+    transparent
+  );
 }
 
-.rtx-service-why-subtext {
-  font-size: 1.1rem;
+/* ===== NEURAL ITEM ===== */
+.rtx-neural-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
 }
 
-.rtx-service-why-check {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: var(--clr-blue);
+/* ===== NEURAL NODE ===== */
+.rtx-neural-dot {
+  position: absolute;
+  left: 16px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-dark-3);
+  border: 2px solid var(--clr-blue);
+  box-shadow:
+    0 0 12px var(--blue-015),
+    0 0 24px var(--blue-012);
+  z-index: 2;
 }
+
+/* Pulse ring */
+.rtx-neural-dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--blue-02);
+  animation: rtxNeuralPulse 2.6s ease infinite;
+}
+
+/* ===== CONTENT ===== */
+.rtx-neural-content {
+  padding-left: 40px;
+}
+
+.rtx-neural-content h3 {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.rtx-neural-content p {
+  max-width: 640px;
+}
+
+/* ===== HOVER ENHANCEMENT (SUBTLE) ===== */
+.rtx-neural-item:hover .rtx-neural-dot {
+  box-shadow:
+    0 0 18px var(--blue-02),
+    0 0 36px var(--blue-015);
+}
+
+/* ===== PULSE ANIMATION ===== */
+@keyframes rtxNeuralPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  .rtx-neural-list {
+    padding-left: 44px;
+    gap: 36px;
+  }
+
+  .rtx-neural-list::before {
+    left: 14px;
+  }
+
+  .rtx-neural-dot {
+    left: 6px;
+  }
+
+  .rtx-neural-content {
+    padding-left: 32px;
+  }
+
+  .rtx-neural-content p {
+    max-width: 100%;
+  }
+}
+
 
 /* =====================================
    SERVICE IMPACT

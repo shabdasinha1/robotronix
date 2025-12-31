@@ -1,21 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/* ===============================
+   STATIC STYLES
+=============================== */
+
+const titleStyle = {
+  fontSize: "6.5rem",
+  fontWeight: 800,
+  color: "var(--clr-blue)",
+  textShadow: "0 0 18px var(--blue-06)",
+  marginBottom: "10px",
+};
+
+const subTextStyle = {
+  maxWidth: "520px",
+  margin: "14px auto 32px",
+};
+
 const NotFound = () => {
   return (
     <section className="u-section">
       <div className="u-container-center">
         {/* Big 404 */}
-        <h1
-          className="rtx-fade-drop-1"
-          style={{
-            fontSize: "6.5rem",
-            fontWeight: 800,
-            color: "var(--clr-blue)",
-            textShadow: "0 0 18px var(--blue-06)",
-            marginBottom: "10px",
-          }}
-        >
+        <h1 className="rtx-fade-drop-1" style={titleStyle}>
           404
         </h1>
 
@@ -25,7 +33,7 @@ const NotFound = () => {
         </h2>
 
         {/* Subtext */}
-        <p className="u-subtext rtx-fade-drop-3" style={{ maxWidth: "520px", margin: "14px auto 32px" }}>
+        <p className="u-subtext rtx-fade-drop-3" style={subTextStyle}>
           The page you are trying to access doesn’t exist, has been removed,
           or the URL is incorrect.
         </p>
@@ -41,4 +49,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default React.memo(NotFound);

@@ -1,3 +1,4 @@
+import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
@@ -19,7 +20,7 @@ const techItems = [
   { name: "Tailwind", type: "Styling" },
 ];
 
-const TechStack = () => {
+const TechStack = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -34,7 +35,6 @@ const TechStack = () => {
       }`}
     >
       <div className="rtx-tech-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-tech-title u-drop"
@@ -55,7 +55,7 @@ const TechStack = () => {
         <div className="rtx-tech-grid">
           {techItems.map((item, index) => (
             <Card
-              key={index}
+              key={item.name}
               size="sm"
               variant="hover"
               className="rtx-tech-card u-drop"
@@ -74,7 +74,6 @@ const TechStack = () => {
           And many more technologies in our arsenal
         </p>
 
-
         <Button
           to=""
           variant="outline"
@@ -84,10 +83,9 @@ const TechStack = () => {
         >
           View Full Tech Stack →
         </Button>
-
       </div>
     </section>
   );
-};
+});
 
 export default TechStack;

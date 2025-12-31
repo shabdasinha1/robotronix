@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../../components/common/Card";
 
@@ -26,7 +26,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialsSection = () => {
+const TestimonialsSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -34,15 +34,21 @@ const TestimonialsSection = () => {
   });
 
   const [active, setActive] = useState(0);
+  const timerRef = useRef(null);
 
-  /* Auto slider */
+  /* Auto slider — starts only when visible */
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (!visible) return;
+
+    timerRef.current = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
     }, 4000);
 
-    return () => clearInterval(timer);
-  }, []);
+    return () => {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    };
+  }, [visible]);
 
   return (
     <section
@@ -52,7 +58,6 @@ const TestimonialsSection = () => {
       }`}
     >
       <div className="rtx-test-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-test-title u-drop"
@@ -75,7 +80,7 @@ const TestimonialsSection = () => {
         >
           {testimonials.map((item, index) => (
             <div
-              key={index}
+              key={item.name}
               className={`rtx-test-slide ${
                 index === active ? "rtx-slide-active" : ""
               }`}
@@ -111,7 +116,7 @@ const TestimonialsSection = () => {
         <div className="rtx-test-grid">
           {testimonials.map((item, index) => (
             <Card
-              key={index}
+              key={item.name}
               size="sm"
               variant="hover"
               className="rtx-test-card u-drop"
@@ -130,10 +135,9 @@ const TestimonialsSection = () => {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
-};
+});
 
 export default TestimonialsSection;

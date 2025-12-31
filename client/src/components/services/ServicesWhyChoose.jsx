@@ -1,11 +1,10 @@
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import Card from "../../components/common/Card";
 
-const ServicesWhyChoose = ({ 
+const ServicesWhyChoose = ({
   title,
   accent,
   subtitle,
-  points = [] 
+  points = [],
 }) => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
@@ -20,35 +19,34 @@ const ServicesWhyChoose = ({
         visible ? "u-drop-visible" : ""
       }`}
     >
-      <div className="rtx-service-why-container u-container">
+      <div className="u-container">
 
         {/* HEADER */}
         <div
           className="rtx-service-why-header u-drop"
           style={{ "--delay": "0.2s" }}
         >
-          <h2 className="rtx-service-why-title u-title">
+          <h2 className="u-title">
             {title} <span>{accent}</span>
           </h2>
-          <p className="rtx-service-why-subtext u-subtext">
-            {subtitle}
-          </p>
+          <p className="u-subtext">{subtitle}</p>
         </div>
 
-        {/* GRID */}
-        <div className="rtx-service-why-grid u-grid-auto">
+        {/* NEURAL LIST */}
+        <div className="rtx-neural-list">
           {points.map((item, index) => (
-            <Card
+            <div
               key={index}
-              variant="glass"
-              className="u-drop"
+              className="rtx-neural-item u-drop"
               style={{ "--delay": `${0.4 + index * 0.2}s` }}
             >
-              <div className="rtx-service-why-check">✔</div>
+              <span className="rtx-neural-dot" />
 
-              <h3 className="text-accent">{item.title}</h3>
-              <p className="text-muted">{item.desc}</p>
-            </Card>
+              <div className="rtx-neural-content">
+                <h3 className="text-accent">{item.title}</h3>
+                <p className="text-muted">{item.desc}</p>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -58,4 +56,3 @@ const ServicesWhyChoose = ({
 };
 
 export default ServicesWhyChoose;
-     

@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
-const Button = ({
+const Button = React.memo(({
   to,
   variant = "primary",
   size = "md",
@@ -14,7 +13,6 @@ const Button = ({
   ...rest
 }) => {
   const classes = `btn btn-${variant} btn-${size} ${className}`.trim();
-
 
   if (to) {
     return (
@@ -29,7 +27,6 @@ const Button = ({
     );
   }
 
- 
   return (
     <button
       type={type}
@@ -41,6 +38,6 @@ const Button = ({
       {children}
     </button>
   );
-};
+});
 
 export default Button;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
@@ -9,29 +9,49 @@ const Header = () => {
   const { pathname } = useLocation();
 
   /* ===============================
-     ROUTE GROUPING (SAFE)
+     ROUTE GROUPING (MEMOIZED)
   =============================== */
 
-  const services = routesConfig.filter((r) => r.nav === "services");
-
-  const aboutRoutes = routesConfig.filter(
-    (r) => r.nav === "about" && !r.hidden
+  const services = useMemo(
+    () => routesConfig.filter((r) => r.nav === "services"),
+    []
   );
 
-  const mainNav = routesConfig.filter(
-    (r) =>
-      r.nav === "main" &&
-      r.path !== "/" &&
-      r.path !== "/portfolio" &&
-      !r.hidden
+  const aboutRoutes = useMemo(
+    () => routesConfig.filter((r) => r.nav === "about" && !r.hidden),
+    []
   );
 
-  const isServicesActive = services.some(
-    (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+  const mainNav = useMemo(
+    () =>
+      routesConfig.filter(
+        (r) =>
+          r.nav === "main" &&
+          r.path !== "/" &&
+          r.path !== "/portfolio" &&
+          !r.hidden
+      ),
+    []
   );
 
-  const isAboutActive = aboutRoutes.some(
-    (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+  /* ===============================
+     ACTIVE ROUTE CHECKS (MEMOIZED)
+  =============================== */
+
+  const isServicesActive = useMemo(
+    () =>
+      services.some(
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+      ),
+    [pathname, services]
+  );
+
+  const isAboutActive = useMemo(
+    () =>
+      aboutRoutes.some(
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+      ),
+    [pathname, aboutRoutes]
   );
 
   /* ===============================
@@ -48,9 +68,8 @@ const Header = () => {
   );
 
   /* ===============================
-     EFFECTS
+     EFFECTS (INTENTIONAL)
   =============================== */
-
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -210,38 +229,42 @@ const Header = () => {
 };
 
 /* ===============================
-   HELPERS
+   HELPERS (MEMOIZED)
 =============================== */
 
-const DesktopDropdown = ({ label, open, onOpen, onClose, active, children }) => (
-  <li
-    className={`rtx-has-dropdown ${active ? "rtx-active" : ""}`}
-    onMouseEnter={onOpen}
-    onMouseLeave={onClose}
-  >
-    <button>
-      {label}
-      {open ? <FaAngleUp /> : <FaAngleDown />}
-    </button>
-    <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>
-      {children}
-    </div>
-  </li>
+const DesktopDropdown = React.memo(
+  ({ label, open, onOpen, onClose, active, children }) => (
+    <li
+      className={`rtx-has-dropdown ${active ? "rtx-active" : ""}`}
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
+    >
+      <button>
+        {label}
+        {open ? <FaAngleUp /> : <FaAngleDown />}
+      </button>
+      <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>
+        {children}
+      </div>
+    </li>
+  )
 );
 
-const MobileDropdown = ({ label, open, onToggle, children }) => (
-  <li className="rtx-mobile-dropdown">
-    <div className="rtx-mobile-title" onClick={onToggle}>
-      <span>{label}</span>
-      {open ? <FaAngleUp /> : <FaAngleDown />}
-    </div>
-    <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
-      {children}
-    </div>
-  </li>
+const MobileDropdown = React.memo(
+  ({ label, open, onToggle, children }) => (
+    <li className="rtx-mobile-dropdown">
+      <div className="rtx-mobile-title" onClick={onToggle}>
+        <span>{label}</span>
+        {open ? <FaAngleUp /> : <FaAngleDown />}
+      </div>
+      <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
+        {children}
+      </div>
+    </li>
+  )
 );
 
-const NavButton = ({ to, label, mobile, onClick }) => (
+const NavButton = React.memo(({ to, label, mobile, onClick }) => (
   <li>
     <NavLink
       to={to}
@@ -255,9 +278,9 @@ const NavButton = ({ to, label, mobile, onClick }) => (
       {label}
     </NavLink>
   </li>
-);
+));
 
-const NavItem = ({ title, to, mobile, onClick }) => (
+const NavItem = React.memo(({ title, to, mobile, onClick }) => (
   <NavLink
     to={to}
     onClick={onClick}
@@ -271,6 +294,6 @@ const NavItem = ({ title, to, mobile, onClick }) => (
       {title}
     </div>
   </NavLink>
-);
+));
 
 export default Header;

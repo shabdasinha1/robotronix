@@ -1,7 +1,8 @@
+import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 
-const AboutSection = () => {
+const AboutSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -16,7 +17,6 @@ const AboutSection = () => {
       }`}
     >
       <div className="rtx-about-container u-container">
-
         {/* LEFT IMAGE */}
         <div className="rtx-about-left u-drop-left">
           <img
@@ -28,7 +28,6 @@ const AboutSection = () => {
 
         {/* RIGHT CONTENT */}
         <div className="rtx-about-right u-drop-right">
-
           <span className="rtx-about-badge">About RoboTronix</span>
 
           <h2 className="rtx-about-title">
@@ -61,11 +60,10 @@ const AboutSection = () => {
           <Button to="" variant="primary" size="lg">
             Discover Our Story
           </Button>
-
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default AboutSection;

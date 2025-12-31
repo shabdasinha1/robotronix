@@ -11,7 +11,7 @@ import React from "react";
  * - children: card content
  */
 
-const Card = ({
+const Card = React.memo(({
   variant = "",
   size = "md",
   className = "",
@@ -34,6 +34,6 @@ const Card = ({
       {children}
     </div>
   );
-};
+});
 
 export default Card;

@@ -7,9 +7,7 @@ import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
 import messagesApi from "../../api/messages.api";
 
-
 const ContactUs = () => {
-
   const hero = useRevealOnScroll({ once: true });
   const infoGrid = useRevealOnScroll({ once: true });
   const office = useRevealOnScroll({ once: true });
@@ -23,8 +21,9 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
-const [loading, setLoading] = useState(false);
-const [success, setSuccess] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const info = [
     {
@@ -55,45 +54,41 @@ const [success, setSuccess] = useState(false);
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    setLoading(true);
+    try {
+      setLoading(true);
+      await messagesApi.createMessage(formData);
 
-    await messagesApi.createMessage(formData);
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
 
-    setSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-
-    alert("Message sent successfully!");
-  } catch (err) {
-    alert(err?.message || "Failed to send message");
-  } finally {
-    setLoading(false);
-  }
-};
-
+      alert("Message sent successfully!");
+    } catch (err) {
+      alert(err?.message || "Failed to send message");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-
       {/* ================= HERO ================= */}
       <section
         ref={hero.ref}
-        className={`rtx-cpage-hero-wrapper u-section ${hero.visible ? "u-drop-visible" : ""}`}
+        className={`rtx-cpage-hero-wrapper u-section ${
+          hero.visible ? "u-drop-visible" : ""
+        }`}
       >
         <div className="rtx-cpage-hero-particles"></div>
 
         <div className="u-container-center">
-
-          <span className="rtx-cpage-hero-badge u-drop">
-            We’re Here to Help
-          </span>
+          <span className="rtx-cpage-hero-badge u-drop">We’re Here to Help</span>
 
           <h1 className="rtx-cpage-hero-title u-drop">
             Get in Touch with <br />
@@ -103,8 +98,8 @@ const [success, setSuccess] = useState(false);
           </h1>
 
           <p className="rtx-cpage-hero-subtext u-drop">
-            Whether you want support, collaboration, or a custom project —
-            our team is ready to assist you 24/7.
+            Whether you want support, collaboration, or a custom project — our
+            team is ready to assist you 24/7.
           </p>
 
           <div className="rtx-contact-hero-btn-group u-drop d-flex justify-content-center gap-3">
@@ -128,7 +123,6 @@ const [success, setSuccess] = useState(false);
               📞 0731-2970998, 9993150998
             </NavLink>
           </div>
-
         </div>
       </section>
 
@@ -138,7 +132,6 @@ const [success, setSuccess] = useState(false);
         className={`u-section ${infoGrid.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container u-grid-auto">
-
           {info.map((item, i) => (
             <div key={i} className="card card-glass u-drop">
               <div className="rtx-contact-info-icon">{item.icon}</div>
@@ -152,7 +145,6 @@ const [success, setSuccess] = useState(false);
               )}
             </div>
           ))}
-
         </div>
       </section>
 
@@ -162,7 +154,6 @@ const [success, setSuccess] = useState(false);
         className={`u-section ${office.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container rtx-cpage-office-container">
-
           <div className="rtx-cpage-office-image u-drop">
             <img src={atulya1} alt="Robotronix Office" />
           </div>
@@ -178,100 +169,94 @@ const [success, setSuccess] = useState(false);
               ✔ Driving tech innovation
             </p>
 
-            <a href="/contact" className="btn btn-primary btn-lg">
+            <NavLink to="/contact" className="btn btn-primary btn-lg">
               Schedule a Visit →
-            </a>
+            </NavLink>
           </div>
-
         </div>
       </section>
 
-    {/* ================= FORM ================= */}
-<section
-  ref={form.ref}
-  className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
->
-  <div className="u-container rtx-cpage-contact-container">
+      {/* ================= FORM ================= */}
+      <section
+        ref={form.ref}
+        className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
+      >
+        <div className="u-container rtx-cpage-contact-container">
+          <div className="rtx-cpage-form card card-glass u-drop">
+            <h2 className="u-title">
+              Contact <span>Our Team</span>
+            </h2>
 
-    <div className="rtx-cpage-form card card-glass u-drop">
-      <h2 className="u-title">
-        Contact <span>Our Team</span>
-      </h2>
+            <p className="u-subtext">
+              Let’s discuss how we can help your business.
+            </p>
 
-      <p className="u-subtext">
-        Let’s discuss how we can help your business.
-      </p>
+            <form onSubmit={handleSubmit}>
+              <div className="rtx-cpage-input-group">
+                <User className="rtx-cpage-input-icon" />
+                <input
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
 
-      <form onSubmit={handleSubmit}>
+              <div className="rtx-cpage-input-group">
+                <Mail className="rtx-cpage-input-icon" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
 
-        <div className="rtx-cpage-input-group">
-          <User className="rtx-cpage-input-icon" />
-          <input
-            name="name"
-            placeholder="Your Name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-          />
+              <div className="rtx-cpage-input-group">
+                <Phone className="rtx-cpage-input-icon" />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
+                <MessageSquare className="rtx-cpage-input-icon" />
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <button
+                className="btn btn-primary w-100 btn-lg"
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Send Message →"}
+              </button>
+            </form>
+          </div>
+
+          <div className="rtx-cpage-contact-info card card-glass u-drop">
+            <h3 className="text-accent">Quick Contact</h3>
+            <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
+            <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
+            <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
+            <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
+          </div>
         </div>
-
-        <div className="rtx-cpage-input-group">
-          <Mail className="rtx-cpage-input-icon" />
-          <input
-            name="email"
-            placeholder="Your Email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="rtx-cpage-input-group">
-          <Phone className="rtx-cpage-input-icon" />
-          <input
-            name="phone"
-            placeholder="Phone Number"
-            required
-            value={formData.phone}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
-          <MessageSquare className="rtx-cpage-input-icon" />
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            required
-            value={formData.message}
-            onChange={handleChange}
-          />
-        </div>
-
-        <button
-          className="btn btn-primary w-100 btn-lg"
-          disabled={loading}
-        >
-          {loading ? "Sending..." : "Send Message →"}
-        </button>
-      </form>
-    </div>
-
-    <div className="rtx-cpage-contact-info card card-glass u-drop">
-      <h3 className="text-accent">Quick Contact</h3>
-
-      <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
-      <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
-      <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
-
-      <p className="rtx-cpage-info-text">
-        We respond within 24 hours.
-      </p>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* ================= MAP ================= */}
       <section
@@ -279,7 +264,6 @@ const [success, setSuccess] = useState(false);
         className={`u-section ${map.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container-center">
-
           <h2 className="u-title u-drop">
             Our <span>Office Location</span>
           </h2>
@@ -295,7 +279,6 @@ const [success, setSuccess] = useState(false);
               loading="lazy"
             />
           </div>
-
         </div>
       </section>
 
@@ -305,7 +288,6 @@ const [success, setSuccess] = useState(false);
         className={`u-section ${details.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container-center">
-
           <h2 className="u-title u-drop">
             Contact <span>Information</span>
           </h2>
@@ -333,10 +315,8 @@ const [success, setSuccess] = useState(false);
               <p className="text-muted">0731-2970998</p>
             </div>
           </div>
-
         </div>
       </section>
-
     </>
   );
 };

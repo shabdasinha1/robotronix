@@ -1,7 +1,8 @@
+import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 
-const CTASection = () => {
+const CTASection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.2,
     rootMargin: "0px 0px -120px 0px",
@@ -27,14 +28,12 @@ const CTASection = () => {
           Let’s work together to build innovative, scalable, and future-ready digital solutions.
         </p>
 
-        {/* BUTTON (replaces <button>) */}
         <Button variant="primary" size="lg">
           Get Started 🚀
         </Button>
-
       </div>
     </section>
   );
-};
+});
 
 export default CTASection;

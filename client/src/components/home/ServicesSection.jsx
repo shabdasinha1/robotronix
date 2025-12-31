@@ -1,3 +1,4 @@
+import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../common/Card";
 import { NavLink } from "react-router-dom";
@@ -53,7 +54,7 @@ const servicesList = [
   },
 ];
 
-const ServicesSection = () => {
+const ServicesSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -68,7 +69,6 @@ const ServicesSection = () => {
       }`}
     >
       <div className="rtx-services-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-services-title u-drop"
@@ -90,7 +90,7 @@ const ServicesSection = () => {
         <div className="rtx-services-grid u-grid-auto">
           {servicesList.map((service, index) => (
             <Card
-              key={index}
+              key={service.path}
               size="md"
               variant="hover"
               className="rtx-service-card u-drop"
@@ -106,7 +106,6 @@ const ServicesSection = () => {
                 {service.desc}
               </p>
 
-              {/* unchanged */}
               <NavLink
                 to={service.path}
                 className="rtx-service-link"
@@ -116,10 +115,9 @@ const ServicesSection = () => {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );
-};
+});
 
 export default ServicesSection;

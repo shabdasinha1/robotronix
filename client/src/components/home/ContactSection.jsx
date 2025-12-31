@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
 
-const ContactSection = () => {
+const ContactSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.15,
     rootMargin: "0px 0px -120px 0px",
@@ -19,11 +19,17 @@ const ContactSection = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
 
     try {
       setLoading(true);
@@ -53,7 +59,6 @@ const ContactSection = () => {
       }`}
     >
       <div className="rtx-contact-container u-container-center">
-
         {/* TITLE */}
         <h2
           className="rtx-contact-title u-drop"
@@ -72,7 +77,6 @@ const ContactSection = () => {
 
         {/* GRID */}
         <div className="rtx-contact-grid">
-
           {/* LEFT — FORM */}
           <form
             className="rtx-contact-left u-drop"
@@ -130,7 +134,6 @@ const ContactSection = () => {
               />
             </div>
 
-            {/* BUTTON */}
             <Button
               type="submit"
               variant="primary"
@@ -179,10 +182,9 @@ const ContactSection = () => {
           <h4>⚡ Quick Response</h4>
           <p>We typically respond within 24 hours during business days.</p>
         </div>
-
       </div>
     </section>
   );
-};
+});
 
 export default ContactSection;
