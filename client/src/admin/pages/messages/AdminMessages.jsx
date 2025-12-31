@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import messagesApi from "../../../api/messages.api";
 
 const AdminMessages = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -7,24 +8,25 @@ const AdminMessages = () => {
     once: true,
   });
 
+  const [messages, setMessages] = useState([]);
   const [activeMessage, setActiveMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const messages = [
-    {
-      id: 1,
-      name: "Rahul Sharma",
-      email: "rahul@gmail.com",
-      phone: "9876543210",
-      message: "I want to know more about your AI services and pricing."
-    },
-    {
-      id: 2,
-      name: "Anjali Verma",
-      email: "anjali@gmail.com",
-      phone: "9123456789",
-      message: "Please call me back regarding partnership opportunities."
-    }
-  ];
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        setLoading(true);
+        const res = await messagesApi.getMessages();
+        setMessages(res.data || []);
+      } catch (err) {
+        console.error("Failed to fetch messages", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMessages();
+  }, []);
 
   return (
     <div
@@ -42,7 +44,10 @@ const AdminMessages = () => {
       </div>
 
       {/* TABLE */}
-      <div className="rtx-admin-table-wrapper u-drop" style={{ "--delay": "0.2s" }}>
+      <div
+        className="rtx-admin-table-wrapper u-drop"
+        style={{ "--delay": "0.2s" }}
+      >
         <table className="rtx-admin-table">
           <thead>
             <tr>
@@ -55,11 +60,19 @@ const AdminMessages = () => {
           </thead>
 
           <tbody>
+            {!loading && messages.length === 0 && (
+              <tr>
+                <td colSpan="5" style={{ textAlign: "center" }}>
+                  No messages found
+                </td>
+              </tr>
+            )}
+
             {messages.map((msg) => (
-              <tr key={msg.id}>
+              <tr key={msg._id}>
                 <td>{msg.name}</td>
                 <td>{msg.email}</td>
-                <td>{msg.phone}</td>
+                <td>{msg.phone || "-"}</td>
                 <td className="rtx-message-preview">
                   {msg.message}
                 </td>
@@ -110,7 +123,7 @@ const AdminMessages = () => {
 
               <div className="rtx-modal-row">
                 <span>Phone</span>
-                <p>{activeMessage.phone}</p>
+                <p>{activeMessage.phone || "-"}</p>
               </div>
 
               <div className="rtx-modal-row full">
@@ -121,7 +134,6 @@ const AdminMessages = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };

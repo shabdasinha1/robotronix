@@ -1,5 +1,7 @@
+import { useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
+import messagesApi from "../../api/messages.api";
 
 const ContactSection = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -7,6 +9,41 @@ const ContactSection = () => {
     rootMargin: "0px 0px -120px 0px",
     once: true,
   });
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      await messagesApi.createMessage(formData);
+
+      alert("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    } catch (err) {
+      alert(err?.message || "Failed to send message");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section
@@ -37,44 +74,73 @@ const ContactSection = () => {
         <div className="rtx-contact-grid">
 
           {/* LEFT — FORM */}
-          <div
+          <form
             className="rtx-contact-left u-drop"
             style={{ "--delay": "0.6s" }}
+            onSubmit={handleSubmit}
           >
             <h3>Send us a message</h3>
 
             <div className="rtx-form-row">
               <div className="rtx-form-field">
-                <label>First Name</label>
-                <input type="text" placeholder="John" />
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="John"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="rtx-form-field">
-                <label>Last Name</label>
-                <input type="text" placeholder="Doe" />
+                <label>Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="+91-123425315"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
               </div>
             </div>
 
             <div className="rtx-form-field">
               <label>Email</label>
-              <input type="email" placeholder="john@company.com" />
+              <input
+                type="email"
+                name="email"
+                placeholder="john@company.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
 
             <div className="rtx-form-field">
               <label>Project Details</label>
-              <textarea placeholder="Tell us about your project..." />
+              <textarea
+                name="message"
+                placeholder="Tell us about your project..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
             </div>
 
-            {/* BUTTON (replaces <button>) */}
+            {/* BUTTON */}
             <Button
               type="submit"
               variant="primary"
               size="lg"
               className="w-100"
+              disabled={loading}
             >
-              Send Message ✈
+              {loading ? "Sending..." : "Send Message ✈"}
             </Button>
-          </div>
+          </form>
 
           {/* RIGHT — INFO */}
           <div

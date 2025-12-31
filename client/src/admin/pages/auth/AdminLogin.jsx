@@ -45,9 +45,8 @@ const AdminLogin = () => {
   return (
     <section
       ref={ref}
-      className={`rtx-admin-login u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
+      className={`rtx-admin-login u-section ${visible ? "u-drop-visible" : ""
+        }`}
     >
       <div className="u-container-center">
 
@@ -91,7 +90,16 @@ const AdminLogin = () => {
                 required
               />
             </div>
-
+            {/* FORGOT PASSWORD */}
+            <div className="rtx-admin-forgot">
+              <button
+                type="button"
+                className="rtx-admin-forgot-btn"
+                onClick={() => navigate("/admin/forgot-password")}
+              >
+                Forgot password?
+              </button>
+            </div>
             {/* ERROR */}
             {error && (
               <p className="rtx-admin-error">

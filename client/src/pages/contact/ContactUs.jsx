@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import atulya1 from "../../assets/images/atulya1.jpg";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
+import messagesApi from "../../api/messages.api";
+
 
 const ContactUs = () => {
 
@@ -21,6 +23,8 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
+const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState(false);
 
   const info = [
     {
@@ -50,10 +54,30 @@ const ContactUs = () => {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Form Submitted!");
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    setLoading(true);
+
+    await messagesApi.createMessage(formData);
+
+    setSuccess(true);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+
+    alert("Message sent successfully!");
+  } catch (err) {
+    alert(err?.message || "Failed to send message");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <>
@@ -162,64 +186,92 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* ================= FORM ================= */}
-      <section
-        ref={form.ref}
-        className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
-      >
-        <div className="u-container rtx-cpage-contact-container">
+    {/* ================= FORM ================= */}
+<section
+  ref={form.ref}
+  className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
+>
+  <div className="u-container rtx-cpage-contact-container">
 
-          <div className="rtx-cpage-form card card-glass u-drop">
-            <h2 className="u-title">
-              Contact <span>Our Team</span>
-            </h2>
+    <div className="rtx-cpage-form card card-glass u-drop">
+      <h2 className="u-title">
+        Contact <span>Our Team</span>
+      </h2>
 
-            <p className="u-subtext">
-              Let’s discuss how we can help your business.
-            </p>
+      <p className="u-subtext">
+        Let’s discuss how we can help your business.
+      </p>
 
-            <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
 
-              <div className="rtx-cpage-input-group">
-                <User className="rtx-cpage-input-icon" />
-                <input name="name" placeholder="Your Name" required onChange={handleChange} />
-              </div>
-
-              <div className="rtx-cpage-input-group">
-                <Mail className="rtx-cpage-input-icon" />
-                <input name="email" placeholder="Your Email" required onChange={handleChange} />
-              </div>
-
-              <div className="rtx-cpage-input-group">
-                <Phone className="rtx-cpage-input-icon" />
-                <input name="phone" placeholder="Phone Number" required onChange={handleChange} />
-              </div>
-
-              <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
-                <MessageSquare className="rtx-cpage-input-icon" />
-                <textarea name="message" rows="5" placeholder="Your Message" required onChange={handleChange} />
-              </div>
-
-              <button className="btn btn-primary w-100 btn-lg">
-                Send Message →
-              </button>
-            </form>
-          </div>
-
-          <div className="rtx-cpage-contact-info card card-glass u-drop">
-            <h3 className="text-accent">Quick Contact</h3>
-
-            <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
-            <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
-            <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
-
-            <p className="rtx-cpage-info-text">
-              We respond within 24 hours.
-            </p>
-          </div>
-
+        <div className="rtx-cpage-input-group">
+          <User className="rtx-cpage-input-icon" />
+          <input
+            name="name"
+            placeholder="Your Name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
         </div>
-      </section>
+
+        <div className="rtx-cpage-input-group">
+          <Mail className="rtx-cpage-input-icon" />
+          <input
+            name="email"
+            placeholder="Your Email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="rtx-cpage-input-group">
+          <Phone className="rtx-cpage-input-icon" />
+          <input
+            name="phone"
+            placeholder="Phone Number"
+            required
+            value={formData.phone}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
+          <MessageSquare className="rtx-cpage-input-icon" />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+            value={formData.message}
+            onChange={handleChange}
+          />
+        </div>
+
+        <button
+          className="btn btn-primary w-100 btn-lg"
+          disabled={loading}
+        >
+          {loading ? "Sending..." : "Send Message →"}
+        </button>
+      </form>
+    </div>
+
+    <div className="rtx-cpage-contact-info card card-glass u-drop">
+      <h3 className="text-accent">Quick Contact</h3>
+
+      <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
+      <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
+      <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
+
+      <p className="rtx-cpage-info-text">
+        We respond within 24 hours.
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* ================= MAP ================= */}
       <section

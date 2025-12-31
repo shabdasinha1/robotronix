@@ -24,9 +24,24 @@ const AppRoutes = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  /* ===============================
+     RESOLVE ADMIN PUBLIC COMPONENTS
+  =============================== */
+  const LoginComp = adminRoutesConfig.find(
+    (r) => r.path === "login"
+  )?.component;
+
+  const ForgotPasswordComp = adminRoutesConfig.find(
+    (r) => r.path === "forgot-password"
+  )?.component;
+
+  const ResetPasswordComp = adminRoutesConfig.find(
+    (r) => r.path === "reset-password"
+  )?.component;
+
   return (
     <BrowserRouter>
-     <ThemeInitializer />
+      <ThemeInitializer />
       <ScrollToTop />
 
       <Suspense fallback={<PageFallback />}>
@@ -38,26 +53,40 @@ const AppRoutes = () => {
             element={
               localStorage.getItem("admin_auth") === "true"
                 ? <Navigate to="/admin/dashboard" replace />
-                : (() => {
-                    const LoginComp =
-                      adminRoutesConfig.find(r => r.path === "login")?.component;
-                    return LoginComp ? <LoginComp /> : null;
-                  })()
+                : LoginComp
+                ? <LoginComp />
+                : null
             }
+          />
+
+          {/* ================= ADMIN PUBLIC ================= */}
+          <Route
+            path="/admin/forgot-password"
+            element={ForgotPasswordComp ? <ForgotPasswordComp /> : null}
+          />
+
+          <Route
+            path="/admin/reset-password"
+            element={ResetPasswordComp ? <ResetPasswordComp /> : null}
           />
 
           {/* ================= PROTECTED ADMIN ================= */}
           <Route element={<AdminProtectedRoute />}>
             <Route path="/admin/*" element={<AdminLayout />}>
               {adminRoutesConfig
-                .filter(r => r.path !== "login")
+                .filter(
+                  (r) =>
+                    !["login", "forgot-password", "reset-password"].includes(
+                      r.path
+                    )
+                )
                 .map(({ path, component: Component }) => (
                   <Route key={path} path={path} element={<Component />} />
                 ))}
             </Route>
           </Route>
 
-          {/* ================= PUBLIC ================= */}
+          {/* ================= PUBLIC WEBSITE ================= */}
           <Route
             path="/*"
             element={
@@ -68,7 +97,11 @@ const AppRoutes = () => {
                     {routesConfig.map(
                       ({ path, component: Component }) =>
                         Component && (
-                          <Route key={path} path={path} element={<Component />} />
+                          <Route
+                            key={path}
+                            path={path}
+                            element={<Component />}
+                          />
                         )
                     )}
                   </Routes>

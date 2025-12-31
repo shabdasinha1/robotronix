@@ -5,8 +5,10 @@ import {
   forgotPassword,
   resetPassword,
 } from "./auth.service.js";
-import { createAdmin,  sendForgotOtp,
-  resetPasswordWithOtp, } from "./auth.service.js";
+import {
+  createAdmin, sendForgotOtp,
+  resetPasswordWithOtp,
+} from "./auth.service.js";
 
 
 export const registerAdmin = asyncHandler(async (req, res) => {
