@@ -38,29 +38,12 @@ const Career = () => {
 
   const jobs = [
     {
-      title: "MERN Stack Developer",
-      experience: "0–2 Years",
+      title: "Embedded Engineer",
+      experience: "2+ ` Years",
       location: "Indore",
       type: "Full Time",
     },
-    {
-      title: "Frontend Developer (React)",
-      experience: "0–1 Year",
-      location: "Indore",
-      type: "Full Time",
-    },
-    {
-      title: "Backend Developer (Node.js)",
-      experience: "1–3 Years",
-      location: "Indore",
-      type: "Full Time",
-    },
-    {
-      title: "UI / UX Designer",
-      experience: "0–2 Years",
-      location: "Indore",
-      type: "Intern / Full Time",
-    },
+    
   ];
 
   
@@ -323,44 +306,6 @@ const Career = () => {
 
  {/*-------------- CAREER — HIRING PROCESS -------------*/}
 
-    <section
-      ref={process.ref}
-      className={`u-section rtx-career-process ${
-        process.visible ? "u-drop-visible" : ""
-      }`}
-    >
-      <div className="u-container">
-
-        {/* HEADER */}
-        <div className="u-section-header">
-          <h2 className="u-title u-drop">
-            Our <span>Hiring Process</span>
-          </h2>
-          <p className="u-subtext u-drop" style={{ "--delay": "0.2s" }}>
-            A simple, transparent, and candidate-friendly process.
-          </p>
-        </div>
-
-        {/* STEPS */}
-        <div className="rtx-career-process-grid">
-          {steps.map((item, index) => (
-            <div
-              key={index}
-              className="rtx-career-process-step u-drop"
-              style={{ "--delay": `${0.2 + index * 0.15}s` }}
-            >
-              <span className="rtx-career-process-step-num">
-                {item.step}
-              </span>
-
-              <h4>{item.title}</h4>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </section>
 
        {/*------------- CAREER — GROWTH & LEARNING ------------ */}
 

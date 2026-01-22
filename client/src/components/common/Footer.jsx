@@ -9,6 +9,8 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const Footer = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
@@ -72,13 +74,62 @@ const Footer = React.memo(() => {
               Indore, Madhya Pradesh 452001
             </p>
 
-            <div className="rtx-footer-social">
-              <FaLinkedinIn />
-              <FaInstagram />
-              <FaFacebookF />
-              <FaWhatsapp />
-              <FaYoutube />
-            </div>
+           <div className="rtx-footer-social">
+  <a
+    href="https://lnkd.in/dchHkpuY"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <FaLinkedinIn />
+  </a>
+
+  <a
+    href="https://instagram.com/robotronixindia?igshid=MGNiNDI5ZTU="
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <FaInstagram />
+  </a>
+
+  <a
+    href="https://www.facebook.com/robotronixindiaa/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <FaFacebookF />
+  </a>
+
+  <a
+    href="https://whatsapp.com/channel/0029Va5MOXS7YScuXQ5pqb3G"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+  >
+    <FaWhatsapp />
+  </a>
+
+  <a
+    href="https://www.youtube.com/@robotronixindiaa"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="YouTube"
+  >
+    <FaYoutube />
+  </a>
+
+  <a
+    href="https://x.com/ROBOTRONiX2010?s=08"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="X (Twitter)"
+  >
+    <FaXTwitter />
+  </a>
+</div>
+
 
             <div className="rtx-footer-ratings">
               ⭐⭐⭐⭐⭐ 5.0 — Based on Clutch Reviews
