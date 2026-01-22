@@ -1,7 +1,33 @@
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
-import heroFloat from "../../../assets/images/culture/RX_TL_1.jpg";
-import heroMain from "../../../assets/images/culture/RX_TL_2.jpg";
+import heroFloat from "../../../assets/images/culture/celebration/celebration1.jpg";
+import heroMain from "../../../assets/images/culture/celebration/celebration2.jpg";
+
+import strip1 from "../../../assets/images/culture/festival/festival1.jpg";
+import strip2 from "../../../assets/images/culture/festival/festival1.jpg";
+import strip3 from "../../../assets/images/culture/festival/festival1.jpg";
+import strip4 from "../../../assets/images/culture/festival/festival1.jpg";
+
+import together1 from "../../../assets/images/culture/festival/festival1.jpg";
+import together2 from "../../../assets/images/culture/festival/festival1.jpg";
+import together3 from "../../../assets/images/culture/festival/festival1.jpg";
+import together4 from "../../../assets/images/culture/festival/festival1.jpg";
+
+import celebrate1 from "../../../assets/images/culture/festival/festival1.jpg";
+import celebrate2 from "../../../assets/images/culture/festival/festival1.jpg";
+import celebrate3 from "../../../assets/images/culture/festival/festival1.jpg";
+import celebrate4 from "../../../assets/images/culture/festival/festival1.jpg";
+
+import festivalMain from "../../../assets/images/culture/festival/festival1.jpg";
+import festival1 from "../../../assets/images/culture/festival/festival2.jpg";
+import festival2 from "../../../assets/images/culture/festival/festival10.jpg";
+import festival3 from "../../../assets/images/culture/festival/festival14.jpg";
+
+import bonding1 from "../../../assets/images/culture/team-bonding/team-bond1.jpeg";
+import bonding2 from "../../../assets/images/culture/team-bonding/team-bond2.jpg";
+import bonding3 from "../../../assets/images/culture/team-bonding/team-bond3.jpg";
+import bonding4 from "../../../assets/images/culture/team-bonding/team-bond3.jpg";
+
 
 const Culture = () => {
 const hero = useRevealOnScroll({ threshold: 0.2, once: true });
@@ -97,10 +123,31 @@ return(
           className="rtx-culture-strip-images u-drop"
           style={{ "--delay": "0.3s" }}
         >
-          <div className="rtx-strip-img" />
-          <div className="rtx-strip-img" />
-          <div className="rtx-strip-img" />
-          <div className="rtx-strip-img" />
+         <img
+  src={strip1}
+  alt="Team collaboration at Robotronix"
+  className="rtx-strip-img"
+  loading="lazy"
+/>
+<img
+  src={strip2}
+  alt="Office culture moments"
+  className="rtx-strip-img"
+  loading="lazy"
+/>
+<img
+  src={strip3}
+  alt="Team working together"
+  className="rtx-strip-img"
+  loading="lazy"
+/>
+<img
+  src={strip4}
+  alt="Creative workspace environment"
+  className="rtx-strip-img"
+  loading="lazy"
+/>
+
         </div>
 
       </div>
@@ -112,7 +159,7 @@ return(
       ref={together.ref}
       className={`u-section rtx-culture-togetherness ${
         together.visible ? "u-drop-visible" : ""
-      }`}
+      }`}  
     >
       <div className="u-container rtx-culture-togetherness-layout">
 
@@ -125,7 +172,7 @@ return(
             A Culture of <span>Togetherness</span>
           </h2>
 
-          <p
+          <p  
             className="rtx-culture-togetherness-text u-drop"
             style={{ "--delay": "0.3s" }}
           >
@@ -149,10 +196,31 @@ return(
           className="rtx-culture-togetherness-images u-drop-right"
           style={{ "--delay": "0.6s" }}
         >
-          <div className="rtx-together-img" />
-          <div className="rtx-together-img" />
-          <div className="rtx-together-img" />
-          <div className="rtx-together-img" />
+       <img
+  src={together1}
+  alt="Team discussion session"
+  className="rtx-together-img"
+  loading="lazy"
+/>
+<img
+  src={together2}
+  alt="Collaborative workspace"
+  className="rtx-together-img"
+  loading="lazy"
+/>
+<img
+  src={together3}
+  alt="Team brainstorming"
+  className="rtx-together-img"
+  loading="lazy"
+/>
+<img
+  src={together4}
+  alt="Office teamwork culture"
+  className="rtx-together-img"
+  loading="lazy"
+/>
+
         </div>
 
       </div>
@@ -191,10 +259,31 @@ return(
           className="rtx-culture-celebrations-gallery u-drop"
           style={{ "--delay": "0.5s" }}
         >
-          <div className="rtx-celebration-img tall" />
-          <div className="rtx-celebration-img" />
-          <div className="rtx-celebration-img" />
-          <div className="rtx-celebration-img wide" />
+         <img
+  src={celebrate1}
+  alt="Office celebration moments"
+  className="rtx-celebration-img tall"
+  loading="lazy"
+/>
+<img
+  src={celebrate2}
+  alt="Team celebration event"
+  className="rtx-celebration-img"
+  loading="lazy"
+/>
+<img
+  src={celebrate3}
+  alt="Festival celebration at work"
+  className="rtx-celebration-img"
+  loading="lazy"
+/>
+<img
+  src={celebrate4}
+  alt="Company celebration gathering"
+  className="rtx-celebration-img wide"
+  loading="lazy"
+/>
+
         </div>
 
       </div>
@@ -211,10 +300,13 @@ return(
       <div className="u-container rtx-culture-festivals-layout">
 
         {/* LEFT — MAIN IMAGE */}
-        <div
-          className="rtx-culture-festivals-main-img u-drop-left"
-          style={{ "--delay": "0.2s" }}
-        />
+       <img
+  src={festivalMain}
+  alt="Festival celebration at Robotronix office"
+  className="rtx-culture-festivals-main-img u-drop-left"
+  loading="lazy"
+/>
+
 
         {/* RIGHT — CONTENT */}
         <div className="rtx-culture-festivals-content">
@@ -247,9 +339,25 @@ return(
             className="rtx-culture-festivals-sub-images u-drop"
             style={{ "--delay": "0.65s" }}
           >
-            <div className="rtx-festival-img" />
-            <div className="rtx-festival-img" />
-            <div className="rtx-festival-img" />
+          <img
+  src={festival1}
+  alt="Office festival decor"
+  className="rtx-festival-img"
+  loading="lazy"
+/>
+<img
+  src={festival2}
+  alt="Team festival celebration"
+  className="rtx-festival-img"
+  loading="lazy"
+/>
+<img
+  src={festival3}
+  alt="Cultural celebration at work"
+  className="rtx-festival-img"
+  loading="lazy"
+/>
+
           </div>
         </div>
 
@@ -270,10 +378,31 @@ return(
           className="rtx-culture-bonding-images u-drop-left"
           style={{ "--delay": "0.2s" }}
         >
-          <div className="rtx-bonding-img" />
-          <div className="rtx-bonding-img" />
-          <div className="rtx-bonding-img" />
-          <div className="rtx-bonding-img" />
+     <img
+  src={bonding1}
+  alt="Team outing activity"
+  className="rtx-bonding-img"
+  loading="lazy"
+/>
+<img
+  src={bonding2}
+  alt="Informal team bonding"
+  className="rtx-bonding-img"
+  loading="lazy"
+/>
+<img
+  src={bonding3}
+  alt="Team engagement session"
+  className="rtx-bonding-img"
+  loading="lazy"
+/>
+<img
+  src={bonding4}
+  alt="Office team fun activity"
+  className="rtx-bonding-img"
+  loading="lazy"
+/>
+
         </div>
 
         {/* RIGHT — CONTENT */}
