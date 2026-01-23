@@ -11,7 +11,7 @@
 
   color: var(--clr-text-soft) !important;
   font-weight: 600;
-  font-size: 15.5px;
+  font-size: var(--fs-header);
 
   cursor: pointer;
   display: flex;
@@ -114,7 +114,7 @@
   line-height: 1;
   color: var(--clr-text-soft);
   font-weight: 600;
-  font-size: 15.5px;
+  font-size: var(--fs-header);
 
   cursor: pointer;
   
@@ -130,7 +130,7 @@
 }
 
 .rtx-icon {
-  font-size: 13px;
+  font-size: 0.8rem;
   opacity: 0.95;
 }
 
@@ -185,7 +185,7 @@
   padding: 10px 14px;
 
   color: inherit;
-  font-size: 14.5px;
+ font-size: var(--fs-header-small);
 
   border-radius: 8px;
   transition: background 200ms ease, color 200ms ease, transform 200ms ease;
@@ -255,8 +255,7 @@
   justify-content: space-between;
 
   font-weight: 700;
-  font-size: 15.5px;
-
+  font-size: var(--fs-header-strong);
   cursor: pointer;
   color: var(--clr-text-soft);
 }
@@ -289,13 +288,13 @@
 .rtx-mobile-subitem,
 .rtx-mobile-subitem-link {
   padding: 8px 0;
-  font-size: 15px;
+  font-size: var(--fs-header);
   color: var(--clr-text-light) !important;
 }
 
 /* Simple links */
 .rtx-mobile-link {
-  font-size: 15.5px;
+ font-size: var(--fs-header-strong);
   font-weight: 700;
   color: var(--clr-text-soft);
 }

@@ -12,9 +12,8 @@
 @import "./styles/pages/about.css";
 @import "./styles/pages/career.css";
 @import "./styles/pages/portfolio.css";
-@import "./styles/pages/products.css";
 @import "./styles/pages/contact.css";
 @import "./styles/components/footer.css";
-
+@import "./styles/responsive.css"; 
 
 

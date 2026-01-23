@@ -5,6 +5,9 @@
 /* Enable proper color-scheme support */
 :root {
   color-scheme: light dark;
+   --fs-header: 0.95rem;        /* main nav links */
+  --fs-header-small: 0.9rem;   /* dropdown + icons */
+  --fs-header-strong: 1rem;  /* mobile titles */
 }
 
 /* =========================================
@@ -85,6 +88,18 @@
   --header-dropdown-border: var(--white-03);
   --header-dropdown-hover-bg: var(--white-02);
   --header-mobile-backdrop: rgba(0, 0, 0, 0.45);
+
+  /* =========================
+   FONT SCALE (GLOBAL)
+========================= */
+--fs-xs: 0.85rem;
+--fs-sm: 0.95rem;
+--fs-md: 1rem;
+--fs-lg: 1.1rem;
+--fs-xl: 1.4rem;
+--fs-2xl: 2rem;
+--fs-3xl: 3.2rem;
+
 }
 
 /* =========================================
@@ -182,4 +197,16 @@
   --header-dropdown-border: rgba(0,0,0,0.05);
   --header-dropdown-hover-bg: rgba(255, 255, 255, 0.50);
   --header-mobile-backdrop: rgba(255, 255, 255, 0.60);
+
+  /* =========================
+   FONT SCALE (GLOBAL)
+========================= */
+--fs-xs: 0.85rem;
+--fs-sm: 0.95rem;
+--fs-md: 1rem;
+--fs-lg: 1.1rem;
+--fs-xl: 1.4rem;
+--fs-2xl: 2rem;
+--fs-3xl: 3.2rem;
+
 }

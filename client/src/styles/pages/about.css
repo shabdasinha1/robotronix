@@ -107,20 +107,6 @@
     0 6px 14px var(--blue-02s);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 768px) {
-  .rtx-overview-highlights {
-    gap: 12px;
-  }
-
-  .rtx-overview-highlights span {
-    font-size: 0.8rem;
-    padding: 8px 14px;
-  }
-}
 
 
 /* ======================================================
@@ -215,21 +201,6 @@
   border: 1px solid var(--border-light-1);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 900px) {
-  .rtx-who-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    text-align: center;
-  }
-
-  .rtx-who-text .u-subtext {
-    max-width: 100%;
-  }
-}
 
 /* ======================================================
    OUR APPROACH SECTION
@@ -321,25 +292,6 @@
   box-shadow: 0 6px 14px var(--border-light-2);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 1024px) {
-  .rtx-approach-flow {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .rtx-approach-flow::before {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .rtx-approach-flow {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ======================================================
    CORE STRENGTHS
@@ -434,21 +386,6 @@
   box-shadow: 0 6px 16px var(--border-light-2);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 1024px) {
-  .rtx-impact-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .rtx-impact-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ======================================================
    COMPANY PHILOSOPHY
@@ -507,19 +444,6 @@
   color: var(--clr-text-soft);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 768px) {
-  .rtx-philosophy-quote {
-    font-size: 1.6rem;
-  }
-
-  .rtx-philosophy-text {
-    font-size: 1rem;
-  }
-}
 
 
 /* ======================================================
@@ -622,30 +546,6 @@
   transition: 0.35s ease;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-culture-hero-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-culture-hero-title {
-    font-size: 2.6rem;
-  }
-
-  .rtx-culture-hero-images {
-    min-height: 360px;
-  }
-
-  .rtx-culture-img.img-1 {
-    left: 0;
-  }
-
-  .rtx-culture-img.img-2 {
-    right: 0;
-  }
-}
-
 /* ======================================================
    CULTURE — IMAGE STRIP
 ====================================================== */
@@ -688,26 +588,6 @@
   box-shadow: 0 20px 44px var(--blue-02);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) {
-  .rtx-culture-strip-images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .rtx-strip-img {
-    height: 200px;
-  }
-}
-
-@media (max-width: 520px) {
-  .rtx-culture-strip-images {
-    grid-template-columns: 1fr;
-  }
-
-  .rtx-strip-img {
-    height: 190px;
-  }
-}
 
 /* ======================================================
    CULTURE — TOGETHERNESS (EDITORIAL)
@@ -758,18 +638,6 @@
   transform: translateY(-8px);
   border-color: var(--blue-02);
   box-shadow: 0 18px 42px var(--blue-02);
-}
-
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-culture-togetherness-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-culture-togetherness-content {
-    max-width: 100%;
-  }
 }
 
 
@@ -824,28 +692,6 @@
   box-shadow: 0 20px 44px var(--blue-02);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-culture-celebrations-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 170px;
-  }
-
-  .rtx-celebration-img.wide {
-    grid-column: span 1;
-  }
-}
-
-@media (max-width: 520px) {
-  .rtx-culture-celebrations-gallery {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 190px;
-  }
-
-  .rtx-celebration-img.tall {
-    grid-row: span 1;
-  }
-}
 
 /* ======================================================
    CULTURE — FESTIVALS AT WORK (CONTRAST)
@@ -909,21 +755,6 @@
   box-shadow: 0 16px 36px var(--blue-02);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-culture-festivals-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-culture-festivals-main-img {
-    height: 380px;
-  }
-
-  .rtx-culture-festivals-content {
-    max-width: 100%;
-  }
-}
 
 
 /* ======================================================
@@ -977,17 +808,6 @@
   line-height: 1.75;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-culture-bonding-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-culture-bonding-content {
-    max-width: 100%;
-  }
-}
 
 /* ======================================================
    CULTURE END
@@ -1047,20 +867,6 @@
   color: var(--clr-text-soft);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 768px) {
-  .rtx-vm-hero {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .rtx-vm-subtext {
-    font-size: 1.02rem;
-  }
-}
 
 /* ======================================================
    VISION SECTION
@@ -1110,20 +916,6 @@
   color: var(--clr-text-soft);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 768px) {
-  .rtx-vision-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .rtx-vision-statement {
-    font-size: 1.5rem;
-  }
-}
 
 /* ======================================================
    MISSION SECTION
@@ -1193,21 +985,6 @@
 }
 
 /* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 900px) {
-  .rtx-mission-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .rtx-mission-visual {
-    display: none;
-  }
-}
-
-/* ======================================================
    VISION & MISSION — CLOSING
 ====================================================== */
 
@@ -1244,17 +1021,3 @@
   color: var(--clr-text-soft);
 }
 
-/* ======================================================
-   RESPONSIVE
-====================================================== */
-
-@media (max-width: 768px) {
-  .rtx-vm-closing {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .rtx-vm-closing-title {
-    font-size: 1.8rem;
-  }
-}

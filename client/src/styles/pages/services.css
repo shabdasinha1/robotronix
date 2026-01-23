@@ -36,7 +36,7 @@
   background: var(--blue-012b);
   border: 1px solid var(--blue-06);
   color: var(--clr-blue-medium);
-  font-size: 14px;
+
   backdrop-filter: blur(6px);
 }
 
@@ -258,29 +258,6 @@
   }
 }
 
-/* ===== MOBILE OPTIMIZATION ===== */
-@media (max-width: 768px) {
-  .rtx-neural-list {
-    padding-left: 44px;
-    gap: 36px;
-  }
-
-  .rtx-neural-list::before {
-    left: 14px;
-  }
-
-  .rtx-neural-dot {
-    left: 6px;
-  }
-
-  .rtx-neural-content {
-    padding-left: 32px;
-  }
-
-  .rtx-neural-content p {
-    max-width: 100%;
-  }
-}
 
 
 /* =====================================
@@ -315,11 +292,6 @@
    color: var(--clr-text-light);
 }
 
-@media (max-width: 768px) {
-  .rtx-service-impact-title {
-    font-size: 2rem;
-  }
-}
 
 /* =====================================
    SERVICE CTA (UNCHANGED – ALREADY UNIVERSAL)

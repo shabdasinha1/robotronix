@@ -44,7 +44,6 @@
   background: var(--blue-012b);
   border: 1px solid var(--blue-06);
   color: var(--clr-blue-medium);
-  font-size: 14px;
   letter-spacing: 0.5px;
   backdrop-filter: blur(6px);
 }
@@ -107,12 +106,6 @@
   transform: translateY(-6px);
   border-color: var(--blue-02);
   box-shadow: 0px 8px 20px var(--blue-02);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-hero-title { font-size: 2.2rem; }
-  .rtx-hero-subtext { font-size: 1rem; }
 }
 
 
@@ -238,15 +231,6 @@
   box-shadow: 0 8px 20px var(--blue-02);
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-  .rtx-services-title {
-    font-size: 2.2rem;
-  }
-}
-
 /* ============================================
    LIGHT THEME – SERVICE CARD (FROSTED GLASS)
 ============================================ */
@@ -332,7 +316,6 @@
   background: var(--blue-015);
   color: var(--clr-blue);
   border-radius: 12px;
-  font-size: 14px;
   margin-bottom: 16px;
 }
 
@@ -363,18 +346,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   color: var(--clr-blue-light);
-}
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .rtx-about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .rtx-about-points {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ======================================================
@@ -499,16 +470,6 @@
   color: var(--clr-text-light);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-tech-title {
-    font-size: 2.2rem;
-  }
-
-  .rtx-tech-card {
-    width: 130px;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — TECH STACK
@@ -619,12 +580,6 @@
   color: var(--clr-text-light);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-choose-title {
-    font-size: 2.2rem;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — WHY CHOOSE US
@@ -813,16 +768,6 @@
   color: var(--clr-blue);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-test-title {
-    font-size: 2.2rem;
-  }
-
-  .rtx-test-slider {
-    height: 350px;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — TESTIMONIALS
@@ -1024,16 +969,6 @@
   color: var(--clr-text-light);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .rtx-contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rtx-contact-title {
-    font-size: 2.2rem;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — CONTACT
@@ -1170,16 +1105,6 @@
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-marquee-set img {
-    height: 50px;
-  }
-
-  .rtx-partners-title {
-    font-size: 2.2rem;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — PARTNERS
@@ -1269,16 +1194,6 @@
   color: var(--clr-text-light);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .rtx-cta-title {
-    font-size: 2rem;
-  }
-
-  .rtx-cta-sub {
-    font-size: 1rem;
-  }
-}
 
 /* ======================================================
    LIGHT THEME — CTA

@@ -98,22 +98,6 @@
   color: var(--clr-blue);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-career-hero-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-career-hero-title {
-    font-size: 2.6rem;
-  }
-
-  .rtx-career-hero-visual {
-    justify-content: flex-start;
-  }
-}
-
 
 /* ======================================================
    CAREER — WHY WORK WITH US
@@ -195,18 +179,6 @@
   box-shadow: 0 18px 38px var(--blue-02);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .rtx-career-life-layout {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .rtx-career-life-content {
-    max-width: 100%;
-  }
-}
-
 
 /* ======================================================
    CAREER — OPEN POSITIONS
@@ -264,15 +236,6 @@
 /* ACTION */
 .rtx-career-job-action {
   flex-shrink: 0;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .rtx-career-job-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
 }
 
 

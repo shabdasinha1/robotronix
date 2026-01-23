@@ -56,11 +56,13 @@
 }
 
 .rtx-footer-col li {
+  font-size: 0.95rem;
   color: var(--clr-text-light);
   margin-bottom: 10px;
   cursor: pointer;
   transition: color 0.25s ease, transform 0.25s ease;
 }
+
 
 .rtx-footer-col li:hover {
   color: var(--clr-blue);
@@ -109,7 +111,7 @@
 .rtx-footer-social {
   display: flex;
   gap: 15px;
-  font-size: 20px;
+ font-size: 1.25rem;
   margin: 15px 0 10px;
 }
 

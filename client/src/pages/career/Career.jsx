@@ -6,7 +6,6 @@ const Career = () => {
     const why = useRevealOnScroll({ threshold: 0.2, once: true });
      const life = useRevealOnScroll({ threshold: 0.2, once: true });
        const jobsRef = useRevealOnScroll({ threshold: 0.2, once: true });
-        const process = useRevealOnScroll({ threshold: 0.2, once: true });
     const growth = useRevealOnScroll({ threshold: 0.2, once: true });
      const cta = useRevealOnScroll({ threshold: 0.2, once: true });
      const reasons = [
@@ -39,7 +38,7 @@ const Career = () => {
   const jobs = [
     {
       title: "Embedded Engineer",
-      experience: "2+ ` Years",
+      experience: "2+ Years",
       location: "Indore",
       type: "Full Time",
     },
@@ -47,28 +46,7 @@ const Career = () => {
   ];
 
   
-  const steps = [
-    {
-      step: "01",
-      title: "Apply Online",
-      desc: "Submit your application by sharing your resume and basic details through our website or email."
-    },
-    {
-      step: "02",
-      title: "HR Screening",
-      desc: "Our HR team reviews your profile to understand your background, interests, and suitability."
-    },
-    {
-      step: "03",
-      title: "Technical Discussion",
-      desc: "A technical conversation to assess your skills, problem-solving ability, and approach to real-world challenges."
-    },
-    {
-      step: "04",
-      title: "Offer & Onboarding",
-      desc: "Selected candidates receive an offer and are guided through a smooth onboarding process."
-    }
-  ];
+
 
  const growthPoints = [
     {
