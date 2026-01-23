@@ -22,11 +22,11 @@
 
 @media (max-width: 767px) {
   .u-section {
-    padding: 70px 16px;
+    padding: 56px 14px;
   }
 
   .u-section-sm {
-    padding: 60px 16px;
+    padding: 48px 14px;  
   }
 }
 
@@ -124,7 +124,7 @@
 
 @media (max-width: 1023px) {
   .rtx-hero-wrapper {
-    padding: 110px 18px;
+    padding: 90px 18px;
   }
 }
 
