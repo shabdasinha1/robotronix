@@ -98,7 +98,7 @@
 }
 
 .rtx-portfolio-highlights span {
-  padding: var(--space-2xs) var(--space-sm);
+   padding: calc(var(--space-xs) + 2px) var(--space-md);
   font-size: 0.9rem;
   color: var(--clr-text-light);
   background: var(--bg-dark-2);
@@ -151,7 +151,7 @@
 }
 
 .rtx-filter-btn {
-   padding: var(--space-2xs) var(--space-sm);
+   padding: var(--space-xs) var(--space-sm);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--clr-text-light);
@@ -269,7 +269,7 @@ font-size: var(--fs-card-title);
 }
 
 .rtx-project-tech span {
-    padding: var(--space-2xs) var(--space-chip-x);
+ padding: var(--space-xs) var(--space-sm);
   font-size: var(--fs-chip);
   background: var(--bg-dark-1);
   border: 1px solid var(--white-12);

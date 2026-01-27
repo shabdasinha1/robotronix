@@ -29,7 +29,7 @@ const ContactUs = () => {
     {
       icon: "📍",
       title: "Office Address",
-      desc: "402 Atulya IT Park, Khandwa Road, Indore (M.P.)",
+      desc: "402, Atulya IT Park, Khandwa Road, Indore (M.P.)",
     },
     {
       icon: "✉️",

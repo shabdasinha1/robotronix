@@ -57,6 +57,7 @@
 
 .btn-outline:hover {
   background: var(--blue-02);
+  color: var(--clr-blue-light);
   transform: translateY(-4px);
 }
 

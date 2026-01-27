@@ -2,23 +2,30 @@ import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
-
 const techItems = [
   { name: "React", type: "Frontend" },
-  { name: "TypeScript", type: "Language" },
+  { name: "Angular", type: "Frontend" },
+
   { name: "Node.js", type: "Backend" },
-  { name: "Python", type: "AI/ML" },
-  { name: "AWS", type: "Cloud" },
-  { name: "Docker", type: "DevOps" },
-  { name: "Kubernetes", type: "Orchestration" },
+  { name: "Python", type: "Backend / AI" },
+  { name: "Java (Spring Boot)", type: "Backend" },
+
   { name: "PostgreSQL", type: "Database" },
   { name: "MongoDB", type: "Database" },
-  { name: "GraphQL", type: "API" },
-  { name: "TensorFlow", type: "AI/ML" },
-  { name: "Azure", type: "Cloud" },
-  { name: "Next.js", type: "Framework" },
-  { name: "Tailwind", type: "Styling" },
+
+  { name: "AWS", type: "Cloud" },
+  { name: "Docker", type: "DevOps" },
+
+  { name: "TensorFlow", type: "AI / ML" },
+  { name: "YOLO", type: "Computer Vision" },
+
+  { name: "LangChain", type: "Generative AI" },
+
+  { name: "Flutter", type: "Mobile Apps" },
+
+  { name: "IoT & Embedded", type: "Hardware + Edge" },
 ];
+
 
 const TechStack = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
@@ -75,15 +82,16 @@ const TechStack = React.memo(() => {
           And many more technologies in our arsenal
         </p>
 
-        <Button
-          to=""
-          variant="outline"
-          size="md"
-          className="u-drop"
-          style={{ "--delay": "2s" }}
-        >
-          View Full Tech Stack →
-        </Button>
+       <Button
+  to="/portfolio"
+  state={{ scrollTo: "tech-stack" }}
+  variant="outline"
+  size="md"
+  className="u-drop"
+  style={{ "--delay": "2s" }}
+>
+  View Full Tech Stack →
+</Button>
       </div>
     </section>
   );

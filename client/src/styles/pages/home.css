@@ -648,15 +648,15 @@ margin-bottom: var(--space-md);
 /* MAIN SLIDER */
 .rtx-test-slider {
   position: relative;
-  height: 260px;
-  margin-bottom: var(--space-md);
+    height: 300px;
+ margin-bottom: var(--space-xl);
 }
 
 .rtx-test-slide {
   position: absolute;
   width: 100%;
- padding: var(--space-xl);
-  border-radius: 16px;
+ padding: var(--space-card-lg);
+ border-radius: var(--radius-lg);
   background: var(--white-06);
   border: 1px solid var(--white-10);
 
@@ -678,20 +678,24 @@ margin-bottom: var(--space-md);
 }
 
 .rtx-test-text {
-  font-size: 1.2rem;
-  max-width: 900px;
- margin: 0 auto var(--space-md);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  max-width: 860px;
+  margin: 0 auto var(--space-sm);
   color: var(--clr-white);
 }
 
 .rtx-test-name {
   font-size: 1.2rem;
   font-weight: 700;
+   margin-top: var(--space-sm);
+  color: var(--clr-white);
 }
 
 .rtx-test-role {
   font-size: 0.9rem;
   color: var(--clr-text-light);
+  opacity: 0.9;
 }
 
 .rtx-test-company {
@@ -703,7 +707,7 @@ margin-bottom: var(--space-md);
 .rtx-test-dots {
   display: flex;
   justify-content: center;
-  margin: var(--space-md) 0 var(--space-xl);
+  margin: var(--space-sm) 0 var(--space-lg);
 }
 
 .rtx-test-dot {
@@ -726,6 +730,7 @@ margin-bottom: var(--space-md);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-lg);
+    margin-top: var(--space-xl);
 }
 
 /* SMALL CARD */
@@ -742,6 +747,7 @@ margin-bottom: var(--space-md);
   font-size: 0.95rem;
    margin-bottom: var(--space-sm);
   color: var(--clr-text-light);
+    line-height: 1.6;
 }
 
 .rtx-test-card-name {
@@ -776,6 +782,7 @@ margin-bottom: var(--space-md);
 }
 
 :root[data-theme="light"] .rtx-test-slide {
+  border-radius: var(--radius-lg);
   background: var(--white-055);
   border: 1px solid var(--border-light-1);
   backdrop-filter: blur(12px);

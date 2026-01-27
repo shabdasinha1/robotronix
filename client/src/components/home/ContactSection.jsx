@@ -92,7 +92,7 @@ const ContactSection = React.memo(() => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="John"
+                  placeholder="Enter your name"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -104,7 +104,7 @@ const ContactSection = React.memo(() => {
                 <input
                   type="text"
                   name="phone"
-                  placeholder="+91-123425315"
+                  placeholder="Enter your phone number"
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -117,7 +117,7 @@ const ContactSection = React.memo(() => {
               <input
                 type="email"
                 name="email"
-                placeholder="john@company.com"
+                placeholder="Enter your email address"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -160,17 +160,17 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Email Us</h4>
-              <p>hello@nexatech.com</p>
+              <p>info@robotronix.co.in</p>
             </div>
 
             <div className="rtx-info-card">
               <h4>Call Us</h4>
-              <p>+1 (555) 123-4567</p>
+              <p>+91 99931 50998</p>
             </div>
 
             <div className="rtx-info-card">
               <h4>Visit Us</h4>
-              <p>123 Tech Plaza, Silicon Valley, CA</p>
+              <p>402, Atulya IT Park, Khandwa Road, Indore (M.P.)</p>
             </div>
           </div>
         </div>

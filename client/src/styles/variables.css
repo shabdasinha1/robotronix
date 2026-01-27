@@ -89,6 +89,17 @@
   --header-dropdown-hover-bg: var(--white-02);
   --header-mobile-backdrop: rgba(0, 0, 0, 0.45);
 
+  /* ===============================
+   SECTION SPACING SYSTEM
+================================ */
+
+--section-px: 20px;
+
+--section-py-xs: 50px;
+--section-py-sm: 70px;
+--section-py-md: 90px;
+--section-py-lg: 130px;
+
   /* =========================
    FONT SCALE (GLOBAL)
 ========================= */
@@ -233,6 +244,17 @@
   --header-dropdown-border: rgba(0,0,0,0.05);
   --header-dropdown-hover-bg: rgba(255, 255, 255, 0.50);
   --header-mobile-backdrop: rgba(255, 255, 255, 0.60);
+
+  /* ===============================
+   SECTION SPACING SYSTEM
+================================ */
+
+--section-px: 20px;
+
+--section-py-xs: 50px;
+--section-py-sm: 70px;
+--section-py-md: 90px;
+--section-py-lg: 130px;
 
   /* =========================
    FONT SCALE (GLOBAL)

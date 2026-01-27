@@ -58,7 +58,7 @@ const AboutSection = React.memo(() => {
           </div>
 
           {/* BUTTON */}
-          <Button to="" variant="primary" size="lg">
+          <Button to="/about-us" variant="primary" size="lg">
             Discover Our Story
           </Button>
         </div>

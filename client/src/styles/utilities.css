@@ -45,37 +45,37 @@
 .w-100 {
   width: 100%;
 }
-
 /* ======================================================
    SECTION & CONTAINER UTILITIES
 ====================================================== */
 
-/* Full-width section */
+/* Base section */
 .u-section {
   width: 100%;
-   padding: var(--section-py, 80px) var(--section-px, 20px);
+  padding: var(--section-py-md) var(--section-px);
   background: var(--bg-dark-1);
 }
 
-
 /* Hero / Large sections */
 .u-section-lg {
-  --section-py: 130px;
+  padding: var(--section-py-lg) var(--section-px);
 }
 
 /* Medium content sections */
 .u-section-md {
-  padding: 90px 20px;
+  padding: var(--section-py-md) var(--section-px);
 }
+
 /* Small sections */
 .u-section-sm {
-  --section-py: 70px;
+  padding: var(--section-py-sm) var(--section-px);
 }
 
 /* Extra tight sections */
 .u-section-xs {
-  --section-py: 50px;
+  padding: var(--section-py-xs) var(--section-px);
 }
+
 /* Container */
 .u-container {
   max-width: 1150px;

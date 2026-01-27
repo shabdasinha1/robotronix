@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { Link,NavLink} from "react-router-dom";
+import { Link,NavLink,useLocation} from "react-router-dom";
 
 
 
 const Portfolio = () => {
   const [active, setActive] = useState("AI & Machine Learning");
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState("AI & Machine Learning");
+  
+
+
+
   const hero = useRevealOnScroll({
     threshold: 0.2,
     once: true,
@@ -572,6 +577,23 @@ const handleClick = (cat) => {
   }, 50);
 };
 
+useEffect(() => {
+  if (location.state?.scrollTo === "tech-stack" && techSec.ref.current) {
+    // wait for layout + reveal animations
+    setTimeout(() => {
+      const yOffset = -100;
+      const y =
+        techSec.ref.current.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }, 300);
+  }
+}, [location, techSec.ref]);
 
 
   return (
@@ -764,6 +786,7 @@ const handleClick = (cat) => {
 
       {/*------------------ Technology Stack --------------- */}
       <section
+      id="tech-stack"
         ref={techSec.ref}
         className={`u-section rtx-portfolio-tech ${techSec.visible ? "u-drop-visible" : ""
           }`}
