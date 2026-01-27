@@ -862,9 +862,9 @@ useEffect(() => {
               Start a Conversation
             </Link>
 
-            <Link to="/services" className="btn btn-outline btn-lg">
+            {/* <Link to="/services" className="btn btn-outline btn-lg">
               View Our Services
-            </Link>
+            </Link> */}
           </div>
 
         </div>

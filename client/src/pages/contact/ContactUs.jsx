@@ -75,16 +75,22 @@ const ContactUs = () => {
       setLoading(false);
     }
   };
+const scrollToContactForm = () => {
+  const el = document.getElementById("contact-form");
+  el?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   return (
     <>
       {/* ================= HERO ================= */}
-    <section
-  ref={hero.ref}
-  className={`rtx-cpage-hero-wrapper u-section u-section-lg ${
-    hero.visible ? "u-drop-visible" : ""
-  }`}
->
+      <section
+        ref={hero.ref}
+        className={`rtx-cpage-hero-wrapper u-section u-section-lg ${hero.visible ? "u-drop-visible" : ""
+          }`}
+      >
 
         <div className="rtx-cpage-hero-particles"></div>
 
@@ -104,9 +110,13 @@ const ContactUs = () => {
           </p>
 
           <div className="rtx-contact-hero-btn-group u-drop">
-            <NavLink to="/contact" className="btn btn-primary btn-lg">
-              Contact Our Team →
-            </NavLink>
+          <button
+  className="btn btn-primary btn-lg"
+  onClick={scrollToContactForm}
+>
+  Contact Our Team →
+</button>
+
 
             <NavLink to="tel:+919993150998" className="btn btn-outline btn-lg">
               Call Us
@@ -170,15 +180,20 @@ const ContactUs = () => {
               ✔ Driving tech innovation
             </p>
 
-            <NavLink to="/contact" className="btn btn-primary btn-lg">
-              Schedule a Visit →
-            </NavLink>
+            <button
+  className="btn btn-primary btn-lg"
+  onClick={scrollToContactForm}
+>
+  Schedule a Visit →
+</button>
+
           </div>
         </div>
       </section>
 
       {/* ================= FORM ================= */}
       <section
+        id="contact-form"
         ref={form.ref}
         className={`u-section ${form.visible ? "u-drop-visible" : ""}`}
       >
@@ -251,9 +266,9 @@ const ContactUs = () => {
 
           <div className="rtx-cpage-contact-info card card-glass u-drop">
             <h3 className="text-accent">Quick Contact</h3>
-           <a href="mailto:info@robotronix.co.in" className="rtx-cpage-info-box">
-  <Mail /> info@robotronix.co.in
-</a>
+            <a href="mailto:info@robotronix.co.in" className="rtx-cpage-info-box">
+              <Mail /> info@robotronix.co.in
+            </a>
             <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
             <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
@@ -309,23 +324,23 @@ const ContactUs = () => {
             <div className="card card-glass u-drop">
               <FiMail />
               <h3 className="text-accent">Email</h3>
-            <a
-  href="mailto:info@robotronix.co.in"
-  className="text-muted rtx-cpage-info-link"
->
-  info@robotronix.co.in
-</a>
+              <a
+                href="mailto:info@robotronix.co.in"
+                className="text-muted rtx-cpage-info-link"
+              >
+                info@robotronix.co.in
+              </a>
             </div>
 
             <div className="card card-glass u-drop">
               <FiPhoneCall />
               <h3 className="text-accent">Call</h3>
-             <a
-  href="tel:07312970998"
-  className="text-muted rtx-cpage-info-link"
->
-  0731-2970998
-</a>
+              <a
+                href="tel:07312970998"
+                className="text-muted rtx-cpage-info-link"
+              >
+                0731-2970998
+              </a>
 
             </div>
           </div>

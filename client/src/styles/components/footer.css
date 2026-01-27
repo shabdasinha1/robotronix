@@ -65,7 +65,7 @@
 
 
 .rtx-footer-col li:hover {
-  color: var(--clr-blue);
+  color: var(--clr-blue) !important;
   transform: translateX(6px);
 }
 
@@ -149,6 +149,39 @@
   padding-top: 20px;
 }
 
+
+/* ===============================
+   PLATFORM RATINGS LINKS
+================================ */
+.rtx-footer-ratings {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rtx-rating-link {
+  color: var(--accent-gold);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.rtx-rating-link span {
+  color: var(--clr-text-light);
+  font-weight: 400;
+}
+
+.rtx-rating-link:hover {
+  color: var(--clr-blue);
+  transform: translateX(4px);
+}
+
+
 /* ===============================
    LIGHT THEME (Premium Frosted)
 ================================ */
@@ -215,3 +248,5 @@
 .rtx-footer-col a.active {
   color: var(--clr-blue);
 }
+
+

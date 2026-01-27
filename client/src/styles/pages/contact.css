@@ -87,7 +87,9 @@ gap: var(--space-sm);
   gap: var(--space-sm);
   flex-wrap: wrap;
 }
-
+#contact-form {
+  scroll-margin-top: 100px; /* adjust to your header height */
+}
 /* =====================================
    OFFICE SECTION
 ===================================== */
@@ -107,11 +109,14 @@ gap: var(--space-sm);
     0 18px 40px var(--shadow-dark-2),
     0 6px 18px var(--blue-02);
 }
-
+.rtx-office-content {
+  max-width: 520px;
+}
 .rtx-cpage-office-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .rtx-cpage-office-text {
@@ -130,6 +135,59 @@ gap: var(--space-sm);
 .rtx-contact-info-card h3 {
   margin-bottom: var(--space-xs);
 }
+
+@media (max-width: 1024px) {
+  .rtx-cpage-office-container {
+    gap: var(--space-md);
+  }
+
+  .rtx-office-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .rtx-cpage-office-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .rtx-cpage-office-image {
+    max-height: 240px;
+  }
+
+  .rtx-cpage-office-image img {
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .rtx-office-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rtx-cpage-office-text {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .rtx-office-content .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rtx-cpage-office-image img {
+    height: 200px;
+  }
+
+  .rtx-cpage-office-text {
+    font-size: 0.95rem;
+  }
+}
+
 
 /* =====================================
    CONTACT FORM
@@ -213,6 +271,15 @@ gap: var(--space-sm);
   transform: translateX(4px);
 }
 
+.rtx-cpage-form,
+.rtx-cpage-contact-info {
+  width: 100%;
+}
+
+.rtx-cpage-contact-info a {
+  text-decoration: none;
+}
+
 /* =====================================
    LIGHT THEME — CONTACT FORM
 ===================================== */
@@ -227,6 +294,64 @@ gap: var(--space-sm);
 :root[data-theme="light"] .rtx-cpage-input-group input:focus-visible,
 :root[data-theme="light"] .rtx-cpage-input-group textarea:focus-visible {
   box-shadow: 0 0 0 3px var(--blue-01);
+}
+
+@media (max-width: 1024px) {
+  .rtx-cpage-contact-container {
+    gap: var(--space-md);
+  }
+
+  .rtx-cpage-form h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rtx-cpage-contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .rtx-cpage-form,
+  .rtx-cpage-contact-info {
+    text-align: center;
+  }
+
+  .rtx-cpage-form form {
+    text-align: left;
+  }
+
+  .rtx-cpage-info-box {
+    justify-content: center;
+  }
+
+  .rtx-cpage-input-group input,
+  .rtx-cpage-input-group textarea {
+    font-size: 0.95rem;
+  }
+
+  .rtx-cpage-form .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rtx-cpage-input-group input,
+  .rtx-cpage-input-group textarea {
+    padding:
+      var(--space-sm)
+      var(--space-sm)
+      var(--space-sm)
+      calc(var(--space-md) + var(--space-xs));
+  }
+
+  .rtx-cpage-input-icon {
+    left: 12px;
+  }
+
+  .rtx-cpage-info-box {
+    font-size: 0.95rem;
+  }
 }
 
 

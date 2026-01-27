@@ -193,7 +193,7 @@
 
 .rtx-dropdown-item-link:hover {
   background: var(--header-dropdown-hover-bg);
-  color: var(--clr-blue-light);
+  color: var(--clr-blue-light) !important;
 }
 
 /* ============================================================
@@ -468,5 +468,9 @@
 
 /* Sub-item hover */
 .rtx-mobile-subitem-link:hover {
+  color: var(--clr-blue-light) !important;
+}
+
+.rtx-dropdown-item-link.rtx-active{
   color: var(--clr-blue-light) !important;
 }

@@ -648,13 +648,17 @@ margin-bottom: var(--space-md);
 /* MAIN SLIDER */
 .rtx-test-slider {
   position: relative;
-    height: 300px;
- margin-bottom: var(--space-xl);
+  width: 100%;
+  max-width: 900px;        /* keeps it premium & readable */
+  height: 360px;           /* FIXED HEIGHT */
+  margin: 0 auto var(--space-xl);
+  overflow: hidden;        /* prevents layout jump */
 }
 
 .rtx-test-slide {
   position: absolute;
-  width: 100%;
+
+    inset: 0;    
  padding: var(--space-card-lg);
  border-radius: var(--radius-lg);
   background: var(--white-06);
@@ -668,6 +672,7 @@ margin-bottom: var(--space-md);
 .rtx-slide-active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* SLIDE CONTENT */
@@ -678,12 +683,18 @@ margin-bottom: var(--space-md);
 }
 
 .rtx-test-text {
-  font-size: 1.15rem;
-  line-height: 1.65;
+  font-size: 1.1rem;
+  line-height: 1.6;
   max-width: 860px;
   margin: 0 auto var(--space-sm);
   color: var(--clr-white);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;     /* 👈 key */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 
 .rtx-test-name {
   font-size: 1.2rem;

@@ -85,6 +85,7 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+    setMobileDropdown(false)
   }, [mobileOpen]);
 
   const toggleTheme = () => {
@@ -239,16 +240,21 @@ const DesktopDropdown = React.memo(
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
     >
-      <button>
+      <button
+        className={active ? "rtx-active" : ""}
+        aria-current={active ? "page" : undefined}
+      >
         {label}
         {open ? <FaAngleUp /> : <FaAngleDown />}
       </button>
+
       <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>
         {children}
       </div>
     </li>
   )
 );
+
 
 const MobileDropdown = React.memo(
   ({ label, open, onToggle, children }) => (

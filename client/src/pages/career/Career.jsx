@@ -5,6 +5,7 @@ const Career = () => {
   const hero = useRevealOnScroll({ threshold: 0.2, once: true });
     const why = useRevealOnScroll({ threshold: 0.2, once: true });
      const life = useRevealOnScroll({ threshold: 0.2, once: true });
+     const internship = useRevealOnScroll({ threshold: 0.2, once: true });
        const jobsRef = useRevealOnScroll({ threshold: 0.2, once: true });
     const growth = useRevealOnScroll({ threshold: 0.2, once: true });
      const cta = useRevealOnScroll({ threshold: 0.2, once: true });
@@ -232,6 +233,64 @@ const Career = () => {
 
       </div>
     </section>
+
+    {/* ------------ CAREER — INTERNSHIP OPPORTUNITIES ----------- */}
+<section
+  ref={internship.ref}
+  className={`u-section u-section-md rtx-career-internship ${
+    internship.visible ? "u-drop-visible" : ""
+  }`}
+>
+  <div className="u-container">
+
+    {/* HEADER */}
+    <div className="u-section-header">
+      <h2 className="u-title u-drop">
+        Internship <span>Opportunities</span>
+      </h2>
+
+      <p className="u-subtext u-drop" style={{ "--delay": "0.2s" }}>
+        Our internship program is designed to bridge the gap between academics
+        and industry by providing real project exposure and hands-on experience.
+      </p>
+    </div>
+
+    {/* CONTENT GRID */}
+    <div className="u-grid-auto">
+
+      {/* Internship Roles */}
+      <div className="card card-hover u-drop" style={{ "--delay": "0.3s" }}>
+        <h4 className="rtx-career-internship-title">
+          Available Internship Roles
+        </h4>
+
+        <ul className="rtx-career-internship-list">
+          <li>Embedded Systems Intern</li>
+          <li>AI / Machine Learning Intern</li>
+          <li>IoT & Robotics Intern</li>
+          <li>Web Development Intern</li>
+        </ul>
+      </div>
+
+      {/* Internship Benefits */}
+      <div className="card card-hover u-drop" style={{ "--delay": "0.45s" }}>
+        <h4 className="rtx-career-internship-title">
+          Internship Benefits
+        </h4>
+
+        <ul className="rtx-career-internship-list">
+          <li>Live Industry Projects</li>
+          <li>Hands-on Technical Experience</li>
+          <li>Internship Completion Certificate</li>
+          <li>Performance-based Job Opportunity</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
        {/*-------------- CAREER — OPEN POSITIONS ------------- */}
 

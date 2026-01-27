@@ -4,27 +4,77 @@ import Card from "../../components/common/Card";
 
 const testimonials = [
   {
-    text: `NexaTech transformed our entire infrastructure. Their cloud migration expertise saved us 40% in operational costs while improving performance by 300%. Absolutely phenomenal team!`,
-    name: "Sarah Johnson",
-    role: "CTO, TechCorp Global",
-    company: "TechCorp",
+    text: `Bhupendra Singh and the Robotronix team were extremely professional and collaborative throughout the project. Communication was consistent and proactive, with daily updates and regular feedback loops to ensure alignment. They were flexible and readily available for impromptu calls whenever clarifications were needed. The team stayed closely engaged while completing each milestone, actively seeking approvals to ensure we were always on the same page. The final MVP delivered met all expectations outlined at the start of the contract and provided a strong, reliable foundation for our product.`,
+    name: "Client Review",
+    role: "Engineer for LLM Integration and Backend Development",
+    company: "Upwork Client",
     rating: 5,
   },
   {
-    text: `The AI-powered analytics platform NexaTech built revolutionized our decision-making process. We now process data 10x faster with far greater accuracy.`,
-    name: "Michael Chen",
-    role: "CEO, FinanceHub",
-    company: "FinanceHub",
+    text: `Overall experience with them was good.`,
+    name: "Client Review",
+    role: "AI/ML Engineer – Short-Term Contract",
+    company: "Upwork Client",
     rating: 5,
   },
   {
-    text: `Their dedication to security and compliance was outstanding. NexaTech delivered a HIPAA-compliant platform that exceeded our expectations.`,
-    name: "Emma Rodriguez",
-    role: "Head of IT, HealthCare Pro",
-    company: "HealthCare Pro",
+    text: `They are good at what they do and were quick to understand the terminologies and were able to turn around a quick V1 for us. Hoping to work with them soon.`,
+    name: "Client Review",
+    role: "LLM Specialist – Manufacturing Query Tool",
+    company: "Upwork Client",
+    rating: 5,
+  },
+  {
+    text: `Their dedication and proper allocation of resources were good.`,
+    name: "Client Review",
+    role: "AI Development Project",
+    company: "Software Development Company",
+    rating: 5,
+  },
+  {
+    text: `Their proactive communication, commitment to quality, and ability to adapt to our evolving needs are truly impressive.`,
+    name: "Client Review",
+    role: "AI Development Project",
+    company: "Logistics Company",
+    rating: 5,
+  },
+  {
+    text: `The whole process amazed us.`,
+    name: "Client Review",
+    role: "Rotor Blade Inspection Bot Development",
+    company: "Renewable Energy Company",
+    rating: 5,
+  },
+  {
+    text: `Robotronix showed great project management skills.`,
+    name: "Client Review",
+    role: "AI & Robotics Process Automation",
+    company: "Development Corporation",
+    rating: 5,
+  },
+  {
+    text: `Their crystal-clear communication and strong commitment stood out the most.`,
+    name: "Client Review",
+    role: "Web Dev & SEO Project",
+    company: "Graphic Design Company",
+    rating: 5,
+  },
+  {
+    text: `Robotronix excels in providing innovative, reliable, and customized technology solutions to businesses of all sizes.`,
+    name: "Client Review",
+    role: "Web Design, Development & Deployment",
+    company: "IT Consulting Company",
+    rating: 5,
+  },
+  {
+    text: `Their ability to tackle complex challenges with a structured and solution-oriented approach was impressive.`,
+    name: "Client Review",
+    role: "Object Detection Model Development",
+    company: "Baggage Scanner Manufacturer",
     rating: 5,
   },
 ];
+
 
 const TestimonialsSection = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
@@ -81,7 +131,7 @@ const TestimonialsSection = React.memo(() => {
         >
           {testimonials.map((item, index) => (
             <div
-              key={item.name}
+               key={`${item.role}-${index}`}
               className={`rtx-test-slide ${
                 index === active ? "rtx-slide-active" : ""
               }`}
@@ -114,28 +164,29 @@ const TestimonialsSection = React.memo(() => {
         </div>
 
         {/* BOTTOM CARDS */}
-        <div className="rtx-test-grid">
-          {testimonials.map((item, index) => (
-            <Card
-              key={item.name}
-              size="sm"
-              variant="hover"
-              className="rtx-test-card u-drop"
-              style={{ "--delay": `${1 + index * 0.15}s` }}
-            >
-              <div className="rtx-test-rating-small">
-                {"★".repeat(item.rating)}
-              </div>
+   <div className="rtx-test-grid">
 
-              <p className="rtx-test-card-text">
-                {item.text.substring(0, 140)}...
-              </p>
+{testimonials.slice(0, 3).map((item, index) => (
+    <Card
+      key={`${item.company}-${index}`}
+      size="sm"
+      variant="hover"
+      className="rtx-test-card u-drop"
+      style={{ "--delay": `${1 + index * 0.15}s` }}
+    >
+      <div className="rtx-test-rating-small">
+        {"★".repeat(item.rating)}
+      </div>
 
-              <h4 className="rtx-test-card-name">{item.name}</h4>
-              <p className="rtx-test-card-company">{item.company}</p>
-            </Card>
-          ))}
-        </div>
+      <p className="rtx-test-card-text">
+        {item.text.substring(0, 140)}...
+      </p>
+
+      <h4 className="rtx-test-card-name">{item.name}</h4>
+      <p className="rtx-test-card-company">{item.company}</p>
+    </Card>
+  ))}
+</div>
       </div>
     </section>
   );

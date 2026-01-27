@@ -179,6 +179,49 @@ margin-bottom: var(--space-sm);
   box-shadow: 0 18px 38px var(--blue-02);
 }
 
+/* ======================================================
+   CAREER — INTERNSHIP OPPORTUNITIES
+====================================================== */
+
+.rtx-career-internship {
+  position: relative;
+}
+
+/* TITLE INSIDE CARD */
+.rtx-career-internship-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: var(--space-md);
+}
+
+/* LIST */
+.rtx-career-internship-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rtx-career-internship-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: var(--space-sm);
+  font-size: 0.98rem;
+  color: var(--clr-text-light);
+}
+
+.rtx-career-internship-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--clr-blue);
+}
+
+/* LIGHT THEME FIX */
+:root[data-theme="light"] .rtx-career-internship-title {
+  color: var(--clr-white);
+}
+
 
 /* ======================================================
    CAREER — OPEN POSITIONS

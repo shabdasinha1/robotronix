@@ -1,6 +1,6 @@
 import React from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import {
   FaInstagram,
@@ -11,7 +11,27 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+/*==================================================================
+    SMOOTH SCROLING TO TOP
+==================================================================*/
+const ScrollNavLink = ({ to, children, ...props }) => {
+  const { pathname } = useLocation();
 
+  const handleClick = () => {
+    if (pathname === to) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <NavLink to={to} onClick={handleClick} {...props}>
+      {children}
+    </NavLink>
+  );
+};
+/*==================================================================
+    MAIN FOOTER FUNCTION
+==================================================================*/
 const Footer = React.memo(() => {
   const { ref, visible } = useRevealOnScroll({
     threshold: 0.2,
@@ -30,14 +50,14 @@ const Footer = React.memo(() => {
           <div className="rtx-footer-col">
             <h4>Services</h4>
             <ul>
-              <li><NavLink to="/ai-ml">AI and ML</NavLink></li>
-              <li><NavLink to="/generative-ai">Generative AI</NavLink></li>
-              <li><NavLink to="/agents-ai">Agents AI</NavLink></li>
-              <li><NavLink to="/embedded-iot">IoT Development</NavLink></li>
-              <li><NavLink to="/data-science">Data Science</NavLink></li>
-              <li><NavLink to="/mobile-application-development">Mobile App Development</NavLink></li>
-              <li><NavLink to="/web-development">Web Development</NavLink></li>
-              <li><NavLink to="/on-demand-software-development">On Demand Software</NavLink></li>
+              <li><ScrollNavLink to="/ai-ml">AI and ML</ScrollNavLink></li>
+              <li><ScrollNavLink to="/generative-ai">Generative AI</ScrollNavLink></li>
+              <li><ScrollNavLink to="/agents-ai">Agents AI</ScrollNavLink></li>
+              <li><ScrollNavLink to="/embedded-iot">IoT Development</ScrollNavLink></li>
+              <li><ScrollNavLink to="/data-science">Data Science</ScrollNavLink></li>
+              <li><ScrollNavLink to="/mobile-application-development">Mobile App Development</ScrollNavLink></li>
+              <li><ScrollNavLink to="/web-development">Web Development</ScrollNavLink></li>
+              <li><ScrollNavLink to="/on-demand-software-development">On Demand Software</ScrollNavLink></li>
             </ul>
           </div>
 
@@ -45,16 +65,16 @@ const Footer = React.memo(() => {
           <div className="rtx-footer-col">
             <h4>About Us</h4>
             <ul>
-              <li><NavLink to="/about-us">About Robotronix</NavLink></li>
-              <li><NavLink to="/culture">Culture</NavLink></li>
-              <li><NavLink to="/leadership">Leadership</NavLink></li>
-              <li><NavLink to="/career">Career</NavLink></li>
+              <li><ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink></li>
+              <li><ScrollNavLink to="/culture">Culture</ScrollNavLink></li>
+              <li><ScrollNavLink to="/leadership">Leadership</ScrollNavLink></li>
+              <li><ScrollNavLink to="/career">Career</ScrollNavLink></li>
             </ul>
 
             <h4 className="rtx-footer-subtitle">Quick Connect</h4>
             <ul>
-              <li><NavLink to="/contact-us">Contact Us</NavLink></li>
-              <li><NavLink to="/blogs">Blogs</NavLink></li>
+              <li><ScrollNavLink to="/contact-us">Contact Us</ScrollNavLink></li>
+              <li><ScrollNavLink to="/blogs">Blogs</ScrollNavLink></li>
             </ul>
           </div>
 
@@ -76,7 +96,7 @@ const Footer = React.memo(() => {
 
            <div className="rtx-footer-social">
   <a
-    href="https://lnkd.in/dchHkpuY"
+    href="https://www.linkedin.com/company/robotronixindia/"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="LinkedIn"

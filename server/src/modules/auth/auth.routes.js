@@ -15,7 +15,7 @@ import authMiddleware from "../../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.post("/register",authMiddleware, validate(createAdminSchema), registerAdmin);
+router.post("/register", validate(createAdminSchema), registerAdmin);
 
 router.post(
   "/forgot-password-otp",

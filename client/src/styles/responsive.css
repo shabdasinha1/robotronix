@@ -308,6 +308,11 @@
     margin-top: 30px;
     padding: 18px;
   }
+  
+
+.rtx-cpage-hero-badge{
+    margin-top: var(--space-md);
+  }
 }
 
 /* ======================================================
@@ -375,6 +380,11 @@
   .rtx-service-hero-wrapper {
     padding: 110px 18px;
   }
+
+    .rtx-service-hero-stats .card {
+    width: 220px;
+    min-height: 130px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -390,8 +400,23 @@
   .rtx-service-hero-stats {
     margin-top: 60px;
     gap: 18px;
+       flex-direction: column;
+    align-items: center;
+  }
+  .rtx-service-hero-stats .card {
+    width: 100%;
+    max-width: 320px;
+    min-height: 120px;
   }
 }
+
+@media (max-width: 480px) {
+  .rtx-service-hero-stats .card {
+    max-width: 100%;
+    min-height: 110px;
+  }
+}
+
 
 /* ======================================================
    SERVICE OVERVIEW — RESPONSIVE
@@ -631,6 +656,9 @@
 }
 
 @media (max-width: 767px) {
+    span.rtx-culture-eyebrow {
+        margin-top: var(--space-md);
+}
   .rtx-culture-hero-layout {
     gap: 48px;
   }
@@ -859,6 +887,9 @@
   .rtx-career-hero-layout {
     gap: 48px;
   }
+  .rtx-career-eyebrow{
+    margin-top: var(--space-md);
+  }
 }
 
 /* ======================================================
@@ -896,4 +927,52 @@
 
 /* ======================================================
    CAREER PAGE — RESPONSIVE END
+====================================================== */
+
+/* =========================================================
+    TEXT JUSTIFY FOR MOBILE SCREEN
+========================================================= */
+@media (max-width: 426px) {
+  .rtx-hero-subtext,
+  .rtx-hero-subtext,
+  .rtx-services-subtext,
+  .rtx-service-desc,
+  .rtx-about-text,
+  .rtx-choose-subtext,
+  .rtx-choose-text-justifty,
+  .rtx-test-text,
+  .rtx-tech-subtext,
+  .rtx-test-card-text,
+  .rtx-contact-sub,
+  .rtx-right-desc,
+  .rtx-partners-sub,
+  .rtx-cta-box,
+  .rtx-cta-sub,
+  .rtx-test-subtext,
+  .u-subtextm,
+  .rtx-service-approach-subtext,
+  .rtx-service-industries-subtext,
+  .u-subtext,
+  .rtx-service-impact-subtext,
+  .rtx-service-hero-subtext,
+  .rtx-culture-bonding-text,
+  .rtx-career-hero-textc,
+  .rtx-career-cta-text,.rtx-portfolio-subtext,.rtx-portfolio-cta-text {
+    text-align: justify;
+  }
+  .rtx-services-wrapper .rtx-service-desc{
+    text-align: start;
+  }
+}
+/* ======================================================
+   PORTFOLIO PAGE — RESPONSIVE START
+====================================================== */
+@media (max-width:768px) {
+  .rtx-portfolio-eyebrow{
+    margin-top: var(--space-md)
+  }
+  
+}
+/* ======================================================
+   PORTFOLIO PAGE — RESPONSIVE END
 ====================================================== */
