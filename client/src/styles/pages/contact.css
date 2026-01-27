@@ -36,13 +36,13 @@
 
 .rtx-cpage-hero-title {
   font-size: clamp(2.2rem, 4vw, 3.1rem);
-  margin-top: 22px;
+  margin-top: var(--space-md);
   color: var(--clr-white);
 }
 
 .rtx-cpage-hero-subtext {
   max-width: 750px;
-  margin: 20px auto 40px;
+    margin: var(--space-sm) auto var(--space-lg);
   color: var(--clr-text-light);
 }
 
@@ -53,9 +53,9 @@
 
 /* HERO QUICK CONTACT */
 .rtx-cpage-quick {
-  margin-top: 28px;
+  margin-top: var(--space-md);
   display: flex;
-  gap: 18px;
+gap: var(--space-sm);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -81,6 +81,13 @@
   opacity: 0.5;
 }
 
+.rtx-contact-hero-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
 /* =====================================
    OFFICE SECTION
 ===================================== */
@@ -88,14 +95,17 @@
 .rtx-cpage-office-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  gap: var(--space-lg);
   align-items: center;
 }
+
 
 .rtx-cpage-office-image {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 0 25px var(--blue-025);
+  box-shadow:
+    0 18px 40px var(--shadow-dark-2),
+    0 6px 18px var(--blue-02);
 }
 
 .rtx-cpage-office-image img {
@@ -105,10 +115,20 @@
 }
 
 .rtx-cpage-office-text {
-  margin: 18px 0 26px;
+  margin: var(--space-sm) 0 var(--space-md);
   font-size: 1.05rem;
   color: var(--clr-text-light);
   line-height: 1.7;
+   white-space: pre-line;
+}
+.rtx-contact-info-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  color: var(--clr-blue);
+}
+
+.rtx-contact-info-card h3 {
+  margin-bottom: var(--space-xs);
 }
 
 /* =====================================
@@ -118,24 +138,30 @@
 .rtx-cpage-contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 36px;
+  gap: var(--space-lg);
   align-items: start;
 }
 
+
 .rtx-cpage-form h2 {
   font-size: 1.4rem;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-xs);
 }
+
 
 .rtx-cpage-input-group {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-sm);
 }
 
 .rtx-cpage-input-group input,
 .rtx-cpage-input-group textarea {
   width: 100%;
-  padding: 14px 16px 14px 45px;
+  padding:
+    var(--space-sm)
+    var(--space-sm)
+    var(--space-sm)
+    calc(var(--space-lg) + var(--space-xs));
   border-radius: 10px;
   background: var(--white-06);
   border: 1px solid var(--white-15);
@@ -165,10 +191,28 @@
   color: var(--clr-blue);
   opacity: 0.9;
 }
+.rtx-cpage-textarea-group {
+  display: flex;
+}
+
 
 .rtx-cpage-textarea-group .rtx-cpage-input-icon {
-  top: 18px;
+    top: var(--space-sm);
+  transform: none;
 }
+.rtx-cpage-info-box {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+  color: var(--clr-text-light);
+  transition: 0.25s ease;
+}
+
+.rtx-cpage-info-box:hover {
+  color: var(--clr-blue);
+  transform: translateX(4px);
+}
+
 /* =====================================
    LIGHT THEME — CONTACT FORM
 ===================================== */
@@ -193,18 +237,19 @@
 .rtx-cpage-contact-info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-sm);
 }
 
 .rtx-cpage-info-box {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-xs);
   color: var(--clr-text-light);
 }
 
+
 .rtx-cpage-info-text {
-  margin-top: 10px;
+  margin-top: var(--space-xs);
   color: var(--clr-text-muted);
   font-size: 1rem;
 }
@@ -217,7 +262,7 @@
 .rtx-cpage-map-box {
   position: relative;
   max-width: 900px;
-  margin: 40px auto 0;
+   margin: var(--space-lg) auto 0;
   height: clamp(260px, 50vh, 420px);
 
   border-radius: 18px;
@@ -249,3 +294,31 @@
   border: none;
 }
 
+.rtx-cpage-info-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.25s ease;
+}
+
+.rtx-cpage-info-link:hover {
+  color: var(--clr-blue);
+  text-shadow: 0 0 10px var(--blue-03);
+}
+
+.card svg {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-xs);
+  color: var(--clr-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtx-cpage-map-box:hover {
+    transform: none;
+  }
+}
+
+.u-drop-visible .rtx-cpage-map-box {
+  box-shadow:
+    0 12px 32px var(--shadow-dark-1),
+    0 0 22px var(--blue-015);
+}

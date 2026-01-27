@@ -28,12 +28,13 @@ const TechStack = React.memo(() => {
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-tech-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+  <section
+  ref={ref}
+  className={`rtx-tech-wrapper u-section u-section-md ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-tech-container u-container-center">
         {/* TITLE */}
         <h2

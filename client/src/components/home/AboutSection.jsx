@@ -10,12 +10,13 @@ const AboutSection = React.memo(() => {
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-about-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+   <section
+  ref={ref}
+  className={`rtx-about-wrapper u-section u-section-lg ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-about-container u-container">
         {/* LEFT IMAGE */}
         <div className="rtx-about-left u-drop-left">

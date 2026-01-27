@@ -14,12 +14,13 @@ const ServicesApproach = ({
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-service-approach-section u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+<section
+  ref={ref}
+  className={`rtx-service-approach-section u-section u-section-sm ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-service-approach-container u-container">
 
         {/* HEADER */}

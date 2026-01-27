@@ -75,12 +75,13 @@ const strengths = [
   return (
     <>
     {/* ------------ Hero Section ----------------*/}
-   <section
+<section
   ref={hero.ref}
-  className={`u-section rtx-overview-hero ${
+  className={`u-section u-section-lg rtx-overview-hero ${
     hero.visible ? "u-drop-visible" : ""
   }`}
 >
+
       <div className="u-container-center">
 
         {/* BADGE */}
@@ -125,12 +126,13 @@ const strengths = [
     </section>
 
     {/*----------------- Who we are ---------------- */}
-    <section
+<section
   ref={who.ref}
-  className={`u-section rtx-who-wrapper ${
+  className={`u-section u-section-md rtx-who-wrapper ${
     who.visible ? "u-drop-visible" : ""
   }`}
 >
+
       <div className="u-container rtx-who-grid">
 
         {/* LEFT — TEXT */}
@@ -176,12 +178,13 @@ const strengths = [
     </section>
 
     {/*----------------- Our Approach ---------------- */}
-   <section
+  <section
   ref={approach.ref}
-  className={`u-section rtx-approach-wrapper ${
+  className={`u-section u-section-md rtx-approach-wrapper ${
     approach.visible ? "u-drop-visible" : ""
   }`}
 >
+
 
       <div className="u-container">
 
@@ -216,9 +219,9 @@ const strengths = [
     </section>
 
     {/*----------------- Core Strengths -------------- */}
-     <section
+<section
   ref={strengthsSec.ref}
-  className={`u-section rtx-strengths-wrapper ${
+  className={`u-section u-section-md rtx-strengths-wrapper ${
     strengthsSec.visible ? "u-drop-visible" : ""
   }`}
 >
@@ -256,9 +259,9 @@ const strengths = [
 
     {/*----------------- IMPACT & TRUST METRICS ---------------- */}
 
-    <section
+ <section
   ref={impact.ref}
-  className={`u-section rtx-impact-wrapper ${
+  className={`u-section u-section-md rtx-impact-wrapper ${
     impact.visible ? "u-drop-visible" : ""
   }`}
 >
@@ -294,13 +297,13 @@ const strengths = [
     </section>
 
     {/*------------------- COMPANY PHILOSOPHY --------------- */}
-   <section
+ <section
   ref={philosophy.ref}
-  className={`u-section rtx-philosophy-wrapper ${
+  className={`u-section u-section-md rtx-philosophy-wrapper ${
     philosophy.visible ? "u-drop-visible" : ""
   }`}
 >
-  
+
       <div className="u-container-center">
 
         {/* QUOTE */}

@@ -13,12 +13,13 @@ const ServicesWhyChoose = ({
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-service-why-section u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+   <section
+  ref={ref}
+  className={`rtx-service-why-section u-section u-section-sm ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="u-container">
 
         {/* HEADER */}

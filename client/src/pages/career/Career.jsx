@@ -143,12 +143,13 @@ const Career = () => {
 
        {/*------------ CAREER — WHY WORK WITH US ----------- */}
 
-         <section
-      ref={why.ref}
-      className={`u-section rtx-career-why ${
-        why.visible ? "u-drop-visible" : ""
-      }`}
-    >
+        <section
+  ref={why.ref}
+  className={`u-section u-section-md rtx-career-why ${
+    why.visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="u-container">
 
         {/* HEADER */}
@@ -180,12 +181,13 @@ const Career = () => {
 
    {/*-------------- CAREER — LIFE AT ROBOTRONIX ------------- */}
 
-   <section
-      ref={life.ref}
-      className={`u-section rtx-career-life ${
-        life.visible ? "u-drop-visible" : ""
-      }`}
-    >
+<section
+  ref={life.ref}
+  className={`u-section u-section-md rtx-career-life ${
+    life.visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="u-container rtx-career-life-layout">
 
         {/* LEFT — CONTENT */}
@@ -236,7 +238,7 @@ const Career = () => {
           <section
       id="open-positions"
       ref={jobsRef.ref}
-      className={`u-section rtx-career-jobs ${
+      className={`u-section u-section-md rtx-career-jobs ${
         jobsRef.visible ? "u-drop-visible" : ""
       }`}
     >
@@ -282,17 +284,18 @@ const Career = () => {
       </div>
     </section>
 
- {/*-------------- CAREER — HIRING PROCESS -------------*/}
+ 
 
 
        {/*------------- CAREER — GROWTH & LEARNING ------------ */}
 
-         <section
-      ref={growth.ref}
-      className={`u-section rtx-career-growth ${
-        growth.visible ? "u-drop-visible" : ""
-      }`}
-    >
+       <section
+  ref={growth.ref}
+  className={`u-section u-section-md rtx-career-growth ${
+    growth.visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="u-container">
 
         {/* HEADER */}
@@ -328,12 +331,13 @@ const Career = () => {
 
      {/*------------ CAREER — FINAL CTA ----------- */}
 
-       <section
-      ref={cta.ref}
-      className={`u-section rtx-career-cta ${
-        cta.visible ? "u-drop-visible" : ""
-      }`}
-    >
+    <section
+  ref={cta.ref}
+  className={`u-section u-section-md rtx-career-cta ${
+    cta.visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="u-container-center">
 
         <h2

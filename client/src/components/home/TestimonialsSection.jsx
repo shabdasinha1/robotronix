@@ -51,12 +51,13 @@ const TestimonialsSection = React.memo(() => {
   }, [visible]);
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-test-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+  <section
+  ref={ref}
+  className={`rtx-test-wrapper u-section u-section-md ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-test-container u-container-center">
         {/* TITLE */}
         <h2

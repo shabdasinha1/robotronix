@@ -14,12 +14,13 @@ const ServicesIndustries = ({
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-service-industries-section u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+  <section
+  ref={ref}
+  className={`rtx-service-industries-section u-section u-section-sm ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-service-industries-container u-container">
 
         {/* HEADER */}

@@ -53,15 +53,29 @@
 /* Full-width section */
 .u-section {
   width: 100%;
-  padding: 80px 20px; 
+   padding: var(--section-py, 80px) var(--section-px, 20px);
   background: var(--bg-dark-1);
 }
 
-/* Smaller section (hero / impact variants can override) */
-.u-section-sm {
-   padding: 70px 20px;
+
+/* Hero / Large sections */
+.u-section-lg {
+  --section-py: 130px;
 }
 
+/* Medium content sections */
+.u-section-md {
+  padding: 90px 20px;
+}
+/* Small sections */
+.u-section-sm {
+  --section-py: 70px;
+}
+
+/* Extra tight sections */
+.u-section-xs {
+  --section-py: 50px;
+}
 /* Container */
 .u-container {
   max-width: 1150px;

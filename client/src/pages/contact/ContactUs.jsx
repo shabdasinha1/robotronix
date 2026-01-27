@@ -79,12 +79,13 @@ const ContactUs = () => {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section
-        ref={hero.ref}
-        className={`rtx-cpage-hero-wrapper u-section ${
-          hero.visible ? "u-drop-visible" : ""
-        }`}
-      >
+    <section
+  ref={hero.ref}
+  className={`rtx-cpage-hero-wrapper u-section u-section-lg ${
+    hero.visible ? "u-drop-visible" : ""
+  }`}
+>
+
         <div className="rtx-cpage-hero-particles"></div>
 
         <div className="u-container-center">
@@ -102,7 +103,7 @@ const ContactUs = () => {
             team is ready to assist you 24/7.
           </p>
 
-          <div className="rtx-contact-hero-btn-group u-drop d-flex justify-content-center gap-3">
+          <div className="rtx-contact-hero-btn-group u-drop">
             <NavLink to="/contact" className="btn btn-primary btn-lg">
               Contact Our Team →
             </NavLink>
@@ -133,7 +134,7 @@ const ContactUs = () => {
       >
         <div className="u-container u-grid-auto">
           {info.map((item, i) => (
-            <div key={i} className="card card-glass u-drop">
+            <div key={i} className="card card-glass rtx-contact-info-card u-drop">
               <div className="rtx-contact-info-icon">{item.icon}</div>
               <h3 className="text-accent">{item.title}</h3>
               {item.link ? (
@@ -250,7 +251,9 @@ const ContactUs = () => {
 
           <div className="rtx-cpage-contact-info card card-glass u-drop">
             <h3 className="text-accent">Quick Contact</h3>
-            <div className="rtx-cpage-info-box"><Mail /> info@robotronix.co.in</div>
+           <a href="mailto:info@robotronix.co.in" className="rtx-cpage-info-box">
+  <Mail /> info@robotronix.co.in
+</a>
             <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
             <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
@@ -306,13 +309,24 @@ const ContactUs = () => {
             <div className="card card-glass u-drop">
               <FiMail />
               <h3 className="text-accent">Email</h3>
-              <p className="text-muted">info@robotronix.co.in</p>
+            <a
+  href="mailto:info@robotronix.co.in"
+  className="text-muted rtx-cpage-info-link"
+>
+  info@robotronix.co.in
+</a>
             </div>
 
             <div className="card card-glass u-drop">
               <FiPhoneCall />
               <h3 className="text-accent">Call</h3>
-              <p className="text-muted">0731-2970998</p>
+             <a
+  href="tel:07312970998"
+  className="text-muted rtx-cpage-info-link"
+>
+  0731-2970998
+</a>
+
             </div>
           </div>
         </div>

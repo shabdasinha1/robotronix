@@ -15,9 +15,10 @@ const ServicesImpact = ({ title, subtitle }) => {
       }`}
     >
       <div
-        className="rtx-service-impact-container u-drop"
-        style={{ "--delay": "0.2s" }}
-      >
+  className="rtx-service-impact-container u-container-center u-drop"
+  style={{ "--delay": "0.2s" }}
+>
+
         <h2 className="rtx-service-impact-title">{title}</h2>
         <p className="rtx-service-impact-subtext">{subtitle}</p>
       </div>

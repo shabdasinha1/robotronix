@@ -10,11 +10,12 @@ const VisionMissionHero = () => {
     <>
       {/* ------------ Vision & Mission Hero --------------*/}
       <section
-        ref={hero.ref}
-        className={`u-section rtx-vm-hero ${
-          hero.visible ? "u-drop-visible" : ""
-        }`}
-      >
+  ref={hero.ref}
+  className={`u-section u-section-lg rtx-vm-hero ${
+    hero.visible ? "u-drop-visible" : ""
+  }`}
+>
+
         <div className="u-container-center">
           {/* EYEBROW */}
           <span
@@ -126,12 +127,13 @@ const VisionMissionHero = () => {
       </section>
 
       {/*---------------- Future Statement Section------------------- */}
-      <section
-        ref={closing.ref}
-        className={`u-section rtx-vm-closing ${
-          closing.visible ? "u-drop-visible" : ""
-        }`}
-      >
+     <section
+  ref={closing.ref}
+  className={`u-section u-section-sm rtx-vm-closing ${
+    closing.visible ? "u-drop-visible" : ""
+  }`}
+>
+
         <div className="u-container-center">
           <h2
             className="rtx-vm-closing-title u-drop"

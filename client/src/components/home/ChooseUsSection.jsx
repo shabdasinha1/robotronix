@@ -58,11 +58,12 @@ const ChooseUsSection = React.memo(() => {
 
   return (
     <section
-      ref={ref}
-      className={`rtx-choose-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+  ref={ref}
+  className={`rtx-choose-wrapper u-section u-section-md ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-choose-container u-container-center">
         {/* TITLE */}
         <h2

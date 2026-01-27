@@ -62,12 +62,13 @@ const ServicesSection = React.memo(() => {
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-services-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+   <section
+  ref={ref}
+  className={`rtx-services-wrapper u-section u-section-md ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-services-container u-container-center">
         {/* TITLE */}
         <h2

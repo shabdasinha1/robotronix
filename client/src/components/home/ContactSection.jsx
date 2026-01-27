@@ -52,12 +52,13 @@ const ContactSection = React.memo(() => {
   };
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-contact-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+   <section
+  ref={ref}
+  className={`rtx-contact-wrapper u-section u-section-lg ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-contact-container u-container-center">
         {/* TITLE */}
         <h2

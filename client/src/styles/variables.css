@@ -99,6 +99,42 @@
 --fs-xl: 1.4rem;
 --fs-2xl: 2rem;
 --fs-3xl: 3.2rem;
+  --fs-card-title: 1.25rem;
+  --fs-card-desc: 0.95rem;
+  --fs-card-meta: 0.85rem;
+  --fs-chip: 0.75rem;
+   
+
+/* ======================================================
+   GLOBAL SPACING SCALE
+====================================================== */
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+  --space-2xl: 80px;
+
+  /* ===============================
+   PORTFOLIO / CARD SYSTEM TOKENS
+================================ */
+  --space-card: var(--space-md);        /* 24–28px */
+  --space-card-lg: var(--space-lg);     /* 36–40px */
+  --space-card-gap: var(--space-md);    /* grid gap */
+  --space-chip: var(--space-2xs);
+  --space-chip-x: var(--space-xs);
+
+  /* ===============================
+   BORDER RADIUS SYSTEM
+================================ */
+--radius-xs: 6px;
+--radius-sm: 10px;
+--radius-md: 14px;
+--radius-lg: 18px;
+--radius-xl: 22px;
+--radius-pill: 999px;
+
 
 }
 
@@ -208,5 +244,40 @@
 --fs-xl: 1.4rem;
 --fs-2xl: 2rem;
 --fs-3xl: 3.2rem;
+  --fs-card-title: 1.25rem;
+  --fs-card-desc: 0.95rem;
+  --fs-card-meta: 0.85rem;
+  --fs-chip: 0.75rem;
+    --fs-chip: 0.75rem;
+
+
+/* ======================================================
+   GLOBAL SPACING SCALE
+====================================================== */
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+  --space-2xl: 80px;
+  /* ===============================
+   PORTFOLIO / CARD SYSTEM TOKENS
+================================ */
+  --space-card: var(--space-md);        /* 24–28px */
+  --space-card-lg: var(--space-lg);     /* 36–40px */
+  --space-card-gap: var(--space-md);    /* grid gap */
+  --space-chip: var(--space-2xs);
+  --space-chip-x: var(--space-xs);
+  
+  /* ===============================
+   BORDER RADIUS SYSTEM
+================================ */
+--radius-xs: 6px;
+--radius-sm: 10px;
+--radius-md: 14px;
+--radius-lg: 18px;
+--radius-xl: 22px;
+--radius-pill: 999px;
 
 }

@@ -45,7 +45,7 @@
 .rtx-portfolio-eyebrow {
   display: inline-block;
   padding: 6px 18px;
-  margin-bottom: 18px;
+  margin-bottom: var(--space-sm);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -63,7 +63,7 @@
 
 .rtx-portfolio-title {
   max-width: 920px;
-  margin: 0 auto 24px;
+  margin: 0 auto var(--space-md);
   font-size: clamp(2.1rem, 5vw, 3.5rem);
   line-height: 1.15;
   font-weight: 600;
@@ -80,7 +80,7 @@
 
 .rtx-portfolio-subtext {
   max-width: 820px;
-  margin: 0 auto 42px;
+  margin: 0 auto var(--space-lg);
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--clr-text-muted);
@@ -94,11 +94,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
+  gap: var(--space-xs);
 }
 
 .rtx-portfolio-highlights span {
-  padding: 8px 16px;
+  padding: var(--space-2xs) var(--space-sm);
   font-size: 0.9rem;
   color: var(--clr-text-light);
   background: var(--bg-dark-2);
@@ -110,7 +110,23 @@
 .rtx-portfolio-highlights span:hover {
   transform: translateY(-2px);
   border-color: var(--blue-06);
+  box-shadow: 0 6px 18px var(--blue-012);
 }
+
+:root[data-theme="light"] .rtx-portfolio-subtext {
+  color: var(--clr-text-soft);
+}
+.u-drop-visible .rtx-portfolio-title span {
+  text-shadow: 0 0 16px var(--blue-06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtx-portfolio-hero::before {
+    display: none;
+  }
+}
+
+
 
 
 /* =====================================
@@ -130,12 +146,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
-  margin-top: 36px;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
 }
 
 .rtx-filter-btn {
-  padding: 10px 20px;
+   padding: var(--space-2xs) var(--space-sm);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--clr-text-light);
@@ -158,8 +174,17 @@
   color: var(--clr-blue-medium);
   background: var(--blue-012b);
   border-color: var(--blue-06);
-  box-shadow: 0 0 0 1px var(--blue-06);
+  box-shadow:
+    0 0 0 1px var(--blue-06),
+    0 4px 12px var(--blue-012);
 }
+
+.rtx-filter-btn:focus-visible {
+  outline: none;
+  border-color: var(--blue-06);
+  box-shadow: 0 0 0 3px var(--blue-012);
+}
+
 
 
 /* =====================================
@@ -174,33 +199,38 @@
 .rtx-projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-  margin-top: 40px;
+gap: var(--space-card-gap);
+  margin-top: var(--space-lg);
 }
 
 /* CARD */
 .rtx-project-card {
   position: relative;
-  padding: 28px;
+  padding: var(--space-card);
+
   background: var(--bg-dark-2);
   border: 1px solid var(--white-12);
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.35s ease, border-color 0.35s ease;
+    transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .rtx-project-card:hover {
   transform: translateY(-6px);
   border-color: var(--blue-06);
+   box-shadow: 0 10px 28px var(--blue-015);
 }
 
 /* CATEGORY */
 .rtx-project-category {
   display: inline-block;
-  margin-bottom: 14px;
-  font-size: 0.75rem;
+   margin-bottom: var(--space-xs);
+ font-size: var(--fs-chip);
 
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -209,24 +239,23 @@
 
 /* TITLE */
 .rtx-project-card h3 {
- font-size: 1.25rem;
-
-  margin-bottom: 12px;
+font-size: var(--fs-card-title);
+  margin-bottom: var(--space-xs);
   color: var(--clr-white);
 }
 
 /* DESC */
 .rtx-project-desc {
-  font-size: 0.95rem;
-
+   font-size: var(--fs-card-desc);
+  margin-bottom: var(--space-sm);
   line-height: 1.6;
   color: var(--clr-text-muted);
-  margin-bottom: 18px;
+ 
 }
 
 /* META */
 .rtx-project-meta span {
- font-size: 0.85rem;
+  font-size: var(--fs-card-meta);
 
   color: var(--clr-text-light);
 }
@@ -235,13 +264,13 @@
 .rtx-project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
+  gap: var(--space-chip);
+  margin-top: var(--space-sm);
 }
 
 .rtx-project-tech span {
-  padding: 6px 12px;
- font-size: 0.75rem;
+    padding: var(--space-2xs) var(--space-chip-x);
+  font-size: var(--fs-chip);
   background: var(--bg-dark-1);
   border: 1px solid var(--white-12);
   border-radius: 999px;
@@ -250,7 +279,7 @@
 
 .rtx-project-cta {
   margin-top: auto; /* pushes CTA to bottom */
-  padding-top: 20px;
+  padding-top: var(--space-sm);
 }
 
 .rtx-project-link {
@@ -284,34 +313,39 @@
 .rtx-industries-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
-  margin-top: 40px;
+  gap: var(--space-card-gap);
+  margin-top: var(--space-lg);
+  
 }
 
 /* CARD */
 .rtx-industry-card {
-  padding: 26px;
+   padding: var(--space-card);
   background: var(--bg-dark-1);
   border: 1px solid var(--white-12);
-  border-radius: 18px;
-  transition: transform 0.35s ease, border-color 0.35s ease;
+   border-radius: var(--radius-lg);
+    transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .rtx-industry-card:hover {
   transform: translateY(-6px);
   border-color: var(--blue-06);
+   box-shadow: 0 10px 26px var(--blue-015);
 }
 
 /* TITLE */
 .rtx-industry-card h3 {
-  font-size: 1.125rem;
-  margin-bottom: 12px;
+   font-size: var(--fs-card-title);
+  margin-bottom: var(--space-xs);
   color: var(--clr-white);
 }
 
 /* DESC */
 .rtx-industry-card p {
-  font-size: 0.95rem;
+ font-size: var(--fs-card-desc);
 
   line-height: 1.6;
   color: var(--clr-text-muted);
@@ -329,29 +363,32 @@
 .rtx-tech-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin-top: 40px;
+   gap: var(--space-card-gap);
+  margin-top: var(--space-lg);
 }
 
 /* GROUP CARD */
 .rtx-tech-group {
-  padding: 26px;
+   padding: var(--space-card);
   background: var(--bg-dark-2);
   border: 1px solid var(--white-12);
-  border-radius: 18px;
-  transition: transform 0.35s ease, border-color 0.35s ease;
+   border-radius: var(--radius-lg);
+   transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .rtx-tech-group:hover {
   transform: translateY(-6px);
   border-color: var(--blue-06);
+    box-shadow: 0 10px 26px var(--blue-015);
 }
 
 /* GROUP TITLE */
 .rtx-tech-group h3 {
-  font-size: 1.125rem;
-
-  margin-bottom: 14px;
+   font-size: var(--fs-card-title);
+  margin-bottom: var(--space-xs);
   color: var(--clr-white);
 }
 
@@ -359,15 +396,15 @@
 .rtx-tech-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-xs);
 }
 
 .rtx-tech-items span {
   padding: 6px 12px;
- font-size: 0.75rem;
+ font-size: var(--fs-chip);
   background: var(--bg-dark-1);
   border: 1px solid var(--white-12);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--clr-text-light);
 }
 
@@ -391,7 +428,7 @@
 /* TITLE */
 .rtx-portfolio-cta-title {
   max-width: 900px;
-  margin: 0 auto 22px;
+    margin: 0 auto var(--space-md);
   font-size: clamp(2rem, 5vw, 3.25rem);
   line-height: 1.15;
   color: var(--clr-white);
@@ -404,8 +441,8 @@
 /* TEXT */
 .rtx-portfolio-cta-text {
   max-width: 780px;
-  margin: 0 auto 36px;
-  font-size: 1.05rem;
+  margin: 0 auto var(--space-lg);
+  font-size: var(--fs-body);
 
   line-height: 1.7;
   color: var(--clr-text-muted);
@@ -415,7 +452,19 @@
 .rtx-portfolio-cta-actions {
   display: flex;
   justify-content: center;
-  gap: 18px;
+   gap: var(--space-sm);
   flex-wrap: wrap;
+}
+
+.rtx-portfolio-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 80%,
+    var(--blue-015),
+    transparent 65%
+  );
+  pointer-events: none;
 }
 

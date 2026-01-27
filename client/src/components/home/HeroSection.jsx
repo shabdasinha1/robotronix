@@ -4,7 +4,7 @@ import Card from "../common/Card";
 
 const HeroSection = React.memo(() => {
   return (
-    <section className="rtx-hero-wrapper u-section">
+    <section className="rtx-hero-wrapper u-section u-section-lg">
       <div className="rtx-hero-particles"></div>
 
       <div className="rtx-hero-container u-container-center">

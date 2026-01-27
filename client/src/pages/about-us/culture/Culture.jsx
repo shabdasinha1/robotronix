@@ -4,21 +4,21 @@ import heroFloat from "../../../assets/images/culture/celebration/celebration1.j
 import heroMain from "../../../assets/images/culture/celebration/celebration2.jpg";
 
 import strip1 from "../../../assets/images/culture/festival/festival1.jpg";
-import strip2 from "../../../assets/images/culture/festival/festival1.jpg";
-import strip3 from "../../../assets/images/culture/festival/festival1.jpg";
-import strip4 from "../../../assets/images/culture/festival/festival1.jpg";
+import strip2 from "../../../assets/images/culture/festival/festival3.jpg";
+import strip3 from "../../../assets/images/culture/festival/festival9.jpg";
+import strip4 from "../../../assets/images/culture/festival/festival14.jpg";
 
-import together1 from "../../../assets/images/culture/festival/festival1.jpg";
-import together2 from "../../../assets/images/culture/festival/festival1.jpg";
-import together3 from "../../../assets/images/culture/festival/festival1.jpg";
-import together4 from "../../../assets/images/culture/festival/festival1.jpg";
+import together1 from "../../../assets/images/culture/festival/festival7.jpg";
+import together2 from "../../../assets/images/culture/festival/festival6.jpg";
+import together3 from "../../../assets/images/culture/festival/festival10.jpg";
+import together4 from "../../../assets/images/culture/festival/festival2.jpg";
 
-import celebrate1 from "../../../assets/images/culture/festival/festival1.jpg";
-import celebrate2 from "../../../assets/images/culture/festival/festival1.jpg";
-import celebrate3 from "../../../assets/images/culture/festival/festival1.jpg";
-import celebrate4 from "../../../assets/images/culture/festival/festival1.jpg";
+// import celebrate1 from "../../../assets/images/culture/festival/festival10.jpg";
+// import celebrate2 from "../../../assets/images/culture/festival/festival1.jpg";
+// import celebrate3 from "../../../assets/images/culture/festival/festival1.jpg";
+// import celebrate4 from "../../../assets/images/culture/festival/festival1.jpg";
 
-import festivalMain from "../../../assets/images/culture/festival/festival1.jpg";
+import festivalMain from "../../../assets/images/culture/festival/festival11.jpg";
 import festival1 from "../../../assets/images/culture/festival/festival2.jpg";
 import festival2 from "../../../assets/images/culture/festival/festival10.jpg";
 import festival3 from "../../../assets/images/culture/festival/festival14.jpg";
@@ -26,7 +26,7 @@ import festival3 from "../../../assets/images/culture/festival/festival14.jpg";
 import bonding1 from "../../../assets/images/culture/team-bonding/team-bond1.jpeg";
 import bonding2 from "../../../assets/images/culture/team-bonding/team-bond2.jpg";
 import bonding3 from "../../../assets/images/culture/team-bonding/team-bond3.jpg";
-import bonding4 from "../../../assets/images/culture/team-bonding/team-bond3.jpg";
+import bonding4 from "../../../assets/images/culture/moment/moment3.jpg";
 
 
 const Culture = () => {
@@ -43,7 +43,7 @@ return(
 
     <section
       ref={hero.ref}
-      className={`u-section rtx-culture-hero ${
+      className={`u-section u-section-lg rtx-culture-hero ${
         hero.visible ? "u-drop-visible" : ""
       }`}
     >
@@ -104,7 +104,7 @@ return(
 
       <section
       ref={strip.ref}
-      className={`u-section rtx-culture-strip ${
+      className={`u-section u-section-sm rtx-culture-strip ${
         strip.visible ? "u-drop-visible" : ""
       }`}
     >
@@ -163,7 +163,7 @@ return(
     >
       <div className="u-container rtx-culture-togetherness-layout">
 
-        {/* LEFT — STORY */}
+       
         <div className="rtx-culture-togetherness-content">
           <h2
             className="u-title u-drop"
@@ -191,7 +191,6 @@ return(
           </p>
         </div>
 
-        {/* RIGHT — IMAGES */}
         <div
           className="rtx-culture-togetherness-images u-drop-right"
           style={{ "--delay": "0.6s" }}
@@ -227,7 +226,7 @@ return(
     </section>
 
       {/*----------- CULTURE — CELEBRATIONS (GALLERY) ------------- */}
-
+{/* 
        <section
       ref={celebrate.ref}
       className={`u-section rtx-culture-celebrations ${
@@ -236,7 +235,6 @@ return(
     >
       <div className="u-container-center">
 
-        {/* HEADER */}
         <h2
           className="u-title u-drop"
           style={{ "--delay": "0.1s" }}
@@ -254,7 +252,6 @@ return(
           workplace.
         </p>
 
-        {/* IMAGE GALLERY */}
         <div
           className="rtx-culture-celebrations-gallery u-drop"
           style={{ "--delay": "0.5s" }}
@@ -287,7 +284,7 @@ return(
         </div>
 
       </div>
-    </section>
+    </section> */}
 
       {/*----------- CULTURE — FESTIVALS AT WORK (CONTRAST) ------------ */}
 

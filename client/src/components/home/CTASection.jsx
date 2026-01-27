@@ -11,11 +11,12 @@ const CTASection = React.memo(() => {
 
   return (
     <section
-      ref={ref}
-      className={`rtx-cta-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+  ref={ref}
+  className={`rtx-cta-wrapper u-section u-section-lg ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div
         className="rtx-cta-box u-drop"
         style={{ "--delay": "0.2s" }}

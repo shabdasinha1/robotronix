@@ -19,12 +19,13 @@ const ServicesHero = ({
   });
 
   return (
-    <section
-      ref={ref}
-      className={`rtx-service-hero-wrapper u-section ${
-        visible ? "u-drop-visible" : ""
-      }`}
-    >
+   <section
+  ref={ref}
+  className={`rtx-service-hero-wrapper u-section u-section-lg ${
+    visible ? "u-drop-visible" : ""
+  }`}
+>
+
       <div className="rtx-service-hero-particles" />
 
       <div className="rtx-service-hero-container u-container-center">

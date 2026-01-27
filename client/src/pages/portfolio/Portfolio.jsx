@@ -576,6 +576,7 @@ const handleClick = (cat) => {
 
   return (
     <>
+       {/*---------------- Hero ------------ */}
       <section
         ref={hero.ref}
         className={`u-section rtx-portfolio-hero ${hero.visible ? "u-drop-visible" : ""
