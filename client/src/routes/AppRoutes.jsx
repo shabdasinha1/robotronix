@@ -49,15 +49,16 @@ const AppRoutes = () => {
 
           {/* ================= ADMIN LOGIN ================= */}
           <Route
-            path="/admin/login"
-            element={
-              localStorage.getItem("admin_auth") === "true"
-                ? <Navigate to="/admin/dashboard" replace />
-                : LoginComp
-                ? <LoginComp />
-                : null
-            }
-          />
+  path="/admin/login"
+  element={
+    sessionStorage.getItem("admin_auth") === "true"
+      ? <Navigate to="/admin/dashboard" replace />
+      : LoginComp
+      ? <LoginComp />
+      : null
+  }
+/>
+
 
           {/* ================= ADMIN PUBLIC ================= */}
           <Route

@@ -1,14 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-/* ===============================
-   JWT AUTH CHECK
-================================ */
-const isAdminAuthenticated = () => {
-  return !!localStorage.getItem("admin_token");
-};
-
 const AdminProtectedRoute = () => {
-  if (!isAdminAuthenticated()) {
+  const isAuth =
+    sessionStorage.getItem("admin_auth") === "true" &&
+    sessionStorage.getItem("admin_token");
+
+  if (!isAuth) {
     return <Navigate to="/admin/login" replace />;
   }
 

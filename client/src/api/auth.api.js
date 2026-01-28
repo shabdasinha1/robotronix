@@ -29,8 +29,9 @@ const authApi = {
 
   /* LOGOUT (FRONTEND ONLY) */
   logout: () => {
-    localStorage.removeItem("admin_token");
-  },
+  sessionStorage.removeItem("admin_token");
+  sessionStorage.removeItem("admin_auth");
+},
 };
 
 export default authApi;

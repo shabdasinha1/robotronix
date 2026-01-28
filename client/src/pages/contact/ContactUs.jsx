@@ -29,7 +29,7 @@ const ContactUs = () => {
     {
       icon: "📍",
       title: "Office Address",
-      desc: "402, Atulya IT Park, Khandwa Road, Indore (M.P.)",
+      desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh 452001"
     },
     {
       icon: "✉️",
@@ -301,7 +301,7 @@ const scrollToContactForm = () => {
       </section>
 
       {/* ================= DETAILS ================= */}
-      <section
+      {/* <section
         ref={details.ref}
         className={`u-section ${details.visible ? "u-drop-visible" : ""}`}
       >
@@ -345,7 +345,7 @@ const scrollToContactForm = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

@@ -40,9 +40,8 @@ const Footer = React.memo(() => {
   return (
     <footer className="rtx-footer-wrapper" ref={ref}>
       <div
-        className={`u-container u-drop ${
-          visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-container u-drop ${visible ? "u-drop-visible" : ""
+          }`}
       >
         {/* -------- GRID -------- */}
         <div className="rtx-footer-grid">
@@ -67,14 +66,14 @@ const Footer = React.memo(() => {
             <ul>
               <li><ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink></li>
               <li><ScrollNavLink to="/culture">Culture</ScrollNavLink></li>
-              <li><ScrollNavLink to="/leadership">Leadership</ScrollNavLink></li>
+            
               <li><ScrollNavLink to="/career">Career</ScrollNavLink></li>
             </ul>
 
             <h4 className="rtx-footer-subtitle">Quick Connect</h4>
             <ul>
               <li><ScrollNavLink to="/contact-us">Contact Us</ScrollNavLink></li>
-              <li><ScrollNavLink to="/blogs">Blogs</ScrollNavLink></li>
+              
             </ul>
           </div>
 
@@ -83,8 +82,8 @@ const Footer = React.memo(() => {
             <h4>India</h4>
 
             <p>+91 9993150998</p>
-            <p>77248 52726</p>
-            <p>0731-2970998</p>
+            <p>+91 77248 52726</p>
+            <p>Ph: 0731-2970998</p>
 
             <p className="rtx-footer-mail">info@robotronix.co.in</p>
 
@@ -94,66 +93,85 @@ const Footer = React.memo(() => {
               Indore, Madhya Pradesh 452001
             </p>
 
-           <div className="rtx-footer-social">
-  <a
-    href="https://www.linkedin.com/company/robotronixindia/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-  >
-    <FaLinkedinIn />
-  </a>
+            <div className="rtx-footer-social">
+              <a
+                href="https://www.linkedin.com/company/robotronixindia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
 
-  <a
-    href="https://instagram.com/robotronixindia?igshid=MGNiNDI5ZTU="
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-  >
-    <FaInstagram />
-  </a>
+              <a
+                href="https://instagram.com/robotronixindia?igshid=MGNiNDI5ZTU="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
 
-  <a
-    href="https://www.facebook.com/robotronixindiaa/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-  >
-    <FaFacebookF />
-  </a>
+              <a
+                href="https://www.facebook.com/robotronixindiaa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
 
-  <a
-    href="https://whatsapp.com/channel/0029Va5MOXS7YScuXQ5pqb3G"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp"
-  >
-    <FaWhatsapp />
-  </a>
+              <a
+                href="https://whatsapp.com/channel/0029Va5MOXS7YScuXQ5pqb3G"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp />
+              </a>
 
-  <a
-    href="https://www.youtube.com/@robotronixindiaa"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="YouTube"
-  >
-    <FaYoutube />
-  </a>
+              <a
+                href="https://www.youtube.com/@robotronixindiaa"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
 
-  <a
-    href="https://x.com/ROBOTRONiX2010?s=08"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="X (Twitter)"
-  >
-    <FaXTwitter />
-  </a>
-</div>
+              <a
+                href="https://x.com/ROBOTRONiX2010?s=08"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+              >
+                <FaXTwitter />
+              </a>
+            </div>
 
 
             <div className="rtx-footer-ratings">
-              ⭐⭐⭐⭐⭐ 5.0 — Based on Clutch Reviews
+              <a
+                href="https://clutch.co/profile/robotronix-engineering-tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rtx-rating-link"
+                aria-label="View Clutch Reviews"
+              >
+                ⭐⭐⭐⭐⭐ <span>5.0 — Clutch Reviews</span>
+              </a>
+
+              <a
+                href="https://www.upwork.com/freelancers/bhupendrasinghthakur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rtx-rating-link"
+                aria-label="View Upwork Profile"
+              >
+                ⭐⭐⭐⭐⭐ <span>Top Rated on Upwork</span>
+              </a>     
             </div>
+
           </div>
         </div>
 

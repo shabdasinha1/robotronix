@@ -39,13 +39,15 @@
 /* BADGE */
 .rtx-hero-badge {
   display: inline-block;
-  padding: 8px 20px;
-  border-radius: 30px;
-  background: var(--blue-012b);
-  border: 1px solid var(--blue-06);
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--clr-blue-medium);
-  letter-spacing: 0.5px;
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
+  border-radius: 30px;
   backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
 }
 
 /* TITLE */
@@ -846,7 +848,7 @@ margin-bottom: var(--space-md);
 
 /* SECTION */
 .rtx-contact-wrapper {
-  background: var(--bg-dark-1);
+  background: var(--bg-dark-2);
 }
 
 /* CONTAINER */
@@ -976,7 +978,12 @@ margin-bottom: var(--space-md);
 ====================================================== */
 
 :root[data-theme="light"] .rtx-contact-wrapper {
-  background: var(--bg-dark-1);
+  background: linear-gradient(
+    135deg,
+    var(--light-bg-1),
+    var(--light-bg-2),
+    var(--light-bg-3)
+  );
 }
 
 :root[data-theme="light"] .rtx-contact-title span {
@@ -1018,7 +1025,7 @@ margin-bottom: var(--space-md);
 
 /* SECTION */
 .rtx-partners-wrapper {
-  background: var(--bg-dark-2);
+  background: var(--bg-dark-1);
 }
 
 /* CONTAINER */
@@ -1109,12 +1116,7 @@ margin-bottom: var(--space-md);
 ====================================================== */
 
 :root[data-theme="light"] .rtx-partners-wrapper {
-  background: linear-gradient(
-    135deg,
-    var(--light-bg-1),
-    var(--light-bg-2),
-    var(--light-bg-3)
-  );
+   background: var(--bg-dark-1);
 }
 
 :root[data-theme="light"] .rtx-partners-sub {

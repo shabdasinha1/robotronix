@@ -32,10 +32,11 @@
   display: inline-block;
   padding: var(--space-xs) var(--space-md);
   border-radius: 30px;
-  background: var(--blue-012b);
-  border: 1px solid var(--blue-06);
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
   color: var(--clr-blue-medium);
-
+  font-size: 0.85rem;
+  font-weight: 600;
   backdrop-filter: blur(6px);
 }
 

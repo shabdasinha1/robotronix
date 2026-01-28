@@ -41,8 +41,8 @@ const Home = () => {
         <TechStack />
         <ChooseUsSection />
         <TestimonialsSection />
-        <ContactSection />
         <PartnersSection />
+        <ContactSection />
         <CTASection />
       </Suspense>
     </>

@@ -144,7 +144,7 @@ const TestimonialsSection = React.memo(() => {
 
               <h4 className="rtx-test-name">{item.name}</h4>
               <p className="rtx-test-role">{item.role}</p>
-              <p className="rtx-test-company">{item.company}</p>
+              {/* <p className="rtx-test-company">{item.company}</p> */}
             </div>
           ))}
         </div>
@@ -164,7 +164,7 @@ const TestimonialsSection = React.memo(() => {
         </div>
 
         {/* BOTTOM CARDS */}
-   <div className="rtx-test-grid">
+   {/* <div className="rtx-test-grid">
 
 {testimonials.slice(0, 3).map((item, index) => (
     <Card
@@ -186,7 +186,7 @@ const TestimonialsSection = React.memo(() => {
       <p className="rtx-test-card-company">{item.company}</p>
     </Card>
   ))}
-</div>
+</div> */}
       </div>
     </section>
   );

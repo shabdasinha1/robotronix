@@ -474,3 +474,7 @@
 .rtx-dropdown-item-link.rtx-active{
   color: var(--clr-blue-light) !important;
 }
+
+.rtx-nav-btn.rtx-active {
+  color: var(--clr-blue-light) !important;
+}

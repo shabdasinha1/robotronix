@@ -26,12 +26,16 @@
 }
 
 .rtx-cpage-hero-badge {
-  display: inline-block;
-  padding: 8px 22px;
+ display: inline-block;
+  /* margin-bottom: var(--space-md); */
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-blue-medium);
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
   border-radius: 30px;
-  background: var(--blue-012b);
-  border: 1px solid var(--blue-03);
-  color: var(--clr-blue);
+  backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
 }
 
 .rtx-cpage-hero-title {

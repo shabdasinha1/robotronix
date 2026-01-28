@@ -4,6 +4,7 @@ import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import logo from "../../assets/images/logo_c1.png";
 import { routesConfig } from "../../routes/RouteConfig";
+import ScrollToTop from "./ScrollToTop";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -14,12 +15,12 @@ const Header = () => {
 
   const services = useMemo(
     () => routesConfig.filter((r) => r.nav === "services"),
-    []
+    [],
   );
 
   const aboutRoutes = useMemo(
     () => routesConfig.filter((r) => r.nav === "about" && !r.hidden),
-    []
+    [],
   );
 
   const mainNav = useMemo(
@@ -29,9 +30,9 @@ const Header = () => {
           r.nav === "main" &&
           r.path !== "/" &&
           r.path !== "/portfolio" &&
-          !r.hidden
+          !r.hidden,
       ),
-    []
+    [],
   );
 
   /* ===============================
@@ -41,17 +42,17 @@ const Header = () => {
   const isServicesActive = useMemo(
     () =>
       services.some(
-        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/"),
       ),
-    [pathname, services]
+    [pathname, services],
   );
 
   const isAboutActive = useMemo(
     () =>
       aboutRoutes.some(
-        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/"),
       ),
-    [pathname, aboutRoutes]
+    [pathname, aboutRoutes],
   );
 
   /* ===============================
@@ -63,9 +64,7 @@ const Header = () => {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [headerSolid, setHeaderSolid] = useState(false);
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "dark"
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   /* ===============================
      EFFECTS (INTENTIONAL)
@@ -85,7 +84,7 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
-    setMobileDropdown(false)
+    setMobileDropdown(false);
   }, [mobileOpen]);
 
   const toggleTheme = () => {
@@ -93,7 +92,12 @@ const Header = () => {
     setTheme(next);
     localStorage.setItem("theme", next);
   };
-
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <header
@@ -103,7 +107,7 @@ const Header = () => {
         `}
       >
         <div className="rtx-header-container">
-          <NavLink to="/" className="rtx-header-logo">
+          <NavLink to="/" onClick={scrollToTop} className="rtx-header-logo">
             <img src={logo} alt="Robotronix Logo" />
           </NavLink>
 
@@ -165,7 +169,7 @@ const Header = () => {
             open={mobileDropdown === "services"}
             onToggle={() =>
               setMobileDropdown(
-                mobileDropdown === "services" ? null : "services"
+                mobileDropdown === "services" ? null : "services",
               )
             }
           >
@@ -184,9 +188,7 @@ const Header = () => {
             label="About Us"
             open={mobileDropdown === "about"}
             onToggle={() =>
-              setMobileDropdown(
-                mobileDropdown === "about" ? null : "about"
-              )
+              setMobileDropdown(mobileDropdown === "about" ? null : "about")
             }
           >
             {aboutRoutes.map(({ path, label }) => (
@@ -243,32 +245,31 @@ const DesktopDropdown = React.memo(
       <button
         className={active ? "rtx-active" : ""}
         aria-current={active ? "page" : undefined}
+        onClick={(e) => {
+          e.preventDefault();
+          open ? onClose() : onOpen();
+        }}
       >
         {label}
         {open ? <FaAngleUp /> : <FaAngleDown />}
       </button>
 
-      <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>
-        {children}
-      </div>
+      <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>{children}</div>
     </li>
-  )
+  ),
 );
 
-
-const MobileDropdown = React.memo(
-  ({ label, open, onToggle, children }) => (
-    <li className="rtx-mobile-dropdown">
-      <div className="rtx-mobile-title" onClick={onToggle}>
-        <span>{label}</span>
-        {open ? <FaAngleUp /> : <FaAngleDown />}
-      </div>
-      <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
-        {children}
-      </div>
-    </li>
-  )
-);
+const MobileDropdown = React.memo(({ label, open, onToggle, children }) => (
+  <li className="rtx-mobile-dropdown">
+    <div className="rtx-mobile-title" onClick={onToggle}>
+      <span>{label}</span>
+      {open ? <FaAngleUp /> : <FaAngleDown />}
+    </div>
+    <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
+      {children}
+    </div>
+  </li>
+));
 
 const NavButton = React.memo(({ to, label, mobile, onClick }) => (
   <li>

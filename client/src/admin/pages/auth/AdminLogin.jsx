@@ -33,10 +33,12 @@ const AdminLogin = () => {
       {
         onSuccess: (res) => {
           // Store JWT
-          localStorage.setItem("admin_token", res.data.token);
+          sessionStorage.setItem("admin_token", res.data.token);
+          sessionStorage.setItem("admin_auth", "true");
 
-          // Redirect
-          navigate("/admin/dashboard");
+          // VERY IMPORTANT: replace history
+          navigate("/admin/dashboard", { replace: true });
+
         },
       }
     );

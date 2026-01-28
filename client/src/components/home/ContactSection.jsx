@@ -170,7 +170,9 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Visit Us</h4>
-              <p>402, Atulya IT Park, Khandwa Road, Indore (M.P.)</p>
+              <p>402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
+              Opposite Indian Coffee House,<br />
+              Indore, Madhya Pradesh 452001</p>
             </div>
           </div>
         </div>

@@ -43,18 +43,16 @@
 ===================================== */
 
 .rtx-portfolio-eyebrow {
-  display: inline-block;
-  padding: 6px 18px;
-  margin-bottom: var(--space-sm);
+ display: inline-block;
+  margin-bottom: var(--space-md);
   font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 600;
   color: var(--clr-blue-medium);
-  background: var(--blue-012b);
-  border: 1px solid var(--blue-06);
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
 }
 
 /* =====================================
