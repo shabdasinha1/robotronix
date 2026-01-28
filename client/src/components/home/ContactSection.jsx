@@ -172,7 +172,7 @@ const ContactSection = React.memo(() => {
               <h4>Visit Us</h4>
               <p>402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
               Opposite Indian Coffee House,<br />
-              Indore, Madhya Pradesh 452001</p>
+              Indore, Madhya Pradesh - 452001</p>
             </div>
           </div>
         </div>

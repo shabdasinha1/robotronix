@@ -180,6 +180,9 @@
 }
 
 @media (max-width: 767px) {
+  .rtx-overview-hero {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
   .rtx-about-wrapper {
     padding: 80px 16px;
   }
@@ -310,6 +313,9 @@
 
   .rtx-cpage-hero-badge {
     margin-top: var(--space-md);
+  }
+  .card svg {
+    margin-right: 10px;
   }
 }
 
@@ -563,6 +569,9 @@
 }
 
 @media (max-width: 767px) {
+  .rtx-who-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-who-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -592,9 +601,21 @@
 }
 
 @media (max-width: 767px) {
+  .rtx-approach-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-approach-flow {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+/* ======================================================
+   STRENGTHS — RESPONSIVE
+====================================================== */
+@media (max-width: 767px) {
+  .rtx-strengths-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -610,6 +631,9 @@
 }
 
 @media (max-width: 767px) {
+  .rtx-impact-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-impact-grid {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -627,6 +651,9 @@
 }
 
 @media (max-width: 767px) {
+  .rtx-philosophy-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-philosophy-quote {
     margin-bottom: 26px;
   }
@@ -651,7 +678,10 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .rtx-culture-hero {
+    text-align: center;
+  }
   span.rtx-culture-eyebrow {
     margin-top: var(--space-md);
   }
@@ -659,12 +689,12 @@
     gap: 48px;
   }
 
-  .rtx-culture-img.img-1 {
-    left: 0;
-  }
-
   .rtx-culture-img.img-2 {
     right: 0;
+  }
+  .rtx-culture-hero-text {
+    max-width: 100%;
+    text-align: justify;
   }
 }
 
@@ -682,18 +712,35 @@
   }
 }
 
-@media (max-width: 767px) {
-  .rtx-culture-strip-images {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .rtx-culture-strip-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .u-title {
+    text-align: center;
   }
 
   .rtx-strip-img {
     height: 190px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-culture-strip-images {
+    grid-template-columns: 1fr;
+  }
+  .rtx-culture-img.main-img {
+    /* width: 90%; */
+    margin: 0 auto;
+  }
+  .rtx-culture-img.img-1 {
+    left: -2px;
+  }
+}
 
 /* ======================================================
-   CULTURE — TOGETHERNESS (RESPONSIVE)
+CULTURE — TOGETHERNESS (RESPONSIVE)
 ====================================================== */
 
 @media (max-width: 1023px) {
@@ -710,6 +757,14 @@
 @media (max-width: 767px) {
   .rtx-culture-togetherness-layout {
     gap: 48px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-culture-togetherness-images {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .rtx-culture-togetherness-text{
+    text-align: justify;
   }
 }
 
@@ -763,7 +818,14 @@
     gap: 48px;
   }
 }
-
+@media (max-width: 426px) {
+  .rtx-culture-festivals-sub-images {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .rtx-culture-festivals-text{
+    text-align: justify;
+  }
+}
 /* ======================================================
    CULTURE — TEAM BONDING (RESPONSIVE)
 ====================================================== */
@@ -774,8 +836,20 @@
     gap: 60px;
   }
 
+  /* 👉 CONTENT FIRST */
+  .rtx-culture-bonding-content {
+    order: 1;
+    max-width: 100%;
+    margin-left: 0;
+  }
 
-  .rtx-culture-bonding-content,.rtx-culture-festivals-content {
+  /* 👉 IMAGES AFTER CONTENT */
+  .rtx-culture-bonding-images {
+    order: 2;
+  }
+
+  /* untouched */
+  .rtx-culture-festivals-content {
     max-width: 100%;
     margin-left: 0;
   }
@@ -784,6 +858,12 @@
 @media (max-width: 767px) {
   .rtx-culture-bonding-layout {
     gap: 48px;
+  }
+}
+
+@media (max-width: 426px) {
+  .rtx-culture-bonding-images {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -875,7 +955,7 @@
   .rtx-vm-closing-text {
     text-align: justify;
   }
-  .rtx-vm-closing-title{
+  .rtx-vm-closing-title {
     text-align: left;
   }
 }

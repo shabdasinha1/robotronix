@@ -346,7 +346,7 @@ gap: var(--space-sm);
       var(--space-sm)
       var(--space-sm)
       var(--space-sm)
-      calc(var(--space-md) + var(--space-xs));
+      calc(var(--space-md) + var(--space-md));
   }
 
   .rtx-cpage-input-icon {

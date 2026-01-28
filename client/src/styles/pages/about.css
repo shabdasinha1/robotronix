@@ -601,7 +601,7 @@ margin: var(--space-md) auto 0;
   .rtx-culture-togetherness-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-3xl);
+    gap: var(--space-xl);
     align-items: center;
   }
 
@@ -705,7 +705,7 @@ margin: var(--space-md) auto 0;
 .rtx-culture-festivals-layout {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: var(--space-3xl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -770,7 +770,7 @@ margin: var(--space-md) auto 0;
 .rtx-culture-bonding-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-   gap: var(--space-3xl);
+   gap: var(--space-xl);
   align-items: center;
 }
 
@@ -1086,6 +1086,3 @@ margin: var(--space-md) auto 0;
 :root[data-theme="light"] .rtx-vm-closing-text {
   color: var(--clr-text-soft);
 }
-
-
-

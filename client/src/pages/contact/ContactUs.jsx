@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 import atulya1 from "../../assets/images/atulya1.jpg";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
-import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
 import messagesApi from "../../api/messages.api";
 
 const ContactUs = () => {
@@ -13,7 +12,7 @@ const ContactUs = () => {
   const office = useRevealOnScroll({ once: true });
   const form = useRevealOnScroll({ once: true });
   const map = useRevealOnScroll({ once: true });
-  const details = useRevealOnScroll({ once: true });
+  // const details = useRevealOnScroll({ once: true });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -29,7 +28,7 @@ const ContactUs = () => {
     {
       icon: "📍",
       title: "Office Address",
-      desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh 452001"
+      desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001"
     },
     {
       icon: "✉️",

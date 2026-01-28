@@ -8,6 +8,7 @@ import {
   FaWhatsapp,
   FaLinkedinIn,
   FaYoutube,
+  FaMapMarkerAlt
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -90,10 +91,19 @@ const Footer = React.memo(() => {
             <p className="rtx-footer-address">
               402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
               Opposite Indian Coffee House,<br />
-              Indore, Madhya Pradesh 452001
+              Indore, Madhya Pradesh - 452001
             </p>
 
             <div className="rtx-footer-social">
+           <a
+  href="https://www.google.com/maps/search/?api=1&query=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Location on Google Maps"
+>
+  <FaMapMarkerAlt />
+</a>
+
               <a
                 href="https://www.linkedin.com/company/robotronixindia/"
                 target="_blank"
