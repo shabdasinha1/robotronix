@@ -22,7 +22,7 @@
 
 @media (max-width: 767px) {
   .u-section {
-    padding: 56px 14px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .u-section-sm {
@@ -86,7 +86,7 @@
    BUTTONS
 ====================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .btn {
     width: 100%;
   }
@@ -731,11 +731,11 @@
     grid-template-columns: 1fr;
   }
   .rtx-culture-img.main-img {
-    /* width: 90%; */
+    width: 90%;
     margin: 0 auto;
   }
   .rtx-culture-img.img-1 {
-    left: -2px;
+    left: -8px;
   }
 }
 
@@ -763,7 +763,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-culture-togetherness-images {
     grid-template-columns: repeat(1, 1fr);
   }
-  .rtx-culture-togetherness-text{
+  .rtx-culture-togetherness-text {
     text-align: justify;
   }
 }
@@ -822,10 +822,11 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-culture-festivals-sub-images {
     grid-template-columns: repeat(1, 1fr);
   }
-  .rtx-culture-festivals-text{
+  .rtx-culture-festivals-text {
     text-align: justify;
   }
 }
+
 /* ======================================================
    CULTURE — TEAM BONDING (RESPONSIVE)
 ====================================================== */
@@ -836,19 +837,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     gap: 60px;
   }
 
-  /* 👉 CONTENT FIRST */
-  .rtx-culture-bonding-content {
-    order: 1;
-    max-width: 100%;
-    margin-left: 0;
-  }
-
-  /* 👉 IMAGES AFTER CONTENT */
-  .rtx-culture-bonding-images {
-    order: 2;
-  }
-
-  /* untouched */
+  .rtx-culture-bonding-content,
   .rtx-culture-festivals-content {
     max-width: 100%;
     margin-left: 0;
@@ -860,7 +849,6 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     gap: 48px;
   }
 }
-
 @media (max-width: 426px) {
   .rtx-culture-bonding-images {
     grid-template-columns: repeat(1, 1fr);
@@ -983,12 +971,48 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .rtx-career-hero {
+    text-align: center;
+  }
   .rtx-career-hero-layout {
     gap: 48px;
   }
   .rtx-career-eyebrow {
     margin-top: var(--space-md);
+  }
+  .rtx-career-hero-text {
+    max-width: 100%;
+    text-align: justify;
+  }
+  .rtx-career-hero-visual {
+    margin: 0 auto;
+  }
+  .rtx-career-hero-card {
+    padding: var(--space-xl) var(--space-2xl);
+  }
+}
+@media (max-width: 426px) {
+  .rtx-career-hero-card {
+    padding: var(--space-xl);
+  }
+  .rtx-career-hero {
+    padding: var(--section-py-sm) var(--section-px) var(--section-py-xs);
+  }
+}
+@media (max-width: 376px) {
+  .rtx-career-hero-card {
+    padding: var(--space-md);
+  }
+}
+
+/* ======================================================
+CAREER — Why Work With Us (RESPONSIVE)
+====================================================== */
+
+@media (max-width: 426px) {
+  .rtx-career-why {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -1012,6 +1036,26 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     gap: 48px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-career-life-text {
+    text-align: justify;
+  }
+
+  .rtx-career-life {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
+
+/* ======================================================
+   CAREER — Internship Opportunities (RESPONSIVE)
+====================================================== */
+
+@media (max-width:426px) {
+  .rtx-career-internship{
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  
+}
 
 /* ======================================================
    CAREER — OPEN POSITIONS (RESPONSIVE)
@@ -1019,9 +1063,28 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 1023px) {
   .rtx-career-job-card {
+    gap: 20px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-career-jobs{
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-career-job-card{
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-md);
+  }
+}
+
+/* ======================================================
+   CAREER — Growth & Learning (RESPONSIVE)
+====================================================== */
+@media (max-width: 426px) {
+  .rtx-career-growth,.rtx-career-cta{
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
