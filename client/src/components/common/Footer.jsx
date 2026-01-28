@@ -66,7 +66,7 @@ const Footer = React.memo(() => {
             <ul>
               <li><ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink></li>
               <li><ScrollNavLink to="/culture">Culture</ScrollNavLink></li>
-            
+             <li><ScrollNavLink to="/portfolio">Portfolio</ScrollNavLink></li>
               <li><ScrollNavLink to="/career">Career</ScrollNavLink></li>
             </ul>
 

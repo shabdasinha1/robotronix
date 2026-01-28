@@ -26,7 +26,7 @@
   }
 
   .u-section-sm {
-    padding: 48px 14px;  
+    padding: 48px 14px;
   }
 }
 
@@ -138,7 +138,6 @@
     gap: 18px;
   }
 }
-
 
 /* ======================================================
    SERVICES SECTION — RESPONSIVE
@@ -308,9 +307,8 @@
     margin-top: 30px;
     padding: 18px;
   }
-  
 
-.rtx-cpage-hero-badge{
+  .rtx-cpage-hero-badge {
     margin-top: var(--space-md);
   }
 }
@@ -381,7 +379,7 @@
     padding: 110px 18px;
   }
 
-    .rtx-service-hero-stats .card {
+  .rtx-service-hero-stats .card {
     width: 220px;
     min-height: 130px;
   }
@@ -400,7 +398,7 @@
   .rtx-service-hero-stats {
     margin-top: 60px;
     gap: 18px;
-       flex-direction: column;
+    flex-direction: column;
     align-items: center;
   }
   .rtx-service-hero-stats .card {
@@ -416,7 +414,6 @@
     min-height: 110px;
   }
 }
-
 
 /* ======================================================
    SERVICE OVERVIEW — RESPONSIVE
@@ -530,7 +527,6 @@
 /* ======================================================
    SERVICES PAGE — RESPONSIVE END
 ====================================================== */
-
 
 /* ======================================================
    ABOUT SECTION — RESPONSIVE START
@@ -656,9 +652,9 @@
 }
 
 @media (max-width: 767px) {
-    span.rtx-culture-eyebrow {
-        margin-top: var(--space-md);
-}
+  span.rtx-culture-eyebrow {
+    margin-top: var(--space-md);
+  }
   .rtx-culture-hero-layout {
     gap: 48px;
   }
@@ -778,8 +774,10 @@
     gap: 60px;
   }
 
-  .rtx-culture-bonding-content {
+
+  .rtx-culture-bonding-content,.rtx-culture-festivals-content {
     max-width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -795,15 +793,17 @@
 
 @media (max-width: 1023px) {
   .rtx-vm-hero {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    /* padding-top: 140px;
+    padding-bottom: 140px; */
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
 }
 
 @media (max-width: 767px) {
   .rtx-vm-hero {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    /* padding-top: 120px;
+    padding-bottom: 120px; */
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
 }
 
@@ -813,15 +813,16 @@
 
 @media (max-width: 1023px) {
   .rtx-vision-section {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
 @media (max-width: 767px) {
   .rtx-vision-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-vision-title {
+    font-size: 1.8rem;
   }
 }
 
@@ -830,15 +831,24 @@
 ====================================================== */
 
 @media (max-width: 1023px) {
+  .rtx-mission-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-mission-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .rtx-mission-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-mission-visual {
     display: none;
+  }
+  .rtx-mission-desc {
+    margin-bottom: 0;
   }
 }
 
@@ -848,15 +858,25 @@
 
 @media (max-width: 1023px) {
   .rtx-vm-closing {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
 @media (max-width: 767px) {
   .rtx-vm-closing {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-vm-closing-title {
+    font-size: 1.9rem;
+  }
+  .rtx-vision-statement,
+  .rtx-mission-statement,
+  .rtx-vision-text,
+  .rtx-vm-closing-text {
+    text-align: justify;
+  }
+  .rtx-vm-closing-title{
+    text-align: left;
   }
 }
 
@@ -887,7 +907,7 @@
   .rtx-career-hero-layout {
     gap: 48px;
   }
-  .rtx-career-eyebrow{
+  .rtx-career-eyebrow {
     margin-top: var(--space-md);
   }
 }
@@ -957,21 +977,22 @@
   .rtx-service-hero-subtext,
   .rtx-culture-bonding-text,
   .rtx-career-hero-textc,
-  .rtx-career-cta-text,.rtx-portfolio-subtext,.rtx-portfolio-cta-text {
+  .rtx-career-cta-text,
+  .rtx-portfolio-subtext,
+  .rtx-portfolio-cta-text {
     text-align: justify;
   }
-  .rtx-services-wrapper .rtx-service-desc{
+  .rtx-services-wrapper .rtx-service-desc {
     text-align: start;
   }
 }
 /* ======================================================
    PORTFOLIO PAGE — RESPONSIVE START
 ====================================================== */
-@media (max-width:768px) {
-  .rtx-portfolio-eyebrow{
-    margin-top: var(--space-md)
+@media (max-width: 768px) {
+  .rtx-portfolio-eyebrow {
+    margin-top: var(--space-md);
   }
-  
 }
 /* ======================================================
    PORTFOLIO PAGE — RESPONSIVE END

@@ -52,7 +52,7 @@
 /* Base section */
 .u-section {
   width: 100%;
-  padding: var(--section-py-md) var(--section-px);
+  padding: var(--section-py-sm) var(--section-px);
   background: var(--bg-dark-1);
 }
 

@@ -98,6 +98,8 @@ const Header = () => {
       behavior: "smooth",
     });
   };
+
+
   return (
     <>
       <header
@@ -167,12 +169,14 @@ const Header = () => {
           <MobileDropdown
             label="Our Services"
             open={mobileDropdown === "services"}
+            active={isServicesActive}
             onToggle={() =>
               setMobileDropdown(
-                mobileDropdown === "services" ? null : "services",
+                mobileDropdown === "services" ? null : "services"
               )
             }
           >
+
             {services.map(({ path, label }) => (
               <NavItem
                 key={path}
@@ -187,10 +191,14 @@ const Header = () => {
           <MobileDropdown
             label="About Us"
             open={mobileDropdown === "about"}
+            active={isAboutActive}
             onToggle={() =>
-              setMobileDropdown(mobileDropdown === "about" ? null : "about")
+              setMobileDropdown(
+                mobileDropdown === "about" ? null : "about"
+              )
             }
           >
+
             {aboutRoutes.map(({ path, label }) => (
               <NavItem
                 key={path}
@@ -243,7 +251,7 @@ const DesktopDropdown = React.memo(
       onMouseLeave={onClose}
     >
       <button
-        className={active ? "rtx-active" : ""}
+        className={`rtx-nav-btn ${active ? "rtx-active" : ""}`}
         aria-current={active ? "page" : undefined}
         onClick={(e) => {
           e.preventDefault();
@@ -259,17 +267,22 @@ const DesktopDropdown = React.memo(
   ),
 );
 
-const MobileDropdown = React.memo(({ label, open, onToggle, children }) => (
-  <li className="rtx-mobile-dropdown">
-    <div className="rtx-mobile-title" onClick={onToggle}>
-      <span>{label}</span>
-      {open ? <FaAngleUp /> : <FaAngleDown />}
-    </div>
-    <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
-      {children}
-    </div>
-  </li>
-));
+const MobileDropdown = React.memo(
+  ({ label, open, active, onToggle, children }) => (
+    <li className="rtx-mobile-dropdown">
+      <div
+        className={`rtx-mobile-title ${active ? "rtx-active" : ""}`}
+        aria-current={active ? "page" : undefined}
+        onClick={onToggle}
+      >
+        <span>{label}</span>
+        {open ? <FaAngleUp /> : <FaAngleDown />}
+      </div>
+      <div className={`rtx-mobile-dropdown-list ${open ? "rtx-show" : ""}`}>
+        {children}
+      </div>
+    </li>
+  ));
 
 const NavButton = React.memo(({ to, label, mobile, onClick }) => (
   <li>
@@ -278,7 +291,7 @@ const NavButton = React.memo(({ to, label, mobile, onClick }) => (
       onClick={onClick}
       className={({ isActive }) =>
         mobile
-          ? "rtx-mobile-link"
+          ? `rtx-mobile-link ${isActive ? "rtx-active" : ""}`
           : `rtx-nav-btn ${isActive ? "rtx-active" : ""}`
       }
     >

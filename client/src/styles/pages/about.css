@@ -469,14 +469,18 @@ margin: var(--space-md) auto 0;
   }
 
   /* LEFT CONTENT */
-  .rtx-culture-eyebrow {
-    display: inline-block;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--clr-text-muted);
-      margin-bottom: var(--space-md);
-  }
+.rtx-culture-eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-blue-medium);
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
+}
 
   .rtx-culture-hero-title {
     font-size: 3.2rem;
@@ -499,10 +503,11 @@ margin: var(--space-md) auto 0;
   }
 
   /* RIGHT IMAGES */
-  .rtx-culture-hero-images {
-    position: relative;
-    min-height: 420px;
-  }
+.rtx-culture-hero-images {
+  position: relative;
+  min-height: 420px;
+  margin: 0 auto;
+}
 
   /* MAIN IMAGE */
   .rtx-culture-img.main-img {
@@ -717,6 +722,7 @@ margin: var(--space-md) auto 0;
 /* CONTENT */
 .rtx-culture-festivals-content {
   max-width: 540px;
+  margin-left: 20px;
 }
 
 .rtx-culture-festivals-text {
@@ -794,8 +800,8 @@ margin: var(--space-md) auto 0;
 /* CONTENT */
 .rtx-culture-bonding-content {
   max-width: 520px;
+  margin-left: 20px;
 }
-
 .rtx-culture-bonding-text {
  margin-top: var(--space-md);
   font-size: 1.08rem;
@@ -816,6 +822,56 @@ margin: var(--space-md) auto 0;
   display: block;
 }
 
+/* ===============================
+   IMAGE PREVIEW MODAL
+================================ */
+
+.rtx-image-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  display: grid;
+  place-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.rtx-image-preview-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  animation: scaleIn 0.3s ease;
+}
+
+.rtx-image-preview-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 28px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.rtx-image-preview-close:hover {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.96) }
+  to { transform: scale(1) }
+}
 
 /* ======================================================
    CULTURE END
@@ -831,17 +887,21 @@ margin: var(--space-md) auto 0;
 
 .rtx-vm-hero {
   position: relative;
+   padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
 }
 
 /* Eyebrow */
 .rtx-vm-eyebrow {
-  display: inline-block;
-  margin-bottom: var(--space-lg);
-  font-size: 0.85rem;
+ display: inline-block;
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: var(--clr-blue-medium);
+  background: var(--blue-012s);
+  border: 1px solid var(--blue-02);
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
 }
 
 /* Big statement */
@@ -861,6 +921,10 @@ margin: var(--space-md) auto 0;
   color: var(--clr-text-light);
 }
 
+.rtx-vm-missiontext {
+  font-size: clamp(4rem, 6.5vw, 3rem);
+  color: var(--clr-blue);
+}
 /* ======================================================
    LIGHT THEME
 ====================================================== */

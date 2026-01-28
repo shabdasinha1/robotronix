@@ -22,10 +22,24 @@
 }
 
 /* Hover same as button */
-.rtx-header-menu ul li > a:hover,.rtx-header-menu ul li > a.active,.rtx-mobile-link:hover  {
+/* .rtx-header-menu ul li > a:hover,.rtx-header-menu ul li > a.active,.rtx-mobile-link:hover  {
+  color: var(--clr-blue-light) !important;
+  transform: translateY(-2px);
+} */
+
+/* Hover only */
+.rtx-header-menu ul li > a:hover {
   color: var(--clr-blue-light) !important;
   transform: translateY(-2px);
 }
+
+/* Active (route-based, stable) */
+.rtx-header-menu ul li > a.active,
+.rtx-nav-btn.rtx-active {
+  color: var(--clr-blue-light) !important;
+  transform: none;
+}
+
 
 .rtx-header-wrapper {
   position: fixed;
@@ -124,9 +138,21 @@
   transition: color 180ms ease, transform 150ms ease;
 }
 
-.rtx-header-menu ul li button:hover {
+/* .rtx-header-menu ul li button:hover {
   color: var(--clr-blue-light);
   transform: translateY(-2px);
+} */
+
+/* Hover only if NOT active */
+.rtx-header-menu ul li button:hover:not(.rtx-active) {
+  color: var(--clr-blue-light);
+  transform: translateY(-2px);
+}
+
+/* Active dropdown parent */
+.rtx-has-dropdown.rtx-active > button {
+  color: var(--clr-blue-light);
+  transform: none;
 }
 
 .rtx-icon {
@@ -476,5 +502,55 @@
 }
 
 .rtx-nav-btn.rtx-active {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Active mobile dropdown sub-item */
+.rtx-mobile-subitem-link.rtx-active {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Mobile dropdown title active (stable) */
+.rtx-mobile-title.rtx-active {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Hover only if NOT active */
+.rtx-mobile-title:hover:not(.rtx-active) {
+  color: var(--clr-blue-light) !important;
+}
+
+/* Active mobile links should not animate */
+.rtx-mobile-link.rtx-active {
+  color: var(--clr-blue-light) !important;
+}
+/* 🔥 FIX: active mobile dropdown child */
+.rtx-mobile-subitem-link.rtx-active,
+.rtx-mobile-subitem-link.rtx-active .rtx-mobile-subitem {
+  color: var(--clr-blue-light) !important;
+}
+
+/* =========================================================
+   MOBILE ACTIVE FIX — LIGHT THEME (FINAL)
+========================================================= */
+
+:root[data-theme="light"]
+  .rtx-mobile-subitem-link.rtx-active,
+:root[data-theme="light"]
+  .rtx-mobile-subitem-link.rtx-active .rtx-mobile-subitem {
+  color: var(--clr-blue-light) !important;
+}
+
+/* =========================================================
+   MOBILE PARENT ACTIVE — LIGHT THEME (FINAL)
+========================================================= */
+
+:root[data-theme="light"]
+  .rtx-mobile-title.rtx-active {
+  color: var(--clr-blue-light) !important;
+}
+
+:root[data-theme="light"]
+  .rtx-mobile-link.rtx-active {
   color: var(--clr-blue-light) !important;
 }
