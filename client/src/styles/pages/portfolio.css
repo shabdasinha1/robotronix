@@ -16,6 +16,7 @@
       transparent 60%
     ),
     var(--bg-dark-1);
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
 }
 
 /* subtle tech grain */
