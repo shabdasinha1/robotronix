@@ -192,7 +192,7 @@ const Footer = React.memo(() => {
 
         {/* COPYRIGHT */}
         <div className="rtx-footer-bottom">
-          © 2025 ROBOTRONIX ENGINEERING TECH PVT. LTD. — All Rights Reserved
+          © 2026 ROBOTRONIX ENGINEERING TECH PVT. LTD. — All Rights Reserved
         </div>
       </div>
     </footer>
