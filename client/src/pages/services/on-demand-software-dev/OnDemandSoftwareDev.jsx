@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -107,29 +107,17 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const OnDemandSoftwareDev = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Custom Software Solutions"
         title="On-Demand"
@@ -147,8 +135,8 @@ const OnDemandSoftwareDev = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="What Is"
           accent="On-Demand Software Development?"
@@ -159,7 +147,6 @@ const OnDemandSoftwareDev = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Development Process"
@@ -167,7 +154,6 @@ const OnDemandSoftwareDev = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Custom"
           accent="Software for Industries"
@@ -175,7 +161,6 @@ const OnDemandSoftwareDev = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix?"
@@ -183,13 +168,11 @@ const OnDemandSoftwareDev = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="Software That Works the Way Your Business Does"
           subtitle="Custom-built software removes limitations, improves efficiency, and gives you full control over your digital systems."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Have a Software Idea or Challenge?"
           subtitle="Let’s build a custom solution that fits your business perfectly."

@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import Card from "../../components/common/Card";
 
 const testimonials = [
   {
@@ -75,39 +74,70 @@ const testimonials = [
   },
 ];
 
-
 const TestimonialsSection = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
+
+  /* ===============================
+     SLIDER STATE
+  =============================== */
 
   const [active, setActive] = useState(0);
-  const timerRef = useRef(null);
+  const rafRef = useRef(null);
+  const lastTimeRef = useRef(0);
 
-  /* Auto slider — starts only when visible */
+  /* ===============================
+     AUTO SLIDER (OPTIMIZED)
+  =============================== */
+
   useEffect(() => {
     if (!visible) return;
 
-    timerRef.current = setInterval(() => {
-      setActive((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+    const interval = 4000;
+
+    const loop = (time) => {
+      if (!lastTimeRef.current) {
+        lastTimeRef.current = time;
+      }
+
+      if (time - lastTimeRef.current >= interval) {
+        setActive((prev) => (prev + 1) % testimonials.length);
+        lastTimeRef.current = time;
+      }
+
+      rafRef.current = requestAnimationFrame(loop);
+    };
+
+    rafRef.current = requestAnimationFrame(loop);
 
     return () => {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      rafRef.current = null;
+      lastTimeRef.current = 0;
     };
   }, [visible]);
 
   return (
-  <section
-  ref={ref}
-  className={`rtx-test-wrapper u-section u-section-md ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+    <section
+      ref={ref}
+      className={`rtx-test-wrapper u-section u-section-md ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-test-container u-container-center">
         {/* TITLE */}
         <h2
@@ -131,7 +161,7 @@ const TestimonialsSection = React.memo(() => {
         >
           {testimonials.map((item, index) => (
             <div
-               key={`${item.role}-${index}`}
+              key={`${item.role}-${index}`}
               className={`rtx-test-slide ${
                 index === active ? "rtx-slide-active" : ""
               }`}
@@ -144,7 +174,6 @@ const TestimonialsSection = React.memo(() => {
 
               <h4 className="rtx-test-name">{item.name}</h4>
               <p className="rtx-test-role">{item.role}</p>
-              {/* <p className="rtx-test-company">{item.company}</p> */}
             </div>
           ))}
         </div>
@@ -157,36 +186,13 @@ const TestimonialsSection = React.memo(() => {
           {testimonials.map((_, index) => (
             <div
               key={index}
-              className={`rtx-test-dot ${active === index ? "active" : ""}`}
+              className={`rtx-test-dot ${
+                active === index ? "active" : ""
+              }`}
               onClick={() => setActive(index)}
             />
           ))}
         </div>
-
-        {/* BOTTOM CARDS */}
-   {/* <div className="rtx-test-grid">
-
-{testimonials.slice(0, 3).map((item, index) => (
-    <Card
-      key={`${item.company}-${index}`}
-      size="sm"
-      variant="hover"
-      className="rtx-test-card u-drop"
-      style={{ "--delay": `${1 + index * 0.15}s` }}
-    >
-      <div className="rtx-test-rating-small">
-        {"★".repeat(item.rating)}
-      </div>
-
-      <p className="rtx-test-card-text">
-        {item.text.substring(0, 140)}...
-      </p>
-
-      <h4 className="rtx-test-card-name">{item.name}</h4>
-      <p className="rtx-test-card-company">{item.company}</p>
-    </Card>
-  ))}
-</div> */}
       </div>
     </section>
   );

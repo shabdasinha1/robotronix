@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
+
 const techItems = [
   { name: "React", type: "Frontend" },
   { name: "Angular", type: "Frontend" },
@@ -26,22 +27,29 @@ const techItems = [
   { name: "IoT & Embedded", type: "Hardware + Edge" },
 ];
 
-
 const TechStack = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
-  <section
-  ref={ref}
-  className={`rtx-tech-wrapper u-section u-section-md ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+    <section
+      ref={ref}
+      className={`rtx-tech-wrapper u-section u-section-md ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-tech-container u-container-center">
         {/* TITLE */}
         <h2
@@ -56,23 +64,28 @@ const TechStack = React.memo(() => {
           className="rtx-tech-subtext u-drop"
           style={{ "--delay": "0.4s" }}
         >
-          We leverage cutting-edge technologies to build robust, scalable solutions.
+          We leverage cutting-edge technologies to build robust, scalable
+          solutions.
         </p>
 
         {/* CARDS */}
         <div className="rtx-tech-grid">
-          {techItems.map((item, index) => (
-            <Card
-              key={item.name}
-              size="sm"
-              variant="hover"
-              className="rtx-tech-card u-drop"
-              style={{ "--delay": `${0.6 + index * 0.08}s` }}
-            >
-              <h4>{item.name}</h4>
-              <span>{item.type}</span>
-            </Card>
-          ))}
+          {techItems.map((item, index) => {
+            const delay = `${0.6 + index * 0.08}s`;
+
+            return (
+              <Card
+                key={item.name}
+                size="sm"
+                variant="hover"
+                className="rtx-tech-card u-drop"
+                style={{ "--delay": delay }}
+              >
+                <h4>{item.name}</h4>
+                <span>{item.type}</span>
+              </Card>
+            );
+          })}
         </div>
 
         <p
@@ -82,16 +95,16 @@ const TechStack = React.memo(() => {
           And many more technologies in our arsenal
         </p>
 
-       <Button
-  to="/portfolio"
-  state={{ scrollTo: "tech-stack" }}
-  variant="outline"
-  size="md"
-  className="u-drop"
-  style={{ "--delay": "2s" }}
->
-  View Full Tech Stack →
-</Button>
+        <Button
+          to="/portfolio"
+          state={{ scrollTo: "tech-stack" }}
+          variant="outline"
+          size="md"
+          className="u-drop"
+          style={{ "--delay": "2s" }}
+        >
+          View Full Tech Stack →
+        </Button>
       </div>
     </section>
   );

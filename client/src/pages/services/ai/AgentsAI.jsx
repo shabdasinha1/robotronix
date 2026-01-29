@@ -121,7 +121,15 @@ const ServicesCTA = lazy(() =>
   import("../../../components/services/ServicesCTA")
 );
 
-const AgentsAI = () => {
+/* ===============================
+   LIGHTWEIGHT FALLBACK
+=============================== */
+
+const SectionFallback = () => (
+  <div style={{ minHeight: "120px" }} />
+);
+
+const AgentsAI = React.memo(() => {
   return (
     <>
       {/* HERO */}
@@ -142,8 +150,8 @@ const AgentsAI = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* OVERVIEW */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesOverview
           title="What Are"
           accent="AI Agents?"
@@ -153,38 +161,48 @@ const AgentsAI = () => {
           ]}
           infoCards={infoCards}
         />
+      </Suspense>
 
-        {/* APPROACH */}
+      {/* APPROACH */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesApproach
           title="Our"
           accent="AI Agent Approach"
           subtitle="We engineer intelligent, autonomous agents designed to take action—not just provide insights."
           steps={steps}
         />
+      </Suspense>
 
-        {/* INDUSTRIES */}
+      {/* INDUSTRIES */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesIndustries
           title="AI Agent"
           accent="Industry Applications"
           subtitle="AI Agents transform industries by autonomously performing tasks, handling operations, and executing complex workflows."
           industries={industries}
         />
+      </Suspense>
 
-        {/* WHY CHOOSE */}
+      {/* WHY CHOOSE */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix for AI Agents?"
           subtitle="We help enterprises build action-driven digital workers powered by advanced agentic AI—designed for autonomy, reliability, and security."
           points={points}
         />
+      </Suspense>
 
-        {/* IMPACT */}
+      {/* IMPACT */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesImpact
           title="The Future of Workforce Automation"
           subtitle="AI Agents enable 24/7 autonomous productivity—eliminating repetitive work, scaling operations instantly, and improving efficiency across the enterprise."
         />
+      </Suspense>
 
-        {/* CTA */}
+      {/* CTA */}
+      <Suspense fallback={<SectionFallback />}>
         <ServicesCTA
           title="Ready to Deploy Your AI Agents?"
           subtitle="Build intelligent digital workers that transform productivity, optimize workflows, and enhance your business performance."
@@ -194,6 +212,6 @@ const AgentsAI = () => {
       </Suspense>
     </>
   );
-};
+});
 
-export default React.memo(AgentsAI);
+export default AgentsAI;

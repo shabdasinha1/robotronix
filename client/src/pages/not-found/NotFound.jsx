@@ -2,21 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /* ===============================
-   STATIC STYLES
+   STATIC STYLES (IMMUTABLE)
 =============================== */
 
-const titleStyle = {
+const titleStyle = Object.freeze({
   fontSize: "6.5rem",
   fontWeight: 800,
   color: "var(--clr-blue)",
   textShadow: "0 0 18px var(--blue-06)",
   marginBottom: "10px",
-};
+});
 
-const subTextStyle = {
+const subTextStyle = Object.freeze({
   maxWidth: "520px",
   margin: "14px auto 32px",
-};
+});
 
 const NotFound = () => {
   return (

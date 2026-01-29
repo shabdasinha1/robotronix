@@ -173,6 +173,14 @@ margin-bottom: var(--space-sm);
   transition: 0.35s ease;
 }
 
+.rtx-life-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
 .rtx-life-img:hover {
   transform: translateY(-6px);
   border-color: var(--blue-02);

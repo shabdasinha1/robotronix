@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../common/Card";
 import { NavLink } from "react-router-dom";
@@ -55,20 +55,28 @@ const servicesList = [
 ];
 
 const ServicesSection = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
-   <section
-  ref={ref}
-  className={`rtx-services-wrapper u-section u-section-md ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+    <section
+      ref={ref}
+      className={`rtx-services-wrapper u-section u-section-md ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-services-container u-container-center">
         {/* TITLE */}
         <h2
@@ -89,32 +97,36 @@ const ServicesSection = React.memo(() => {
 
         {/* SERVICE CARDS */}
         <div className="rtx-services-grid u-grid-auto">
-          {servicesList.map((service, index) => (
-            <Card
-              key={service.path}
-              size="md"
-              variant="hover"
-              className="rtx-service-card u-drop"
-              style={{ "--delay": `${0.6 + index * 0.15}s` }}
-            >
-              <div className="rtx-service-icon">{service.icon}</div>
+          {servicesList.map((service, index) => {
+            const delay = `${0.6 + index * 0.15}s`;
 
-              <h3 className="rtx-service-title">
-                {service.title}
-              </h3>
-
-              <p className="rtx-service-desc">
-                {service.desc}
-              </p>
-
-              <NavLink
-                to={service.path}
-                className="rtx-service-link"
+            return (
+              <Card
+                key={service.path}
+                size="md"
+                variant="hover"
+                className="rtx-service-card u-drop"
+                style={{ "--delay": delay }}
               >
-                Learn more →
-              </NavLink>
-            </Card>
-          ))}
+                <div className="rtx-service-icon">{service.icon}</div>
+
+                <h3 className="rtx-service-title">
+                  {service.title}
+                </h3>
+
+                <p className="rtx-service-desc">
+                  {service.desc}
+                </p>
+
+                <NavLink
+                  to={service.path}
+                  className="rtx-service-link"
+                >
+                  Learn more →
+                </NavLink>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

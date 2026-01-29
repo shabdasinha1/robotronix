@@ -1,5 +1,11 @@
-import { Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Suspense, useEffect, useMemo } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import ThemeInitializer from "../theme/ThemeInitializer";
 
 // Common
@@ -14,30 +20,54 @@ import { routesConfig, adminRoutesConfig } from "./RouteConfig";
 import AdminLayout from "../admin/layout/AdminLayout";
 import AdminProtectedRoute from "../admin/pages/auth/AdminProtectedRoute";
 
-const PageFallback = () => null;
+/* ===============================
+   FALLBACK (LIGHTWEIGHT)
+================================ */
+const PageFallback = () => (
+  <div style={{ minHeight: "100vh" }} />
+);
+
+/* ===============================
+   PUBLIC WEBSITE LAYOUT
+================================ */
+const PublicLayout = () => (
+  <>
+    <Header />
+    <main>
+      <Suspense fallback={<PageFallback />}>
+        <Outlet />
+      </Suspense>
+    </main>
+    <Footer />
+  </>
+);
 
 const AppRoutes = () => {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-    window.scrollTo(0, 0);
   }, []);
 
   /* ===============================
      RESOLVE ADMIN PUBLIC COMPONENTS
   =============================== */
-  const LoginComp = adminRoutesConfig.find(
-    (r) => r.path === "login"
-  )?.component;
+  const LoginComp = useMemo(
+    () => adminRoutesConfig.find((r) => r.path === "login")?.component,
+    []
+  );
 
-  const ForgotPasswordComp = adminRoutesConfig.find(
-    (r) => r.path === "forgot-password"
-  )?.component;
+  const ForgotPasswordComp = useMemo(
+    () =>
+      adminRoutesConfig.find((r) => r.path === "forgot-password")?.component,
+    []
+  );
 
-  const ResetPasswordComp = adminRoutesConfig.find(
-    (r) => r.path === "reset-password"
-  )?.component;
+  const ResetPasswordComp = useMemo(
+    () =>
+      adminRoutesConfig.find((r) => r.path === "reset-password")?.component,
+    []
+  );
 
   return (
     <BrowserRouter>
@@ -49,16 +79,15 @@ const AppRoutes = () => {
 
           {/* ================= ADMIN LOGIN ================= */}
           <Route
-  path="/admin/login"
-  element={
-    sessionStorage.getItem("admin_auth") === "true"
-      ? <Navigate to="/admin/dashboard" replace />
-      : LoginComp
-      ? <LoginComp />
-      : null
-  }
-/>
-
+            path="/admin/login"
+            element={
+              sessionStorage.getItem("admin_auth") === "true" ? (
+                <Navigate to="/admin/dashboard" replace />
+              ) : LoginComp ? (
+                <LoginComp />
+              ) : null
+            }
+          />
 
           {/* ================= ADMIN PUBLIC ================= */}
           <Route
@@ -88,29 +117,14 @@ const AppRoutes = () => {
           </Route>
 
           {/* ================= PUBLIC WEBSITE ================= */}
-          <Route
-            path="/*"
-            element={
-              <>
-                <Header />
-                <main>
-                  <Routes>
-                    {routesConfig.map(
-                      ({ path, component: Component }) =>
-                        Component && (
-                          <Route
-                            key={path}
-                            path={path}
-                            element={<Component />}
-                          />
-                        )
-                    )}
-                  </Routes>
-                </main>
-                <Footer />
-              </>
-            }
-          />
+          <Route element={<PublicLayout />}>
+            {routesConfig.map(
+              ({ path, component: Component }) =>
+                Component && (
+                  <Route key={path} path={path} element={<Component />} />
+                )
+            )}
+          </Route>
 
         </Routes>
       </Suspense>

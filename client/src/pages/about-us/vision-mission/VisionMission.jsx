@@ -1,3 +1,4 @@
+import React from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 
 const VisionMissionHero = () => {
@@ -8,7 +9,7 @@ const VisionMissionHero = () => {
 
   return (
     <>
-      {/* ------------ Vision & Mission Hero --------------*/}
+      {/* ------------ Vision & Mission Hero -------------- */}
       <section
         ref={hero.ref}
         className={`u-section u-section-lg rtx-vm-hero ${
@@ -16,20 +17,28 @@ const VisionMissionHero = () => {
         }`}
       >
         <div className="u-container-center">
-          {/* EYEBROW */}
-          <span className="rtx-vm-eyebrow u-drop" style={{ "--delay": "0.1s" }}>
+          <span
+            className="rtx-vm-eyebrow u-drop"
+            style={{ "--delay": "0.1s" }}
+          >
             Vision & Mission
           </span>
 
-          {/* MAIN STATEMENT */}
-          <h1 className="rtx-vm-title u-drop" style={{ "--delay": "0.3s" }}>
+          <h1
+            className="rtx-vm-title u-drop"
+            style={{ "--delay": "0.3s" }}
+          >
             Our vision defines where we are headed.
             <br />
-            <span className="rtx-vm-missiontext">Our mission defines how we get there.</span>
+            <span className="rtx-vm-missiontext">
+              Our mission defines how we get there.
+            </span>
           </h1>
 
-          {/* SUPPORT LINE */}
-          <p className="rtx-vm-subtext u-drop" style={{ "--delay": "0.5s" }}>
+          <p
+            className="rtx-vm-subtext u-drop"
+            style={{ "--delay": "0.5s" }}
+          >
             Transforming industries, enriching lives, and shaping a better
             future through technology.
           </p>
@@ -44,12 +53,13 @@ const VisionMissionHero = () => {
         }`}
       >
         <div className="u-container-center">
-          {/* TITLE */}
-          <h2 className="rtx-vision-title u-drop" style={{ "--delay": "0.2s" }}>
+          <h2
+            className="rtx-vision-title u-drop"
+            style={{ "--delay": "0.2s" }}
+          >
             Our <span className="rtx-hero-accent">Vision</span>
           </h2>
 
-          {/* STATEMENT */}
           <p
             className="rtx-vision-statement u-drop"
             style={{ "--delay": "0.4s" }}
@@ -59,7 +69,10 @@ const VisionMissionHero = () => {
             industries, enrich lives, and lead society toward a better future.
           </p>
 
-          <p className="rtx-vision-text u-drop" style={{ "--delay": "0.6s" }}>
+          <p
+            className="rtx-vision-text u-drop"
+            style={{ "--delay": "0.6s" }}
+          >
             We aspire to create a world where every individual has equal
             opportunities for progress and development, fostering a prosperous
             and inclusive society where everyone moves forward together.
@@ -75,7 +88,6 @@ const VisionMissionHero = () => {
         }`}
       >
         <div className="u-container rtx-mission-grid">
-          {/* LEFT — TEXT */}
           <div className="rtx-mission-text u-drop-left">
             <h2 className="u-title">
               Our <span className="rtx-hero-accent">Mission</span>
@@ -101,7 +113,6 @@ const VisionMissionHero = () => {
             </p>
           </div>
 
-          {/* RIGHT — VISUAL RHYTHM */}
           <div className="rtx-mission-visual u-drop-right">
             <span className="vm-line" />
             <span className="vm-line" />
@@ -139,4 +150,4 @@ const VisionMissionHero = () => {
   );
 };
 
-export default VisionMissionHero;
+export default React.memo(VisionMissionHero);

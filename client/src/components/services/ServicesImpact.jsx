@@ -1,11 +1,21 @@
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-const ServicesImpact = ({ title, subtitle }) => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+const ServicesImpact = React.memo(({ title, subtitle }) => {
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
     <section
@@ -15,15 +25,14 @@ const ServicesImpact = ({ title, subtitle }) => {
       }`}
     >
       <div
-  className="rtx-service-impact-container u-container-center u-drop"
-  style={{ "--delay": "0.2s" }}
->
-
+        className="rtx-service-impact-container u-container-center u-drop"
+        style={{ "--delay": "0.2s" }}
+      >
         <h2 className="rtx-service-impact-title">{title}</h2>
         <p className="rtx-service-impact-subtext">{subtitle}</p>
       </div>
     </section>
   );
-};
+});
 
 export default ServicesImpact;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink } from "react-router-dom";
 
@@ -6,14 +6,21 @@ import atulya1 from "../../assets/images/atulya1.jpg";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
 
-const ContactUs = () => {
-  const hero = useRevealOnScroll({ once: true });
-  const infoGrid = useRevealOnScroll({ once: true });
-  const office = useRevealOnScroll({ once: true });
-  const form = useRevealOnScroll({ once: true });
-  const map = useRevealOnScroll({ once: true });
-  // const details = useRevealOnScroll({ once: true });
+const ContactUs = React.memo(() => {
+  /* ===============================
+     SHARED REVEAL CONFIG
+  =============================== */
+  const revealConfig = useMemo(() => ({ once: true }), []);
 
+  const hero = useRevealOnScroll(revealConfig);
+  const infoGrid = useRevealOnScroll(revealConfig);
+  const office = useRevealOnScroll(revealConfig);
+  const form = useRevealOnScroll(revealConfig);
+  const map = useRevealOnScroll(revealConfig);
+
+  /* ===============================
+     STATE
+  =============================== */
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,73 +31,88 @@ const ContactUs = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const info = [
-    {
-      icon: "📍",
-      title: "Office Address",
-      desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001"
+  /* ===============================
+     STATIC INFO DATA (MEMOIZED)
+  =============================== */
+  const info = useMemo(
+    () => [
+      {
+        icon: "📍",
+        title: "Office Address",
+        desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001",
+      },
+      {
+        icon: "✉️",
+        title: "Email",
+        desc: "info@robotronix.co.in",
+        link: "mailto:info@robotronix.co.in",
+      },
+      {
+        icon: "📞",
+        title: "Phone",
+        desc: "+91 99931 50998",
+        link: "tel:+919993150998",
+      },
+      {
+        icon: "🕒",
+        title: "Working Hours",
+        desc: "Mon – Sat: 10 AM – 7 PM",
+      },
+    ],
+    []
+  );
+
+  /* ===============================
+     HANDLERS (MEMOIZED)
+  =============================== */
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }, []);
+
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+
+      try {
+        setLoading(true);
+        await messagesApi.createMessage(formData);
+
+        setSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+
+        alert("Message sent successfully!");
+      } catch (err) {
+        alert(err?.message || "Failed to send message");
+      } finally {
+        setLoading(false);
+      }
     },
-    {
-      icon: "✉️",
-      title: "Email",
-      desc: "info@robotronix.co.in",
-      link: "mailto:info@robotronix.co.in",
-    },
-    {
-      icon: "📞",
-      title: "Phone",
-      desc: "+91 99931 50998",
-      link: "tel:+919993150998",
-    },
-    {
-      icon: "🕒",
-      title: "Working Hours",
-      desc: "Mon – Sat: 10 AM – 7 PM",
-    },
-  ];
+    [formData]
+  );
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      setLoading(true);
-      await messagesApi.createMessage(formData);
-
-      setSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-
-      alert("Message sent successfully!");
-    } catch (err) {
-      alert(err?.message || "Failed to send message");
-    } finally {
-      setLoading(false);
-    }
-  };
-const scrollToContactForm = () => {
-  const el = document.getElementById("contact-form");
-  el?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
+  const scrollToContactForm = useCallback(() => {
+    const el = document.getElementById("contact-form");
+    el?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, []);
 
   return (
     <>
       {/* ================= HERO ================= */}
       <section
         ref={hero.ref}
-        className={`rtx-cpage-hero-wrapper u-section u-section-lg ${hero.visible ? "u-drop-visible" : ""
-          }`}
+        className={`rtx-cpage-hero-wrapper u-section u-section-lg ${
+          hero.visible ? "u-drop-visible" : ""
+        }`}
       >
-
         <div className="rtx-cpage-hero-particles"></div>
 
         <div className="u-container-center">
@@ -109,13 +131,12 @@ const scrollToContactForm = () => {
           </p>
 
           <div className="rtx-contact-hero-btn-group u-drop">
-          <button
-  className="btn btn-primary btn-lg"
-  onClick={scrollToContactForm}
->
-  Contact Our Team →
-</button>
-
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={scrollToContactForm}
+            >
+              Contact Our Team →
+            </button>
 
             <NavLink to="tel:+919993150998" className="btn btn-outline btn-lg">
               Call Us
@@ -143,7 +164,10 @@ const scrollToContactForm = () => {
       >
         <div className="u-container u-grid-auto">
           {info.map((item, i) => (
-            <div key={i} className="card card-glass rtx-contact-info-card u-drop">
+            <div
+              key={i}
+              className="card card-glass rtx-contact-info-card u-drop"
+            >
               <div className="rtx-contact-info-icon">{item.icon}</div>
               <h3 className="text-accent">{item.title}</h3>
               {item.link ? (
@@ -180,12 +204,11 @@ const scrollToContactForm = () => {
             </p>
 
             <button
-  className="btn btn-primary btn-lg"
-  onClick={scrollToContactForm}
->
-  Schedule a Visit →
-</button>
-
+              className="btn btn-primary btn-lg"
+              onClick={scrollToContactForm}
+            >
+              Schedule a Visit →
+            </button>
           </div>
         </div>
       </section>
@@ -268,8 +291,12 @@ const scrollToContactForm = () => {
             <a href="mailto:info@robotronix.co.in" className="rtx-cpage-info-box">
               <Mail /> info@robotronix.co.in
             </a>
-            <div className="rtx-cpage-info-box"><Phone /> 0731-2970998</div>
-            <div className="rtx-cpage-info-box"><MapPin /> Atulya IT Park, Indore</div>
+            <div className="rtx-cpage-info-box">
+              <Phone /> 0731-2970998
+            </div>
+            <div className="rtx-cpage-info-box">
+              <MapPin /> Atulya IT Park, Indore
+            </div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
           </div>
         </div>
@@ -298,55 +325,8 @@ const scrollToContactForm = () => {
           </div>
         </div>
       </section>
-
-      {/* ================= DETAILS ================= */}
-      {/* <section
-        ref={details.ref}
-        className={`u-section ${details.visible ? "u-drop-visible" : ""}`}
-      >
-        <div className="u-container-center">
-          <h2 className="u-title u-drop">
-            Contact <span>Information</span>
-          </h2>
-
-          <p className="u-subtext u-drop">
-            Reach out through any channel below.
-          </p>
-
-          <div className="u-grid-auto">
-            <div className="card card-glass u-drop">
-              <FiMapPin />
-              <h3 className="text-accent">Office</h3>
-              <p className="text-muted">Atulya IT Park, Indore</p>
-            </div>
-
-            <div className="card card-glass u-drop">
-              <FiMail />
-              <h3 className="text-accent">Email</h3>
-              <a
-                href="mailto:info@robotronix.co.in"
-                className="text-muted rtx-cpage-info-link"
-              >
-                info@robotronix.co.in
-              </a>
-            </div>
-
-            <div className="card card-glass u-drop">
-              <FiPhoneCall />
-              <h3 className="text-accent">Call</h3>
-              <a
-                href="tel:07312970998"
-                className="text-muted rtx-cpage-info-link"
-              >
-                0731-2970998
-              </a>
-
-            </div>
-          </div>
-        </div>
-      </section> */}
     </>
   );
-};
+});
 
 export default ContactUs;

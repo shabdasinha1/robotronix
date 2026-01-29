@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
 
 const ContactSection = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
+
+  /* ===============================
+     FORM STATE
+  =============================== */
 
   const [formData, setFormData] = useState({
     name: "",
@@ -18,47 +31,69 @@ const ContactSection = React.memo(() => {
   });
 
   const [loading, setLoading] = useState(false);
+  const isMountedRef = useRef(true);
 
-  const handleChange = (e) => {
+  /* ===============================
+     LIFECYCLE SAFETY
+  =============================== */
+
+  React.useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  /* ===============================
+     HANDLERS (MEMOIZED)
+  =============================== */
+
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-  };
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (loading) return;
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (loading) return;
 
-    try {
-      setLoading(true);
+      try {
+        setLoading(true);
 
-      await messagesApi.createMessage(formData);
+        await messagesApi.createMessage(formData);
 
-      alert("Message sent successfully!");
+        if (!isMountedRef.current) return;
 
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
-      });
-    } catch (err) {
-      alert(err?.message || "Failed to send message");
-    } finally {
-      setLoading(false);
-    }
-  };
+        alert("Message sent successfully!");
+
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+      } catch (err) {
+        if (!isMountedRef.current) return;
+        alert(err?.message || "Failed to send message");
+      } finally {
+        if (isMountedRef.current) {
+          setLoading(false);
+        }
+      }
+    },
+    [formData, loading]
+  );
 
   return (
-   <section
-  ref={ref}
-  className={`rtx-contact-wrapper u-section u-section-lg ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+    <section
+      ref={ref}
+      className={`rtx-contact-wrapper u-section u-section-lg ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-contact-container u-container-center">
         {/* TITLE */}
         <h2
@@ -170,9 +205,11 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Visit Us</h4>
-              <p>402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
-              Opposite Indian Coffee House,<br />
-              Indore, Madhya Pradesh - 452001</p>
+              <p>
+                402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
+                Opposite Indian Coffee House,<br />
+                Indore, Madhya Pradesh - 452001
+              </p>
             </div>
           </div>
         </div>

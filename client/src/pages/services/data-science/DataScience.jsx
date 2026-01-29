@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -112,29 +112,17 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const DataScience = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Data-Driven Intelligence"
         title="Transform Data into"
@@ -152,8 +140,8 @@ const DataScience = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="What is"
           accent="Data Science?"
@@ -164,7 +152,6 @@ const DataScience = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Data Science Approach"
@@ -172,7 +159,6 @@ const DataScience = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Industry"
           accent="Applications"
@@ -180,7 +166,6 @@ const DataScience = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix for Data Science?"
@@ -188,13 +173,11 @@ const DataScience = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="Empowering Businesses with Data-Driven Intelligence"
           subtitle="We don’t just analyze data — we transform it into a strategic asset that powers innovation, precision, and sustainable growth."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Ready to Unlock the Power of Your Data?"
           subtitle="Turn complex data into actionable insights with Robotronix’s advanced Data Science solutions."

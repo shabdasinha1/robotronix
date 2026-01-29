@@ -1,45 +1,47 @@
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 
-const ServicesCTA = ({ title, subtitle, buttonText, buttonLink }) => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.2,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+const ServicesCTA = React.memo(
+  ({ title, subtitle, buttonText, buttonLink }) => {
+    /* ===============================
+       OBSERVER OPTIONS (MEMOIZED)
+    =============================== */
 
-  return (
-  <section
-  ref={ref}
-  className={`rtx-cta-wrapper u-section u-section-lg ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
+    const revealOptions = useMemo(
+      () => ({
+        threshold: 0.2,
+        rootMargin: "0px 0px -120px 0px",
+        once: true,
+      }),
+      []
+    );
 
-      <div
-        className="rtx-cta-box u-drop"
-        style={{ "--delay": "0.2s" }}
+    const { ref, visible } = useRevealOnScroll(revealOptions);
+
+    return (
+      <section
+        ref={ref}
+        className={`rtx-cta-wrapper u-section u-section-lg ${
+          visible ? "u-drop-visible" : ""
+        }`}
       >
-        <h2 className="rtx-cta-title">
-          {title}
-        </h2>
-
-        <p className="rtx-cta-sub">
-          {subtitle}
-        </p>
-
-        {/* BUTTON (replaces <a>) */}
-        <Button
-          to={buttonLink}
-          variant="primary"
-          size="lg"
+        <div
+          className="rtx-cta-box u-drop"
+          style={{ "--delay": "0.2s" }}
         >
-          {buttonText}
-        </Button>
+          <h2 className="rtx-cta-title">{title}</h2>
 
-      </div>
-    </section>
-  );
-};
+          <p className="rtx-cta-sub">{subtitle}</p>
+
+          {/* BUTTON */}
+          <Button to={buttonLink} variant="primary" size="lg">
+            {buttonText}
+          </Button>
+        </div>
+      </section>
+    );
+  }
+);
 
 export default ServicesCTA;

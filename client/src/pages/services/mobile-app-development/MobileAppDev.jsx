@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -107,29 +107,17 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const MobileAppDev = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Flutter App Development Experts"
         title="Build Powerful"
@@ -147,8 +135,8 @@ const MobileAppDev = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="Flutter"
           accent="Mobile App Development"
@@ -159,7 +147,6 @@ const MobileAppDev = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Flutter Development Process"
@@ -167,7 +154,6 @@ const MobileAppDev = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Flutter App"
           accent="Industry Solutions"
@@ -175,7 +161,6 @@ const MobileAppDev = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix for Flutter?"
@@ -183,13 +168,11 @@ const MobileAppDev = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="One Codebase. Unlimited Possibilities."
           subtitle="Flutter enables faster development, consistent UI, and scalable mobile apps that grow with your business."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Ready to Build Your Flutter App?"
           subtitle="Let’s turn your idea into a high-performance Flutter app for Android and iOS."

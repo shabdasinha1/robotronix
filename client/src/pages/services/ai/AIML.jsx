@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -25,46 +25,14 @@ const steps = [
 ];
 
 const industries = [
-  {
-    icon: "🏭",
-    title: "Manufacturing",
-    desc: "Predictive maintenance, defect detection, and smart production systems.",
-  },
-  {
-    icon: "🏦",
-    title: "Finance & Banking",
-    desc: "Fraud detection, credit scoring, algorithmic trading, customer analytics.",
-  },
-  {
-    icon: "🏥",
-    title: "Healthcare",
-    desc: "Medical imaging, diagnosis prediction, patient data analysis.",
-  },
-  {
-    icon: "🛒",
-    title: "Retail & E-commerce",
-    desc: "Demand forecasting, recommendations, customer behavior intelligence.",
-  },
-  {
-    icon: "🚘",
-    title: "Automotive",
-    desc: "Autonomous systems, vehicle monitoring, sensor data modeling.",
-  },
-  {
-    icon: "🏫",
-    title: "Education",
-    desc: "AI tutoring, performance analytics, personalized learning systems.",
-  },
-  {
-    icon: "📊",
-    title: "Business & Marketing",
-    desc: "Trend forecasting, campaign optimization, engagement analytics.",
-  },
-  {
-    icon: "💬",
-    title: "Customer Service",
-    desc: "AI chatbots and virtual assistants enabling 24/7 support.",
-  },
+  { icon: "🏭", title: "Manufacturing", desc: "Predictive maintenance, defect detection, and smart production systems." },
+  { icon: "🏦", title: "Finance & Banking", desc: "Fraud detection, credit scoring, algorithmic trading, customer analytics." },
+  { icon: "🏥", title: "Healthcare", desc: "Medical imaging, diagnosis prediction, patient data analysis." },
+  { icon: "🛒", title: "Retail & E-commerce", desc: "Demand forecasting, recommendations, customer behavior intelligence." },
+  { icon: "🚘", title: "Automotive", desc: "Autonomous systems, vehicle monitoring, sensor data modeling." },
+  { icon: "🏫", title: "Education", desc: "AI tutoring, performance analytics, personalized learning systems." },
+  { icon: "📊", title: "Business & Marketing", desc: "Trend forecasting, campaign optimization, engagement analytics." },
+  { icon: "💬", title: "Customer Service", desc: "AI chatbots and virtual assistants enabling 24/7 support." },
 ];
 
 const points = [
@@ -119,7 +87,7 @@ const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"
 const AIML = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="AI & Machine Learning Solutions"
         title="Powering Intelligent"
@@ -137,7 +105,8 @@ const AIML = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="AI & Machine Learning"
           accent="Overview"

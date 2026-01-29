@@ -107,29 +107,17 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const WebDev = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Web Development & Digital Solutions"
         title="Build Powerful"
@@ -147,8 +135,8 @@ const WebDev = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="Web Development &"
           accent="Digital Solutions"
@@ -159,7 +147,6 @@ const WebDev = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Development Approach"
@@ -167,7 +154,6 @@ const WebDev = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Digital"
           accent="Solutions Across Industries"
@@ -175,7 +161,6 @@ const WebDev = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix?"
@@ -183,13 +168,11 @@ const WebDev = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="Transform Your Business Digitally"
           subtitle="Our MERN-based digital solutions streamline operations, improve visibility, and enable faster decision-making."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Ready to Build Your Digital Solution?"
           subtitle="Let’s create a scalable, secure, and future-ready web platform."

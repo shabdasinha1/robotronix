@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -25,46 +25,14 @@ const steps = [
 ];
 
 const industries = [
-  {
-    icon: "🏢",
-    title: "Corporate & Business",
-    desc: "AI-powered documents, presentations, automation, and enterprise content generation.",
-  },
-  {
-    icon: "🎨",
-    title: "Media & Entertainment",
-    desc: "Scripts, visuals, VFX, content creation, and creative ideation.",
-  },
-  {
-    icon: "🏬",
-    title: "Retail & E-commerce",
-    desc: "Product descriptions, ads, personalization engines, and automation tools.",
-  },
-  {
-    icon: "🏫",
-    title: "Education & Training",
-    desc: "AI tutors, course generation, assessments, and learning personalization.",
-  },
-  {
-    icon: "🏥",
-    title: "Healthcare",
-    desc: "AI-generated clinical documents, reports, and patient interaction automation.",
-  },
-  {
-    icon: "💻",
-    title: "Technology & Software",
-    desc: "Code generation, debugging, documentation, and UX design support.",
-  },
-  {
-    icon: "📈",
-    title: "Marketing & Branding",
-    desc: "Campaign ideas, brand content, sentiment analysis, and creative automation.",
-  },
-  {
-    icon: "🚀",
-    title: "Innovation & R&D",
-    desc: "Rapid ideation, prototyping, design models, and creative experimentation.",
-  },
+  { icon: "🏢", title: "Corporate & Business", desc: "AI-powered documents, presentations, automation, and enterprise content generation." },
+  { icon: "🎨", title: "Media & Entertainment", desc: "Scripts, visuals, VFX, content creation, and creative ideation." },
+  { icon: "🏬", title: "Retail & E-commerce", desc: "Product descriptions, ads, personalization engines, and automation tools." },
+  { icon: "🏫", title: "Education & Training", desc: "AI tutors, course generation, assessments, and learning personalization." },
+  { icon: "🏥", title: "Healthcare", desc: "AI-generated clinical documents, reports, and patient interaction automation." },
+  { icon: "💻", title: "Technology & Software", desc: "Code generation, debugging, documentation, and UX design support." },
+  { icon: "📈", title: "Marketing & Branding", desc: "Campaign ideas, brand content, sentiment analysis, and creative automation." },
+  { icon: "🚀", title: "Innovation & R&D", desc: "Rapid ideation, prototyping, design models, and creative experimentation." },
 ];
 
 const points = [
@@ -95,47 +63,26 @@ const points = [
 ];
 
 const infoCards = [
-  {
-    title: "Content Creation",
-    desc: "AI-generated text, images, video, 3D assets, and more.",
-  },
-  {
-    title: "Code & Automation",
-    desc: "Automated development, documentation, workflow pipelines.",
-  },
-  {
-    title: "Design & Innovation",
-    desc: "Creative tools for product design, UI/UX, and media generation.",
-  },
+  { title: "Content Creation", desc: "AI-generated text, images, video, 3D assets, and more." },
+  { title: "Code & Automation", desc: "Automated development, documentation, workflow pipelines." },
+  { title: "Design & Innovation", desc: "Creative tools for product design, UI/UX, and media generation." },
 ];
 
 /* ===============================
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const GenerativeAI = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Transforming Creativity with AI"
         title="Generative AI"
@@ -153,8 +100,8 @@ const GenerativeAI = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="What is"
           accent="Generative AI?"
@@ -165,7 +112,6 @@ const GenerativeAI = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Generative AI Approach"
@@ -173,7 +119,6 @@ const GenerativeAI = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Generative AI"
           accent="Industry Applications"
@@ -181,7 +126,6 @@ const GenerativeAI = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix for Gen AI?"
@@ -189,13 +133,11 @@ const GenerativeAI = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="Shaping the Future with Generative AI"
           subtitle="Robotronix enables enterprises to unlock the full power of Generative AI — delivering creativity, automation, and intelligent transformation."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Ready to Build Your Generative AI Solution?"
           subtitle="From creative automation to AI content engines — Robotronix helps you innovate with Gen AI and lead the future."

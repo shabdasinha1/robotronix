@@ -1,72 +1,97 @@
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
 
-const Career = () => {
-  const hero = useRevealOnScroll({ threshold: 0.2, once: true });
-    const why = useRevealOnScroll({ threshold: 0.2, once: true });
-     const life = useRevealOnScroll({ threshold: 0.2, once: true });
-     const internship = useRevealOnScroll({ threshold: 0.2, once: true });
-       const jobsRef = useRevealOnScroll({ threshold: 0.2, once: true });
-    const growth = useRevealOnScroll({ threshold: 0.2, once: true });
-     const cta = useRevealOnScroll({ threshold: 0.2, once: true });
-     const reasons = [
-    {
-      title: "Learning-First Culture",
-      desc: "We focus on practical learning through real projects, mentorship, and continuous skill development."
-    },
-    {
-      title: "Real-World Exposure",
-      desc: "Work on live industry projects that challenge you and help you grow beyond theory."
-    },
-    {
-      title: "Supportive Team Environment",
-      desc: "Collaboration, respect, and open communication define how we work together every day."
-    },
-    {
-      title: "Clear Growth Path",
-      desc: "Performance-based growth with clear expectations, feedback, and career progression."
-    },
-    {
-      title: "Ownership & Responsibility",
-      desc: "We trust our team members to take ownership and make meaningful contributions."
-    },
-    {
-      title: "Balanced Work Culture",
-      desc: "We value productivity, well-being, and a healthy work-life balance."
-    }
-  ];
+import festival1 from "../../assets/images/culture/festival/festival5.webp";
+import festival2 from "../../assets/images/culture/festival/festival8.webp";
+import festival3 from "../../assets/images/culture/festival/festival11.webp";
+import festival4 from "../../assets/images/culture/festival/festival14.webp";
 
-  const jobs = [
-    {
-      title: "Embedded Engineer",
-      experience: "2+ Years",
-      location: "Indore",
-      type: "Full Time",
-    },
-    
-  ];
+const Career = React.memo(() => {
+  /* ===============================
+     SHARED REVEAL CONFIG
+  =============================== */
+  const revealConfig = useMemo(
+    () => ({ threshold: 0.2, once: true }),
+    []
+  );
 
-  
+  const hero = useRevealOnScroll(revealConfig);
+  const why = useRevealOnScroll(revealConfig);
+  const life = useRevealOnScroll(revealConfig);
+  const internship = useRevealOnScroll(revealConfig);
+  const jobsRef = useRevealOnScroll(revealConfig);
+  const growth = useRevealOnScroll(revealConfig);
+  const cta = useRevealOnScroll(revealConfig);
 
+  /* ===============================
+     STATIC DATA (MEMOIZED)
+  =============================== */
 
- const growthPoints = [
-    {
-      title: "Hands-on Learning",
-      desc: "We believe learning happens best by doing. Team members work on real-world projects that enhance both technical and problem-solving skills."
-    },
-    {
-      title: "Mentorship & Guidance",
-      desc: "Experienced team members and mentors guide you through challenges, helping you grow with confidence and clarity."
-    },
-    {
-      title: "Skill Development",
-      desc: "Continuous learning through internal sessions, discussions, and exposure to modern technologies and tools."
-    },
-    {
-      title: "Career Progression",
-      desc: "Clear expectations, constructive feedback, and performance-based growth opportunities help you move forward in your career."
-    }
-  ];
+  const reasons = useMemo(
+    () => [
+      {
+        title: "Learning-First Culture",
+        desc: "We focus on practical learning through real projects, mentorship, and continuous skill development.",
+      },
+      {
+        title: "Real-World Exposure",
+        desc: "Work on live industry projects that challenge you and help you grow beyond theory.",
+      },
+      {
+        title: "Supportive Team Environment",
+        desc: "Collaboration, respect, and open communication define how we work together every day.",
+      },
+      {
+        title: "Clear Growth Path",
+        desc: "Performance-based growth with clear expectations, feedback, and career progression.",
+      },
+      {
+        title: "Ownership & Responsibility",
+        desc: "We trust our team members to take ownership and make meaningful contributions.",
+      },
+      {
+        title: "Balanced Work Culture",
+        desc: "We value productivity, well-being, and a healthy work-life balance.",
+      },
+    ],
+    []
+  );
+
+  const jobs = useMemo(
+    () => [
+      {
+        title: "Embedded Engineer",
+        experience: "2+ Years",
+        location: "Indore",
+        type: "Full Time",
+      },
+    ],
+    []
+  );
+
+  const growthPoints = useMemo(
+    () => [
+      {
+        title: "Hands-on Learning",
+        desc: "We believe learning happens best by doing. Team members work on real-world projects that enhance both technical and problem-solving skills.",
+      },
+      {
+        title: "Mentorship & Guidance",
+        desc: "Experienced team members and mentors guide you through challenges, helping you grow with confidence and clarity.",
+      },
+      {
+        title: "Skill Development",
+        desc: "Continuous learning through internal sessions, discussions, and exposure to modern technologies and tools.",
+      },
+      {
+        title: "Career Progression",
+        desc: "Clear expectations, constructive feedback, and performance-based growth opportunities help you move forward in your career.",
+      },
+    ],
+    []
+  );
+
 
   return (
     
@@ -87,7 +112,7 @@ const Career = () => {
             className="rtx-career-eyebrow u-drop"
             style={{ "--delay": "0.1s" }}
           >
-            Careers at Robotronix
+            {/* Careers at Robotronix */}
           </span>
 
           <h1
@@ -221,15 +246,28 @@ const Career = () => {
         </div>
 
         {/* RIGHT — IMAGES */}
-        <div
-          className="rtx-career-life-images u-drop-right"
-          style={{ "--delay": "0.6s" }}
-        >
-          <div className="rtx-life-img" />
-          <div className="rtx-life-img" />
-          <div className="rtx-life-img" />
-          <div className="rtx-life-img" />
-        </div>
+        {/* RIGHT — IMAGES */}
+<div
+  className="rtx-career-life-images u-drop-right"
+  style={{ "--delay": "0.6s" }}
+>
+  <div className="rtx-life-img">
+    <img src={festival1} alt="Festival moment 1" loading="lazy" />
+  </div>
+
+  <div className="rtx-life-img">
+    <img src={festival2} alt="Festival moment 2" loading="lazy" />
+  </div>
+
+  <div className="rtx-life-img">
+    <img src={festival3} alt="Festival moment 3" loading="lazy" />
+  </div>
+
+  <div className="rtx-life-img">
+    <img src={festival4} alt="Festival moment 4" loading="lazy" />
+  </div>
+</div>
+
 
       </div>
     </section>
@@ -431,6 +469,6 @@ const Career = () => {
     </section>
 </>
   );
-};
+});
 
 export default Career;

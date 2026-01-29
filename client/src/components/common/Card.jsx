@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 /**
  * Universal Card Component
@@ -11,29 +11,39 @@ import React from "react";
  * - children: card content
  */
 
-const Card = React.memo(({
-  variant = "",
-  size = "md",
-  className = "",
-  style = {},
-  children,
-  ...rest
-}) => {
-  const classes = [
-    "card",
-    size && `card-${size}`,
-    variant === "glass" && "card-glass",
-    variant === "hover" && "card-hover",
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+const Card = React.memo(
+  ({
+    variant = "",
+    size = "md",
+    className = "",
+    style,
+    children,
+    ...rest
+  }) => {
+    /* ===============================
+       CLASSES (MEMOIZED)
+    =============================== */
 
-  return (
-    <div className={classes} style={style} {...rest}>
-      {children}
-    </div>
-  );
-});
+    const classes = useMemo(
+      () =>
+        [
+          "card",
+          size && `card-${size}`,
+          variant === "glass" && "card-glass",
+          variant === "hover" && "card-hover",
+          className,
+        ]
+          .filter(Boolean)
+          .join(" "),
+      [variant, size, className]
+    );
+
+    return (
+      <div className={classes} style={style} {...rest}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export default Card;

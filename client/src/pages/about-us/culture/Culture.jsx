@@ -250,66 +250,6 @@ const Culture = () => {
         </div>
       </section>
 
-      {/*----------- CULTURE — CELEBRATIONS (GALLERY) ------------- */}
-      {/* 
-       <section
-      ref={celebrate.ref}
-      className={`u-section rtx-culture-celebrations ${
-        celebrate.visible ? "u-drop-visible" : ""
-      }`}
-    >
-      <div className="u-container-center">
-
-        <h2
-          className="u-title u-drop"
-          style={{ "--delay": "0.1s" }}
-        >
-          Celebrating <span>Every Moment</span>
-        </h2>
-
-        <p
-          className="rtx-culture-celebrations-text u-drop"
-          style={{ "--delay": "0.3s" }}
-        >
-          We believe in celebrating both professional milestones and personal
-          joys. From festivals and team achievements to birthdays and special
-          occasions, every celebration adds energy and positivity to our
-          workplace.
-        </p>
-
-        <div
-          className="rtx-culture-celebrations-gallery u-drop"
-          style={{ "--delay": "0.5s" }}
-        >
-         <img
-  src={celebrate1}
-  alt="Office celebration moments"
-  className="rtx-celebration-img tall"
-  loading="lazy"
-/>
-<img
-  src={celebrate2}
-  alt="Team celebration event"
-  className="rtx-celebration-img"
-  loading="lazy"
-/>
-<img
-  src={celebrate3}
-  alt="Festival celebration at work"
-  className="rtx-celebration-img"
-  loading="lazy"
-/>
-<img
-  src={celebrate4}
-  alt="Company celebration gathering"
-  className="rtx-celebration-img wide"
-  loading="lazy"
-/>
-
-        </div>
-
-      </div>
-    </section> */}
 
       {/*----------- CULTURE — FESTIVALS AT WORK (CONTRAST) ------------ */}
 

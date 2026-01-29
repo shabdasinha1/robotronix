@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 
 const AboutSection = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
+
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
-   <section
-  ref={ref}
-  className={`rtx-about-wrapper u-section u-section-lg ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+    <section
+      ref={ref}
+      className={`rtx-about-wrapper u-section u-section-lg ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-about-container u-container">
         {/* LEFT IMAGE */}
         <div className="rtx-about-left u-drop-left">
@@ -24,6 +32,8 @@ const AboutSection = React.memo(() => {
             src="https://nexus-glow-prime.lovable.app/assets/about-illustration-OLpSSyJv.png"
             alt="About RoboTronix"
             className="rtx-about-img"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

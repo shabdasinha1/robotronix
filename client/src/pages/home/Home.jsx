@@ -19,34 +19,57 @@ const ChooseUsSection = lazy(() =>
 const TestimonialsSection = lazy(() =>
   import("../../components/home/TestimonialsSection")
 );
-const ContactSection = lazy(() =>
-  import("../../components/home/ContactSection")
-);
 const PartnersSection = lazy(() =>
   import("../../components/home/PartnersSection")
+);
+const ContactSection = lazy(() =>
+  import("../../components/home/ContactSection")
 );
 const CTASection = lazy(() =>
   import("../../components/home/CTASection")
 );
 
-const Home = () => {
+/* ===============================
+   LIGHTWEIGHT FALLBACK
+=============================== */
+const SectionFallback = () => (
+  <div style={{ minHeight: "120px" }} />
+);
+
+const Home = React.memo(() => {
   return (
     <>
+      {/* ABOVE THE FOLD */}
       <HeroSection />
       <ServicesSection />
       <AboutSection />
 
-      {/* BELOW THE FOLD */}
-      <Suspense fallback={null}>
+      {/* BELOW THE FOLD — PROGRESSIVE LOAD */}
+      <Suspense fallback={<SectionFallback />}>
         <TechStack />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <ChooseUsSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <TestimonialsSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <PartnersSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <ContactSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <CTASection />
       </Suspense>
     </>
   );
-};
+});
 
 export default Home;

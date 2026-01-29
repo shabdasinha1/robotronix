@@ -11,7 +11,11 @@ const useRevealOnScroll = ({
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || visible) return;
+
+    // Do nothing if:
+    // 1. No element
+    // 2. Already visible and only needs to run once
+    if (!node || (once && visible)) return;
 
     observerRef.current = new IntersectionObserver(
       ([entry]) => {
@@ -20,6 +24,7 @@ const useRevealOnScroll = ({
 
           if (once && observerRef.current) {
             observerRef.current.disconnect();
+            observerRef.current = null;
           }
         }
       },

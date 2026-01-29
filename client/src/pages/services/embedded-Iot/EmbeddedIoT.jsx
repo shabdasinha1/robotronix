@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ServicesHero from "../../../components/services/ServicesHero";
 
 /* ===============================
-   STATIC DATA (MOVED OUT)
+   STATIC DATA (STABLE)
 =============================== */
 
 const steps = [
@@ -117,29 +117,17 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() =>
-  import("../../../components/services/ServicesOverview")
-);
-const ServicesApproach = lazy(() =>
-  import("../../../components/services/ServicesApproach")
-);
-const ServicesIndustries = lazy(() =>
-  import("../../../components/services/ServicesIndustries")
-);
-const ServicesWhyChoose = lazy(() =>
-  import("../../../components/services/ServicesWhyChoose")
-);
-const ServicesImpact = lazy(() =>
-  import("../../../components/services/ServicesImpact")
-);
-const ServicesCTA = lazy(() =>
-  import("../../../components/services/ServicesCTA")
-);
+const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
+const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
+const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
+const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
+const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
+const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
 
 const EmbeddedIoT = () => {
   return (
     <>
-      {/* HERO */}
+      {/* HERO (EAGER) */}
       <ServicesHero
         badge="Smart Embedded & IoT Solutions"
         title="Embedded Systems &"
@@ -157,8 +145,8 @@ const EmbeddedIoT = () => {
         ]}
       />
 
-      <Suspense fallback={null}>
-        {/* OVERVIEW */}
+      {/* BELOW THE FOLD */}
+      <Suspense fallback={<></>}>
         <ServicesOverview
           title="Embedded Systems &"
           accent="IoT Solutions"
@@ -169,7 +157,6 @@ const EmbeddedIoT = () => {
           infoCards={infoCards}
         />
 
-        {/* APPROACH */}
         <ServicesApproach
           title="Our"
           accent="Development Process"
@@ -177,7 +164,6 @@ const EmbeddedIoT = () => {
           steps={steps}
         />
 
-        {/* INDUSTRIES */}
         <ServicesIndustries
           title="Embedded & IoT"
           accent="Industry Applications"
@@ -185,7 +171,6 @@ const EmbeddedIoT = () => {
           industries={industries}
         />
 
-        {/* WHY CHOOSE */}
         <ServicesWhyChoose
           title="Why Choose"
           accent="Robotronix?"
@@ -193,13 +178,11 @@ const EmbeddedIoT = () => {
           points={points}
         />
 
-        {/* IMPACT */}
         <ServicesImpact
           title="Innovating the Future of Smart Connectivity"
           subtitle="We connect the physical and digital worlds through intelligent embedded systems and IoT solutions that drive automation, efficiency, and innovation."
         />
 
-        {/* CTA */}
         <ServicesCTA
           title="Ready to Build Smart Embedded & IoT Solutions?"
           subtitle="Let’s transform your ideas into intelligent, connected systems that power the future of automation."

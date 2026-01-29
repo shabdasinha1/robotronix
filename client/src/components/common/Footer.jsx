@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -8,41 +8,49 @@ import {
   FaWhatsapp,
   FaLinkedinIn,
   FaYoutube,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 /*==================================================================
-    SMOOTH SCROLING TO TOP
+    SMOOTH SCROLLING TO TOP (OPTIMIZED)
 ==================================================================*/
-const ScrollNavLink = ({ to, children, ...props }) => {
+const ScrollNavLink = React.memo(({ to, children, ...props }) => {
   const { pathname } = useLocation();
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (pathname === to) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
+  }, [pathname, to]);
 
   return (
     <NavLink to={to} onClick={handleClick} {...props}>
       {children}
     </NavLink>
   );
-};
+});
+
 /*==================================================================
     MAIN FOOTER FUNCTION
 ==================================================================*/
 const Footer = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.2,
-  });
+  // Memoized options to prevent observer recreation
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.2,
+    }),
+    []
+  );
+
+  const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
     <footer className="rtx-footer-wrapper" ref={ref}>
       <div
-        className={`u-container u-drop ${visible ? "u-drop-visible" : ""
-          }`}
+        className={`u-container u-drop ${
+          visible ? "u-drop-visible" : ""
+        }`}
       >
         {/* -------- GRID -------- */}
         <div className="rtx-footer-grid">
@@ -67,14 +75,13 @@ const Footer = React.memo(() => {
             <ul>
               <li><ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink></li>
               <li><ScrollNavLink to="/culture">Culture</ScrollNavLink></li>
-             <li><ScrollNavLink to="/portfolio">Portfolio</ScrollNavLink></li>
+              <li><ScrollNavLink to="/portfolio">Portfolio</ScrollNavLink></li>
               <li><ScrollNavLink to="/career">Career</ScrollNavLink></li>
             </ul>
 
             <h4 className="rtx-footer-subtitle">Quick Connect</h4>
             <ul>
               <li><ScrollNavLink to="/contact-us">Contact Us</ScrollNavLink></li>
-              
             </ul>
           </div>
 
@@ -95,14 +102,14 @@ const Footer = React.memo(() => {
             </p>
 
             <div className="rtx-footer-social">
-           <a
-  href="https://www.google.com/maps/search/?api=1&query=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD."
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Location on Google Maps"
->
-  <FaMapMarkerAlt />
-</a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Location on Google Maps"
+              >
+                <FaMapMarkerAlt />
+              </a>
 
               <a
                 href="https://www.linkedin.com/company/robotronixindia/"
@@ -159,7 +166,6 @@ const Footer = React.memo(() => {
               </a>
             </div>
 
-
             <div className="rtx-footer-ratings">
               <a
                 href="https://clutch.co/profile/robotronix-engineering-tech"
@@ -179,9 +185,8 @@ const Footer = React.memo(() => {
                 aria-label="View Upwork Profile"
               >
                 ⭐⭐⭐⭐⭐ <span>Top Rated on Upwork</span>
-              </a>     
+              </a>
             </div>
-
           </div>
         </div>
 

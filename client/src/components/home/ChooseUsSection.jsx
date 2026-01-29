@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../../components/common/Card";
 
@@ -10,60 +10,68 @@ const stats = [
 ];
 
 const ChooseUsSection = React.memo(() => {
-  const { ref, visible } = useRevealOnScroll({
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px",
-    once: true,
-  });
+  /* ===============================
+     OBSERVER OPTIONS (MEMOIZED)
+  =============================== */
 
-  const [counts, setCounts] = useState(stats.map(() => 0));
-  const intervalsRef = useRef([]);
+  const revealOptions = useMemo(
+    () => ({
+      threshold: 0.15,
+      rootMargin: "0px 0px -120px 0px",
+      once: true,
+    }),
+    []
+  );
 
-  /* Counter Animation — starts only once when visible */
+  const { ref, visible } = useRevealOnScroll(revealOptions);
+
+  /* ===============================
+     COUNTER STATE
+  =============================== */
+
+  const [counts, setCounts] = useState(() => stats.map(() => 0));
+  const rafRef = useRef(null);
+
+  /* ===============================
+     COUNTER ANIMATION (OPTIMIZED)
+  =============================== */
+
   useEffect(() => {
     if (!visible) return;
 
     const duration = 1200;
-    const frames = 60;
-    const incrementTime = duration / frames;
+    const start = performance.now();
 
-    stats.forEach((stat, idx) => {
-      let current = 0;
-      const increment = stat.value / frames;
+    const animate = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
 
-      const counter = setInterval(() => {
-        current += increment;
+      setCounts((prev) =>
+        prev.map((_, idx) =>
+          Math.floor(stats[idx].value * progress)
+        )
+      );
 
-        if (current >= stat.value) {
-          current = stat.value;
-          clearInterval(counter);
-        }
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
 
-        setCounts((prev) => {
-          if (prev[idx] === Math.floor(current)) return prev;
-          const updated = [...prev];
-          updated[idx] = Math.floor(current);
-          return updated;
-        });
-      }, incrementTime);
-
-      intervalsRef.current.push(counter);
-    });
+    rafRef.current = requestAnimationFrame(animate);
 
     return () => {
-      intervalsRef.current.forEach(clearInterval);
-      intervalsRef.current = [];
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, [visible]);
 
   return (
     <section
-  ref={ref}
-  className={`rtx-choose-wrapper u-section u-section-md ${
-    visible ? "u-drop-visible" : ""
-  }`}
->
-
+      ref={ref}
+      className={`rtx-choose-wrapper u-section u-section-md ${
+        visible ? "u-drop-visible" : ""
+      }`}
+    >
       <div className="rtx-choose-container u-container-center">
         {/* TITLE */}
         <h2
@@ -82,19 +90,23 @@ const ChooseUsSection = React.memo(() => {
 
         {/* STATS */}
         <div className="rtx-choose-grid">
-          {stats.map((item, index) => (
-            <Card
-              key={item.label}
-              size="md"
-              variant="hover"
-              className="rtx-choose-card u-drop-scale"
-              style={{ "--delay": `${0.6 + index * 0.15}s` }}
-            >
-              <div className="rtx-choose-icon">{item.icon}</div>
-              <h3 className="rtx-choose-value">{counts[index]}+</h3>
-              <p className="rtx-choose-label">{item.label}</p>
-            </Card>
-          ))}
+          {stats.map((item, index) => {
+            const delay = `${0.6 + index * 0.15}s`;
+
+            return (
+              <Card
+                key={item.label}
+                size="md"
+                variant="hover"
+                className="rtx-choose-card u-drop-scale"
+                style={{ "--delay": delay }}
+              >
+                <div className="rtx-choose-icon">{item.icon}</div>
+                <h3 className="rtx-choose-value">{counts[index]}+</h3>
+                <p className="rtx-choose-label">{item.label}</p>
+              </Card>
+            );
+          })}
         </div>
 
         {/* BOTTOM BOX */}

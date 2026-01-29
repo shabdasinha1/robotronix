@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import logo from "../../assets/images/logo_c1.png";
 import { routesConfig } from "../../routes/RouteConfig";
-import ScrollToTop from "./ScrollToTop";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -15,12 +14,12 @@ const Header = () => {
 
   const services = useMemo(
     () => routesConfig.filter((r) => r.nav === "services"),
-    [],
+    [routesConfig]
   );
 
   const aboutRoutes = useMemo(
     () => routesConfig.filter((r) => r.nav === "about" && !r.hidden),
-    [],
+    [routesConfig]
   );
 
   const mainNav = useMemo(
@@ -30,29 +29,29 @@ const Header = () => {
           r.nav === "main" &&
           r.path !== "/" &&
           r.path !== "/portfolio" &&
-          !r.hidden,
+          !r.hidden
       ),
-    [],
+    [routesConfig]
   );
 
   /* ===============================
-     ACTIVE ROUTE CHECKS (MEMOIZED)
+     ACTIVE ROUTE CHECKS
   =============================== */
 
   const isServicesActive = useMemo(
     () =>
       services.some(
-        (r) => pathname === r.path || pathname.startsWith(r.path + "/"),
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
       ),
-    [pathname, services],
+    [pathname, services]
   );
 
   const isAboutActive = useMemo(
     () =>
       aboutRoutes.some(
-        (r) => pathname === r.path || pathname.startsWith(r.path + "/"),
+        (r) => pathname === r.path || pathname.startsWith(r.path + "/")
       ),
-    [pathname, aboutRoutes],
+    [pathname, aboutRoutes]
   );
 
   /* ===============================
@@ -64,41 +63,75 @@ const Header = () => {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [headerSolid, setHeaderSolid] = useState(false);
 
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark"
+  );
 
   /* ===============================
-     EFFECTS (INTENTIONAL)
+     EFFECTS (SAFE)
   =============================== */
+
+  // Prevent theme flash on first paint
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored) {
+      document.documentElement.setAttribute("data-theme", stored);
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   useEffect(() => {
-    const onScroll = () => setHeaderSolid(window.scrollY > 40);
+    const onScroll = () => {
+      const next = window.scrollY > 40;
+      setHeaderSolid((prev) => (prev === next ? prev : next));
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
-    setMobileDropdown(false);
+
+    setMobileDropdown((prev) => (prev ? false : prev));
   }, [mobileOpen]);
 
-  const toggleTheme = () => {
+  /* ===============================
+     HANDLERS (MEMOIZED)
+  =============================== */
+
+  const toggleTheme = useCallback(() => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     localStorage.setItem("theme", next);
-  };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  }, [theme]);
 
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const openServices = useCallback(
+    () => setDesktopDropdown("services"),
+    []
+  );
+  const openAbout = useCallback(
+    () => setDesktopDropdown("about"),
+    []
+  );
+  const closeDropdown = useCallback(
+    () => setDesktopDropdown(null),
+    []
+  );
+
+  /* ===============================
+     RENDER
+  =============================== */
 
   return (
     <>
@@ -119,8 +152,8 @@ const Header = () => {
               <DesktopDropdown
                 label="Our Services"
                 open={desktopDropdown === "services"}
-                onOpen={() => setDesktopDropdown("services")}
-                onClose={() => setDesktopDropdown(null)}
+                onOpen={openServices}
+                onClose={closeDropdown}
                 active={isServicesActive}
               >
                 {services.map(({ path, label }) => (
@@ -131,8 +164,8 @@ const Header = () => {
               <DesktopDropdown
                 label="About Us"
                 open={desktopDropdown === "about"}
-                onOpen={() => setDesktopDropdown("about")}
-                onClose={() => setDesktopDropdown(null)}
+                onOpen={openAbout}
+                onClose={closeDropdown}
                 active={isAboutActive}
               >
                 {aboutRoutes.map(({ path, label }) => (
@@ -176,7 +209,6 @@ const Header = () => {
               )
             }
           >
-
             {services.map(({ path, label }) => (
               <NavItem
                 key={path}
@@ -198,7 +230,6 @@ const Header = () => {
               )
             }
           >
-
             {aboutRoutes.map(({ path, label }) => (
               <NavItem
                 key={path}
@@ -262,9 +293,11 @@ const DesktopDropdown = React.memo(
         {open ? <FaAngleUp /> : <FaAngleDown />}
       </button>
 
-      <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>{children}</div>
+      <div className={`rtx-dropdown ${open ? "rtx-open" : ""}`}>
+        {children}
+      </div>
     </li>
-  ),
+  )
 );
 
 const MobileDropdown = React.memo(
@@ -282,7 +315,8 @@ const MobileDropdown = React.memo(
         {children}
       </div>
     </li>
-  ));
+  )
+);
 
 const NavButton = React.memo(({ to, label, mobile, onClick }) => (
   <li>
