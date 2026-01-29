@@ -139,7 +139,7 @@ const AgentsAI = React.memo(() => {
         accent="AI Agents"
         subtitle="From task automation to fully autonomous decision-making — Robotronix delivers next-generation AI Agents that think, plan, and execute like digital employees."
         primaryText="Get Started →"
-        primaryLink="/contact"
+        primaryLink="/contact-us"
         secondaryText="Explore Services"
         secondaryLink="/services"
         stats={[

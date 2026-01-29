@@ -94,7 +94,7 @@ const AIML = () => {
         accent="Digital Transformation"
         subtitle="Unlock automation, insights, and innovation with advanced AI & ML systems."
         primaryText="Get a Consultation →"
-        primaryLink="/contact"
+        primaryLink="/contact-us"
         secondaryText="Explore Case Studies"
         secondaryLink="/portfolio"
         stats={[

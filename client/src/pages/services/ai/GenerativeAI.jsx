@@ -89,7 +89,7 @@ const GenerativeAI = () => {
         accent="Solutions"
         subtitle="Empowering businesses to innovate, design, automate, and create with advanced Generative AI technologies."
         primaryText="Get Started →"
-        primaryLink="/contact"
+        primaryLink="/contact-us"
         secondaryText="Explore Work"
         secondaryLink="/portfolio"
         stats={[
