@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import logo from "../../assets/images/logo_c1.png";
+import logo from "../../assets/images/logo_c1.webp";
 import { routesConfig } from "../../routes/RouteConfig";
 
 const Header = () => {
@@ -12,27 +12,28 @@ const Header = () => {
      ROUTE GROUPING (MEMOIZED)
   =============================== */
 
-  const services = useMemo(
-    () => routesConfig.filter((r) => r.nav === "services"),
-    [routesConfig]
-  );
+const services = useMemo(
+  () => routesConfig.filter((r) => r.nav === "services"),
+  []
+);
 
-  const aboutRoutes = useMemo(
-    () => routesConfig.filter((r) => r.nav === "about" && !r.hidden),
-    [routesConfig]
-  );
+const aboutRoutes = useMemo(
+  () => routesConfig.filter((r) => r.nav === "about" && !r.hidden),
+  []
+);
 
-  const mainNav = useMemo(
-    () =>
-      routesConfig.filter(
-        (r) =>
-          r.nav === "main" &&
-          r.path !== "/" &&
-          r.path !== "/portfolio" &&
-          !r.hidden
-      ),
-    [routesConfig]
-  );
+const mainNav = useMemo(
+  () =>
+    routesConfig.filter(
+      (r) =>
+        r.nav === "main" &&
+        r.path !== "/" &&
+        r.path !== "/portfolio" &&
+        !r.hidden
+    ),
+  []
+);
+
 
   /* ===============================
      ACTIVE ROUTE CHECKS

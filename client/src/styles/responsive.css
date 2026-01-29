@@ -1028,12 +1028,31 @@ CAREER — Why Work With Us (RESPONSIVE)
 
   .rtx-career-life-content {
     max-width: 100%;
+    
+  }
+
+   .rtx-career-life-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rtx-life-img {
+    height: 180px;
   }
 }
 
 @media (max-width: 767px) {
   .rtx-career-life-layout {
     gap: 48px;
+  }
+
+  .rtx-career-life-images {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .rtx-life-img {
+    height: 150px;
+    border-radius: 18px;
   }
 }
 @media (max-width: 426px) {
@@ -1043,6 +1062,14 @@ CAREER — Why Work With Us (RESPONSIVE)
 
   .rtx-career-life {
     padding: var(--section-py-xs) var(--section-px);
+  }
+    .rtx-career-life-images {
+    grid-template-columns: 1fr;
+  }
+
+  .rtx-life-img {
+    height: 200px;
+    border-radius: 16px;
   }
 }
 

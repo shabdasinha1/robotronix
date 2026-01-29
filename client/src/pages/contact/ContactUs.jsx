@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink } from "react-router-dom";
 
-import atulya1 from "../../assets/images/atulya1.jpg";
+import atulya1 from "../../assets/images/atulya1.webp";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
 
@@ -29,7 +29,6 @@ const ContactUs = React.memo(() => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   /* ===============================
      STATIC INFO DATA (MEMOIZED)
@@ -78,7 +77,7 @@ const ContactUs = React.memo(() => {
         setLoading(true);
         await messagesApi.createMessage(formData);
 
-        setSuccess(true);
+      
         setFormData({
           name: "",
           email: "",

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import RoboImg from "../../assets/images/robo_icon.png";
+import RoboImg from "../../assets/images/robo_icon.webp";
 
 const AdminSidebar = () => {
   return (

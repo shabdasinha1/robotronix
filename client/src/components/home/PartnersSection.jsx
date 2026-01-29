@@ -1,16 +1,16 @@
 import React, { useMemo } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-import logo1 from "../../assets/images/logo/logo1.png";
-import logo2 from "../../assets/images/logo/logo2.jpg";
-import logo3 from "../../assets/images/logo/logo3.png";
-import logo4 from "../../assets/images/logo/logo4.png";
-import logo5 from "../../assets/images/logo/logo5.png";
-import logo6 from "../../assets/images/logo/logo6.png";
-import logo7 from "../../assets/images/logo/logo7.png";
-import logo8 from "../../assets/images/logo/logo8.png";
-import logo9 from "../../assets/images/logo/logo9.png";
-import logo10 from "../../assets/images/logo/logo10.png";
+import logo1 from "../../assets/images/logo/logo1.webp";
+import logo2 from "../../assets/images/logo/logo2.webp";
+import logo3 from "../../assets/images/logo/logo3.webp";
+import logo4 from "../../assets/images/logo/logo4.webp";
+import logo5 from "../../assets/images/logo/logo5.webp";
+import logo6 from "../../assets/images/logo/logo6.webp";
+import logo7 from "../../assets/images/logo/logo7.webp";
+import logo8 from "../../assets/images/logo/logo8.webp";
+import logo9 from "../../assets/images/logo/logo9.webp";
+import logo10 from "../../assets/images/logo/logo10.webp";
 
 /* ===============================
    STATIC LOGOS (SAFE)

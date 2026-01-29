@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useMemo,useState, useEffect } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link } from "react-router-dom";
+import { FiX } from "react-icons/fi";
 
 import festival1 from "../../assets/images/culture/festival/festival5.webp";
 import festival2 from "../../assets/images/culture/festival/festival8.webp";
@@ -8,6 +9,17 @@ import festival3 from "../../assets/images/culture/festival/festival11.webp";
 import festival4 from "../../assets/images/culture/festival/festival14.webp";
 
 const Career = React.memo(() => {
+  const [previewImg, setPreviewImg] = useState(null);
+
+const openPreview = (img) => {
+  setPreviewImg(img);
+  document.body.style.overflow = "hidden";
+};
+
+const closePreview = () => {
+  setPreviewImg(null);
+  document.body.style.overflow = "";
+};
   /* ===============================
      SHARED REVEAL CONFIG
   =============================== */
@@ -91,6 +103,21 @@ const Career = React.memo(() => {
     ],
     []
   );
+useEffect(() => {
+  if (!previewImg) return;
+
+  const handleEsc = (e) => {
+    if (e.key === "Escape") {
+      closePreview();
+    }
+  };
+
+  window.addEventListener("keydown", handleEsc);
+
+  return () => {
+    window.removeEventListener("keydown", handleEsc);
+  };
+}, [previewImg]);
 
 
   return (
@@ -252,24 +279,38 @@ const Career = React.memo(() => {
   style={{ "--delay": "0.6s" }}
 >
   <div className="rtx-life-img">
-    <img src={festival1} alt="Festival moment 1" loading="lazy" />
+    <img src={festival1} alt="Festival moment 1" loading="lazy" onClick={() => openPreview(festival1)} />
   </div>
 
   <div className="rtx-life-img">
-    <img src={festival2} alt="Festival moment 2" loading="lazy" />
+    <img src={festival2} alt="Festival moment 2" loading="lazy" onClick={() => openPreview(festival2)} />
   </div>
 
   <div className="rtx-life-img">
-    <img src={festival3} alt="Festival moment 3" loading="lazy" />
+    <img src={festival3} alt="Festival moment 3" loading="lazy" onClick={() => openPreview(festival3)} />
   </div>
 
   <div className="rtx-life-img">
-    <img src={festival4} alt="Festival moment 4" loading="lazy" />
+    <img src={festival4} alt="Festival moment 4" loading="lazy" onClick={() => openPreview(festival4)}/>
   </div>
 </div>
 
 
       </div>
+      {previewImg && (
+  <div className="rtx-image-preview">
+    <button
+      className="rtx-preview-close"
+      onClick={closePreview}
+      aria-label="Close image preview"
+    >
+      <FiX />
+    </button>
+
+    <img src={previewImg} alt="Preview" />
+  </div>
+)}
+
     </section>
 
     {/* ------------ CAREER — INTERNSHIP OPPORTUNITIES ----------- */}

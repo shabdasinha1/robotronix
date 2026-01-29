@@ -16,10 +16,6 @@ import together2 from "../../../assets/images/culture/festival/festival6.webp";
 import together3 from "../../../assets/images/culture/festival/festival10.webp";
 import together4 from "../../../assets/images/culture/festival/festival2.webp";
 
-// import celebrate1 from "../../../assets/images/culture/festival/festival10.webp";
-// import celebrate2 from "../../../assets/images/culture/festival/festival1.webp";
-// import celebrate3 from "../../../assets/images/culture/festival/festival1.webp";
-// import celebrate4 from "../../../assets/images/culture/festival/festival1.webp";
 
 import festivalMain from "../../../assets/images/culture/festival/festival11.webp";
 import festival1 from "../../../assets/images/culture/festival/festival2.webp";
@@ -44,7 +40,6 @@ const Culture = () => {
   const hero = useRevealOnScroll({ threshold: 0.2, once: true });
   const strip = useRevealOnScroll({ threshold: 0.15, once: true });
   const together = useRevealOnScroll({ threshold: 0.2, once: true });
-  const celebrate = useRevealOnScroll({ threshold: 0.15, once: true });
   const festivals = useRevealOnScroll({ threshold: 0.2, once: true });
   const bonding = useRevealOnScroll({ threshold: 0.2, once: true });
 
