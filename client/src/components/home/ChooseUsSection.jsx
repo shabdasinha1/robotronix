@@ -3,10 +3,10 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Card from "../../components/common/Card";
 
 const stats = [
-  { icon: "👥", value: 500, label: "Happy Clients" },
-  { icon: "💻", value: 1200, label: "Projects Completed" },
-  { icon: "🏅", value: 50, label: "Industry Awards" },
-  { icon: "🌍", value: 35, label: "Countries Served" },
+  { icon: "👥", value: 1000, suffix: "+", label: "Happy Clients" },
+  { icon: "💻", value: 2000, suffix: "+", label: "Projects Completed" },
+  { icon: "🏅", value: 10, suffix: "+ yrs", label: "Delivery Excellence" },
+  { icon: "🌍", value: 10, suffix: "+", label: "Countries Served" },
 ];
 
 const ChooseUsSection = React.memo(() => {
@@ -102,7 +102,10 @@ const ChooseUsSection = React.memo(() => {
                 style={{ "--delay": delay }}
               >
                 <div className="rtx-choose-icon">{item.icon}</div>
-                <h3 className="rtx-choose-value">{counts[index]}+</h3>
+                <h3 className="rtx-choose-value">
+  {counts[index]}
+  {stats[index].suffix}
+</h3>
                 <p className="rtx-choose-label">{item.label}</p>
               </Card>
             );
@@ -110,7 +113,7 @@ const ChooseUsSection = React.memo(() => {
         </div>
 
         {/* BOTTOM BOX */}
-        <div
+        {/* <div
           className="rtx-choose-bottom u-drop"
           style={{ "--delay": "1.4s" }}
         >
@@ -119,7 +122,7 @@ const ChooseUsSection = React.memo(() => {
             We've partnered with Fortune 500 companies, startups, and enterprises
             to deliver cutting-edge technology solutions that drive real results.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -49,7 +49,7 @@ const ContactUs = React.memo(() => {
       {
         icon: "📞",
         title: "Phone",
-        desc: "+91 99931 50998",
+        desc: <>+91 99931 50998 <br /> +91 77248 52726</>,
         link: "tel:+919993150998",
       },
       {
@@ -150,7 +150,7 @@ const ContactUs = React.memo(() => {
             <span className="divider">•</span>
 
             <NavLink to="tel:+917312970998">
-              📞 0731-2970998, 9993150998
+              📞 +91 9993150998, +91 77248 52726
             </NavLink>
           </div>
         </div>
@@ -291,10 +291,12 @@ const ContactUs = React.memo(() => {
               <Mail /> info@robotronix.co.in
             </a>
             <div className="rtx-cpage-info-box">
-              <Phone /> 0731-2970998
+              <Phone /> +91 9993150998, +91 77248 52726
             </div>
             <div className="rtx-cpage-info-box">
-              <MapPin /> Atulya IT Park, Indore
+              <MapPin /> 402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
+              Opposite Indian Coffee House,<br />
+              Indore, Madhya Pradesh - 452001
             </div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
           </div>

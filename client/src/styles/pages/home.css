@@ -39,7 +39,7 @@
 /* BADGE */
 .rtx-hero-badge {
   display: inline-block;
-  margin-bottom: var(--space-md);
+  /* margin-bottom: var(--space-md); */
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--clr-blue-medium);
@@ -390,6 +390,8 @@ margin: var(--space-lg) 0;
 /* SECTION */
 .rtx-tech-wrapper {
   position: relative;
+  background: var(--bg-dark-2);
+
 }
 
 /* TOP GRADIENT */

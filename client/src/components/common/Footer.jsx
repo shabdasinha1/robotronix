@@ -89,8 +89,8 @@ const Footer = React.memo(() => {
           <div className="rtx-footer-contact">
             <h4>India</h4>
 
-            <p>+91 9993150998</p>
-            <p>+91 77248 52726</p>
+            <p>📞 +91 99931 50998</p>
+            <p>📞 +91 77248 52726</p>
             <p>Ph: 0731-2970998</p>
 
             <p className="rtx-footer-mail">info@robotronix.co.in</p>

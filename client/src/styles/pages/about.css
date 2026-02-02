@@ -625,7 +625,7 @@ margin: var(--space-md) auto 0;
   }
 
   .rtx-together-img {
-    height: 170px;
+    height: 200px;
     border-radius: 18px;
     background: var(--white-05);
     border: 1px solid var(--white-12);
@@ -741,7 +741,7 @@ margin: var(--space-md) auto 0;
 }
 
 .rtx-festival-img {
-  height: 130px;
+  height: 200px;
   border-radius: 16px;
   background: var(--white-05);
   border: 1px solid var(--white-12);
@@ -782,7 +782,7 @@ margin: var(--space-md) auto 0;
 }
 
 .rtx-bonding-img {
-  height: 170px;
+  height: 200px;
   border-radius: 18px;
   background: var(--white-05);
   border: 1px solid var(--white-12);
@@ -949,13 +949,13 @@ margin: var(--space-md) auto 0;
 /* Title */
 .rtx-vision-title {
   font-size: 2.6rem;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   color: var(--clr-white);
 }
 
 /* Main vision statement */
 .rtx-vision-statement {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
   max-width: 900px;

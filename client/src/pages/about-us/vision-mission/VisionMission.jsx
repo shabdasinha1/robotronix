@@ -54,7 +54,7 @@ const VisionMissionHero = () => {
       >
         <div className="u-container-center">
           <h2
-            className="rtx-vision-title u-drop"
+            className="rtx-vision-title u-drop u-title"
             style={{ "--delay": "0.2s" }}
           >
             Our <span className="rtx-hero-accent">Vision</span>

@@ -200,7 +200,7 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Call Us</h4>
-              <p>+91 99931 50998</p>
+              <p>+91 99931 50998, +91 77248 52726</p>
             </div>
 
             <div className="rtx-info-card">

@@ -45,7 +45,7 @@
 
 .rtx-portfolio-eyebrow {
  display: inline-block;
-  margin-bottom: var(--space-md);
+  /* margin-bottom: var(--space-md); */
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--clr-blue-medium);
@@ -405,6 +405,14 @@ font-size: var(--fs-card-title);
   border: 1px solid var(--white-12);
   border-radius: var(--radius-pill);
   color: var(--clr-text-light);
+  
+  /* ✨ Awesome shadow */
+ box-shadow:
+  0 6px 18px var(--shadow-dark-1),
+  0 0 0 1px var(--blue-005b),
+  inset 0 1px 0 var(--white-03);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 

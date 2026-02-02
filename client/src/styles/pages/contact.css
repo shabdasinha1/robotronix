@@ -316,11 +316,7 @@ gap: var(--space-sm);
     gap: var(--space-lg);
   }
 
-  .rtx-cpage-form,
-  .rtx-cpage-contact-info {
-    text-align: center;
-  }
-
+  
   .rtx-cpage-form form {
     text-align: left;
   }
@@ -374,6 +370,7 @@ gap: var(--space-sm);
   align-items: center;
   gap: var(--space-xs);
   color: var(--clr-text-light);
+  justify-content: flex-start;
 }
 
 

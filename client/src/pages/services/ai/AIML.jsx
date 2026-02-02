@@ -91,7 +91,7 @@ const AIML = () => {
       <ServicesHero
         badge="AI & Machine Learning Solutions"
         title="Powering Intelligent"
-        accent="Digital Transformation"
+        accent="Digital Evolution"
         subtitle="Unlock automation, insights, and innovation with advanced AI & ML systems."
         primaryText="Get a Consultation →"
         primaryLink="/contact-us"

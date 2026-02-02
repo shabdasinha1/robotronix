@@ -4,8 +4,8 @@
 
 /*
   xs  : 0 – 479px    (small phones)
-  sm  : 480 – 767px  (phones)
-  md  : 768 – 1023px (tablets)
+  sm  : 480 – 768px  (phones)
+  md  : 768 – 1024px (tablets)
   lg  : 1024 – 1279px (laptops)
   xl  : 1280px+      (desktops)
 */
@@ -14,19 +14,24 @@
    SECTIONS
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .u-section {
-    padding: 90px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .u-section {
     padding: var(--section-py-sm) var(--section-px);
   }
 
   .u-section-sm {
-    padding: 48px 14px;
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
+@media (max-width: 426px) {
+  .u-section {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -34,15 +39,15 @@
    TYPOGRAPHY
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .u-title {
     font-size: 2.2rem;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .u-title {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
   }
 
   .u-subtext {
@@ -54,7 +59,7 @@
    GRIDS
 ====================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .u-grid-auto {
     gap: 18px;
     margin-top: 30px;
@@ -71,7 +76,7 @@
    CARDS
 ====================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .card {
     padding: 22px;
     border-radius: 14px;
@@ -96,6 +101,19 @@
   .btn-lg {
     padding: 14px 22px;
     font-size: 1rem;
+    width: 40%;
+  }
+}
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+  }
+
+  .btn-sm,
+  .btn-md,
+  .btn-lg {
+    padding: 14px 22px;
+    font-size: 1rem;
   }
 }
 
@@ -103,7 +121,7 @@
    ANIMATIONS (MOBILE SAFE)
 ====================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .u-drop,
   .u-drop-left,
   .u-drop-right {
@@ -122,15 +140,15 @@
    HERO SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-hero-wrapper {
-    padding: 90px 18px;
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-hero-wrapper {
-    padding: 90px 16px;
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
   }
 
   .rtx-hero-stats {
@@ -139,19 +157,34 @@
   }
 }
 
+@media (max-width: 426px) {
+  .rtx-hero-wrapper {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
+
+  .rtx-hero-stats {
+    margin-top: 60px;
+    gap: 18px;
+    flex-direction: column;
+  }
+  .rtx-hero-btn {
+    flex-direction: column;
+  }
+}
+
 /* ======================================================
    SERVICES SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-services-wrapper {
-    padding: 90px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-services-wrapper {
-    padding: 70px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-services-grid {
@@ -162,29 +195,34 @@
     margin: 10px auto 40px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-services-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 
 /* ======================================================
    ABOUT SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-about-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 
   .rtx-about-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 40px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-overview-hero {
-    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-xs);
   }
   .rtx-about-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-about-points {
@@ -195,20 +233,27 @@
     max-width: 100%;
   }
 }
-
+@media (max-width: 426px) {
+  .rtx-overview-hero {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
+  .rtx-about-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 /* ======================================================
    TECH STACK — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-tech-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-tech-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-tech-card {
@@ -223,20 +268,25 @@
     margin-bottom: 36px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-tech-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 
 /* ======================================================
    WHY CHOOSE US — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-choose-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-choose-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-choose-grid {
@@ -249,13 +299,18 @@
   }
 }
 
+@media (max-width: 426px) {
+  .rtx-choose-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 /* ======================================================
    TESTIMONIALS — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-test-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 
   .rtx-test-slider {
@@ -263,9 +318,9 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-test-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-test-slider {
@@ -280,14 +335,22 @@
     margin-bottom: 30px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-test-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 
 /* ======================================================
    CONTACT SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-contact-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
+  }
+  .rtx-cpage-hero-wrapper {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
   }
 
   .rtx-contact-grid {
@@ -296,11 +359,13 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-contact-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
-
+  .rtx-cpage-hero-wrapper {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
+  }
   .rtx-form-row {
     flex-direction: column;
     gap: 0;
@@ -310,12 +375,23 @@
     margin-top: 30px;
     padding: 18px;
   }
-
+  /* 
   .rtx-cpage-hero-badge {
     margin-top: var(--space-md);
-  }
+  } */
   .card svg {
     margin-right: 10px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-contact-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-cpage-hero-wrapper {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
+  .rtx-cpage-quick .divider{
+    display: none;
   }
 }
 
@@ -323,15 +399,15 @@
    PARTNERS / TRUSTED BY — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-partners-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-partners-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-marquee-set {
@@ -343,14 +419,19 @@
     height: 50px;
   }
 }
+@media (max-width: 426px) {
+  .rtx-partners-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 
 /* ======================================================
    CTA SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-cta-wrapper {
-    padding: 100px 18px;
+    padding: var(--section-py-md) var(--section-px);
   }
 
   .rtx-cta-box {
@@ -358,14 +439,19 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-cta-wrapper {
-    padding: 80px 16px;
+    padding: var(--section-py-sm) var(--section-px);
   }
 
   .rtx-cta-box {
     padding: 40px 24px;
     border-radius: 18px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-cta-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -380,9 +466,9 @@
    SERVICES PAGE — HERO RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-hero-wrapper {
-    padding: 110px 18px;
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
   }
 
   .rtx-service-hero-stats .card {
@@ -391,14 +477,13 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-service-hero-wrapper {
-    padding: 90px 16px;
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
   }
 
   .rtx-service-hero-btn-group {
-    flex-direction: column;
-    gap: 14px;
+    gap: var(--space-md);
   }
 
   .rtx-service-hero-stats {
@@ -419,19 +504,25 @@
     max-width: 100%;
     min-height: 110px;
   }
+  .rtx-service-hero-wrapper {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
+  .rtx-service-hero-btn-group {
+    flex-direction: column;
+  }
 }
 
 /* ======================================================
    SERVICE OVERVIEW — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-overview-container {
     gap: 32px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-service-overview-container {
     flex-direction: column;
     gap: 26px;
@@ -441,22 +532,39 @@
   .rtx-service-overview-right {
     flex: 1 1 100%;
   }
+  .rtx-service-overview-section {
+    padding: var(--section-py-sm) var(--section-px);
+  }
+}
+
+@media (max-width: 426px) {
+  .rtx-service-overview-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
 }
 
 /* ======================================================
    SERVICE APPROACH — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-approach-header {
     margin-bottom: 40px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-service-approach-header {
     margin-bottom: 32px;
     padding: 0 6px;
+  }
+  .rtx-service-approach-section {
+    padding: var(--section-py-sm) var(--section-px);
+  }
+}
+@media (max-width: 426px) {
+  .rtx-service-approach-section {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -464,24 +572,31 @@
    SERVICE INDUSTRIES — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-industries-header {
     margin-bottom: 40px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-service-industries-header {
     margin-bottom: 32px;
     padding: 0 6px;
   }
+  .rtx-service-industries-section {
+    padding: var(--section-py-sm) var(--section-px);
+  }
 }
-
+@media (max-width: 426px) {
+  .rtx-service-industries-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 /* ======================================================
    SERVICE WHY CHOOSE — NEURAL SIGNAL (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-why-header {
     margin-bottom: 60px;
   }
@@ -491,7 +606,10 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .rtx-service-why-section {
+    padding: var(--section-py-sm) var(--section-px);
+  }
   .rtx-neural-list {
     padding-left: 44px;
     gap: 36px;
@@ -513,20 +631,33 @@
     max-width: 100%;
   }
 }
-
+@media (max-width: 426px) {
+  .rtx-service-why-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+}
 /* ======================================================
    SERVICE IMPACT — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-service-impact-container {
     max-width: 820px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .rtx-service-impact-section {
+    padding: var(--section-py-sm) var(--section-px);
+  }
+
   .rtx-service-impact-container {
     padding: 0 8px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-service-impact-section {
+    padding: var(--section-py-xs) var(--section-px);
   }
 }
 
@@ -542,13 +673,13 @@
    COMPANY OVERVIEW — HERO RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-overview-highlights {
     gap: 14px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-overview-highlights {
     gap: 12px;
   }
@@ -562,13 +693,13 @@
    WHO WE ARE — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-who-grid {
     gap: 50px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-who-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
@@ -589,7 +720,7 @@
    OUR APPROACH — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-approach-flow {
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
@@ -600,7 +731,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-approach-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
@@ -613,7 +744,7 @@
 /* ======================================================
    STRENGTHS — RESPONSIVE
 ====================================================== */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-strengths-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
@@ -623,14 +754,14 @@
    IMPACT & TRUST METRICS — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-impact-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-impact-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
@@ -644,13 +775,13 @@
    COMPANY PHILOSOPHY — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-philosophy-quote {
     margin-bottom: 32px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-philosophy-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
@@ -667,7 +798,7 @@
    CULTURE HERO — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-hero-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -682,9 +813,7 @@
   .rtx-culture-hero {
     text-align: center;
   }
-  span.rtx-culture-eyebrow {
-    margin-top: var(--space-md);
-  }
+
   .rtx-culture-hero-layout {
     gap: 48px;
   }
@@ -694,15 +823,22 @@
   }
   .rtx-culture-hero-text {
     max-width: 100%;
-    text-align: justify;
+    text-align: center;
   }
 }
-
+@media (max-width: 426px) {
+  .rtx-culture-hero {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-sm);
+  }
+  .rtx-culture-bonding-text {
+    text-align: center;
+  }
+}
 /* ======================================================
    CULTURE — IMAGE STRIP (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-strip-images {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -743,7 +879,7 @@
 CULTURE — TOGETHERNESS (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-togetherness-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -754,7 +890,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-culture-togetherness-layout {
     gap: 48px;
   }
@@ -764,7 +900,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     grid-template-columns: repeat(1, 1fr);
   }
   .rtx-culture-togetherness-text {
-    text-align: justify;
+    text-align: center;
   }
 }
 
@@ -772,7 +908,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    CULTURE — CELEBRATIONS (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-celebrations-gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 170px;
@@ -783,7 +919,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-culture-celebrations-gallery {
     grid-template-columns: 1fr;
     grid-auto-rows: 190px;
@@ -798,7 +934,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    CULTURE — FESTIVALS AT WORK (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-festivals-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -813,7 +949,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-culture-festivals-layout {
     gap: 48px;
   }
@@ -823,7 +959,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     grid-template-columns: repeat(1, 1fr);
   }
   .rtx-culture-festivals-text {
-    text-align: justify;
+    text-align: center;
   }
 }
 
@@ -831,7 +967,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    CULTURE — TEAM BONDING (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-culture-bonding-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -844,9 +980,17 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-culture-bonding-layout {
     gap: 48px;
+  }
+
+   .rtx-culture-bonding-content {
+    order: 1;
+  }
+
+  .rtx-culture-bonding-images {
+    order: 2;
   }
 }
 @media (max-width: 426px) {
@@ -859,18 +1003,21 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    VISION & MISSION — HERO (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-vm-hero {
     /* padding-top: 140px;
     padding-bottom: 140px; */
-    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-vm-hero {
-    /* padding-top: 120px;
-    padding-bottom: 120px; */
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
+  }
+}
+@media (max-width: 426px) {
+  .rtx-vm-hero {
     padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
 }
@@ -879,38 +1026,44 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    VISION SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-vision-section {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-vision-section {
-    padding: var(--section-py-xs) var(--section-px);
-  }
-  .rtx-vision-title {
-    font-size: 1.8rem;
+    padding: var(--section-py-sm) var(--section-px);
   }
 }
 
+@media (max-width: 426px) {
+  .rtx-vision-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-vision-statement,
+  .rtx-vision-text {
+    text-align: center;
+  }
+}
 /* ======================================================
    MISSION SECTION — RESPONSIVE
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-mission-section {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-md) var(--section-px);
   }
   .rtx-mission-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 0.3fr;
     gap: 50px;
   }
 }
 
 @media (max-width: 768px) {
   .rtx-mission-section {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-mission-visual {
     display: none;
@@ -918,36 +1071,62 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-mission-desc {
     margin-bottom: 0;
   }
+  .rtx-mission-grid {
+    grid-template-columns: 1fr;
+  }
+  .rtx-mission-statement,
+  .rtx-mission-desc {
+    max-width: 100%;
+    text-align: center;
+  }
 }
-
+@media (max-width: 426px) {
+  .rtx-mission-section {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-mission-grid {
+    grid-template-columns: 1fr;
+  }
+  /* .rtx-mission-statement, */
+  .rtx-mission-desc {
+    text-align: left;
+  }
+}
 /* ======================================================
    VISION & MISSION — CLOSING (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-vm-closing {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-md) var(--section-px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-vm-closing {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-vm-closing-title {
     font-size: 1.9rem;
   }
-  .rtx-vision-statement,
+  /* .rtx-vision-statement,
   .rtx-mission-statement,
-  .rtx-vision-text,
-  .rtx-vm-closing-text {
-    text-align: justify;
-  }
+  .rtx-vision-text,*/
+  /* .rtx-vm-closing-text {
+    text-align: left;
+  } */
   .rtx-vm-closing-title {
     text-align: left;
   }
 }
-
+@media (max-width: 426px) {
+  .rtx-vm-closing {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  .rtx-vm-missiontext {
+    font-size: clamp(3rem, 6.5vw, 3rem);
+  }
+}
 /* ======================================================
    ABOUT SECTION — RESPONSIVE END
 ====================================================== */
@@ -960,7 +1139,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
    CAREER — HERO (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-career-hero-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -983,7 +1162,6 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
   .rtx-career-hero-text {
     max-width: 100%;
-    text-align: justify;
   }
   .rtx-career-hero-visual {
     margin: 0 auto;
@@ -997,7 +1175,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     padding: var(--space-xl);
   }
   .rtx-career-hero {
-    padding: var(--section-py-sm) var(--section-px) var(--section-py-xs);
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
 }
 @media (max-width: 376px) {
@@ -1020,7 +1198,7 @@ CAREER — Why Work With Us (RESPONSIVE)
    CAREER — LIFE AT ROBOTRONIX (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-career-life-layout {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -1028,10 +1206,9 @@ CAREER — Why Work With Us (RESPONSIVE)
 
   .rtx-career-life-content {
     max-width: 100%;
-    
   }
 
-   .rtx-career-life-images {
+  .rtx-career-life-images {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1040,7 +1217,7 @@ CAREER — Why Work With Us (RESPONSIVE)
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .rtx-career-life-layout {
     gap: 48px;
   }
@@ -1057,13 +1234,13 @@ CAREER — Why Work With Us (RESPONSIVE)
 }
 @media (max-width: 426px) {
   .rtx-career-life-text {
-    text-align: justify;
+    text-align: left;
   }
 
   .rtx-career-life {
     padding: var(--section-py-xs) var(--section-px);
   }
-    .rtx-career-life-images {
+  .rtx-career-life-images {
     grid-template-columns: 1fr;
   }
 
@@ -1077,27 +1254,26 @@ CAREER — Why Work With Us (RESPONSIVE)
    CAREER — Internship Opportunities (RESPONSIVE)
 ====================================================== */
 
-@media (max-width:426px) {
-  .rtx-career-internship{
+@media (max-width: 426px) {
+  .rtx-career-internship {
     padding: var(--section-py-xs) var(--section-px);
   }
-  
 }
 
 /* ======================================================
    CAREER — OPEN POSITIONS (RESPONSIVE)
 ====================================================== */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .rtx-career-job-card {
     gap: 20px;
   }
 }
 @media (max-width: 426px) {
-  .rtx-career-jobs{
+  .rtx-career-jobs {
     padding: var(--section-py-xs) var(--section-px);
   }
-  .rtx-career-job-card{
+  .rtx-career-job-card {
     flex-direction: column;
     align-items: flex-start;
     max-width: 80%;
@@ -1110,7 +1286,8 @@ CAREER — Why Work With Us (RESPONSIVE)
    CAREER — Growth & Learning (RESPONSIVE)
 ====================================================== */
 @media (max-width: 426px) {
-  .rtx-career-growth,.rtx-career-cta{
+  .rtx-career-growth,
+  .rtx-career-cta {
     padding: var(--section-py-xs) var(--section-px);
   }
 }
@@ -1123,34 +1300,35 @@ CAREER — Why Work With Us (RESPONSIVE)
     TEXT JUSTIFY FOR MOBILE SCREEN
 ========================================================= */
 @media (max-width: 426px) {
-  .rtx-hero-subtext,
-  .rtx-hero-subtext,
-  .rtx-services-subtext,
+  /* .rtx-hero-subtext, */
+  /* .rtx-hero-subtext, */
+  /* .rtx-services-subtext, */
   .rtx-service-desc,
   .rtx-about-text,
-  .rtx-choose-subtext,
+  /* .rtx-choose-subtext, */
   .rtx-choose-text-justifty,
   .rtx-test-text,
-  .rtx-tech-subtext,
+  /* .rtx-tech-subtext, */
   .rtx-test-card-text,
-  .rtx-contact-sub,
+  /* .rtx-contact-sub, */
   .rtx-right-desc,
-  .rtx-partners-sub,
-  .rtx-cta-box,
-  .rtx-cta-sub,
-  .rtx-test-subtext,
+  /* .rtx-partners-sub, */
+  /* .rtx-cta-sub, */
+  /* .rtx-test-subtext, */
   .u-subtextm,
-  .rtx-service-approach-subtext,
-  .rtx-service-industries-subtext,
-  .u-subtext,
-  .rtx-service-impact-subtext,
-  .rtx-service-hero-subtext,
-  .rtx-culture-bonding-text,
+  /* .rtx-service-approach-subtext, */
+  /* .rtx-service-industries-subtext, */
+  /* .u-subtext, */
+  /* .rtx-service-impact-subtext, */
+  /* .rtx-service-hero-subtext, */
+  /* .rtx-culture-bonding-text, */
   .rtx-career-hero-textc,
-  .rtx-career-cta-text,
-  .rtx-portfolio-subtext,
-  .rtx-portfolio-cta-text {
-    text-align: justify;
+  /* .rtx-career-cta-text, */
+  /* .rtx-portfolio-subtext, */
+  .rtx-philosophy-text,
+  /* .rtx-portfolio-cta-text, */
+  .rtx-who-text .u-subtext {
+    text-align: left;
   }
   .rtx-services-wrapper .rtx-service-desc {
     text-align: start;
@@ -1159,9 +1337,19 @@ CAREER — Why Work With Us (RESPONSIVE)
 /* ======================================================
    PORTFOLIO PAGE — RESPONSIVE START
 ====================================================== */
+@media (max-width: 1024px) {
+  .rtx-portfolio-hero {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
+  }
+}
 @media (max-width: 768px) {
-  .rtx-portfolio-eyebrow {
-    margin-top: var(--space-md);
+  .rtx-portfolio-hero {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
+  }
+}
+@media (max-width: 426px) {
+  .rtx-portfolio-hero {
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
 }
 /* ======================================================

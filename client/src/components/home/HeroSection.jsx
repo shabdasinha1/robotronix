@@ -20,8 +20,8 @@ const HeroSection = React.memo(() => {
         className: "rtx-stat-drop-2",
       },
       {
-        value: "50+",
-        label: "Industry Awards",
+        value: "10+ yrs",
+        label: "Delivery Excellence",
         className: "rtx-stat-drop-3",
       },
       {
@@ -53,7 +53,7 @@ const HeroSection = React.memo(() => {
           of innovation.
         </p>
 
-        <div className="rtx-fade-drop-4 d-flex justify-content-center gap-3">
+        <div className="rtx-fade-drop-4 d-flex rtx-hero-btn justify-content-center gap-3">
           <Button to="/contact-us" variant="primary" size="lg">
             Get Started →
           </Button>
