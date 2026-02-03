@@ -13,11 +13,11 @@ const api = axios.create({
 
 /* ===============================
    REQUEST INTERCEPTOR
-   → Attach JWT automatically
+   → Attach JWT automatically (SESSION)
 ================================ */
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("admin_token");
+    const token = sessionStorage.getItem("admin_token");
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -35,11 +35,12 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Token expired / invalid
-    if (error.response && error.response.status === 401) {
-      localStorage.removeItem("admin_token");
+    if (error.response?.status === 401) {
+      // Clear session
+      sessionStorage.removeItem("admin_token");
+      sessionStorage.removeItem("admin_auth");
 
-      // Optional: hard redirect (safe for admin)
+      // Admin-safe hard redirect
       if (window.location.pathname.startsWith("/admin")) {
         window.location.href = "/admin/login";
       }

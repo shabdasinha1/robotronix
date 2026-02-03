@@ -306,13 +306,16 @@
 /* BADGE */
 .rtx-about-badge {
   display: inline-block;
-  padding: 6px 18px;
-  background: var(--blue-015);
-  color: var(--clr-blue);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-blue-medium);
+  background: var(--blue-012);
+  border: 1px solid var(--blue-02);
   border-radius: 12px;
- margin-bottom: var(--space-sm);
+  backdrop-filter: blur(6px);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-sm);
 }
-
 /* TITLE */
 .rtx-about-title {
   font-size: 2.6rem;
@@ -355,7 +358,7 @@ margin: var(--space-lg) 0;
 :root[data-theme="light"] .rtx-about-badge {
   background: var(--blue-01);
   color: var(--clr-blue);
-  border: 1px solid var(--blue-02s);
+  border: 1px solid var(--blue-02);
   backdrop-filter: blur(8px);
 }
 

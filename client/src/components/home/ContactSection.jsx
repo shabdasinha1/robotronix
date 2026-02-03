@@ -2,8 +2,10 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
+import { useToast } from "../../toast/ToastContext";
 
 const ContactSection = React.memo(() => {
+  const { showToast } = useToast();
   /* ===============================
      OBSERVER OPTIONS (MEMOIZED)
   =============================== */
@@ -31,17 +33,7 @@ const ContactSection = React.memo(() => {
   });
 
   const [loading, setLoading] = useState(false);
-  const isMountedRef = useRef(true);
 
-  /* ===============================
-     LIFECYCLE SAFETY
-  =============================== */
-
-  React.useEffect(() => {
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
 
   /* ===============================
      HANDLERS (MEMOIZED)
@@ -56,36 +48,33 @@ const ContactSection = React.memo(() => {
   }, []);
 
   const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      if (loading) return;
+  async (e) => {
+    e.preventDefault();
+    if (loading) return;
 
-      try {
-        setLoading(true);
+    setLoading(true);
 
-        await messagesApi.createMessage(formData);
+    try {
+  await messagesApi.createMessage(formData);
 
-        if (!isMountedRef.current) return;
+  showToast("Message sent successfully!", "success");
 
-        alert("Message sent successfully!");
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+} catch (err) {
+  showToast(err?.message || "Failed to send message", "error");
+}
+ finally {
+      setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN
+    }
+  },
+  [formData, loading]
+);
 
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
-      } catch (err) {
-        if (!isMountedRef.current) return;
-        alert(err?.message || "Failed to send message");
-      } finally {
-        if (isMountedRef.current) {
-          setLoading(false);
-        }
-      }
-    },
-    [formData, loading]
-  );
 
   return (
     <section
@@ -170,15 +159,16 @@ const ContactSection = React.memo(() => {
               />
             </div>
 
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              className="w-100"
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Send Message ✈"}
-            </Button>
+           <Button
+  type="submit"
+  variant="primary"
+  size="lg"
+  className="w-100"
+  disabled={loading}
+>
+  {loading ? "Sending..." : "Send Message ✈"}
+</Button>
+
           </form>
 
           {/* RIGHT — INFO */}

@@ -5,8 +5,10 @@ import { NavLink } from "react-router-dom";
 import atulya1 from "../../assets/images/atulya1.webp";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
+import { useToast } from "../../toast/ToastContext";
 
 const ContactUs = React.memo(() => {
+  
   /* ===============================
      SHARED REVEAL CONFIG
   =============================== */
@@ -29,7 +31,7 @@ const ContactUs = React.memo(() => {
   });
 
   const [loading, setLoading] = useState(false);
-
+const { showToast } = useToast();
   /* ===============================
      STATIC INFO DATA (MEMOIZED)
   =============================== */
@@ -69,31 +71,31 @@ const ContactUs = React.memo(() => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   }, []);
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
+const handleSubmit = useCallback(
+  async (e) => {
+    e.preventDefault();
+    if (loading) return;
 
-      try {
-        setLoading(true);
-        await messagesApi.createMessage(formData);
+    try {
+      setLoading(true);
+      await messagesApi.createMessage(formData);
 
-      
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
+      showToast("Message sent successfully!", "success");
 
-        alert("Message sent successfully!");
-      } catch (err) {
-        alert(err?.message || "Failed to send message");
-      } finally {
-        setLoading(false);
-      }
-    },
-    [formData]
-  );
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (err) {
+      showToast(err?.message || "Failed to send message", "error");
+    } finally {
+      setLoading(false);
+    }
+  },
+  [formData, loading, showToast]
+);
 
   const scrollToContactForm = useCallback(() => {
     const el = document.getElementById("contact-form");

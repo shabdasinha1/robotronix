@@ -12,6 +12,7 @@ import ThemeInitializer from "../theme/ThemeInitializer";
 import ScrollToTop from "../components/common/ScrollToTop";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
+import { ToastProvider } from "../toast/ToastContext.jsx";
 
 // Routes
 import { routesConfig, adminRoutesConfig } from "./RouteConfig";
@@ -73,7 +74,7 @@ const AppRoutes = () => {
     <BrowserRouter>
       <ThemeInitializer />
       <ScrollToTop />
-
+    <ToastProvider>
       <Suspense fallback={<PageFallback />}>
         <Routes>
 
@@ -128,6 +129,7 @@ const AppRoutes = () => {
 
         </Routes>
       </Suspense>
+      </ToastProvider>
     </BrowserRouter>
   );
 };

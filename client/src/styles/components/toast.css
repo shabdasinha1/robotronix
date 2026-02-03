@@ -1,0 +1,87 @@
+/* ===============================
+   GLOBAL TOAST (BASE)
+================================ */
+.rtx-toast {
+  position: fixed;
+  top: 24px;
+  z-index: 100000;
+
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+
+  background: var(--bg-dark-2);
+  color: var(--clr-white);
+
+  box-shadow: 0 10px 30px var(--shadow-dark-2);
+  border: 1px solid var(--white-06);
+
+  animation: toastDrop 0.4s ease;
+}
+
+/* ===============================
+   DESKTOP + TABLET (TOP RIGHT)
+================================ */
+@media (min-width: 641px) {
+  .rtx-toast {
+    right: 24px;
+    left: auto;
+    transform: translateY(0);
+  }
+
+  @keyframes toastDrop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===============================
+   MOBILE (TOP CENTER)
+================================ */
+@media (max-width: 640px) {
+  .rtx-toast {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    max-width: calc(100% - 32px);
+    text-align: center;
+  }
+
+  @keyframes toastDrop {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -20px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+/* ===============================
+   STATES
+================================ */
+.rtx-toast-success {
+  border-left: 4px solid var(--clr-blue);
+}
+
+.rtx-toast-error {
+  border-left: 4px solid #ff4d4d;
+}
+
+/* ===============================
+   LIGHT THEME
+================================ */
+:root[data-theme="light"] .rtx-toast {
+  background: var(--light-bg-3);
+  color: var(--clr-text-soft);
+  border: 1px solid var(--border-light-1);
+}
