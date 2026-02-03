@@ -125,8 +125,8 @@ const WebDev = () => {
         subtitle="We design and develop scalable web applications and digital solutions using the MERN stack — tailored to streamline operations and accelerate business growth."
         primaryText="Start Your Digital Journey →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "MERN", label: "Core Stack" },
           { value: "React", label: "Modern UI" },

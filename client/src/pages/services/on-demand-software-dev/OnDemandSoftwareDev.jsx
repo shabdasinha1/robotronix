@@ -125,8 +125,8 @@ const OnDemandSoftwareDev = () => {
         subtitle="We design and build tailor-made software solutions that solve real business challenges — scalable, secure, and engineered for long-term success."
         primaryText="Build Your Software →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "100%", label: "Custom Built" },
           { value: "Scalable", label: "Architecture" },

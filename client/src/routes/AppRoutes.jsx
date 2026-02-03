@@ -12,7 +12,7 @@ import ThemeInitializer from "../theme/ThemeInitializer";
 import ScrollToTop from "../components/common/ScrollToTop";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
-import { ToastProvider } from "../toast/ToastContext.jsx";
+import { ToastProvider } from "../components/common/ToastContext.jsx";
 
 // Routes
 import { routesConfig, adminRoutesConfig } from "./RouteConfig";

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import atulya1 from "../../assets/images/atulya1.webp";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
-import { useToast } from "../../toast/ToastContext";
+import { useToast } from "../../components/common/ToastContext";
 
 const ContactUs = React.memo(() => {
   

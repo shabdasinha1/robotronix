@@ -1,6 +1,6 @@
-import React, { useMemo,useState, useEffect } from "react";
+import React, { useMemo,useState, useEffect,useCallback } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { Link } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { FiX } from "react-icons/fi";
 
 import festival1 from "../../assets/images/culture/festival/festival5.webp";
@@ -35,6 +35,14 @@ const closePreview = () => {
   const jobsRef = useRevealOnScroll(revealConfig);
   const growth = useRevealOnScroll(revealConfig);
   const cta = useRevealOnScroll(revealConfig);
+
+  const scrollToOpenPositions = useCallback(() => {
+  const el = document.getElementById("open-positions");
+  el?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, []);
 
   /* ===============================
      STATIC DATA (MEMOIZED)
@@ -161,17 +169,23 @@ useEffect(() => {
           </p>
 
           <div
-            className="rtx-career-hero-actions u-drop"
-            style={{ "--delay": "0.7s" }}
-          >
-            <a href="#open-positions" className="btn btn-primary btn-lg">
-              View Open Positions
-            </a>
+  className="rtx-career-hero-actions u-drop"
+  style={{ "--delay": "0.7s" }}
+>
+<button
+  type="button"
+  className="btn btn-primary btn-lg"
+  onClick={scrollToOpenPositions}
+>
+  View Open Positions
+</button>
 
-            <a href="/contact-us" className="btn btn-outline btn-lg">
-              Send Resume
-            </a>
-          </div>
+
+  <NavLink to="/contact-us" className="btn btn-outline btn-lg">
+    Send Resume
+  </NavLink>
+</div>
+
 
         </div>
 

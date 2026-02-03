@@ -140,8 +140,8 @@ const AgentsAI = React.memo(() => {
         subtitle="From task automation to fully autonomous decision-making — Robotronix delivers next-generation AI Agents that think, plan, and execute like digital employees."
         primaryText="Get Started →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "24/7", label: "Autonomous Execution" },
           { value: "100%", label: "Task Automation" },

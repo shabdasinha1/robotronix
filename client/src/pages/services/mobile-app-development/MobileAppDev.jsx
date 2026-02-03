@@ -125,8 +125,8 @@ const MobileAppDev = () => {
         subtitle="We build high-performance, scalable, and visually stunning mobile applications using Flutter — delivering a single codebase solution for both Android and iOS."
         primaryText="Build Your App →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "Flutter", label: "Only Focus" },
           { value: "Android + iOS", label: "Single Codebase" },

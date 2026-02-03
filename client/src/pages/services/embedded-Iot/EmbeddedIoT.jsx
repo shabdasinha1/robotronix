@@ -135,8 +135,8 @@ const EmbeddedIoT = () => {
         subtitle="We design intelligent embedded systems and IoT solutions that connect hardware, software, and cloud — enabling real-time automation, data-driven decisions, and smart connectivity."
         primaryText="Start Your IoT Project →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "End-to-End", label: "Embedded Solutions" },
           { value: "Real-Time", label: "IoT Intelligence" },

@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
-import { useToast } from "../../toast/ToastContext";
+import { useToast } from "../common/ToastContext";
 
 const ContactSection = React.memo(() => {
   const { showToast } = useToast();

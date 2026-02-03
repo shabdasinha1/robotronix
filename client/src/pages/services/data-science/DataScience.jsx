@@ -130,8 +130,8 @@ const DataScience = () => {
         subtitle="Robotronix empowers organizations to unlock the full potential of their data through advanced Data Science solutions that drive smarter decisions, efficiency, and measurable business impact."
         primaryText="Get Started →"
         primaryLink="/contact-us"
-        secondaryText="Explore Services"
-        secondaryLink="/services"
+        secondaryText="Explore Work"
+        secondaryLink="/portfolio"
         stats={[
           { value: "Predictive", label: "Analytics Models" },
           { value: "Real-Time", label: "Data Insights" },
