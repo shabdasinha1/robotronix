@@ -18,6 +18,8 @@
   );
   opacity: 0.7;
   animation: rtxCPageParticleMove 8s infinite linear;
+  pointer-events: none;
+    z-index: 1;
 }
 
 @keyframes rtxCPageParticleMove {
@@ -65,6 +67,8 @@ gap: var(--space-sm);
   flex-wrap: wrap;
   font-size: 0.95rem;
   color: var(--clr-text-light);
+  position: relative;
+  z-index: 5;
 }
 
 .rtx-cpage-quick a {

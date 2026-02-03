@@ -192,3 +192,9 @@
     var(--light-bg-3)
   );
 }
+
+textarea {
+  resize: none;          /* ⛔ disables drag resize */
+  width: 100%;           /* or fixed px/rem */
+  height: 140px;         /* fixed height */
+}

@@ -145,15 +145,16 @@ const handleSubmit = useCallback(
           </div>
 
           <div className="rtx-cpage-quick">
-            <NavLink to="mailto:info@robotronix.co.in">
-              📧 info@robotronix.co.in
-            </NavLink>
+           <a href="mailto:info@robotronix.co.in">
+  📧 info@robotronix.co.in
+</a>
 
-            <span className="divider">•</span>
+<span className="divider">•</span>
 
-            <NavLink to="tel:+917312970998">
-              📞 +91 9993150998, +91 77248 52726
-            </NavLink>
+<a href="tel:+919993150998">
+  📞 +91 9993150998, +91 77248 52726
+</a>
+
           </div>
         </div>
       </section>
@@ -269,6 +270,7 @@ const handleSubmit = useCallback(
               <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
                 <MessageSquare className="rtx-cpage-input-icon" />
                 <textarea
+                
                   name="message"
                   rows="5"
                   placeholder="Your Message"
