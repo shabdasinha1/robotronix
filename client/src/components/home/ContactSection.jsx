@@ -66,7 +66,7 @@ const ContactSection = React.memo(() => {
     message: "",
   });
 } catch (err) {
-  showToast(err?.message || "Failed to send message", "error");
+  showToast("Failed to send message", "error");
 }
  finally {
       setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN

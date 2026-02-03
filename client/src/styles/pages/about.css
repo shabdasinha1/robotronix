@@ -550,6 +550,12 @@ margin: var(--space-md) auto 0;
     transition: 0.35s ease;
   }
 
+  .rtx-culture-festivals-main-img:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-02);
+  box-shadow: 0 16px 36px var(--blue-02);
+}
+
   /* ======================================================
     CULTURE — IMAGE STRIP
   ====================================================== */

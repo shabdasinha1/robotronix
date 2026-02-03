@@ -38,7 +38,7 @@ const CTASection = React.memo(() => {
           digital solutions.
         </p>
 
-        <Button variant="primary" size="lg">
+        <Button to="/contact-us" variant="primary" size="lg">
           Get Started 🚀
         </Button>
       </div>
