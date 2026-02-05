@@ -39,7 +39,7 @@ const AboutSection = React.memo(() => {
 
         {/* RIGHT CONTENT */}
         <div className="rtx-about-right u-drop-right">
-          <span className="rtx-about-badge">About RoboTronix</span>
+          <span className="rtx-about-badge">About Robotronix</span>
 
           <h2 className="rtx-about-title">
             Innovating the Future of <span>Technology</span>

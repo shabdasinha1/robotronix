@@ -3,9 +3,6 @@
 ====================================================== */
 
 .rtx-hero-wrapper {
- 
-  
-  
   position: relative;
   overflow: hidden;
 }
@@ -24,14 +21,19 @@
 }
 
 @keyframes particleMove {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* CONTENT */
 .rtx-hero-container {
-
   position: relative;
   z-index: 2;
 }
@@ -51,13 +53,13 @@
 }
 
 /* TITLE */
-.rtx-hero-title {
-  color: var(--clr-white);
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 20px;
-}
+  .rtx-hero-title {
+    color: var(--clr-white);
+    font-weight: var(--fw-title);
+    font-size: var(--fs-3xl);
+    line-height: 1.2;
+    margin-top: var(--space-sm);
+  }
 
 .rtx-hero-accent {
   color: var(--clr-blue-medium);
@@ -79,7 +81,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 22px;
-   margin-top: var(--space-xl, 80px);
+  margin-top: var(--space-xl, 80px);
 }
 
 .rtx-hero-stat-card {
@@ -110,7 +112,6 @@
   box-shadow: 0px 8px 20px var(--blue-02);
 }
 
-
 /* ======================================================
    HOME — SERVICES SECTION
 ====================================================== */
@@ -119,37 +120,28 @@
    SECTION WRAPPER
 =========================== */
 
-
 /* ===========================
    TITLE
 =========================== */
 .rtx-services-title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-title);
   color: var(--clr-white);
-
- 
- 
-
 }
 
 .rtx-services-title span {
   color: var(--clr-blue);
 }
 
-
 /* ===========================
    SUBTEXT
 =========================== */
 .rtx-services-subtext {
   color: var(--clr-text-light);
-  max-width: 700px;
-   margin: var(--space-sm) auto var(--space-xl);
+  /* max-width: 700px; */
+  margin: var(--space-sm) auto var(--space-xl);
   font-size: 1.1rem;
-
-
 }
-
 
 /* ===========================
    GRID
@@ -165,7 +157,6 @@
 =========================== */
 .rtx-service-card {
   text-align: left;
-
 }
 
 /* ===========================
@@ -191,7 +182,7 @@
   font-size: 1.2rem;
   color: var(--clr-white);
   font-weight: 600;
- margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 /* ===========================
@@ -207,7 +198,7 @@
    LINK
 =========================== */
 .rtx-service-link {
-  color: var(--clr-blue-light); 
+  color: var(--clr-blue-light);
   font-weight: 500;
   text-decoration: none;
   transition: 0.3s ease;
@@ -231,21 +222,21 @@
    LIGHT THEME – SERVICE CARD (FROSTED GLASS)
 ============================================ */
 :root[data-theme="light"] .rtx-service-card {
-  background: var(--white-055);                 
-  border: 1px solid var(--border-light-1);       
+  background: var(--white-055);
+  border: 1px solid var(--border-light-1);
   backdrop-filter: blur(12px);
   box-shadow:
-    0 6px 18px var(--border-light-2),           
-    0 4px 12px var(--blue-01);                   
+    0 6px 18px var(--border-light-2),
+    0 4px 12px var(--blue-01);
   transition: 0.3s ease;
 }
 
 :root[data-theme="light"] .rtx-service-card:hover {
   transform: translateY(-10px);
-  border-color: var(--blue-025s);               
+  border-color: var(--blue-025s);
   box-shadow:
-    0 12px 24px var(--border-light-2),           
-    0 6px 16px var(--blue-025s);                 
+    0 12px 24px var(--border-light-2),
+    0 6px 16px var(--blue-025s);
 }
 
 /* ICON FIX FOR LIGHT MODE */
@@ -289,7 +280,6 @@
   flex-wrap: wrap;
 }
 
-
 /* LEFT & RIGHT COLUMNS */
 .rtx-about-left,
 .rtx-about-right {
@@ -318,11 +308,10 @@
 }
 /* TITLE */
 .rtx-about-title {
-  font-size: 2.6rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
   margin-bottom: var(--space-sm);
-
 }
 
 .rtx-about-title span {
@@ -333,17 +322,17 @@
 .rtx-about-text {
   font-size: 1.05rem;
   line-height: 1.7;
- margin-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
 
   color: var(--clr-text-light);
 }
 
 /* POINTS */
 .rtx-about-points {
-margin: var(--space-lg) 0;
+  margin: var(--space-lg) 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-   gap: var(--space-sm);
+  gap: var(--space-sm);
   color: var(--clr-blue-light);
 }
 
@@ -385,7 +374,6 @@ margin: var(--space-lg) 0;
   border-radius: 12px;
 }
 
-
 /* ======================================================
    HOME — TECH STACK (CLEAN & SYSTEMIZED)
 ====================================================== */
@@ -394,7 +382,6 @@ margin: var(--space-lg) 0;
 .rtx-tech-wrapper {
   position: relative;
   background: var(--bg-dark-2);
-
 }
 
 /* TOP GRADIENT */
@@ -403,11 +390,7 @@ margin: var(--space-lg) 0;
   position: absolute;
   inset: 0 0 auto 0;
   height: 90px;
-  background: linear-gradient(
-    to bottom,
-    var(--blue-015),
-    transparent
-  );
+  background: linear-gradient(to bottom, var(--blue-015), transparent);
   pointer-events: none;
 }
 
@@ -418,8 +401,8 @@ margin: var(--space-lg) 0;
 
 /* TITLE */
 .rtx-tech-title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -453,7 +436,7 @@ margin: var(--space-lg) 0;
 
 .rtx-tech-card h4 {
   font-size: 1.1rem;
- margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-xs);
   color: var(--clr-white);
 }
 
@@ -465,10 +448,9 @@ margin: var(--space-lg) 0;
 /* FOOTER */
 .rtx-tech-footer {
   font-size: 1rem;
-margin-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
   color: var(--clr-text-light);
 }
-
 
 /* ======================================================
    LIGHT THEME — TECH STACK
@@ -506,8 +488,6 @@ margin-bottom: var(--space-md);
    HOME — WHY CHOOSE US (CLEAN & SYSTEMIZED)
 ====================================================== */
 
-
-
 /* CONTAINER */
 .rtx-choose-container {
   text-align: center;
@@ -515,8 +495,8 @@ margin-bottom: var(--space-md);
 
 /* TITLE */
 .rtx-choose-title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -527,7 +507,7 @@ margin-bottom: var(--space-md);
 /* SUBTEXT */
 .rtx-choose-subtext {
   font-size: 1.1rem;
-    margin: var(--space-sm) auto var(--space-xl);
+  margin: var(--space-sm) auto var(--space-xl);
   max-width: 700px;
   color: var(--clr-text-light);
 }
@@ -548,7 +528,7 @@ margin-bottom: var(--space-md);
 /* CARD CONTENT */
 .rtx-choose-icon {
   font-size: 40px;
- margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 
   color: var(--clr-blue);
 }
@@ -557,8 +537,7 @@ margin-bottom: var(--space-md);
   font-size: 2.4rem;
   font-weight: 700;
   color: var(--clr-blue);
- margin-bottom: var(--space-xs);
-
+  margin-bottom: var(--space-xs);
 }
 
 .rtx-choose-label {
@@ -575,7 +554,6 @@ margin-bottom: var(--space-md);
   border: 1px solid var(--white-12);
   color: var(--clr-text-light);
 }
-
 
 /* ======================================================
    LIGHT THEME — WHY CHOOSE US
@@ -619,7 +597,6 @@ margin-bottom: var(--space-md);
     0 4px 12px var(--blue-01);
 }
 
-
 /* ======================================================
    HOME — TESTIMONIALS (CLEAN & SYSTEMIZED)
 ====================================================== */
@@ -636,8 +613,8 @@ margin-bottom: var(--space-md);
 
 /* TITLE */
 .rtx-test-title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -656,18 +633,18 @@ margin-bottom: var(--space-md);
 .rtx-test-slider {
   position: relative;
   width: 100%;
-  max-width: 900px;        /* keeps it premium & readable */
-  height: 360px;           /* FIXED HEIGHT */
+  max-width: 900px; /* keeps it premium & readable */
+  height: 360px; /* FIXED HEIGHT */
   margin: 0 auto var(--space-xl);
-  overflow: hidden;        /* prevents layout jump */
+  overflow: hidden; /* prevents layout jump */
 }
 
 .rtx-test-slide {
   position: absolute;
 
-    inset: 0;    
- padding: var(--space-card-lg);
- border-radius: var(--radius-lg);
+  inset: 0;
+  padding: var(--space-card-lg);
+  border-radius: var(--radius-lg);
   background: var(--white-06);
   border: 1px solid var(--white-10);
 
@@ -697,16 +674,15 @@ margin-bottom: var(--space-md);
   color: var(--clr-white);
 
   display: -webkit-box;
-  -webkit-line-clamp: 5;     /* 👈 key */
+  -webkit-line-clamp: 5; /* 👈 key */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-
 .rtx-test-name {
   font-size: 1.2rem;
   font-weight: 700;
-   margin-top: var(--space-sm);
+  margin-top: var(--space-sm);
   color: var(--clr-white);
 }
 
@@ -748,7 +724,7 @@ margin-bottom: var(--space-md);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-lg);
-    margin-top: var(--space-xl);
+  margin-top: var(--space-xl);
 }
 
 /* SMALL CARD */
@@ -763,9 +739,9 @@ margin-bottom: var(--space-md);
 
 .rtx-test-card-text {
   font-size: 0.95rem;
-   margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
   color: var(--clr-text-light);
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 .rtx-test-card-name {
@@ -777,7 +753,6 @@ margin-bottom: var(--space-md);
   font-size: 0.85rem;
   color: var(--clr-blue);
 }
-
 
 /* ======================================================
    LIGHT THEME — TESTIMONIALS
@@ -863,8 +838,8 @@ margin-bottom: var(--space-md);
 
 /* TITLE */
 .rtx-contact-title {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -875,7 +850,7 @@ margin-bottom: var(--space-md);
 /* SUBTEXT */
 .rtx-contact-sub {
   font-size: 1.1rem;
-   margin: var(--space-sm) auto var(--space-xl);
+  margin: var(--space-sm) auto var(--space-xl);
   color: var(--clr-text-light);
 }
 
@@ -937,7 +912,7 @@ margin-bottom: var(--space-md);
 
 .rtx-contact-right h3 {
   color: var(--clr-white);
- margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .rtx-right-desc {
@@ -947,7 +922,7 @@ margin-bottom: var(--space-md);
 }
 
 .rtx-info-card {
-   margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .rtx-info-card h4 {
@@ -976,7 +951,6 @@ margin-bottom: var(--space-md);
   margin-top: 5px;
   color: var(--clr-text-light);
 }
-
 
 /* ======================================================
    LIGHT THEME — CONTACT
@@ -1023,7 +997,6 @@ margin-bottom: var(--space-md);
   border: 1px solid var(--border-light-1);
 }
 
-
 /* ======================================================
    HOME — PARTNERS / TRUSTED BY (SYSTEMIZED)
 ====================================================== */
@@ -1040,8 +1013,8 @@ margin-bottom: var(--space-md);
 
 /* TITLE */
 .rtx-partners-title {
-  font-size: 2.6rem;
-  font-weight: 700;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -1052,7 +1025,7 @@ margin-bottom: var(--space-md);
 /* SUBTEXT */
 .rtx-partners-sub {
   font-size: 1.1rem;
-   margin: var(--space-sm) auto var(--space-xl);
+  margin: var(--space-sm) auto var(--space-xl);
   color: var(--clr-text-light);
 }
 
@@ -1060,7 +1033,7 @@ margin-bottom: var(--space-md);
 .rtx-marquee-row {
   width: 100%;
   overflow: hidden;
-   margin: var(--space-lg) 0;
+  margin: var(--space-lg) 0;
   border-radius: 16px;
   background: var(--white-02);
   border: 1px solid var(--white-05);
@@ -1087,7 +1060,7 @@ margin-bottom: var(--space-md);
 /* SET */
 .rtx-marquee-set {
   display: flex;
-   gap: var(--space-2xl);
+  gap: var(--space-2xl);
   padding-right: var(--space-2xl);
 }
 
@@ -1115,13 +1088,12 @@ margin-bottom: var(--space-md);
   }
 }
 
-
 /* ======================================================
    LIGHT THEME — PARTNERS
 ====================================================== */
 
 :root[data-theme="light"] .rtx-partners-wrapper {
-   background: var(--bg-dark-1);
+  background: var(--bg-dark-1);
 }
 
 :root[data-theme="light"] .rtx-partners-sub {
@@ -1197,7 +1169,6 @@ margin-bottom: var(--space-md);
   margin: var(--space-sm) 0 var(--space-lg);
   color: var(--clr-text-light);
 }
-
 
 /* ======================================================
    LIGHT THEME — CTA

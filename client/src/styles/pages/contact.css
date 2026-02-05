@@ -41,7 +41,8 @@
 }
 
 .rtx-cpage-hero-title {
-  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: var(--fw-title);
   margin-top: var(--space-md);
   color: var(--clr-white);
 }

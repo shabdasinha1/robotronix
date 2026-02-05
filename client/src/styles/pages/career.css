@@ -27,8 +27,8 @@
 
 /* TITLE */
 .rtx-career-hero-title {
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-weight: var(--fw-title);
+    font-size: var(--fs-3xl);
   color: var(--clr-white);
   line-height: 1.15;
 }

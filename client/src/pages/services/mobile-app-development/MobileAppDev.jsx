@@ -137,12 +137,13 @@ const MobileAppDev = () => {
 
       {/* BELOW THE FOLD */}
       <Suspense fallback={<></>}>
-        <ServicesOverview
+      <ServicesOverview
           title="Flutter"
           accent="Mobile App Development"
           paragraphs={[
             "At Robotronix Engineering Tech Pvt. Ltd., we specialize exclusively in Flutter mobile application development. Our focus allows us to build faster, more reliable, and cost-effective mobile apps without compromising on performance or user experience.",
             "Using Flutter, we create cross-platform applications with native-like performance, beautiful UI, and seamless user interactions — all from a single, maintainable codebase.",
+            "Our expertise goes beyond front-end development into scalable system integration and advanced features. We build applications with real-time data, APIs, cloud services, offline support, and modular architectures. Using modern workflows, CI/CD pipelines, and rigorous testing, we ensure stability, quality, and faster releases."
           ]}
           infoCards={infoCards}
         />

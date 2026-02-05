@@ -17,16 +17,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 20% 20%,
-      var(--blue-012b),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 80% 30%,
-      var(--blue-012),
-      transparent 60%
-    );
+    radial-gradient(circle at 20% 20%, var(--blue-012b), transparent 55%),
+    radial-gradient(circle at 80% 30%, var(--blue-012), transparent 60%);
   opacity: 0.6;
   pointer-events: none;
 }
@@ -34,7 +26,7 @@
 /* Badge (reuse hero style but calmer) */
 .rtx-overview-hero .rtx-hero-badge {
   display: inline-block;
-  margin-bottom: var(--space-md);
+  /* margin-bottom: var(--space-md); */
   padding: var(--space-xs) var(--space-md);
   font-size: 0.85rem;
   font-weight: 600;
@@ -48,27 +40,30 @@
 .rtx-overview-hero .u-title {
   max-width: 900px;
   margin: 0 auto;
+  font-weight: var(--fw-title);
+  font-size: var(--fs-3xl);
+  margin-top: var(--space-md);
 }
 
 /* Subtext tuning */
 .rtx-overview-hero .u-subtext {
   max-width: 820px;
- margin: var(--space-md) auto 0;
+  margin: var(--space-md) auto 0;
   line-height: 1.7;
 }
 
 /* Inline highlights */
 .rtx-overview-highlights {
- margin-top: var(--space-xl);
+  margin-top: var(--space-xl);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-gap: var(--space-md);
+  gap: var(--space-md);
 }
 
 /* Highlight pill */
 .rtx-overview-highlights span {
-padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   font-size: 0.85rem;
   border-radius: 999px;
   background: var(--white-05);
@@ -106,8 +101,6 @@ padding: var(--space-sm) var(--space-md);
     0 6px 14px var(--blue-02s);
 }
 
-
-
 /* ======================================================
    WHO WE ARE SECTION
 ====================================================== */
@@ -120,13 +113,13 @@ padding: var(--space-sm) var(--space-md);
 .rtx-who-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-   gap: var(--space-2xl);
+  gap: var(--space-2xl);
   align-items: center;
 }
 
 /* Text block */
 .rtx-who-text .u-title {
-   margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
 .rtx-who-text .u-subtext {
@@ -150,12 +143,11 @@ padding: var(--space-sm) var(--space-md);
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background:
-    radial-gradient(
-      circle at center,
-      var(--blue-012b),
-      transparent 60%
-    );
+  background: radial-gradient(
+    circle at center,
+    var(--blue-012b),
+    transparent 60%
+  );
   border: 1px solid var(--white-12);
   backdrop-filter: blur(10px);
 }
@@ -182,10 +174,24 @@ padding: var(--space-sm) var(--space-md);
 }
 
 /* Node positions */
-.rtx-who-core .n1 { top: 15%; left: 50%; transform: translateX(-50%); }
-.rtx-who-core .n2 { bottom: 18%; left: 25%; }
-.rtx-who-core .n3 { bottom: 18%; right: 25%; }
-.rtx-who-core .n4 { top: 50%; right: 15%; transform: translateY(-50%); }
+.rtx-who-core .n1 {
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.rtx-who-core .n2 {
+  bottom: 18%;
+  left: 25%;
+}
+.rtx-who-core .n3 {
+  bottom: 18%;
+  right: 25%;
+}
+.rtx-who-core .n4 {
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+}
 
 /* ======================================================
    LIGHT THEME
@@ -200,7 +206,6 @@ padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--border-light-1);
 }
 
-
 /* ======================================================
    OUR APPROACH SECTION
 ====================================================== */
@@ -213,7 +218,7 @@ padding: var(--space-sm) var(--space-md);
 .rtx-approach-flow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-   gap: var(--space-lg);
+  gap: var(--space-lg);
   margin-top: var(--space-2xl);
   position: relative;
 }
@@ -259,7 +264,7 @@ padding: var(--space-sm) var(--space-md);
   justify-content: center;
   width: 44px;
   height: 44px;
- margin-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
   border-radius: 50%;
   background: var(--blue-005b);
   border: 1px solid var(--blue-02);
@@ -291,7 +296,6 @@ padding: var(--space-sm) var(--space-md);
   box-shadow: 0 6px 14px var(--border-light-2);
 }
 
-
 /* ======================================================
    CORE STRENGTHS
 ====================================================== */
@@ -303,7 +307,7 @@ padding: var(--space-sm) var(--space-md);
 /* Card title */
 .rtx-strengths-wrapper h4 {
   font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 /* Card text */
@@ -339,7 +343,7 @@ padding: var(--space-sm) var(--space-md);
 .rtx-impact-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-gap: var(--space-lg);
+  gap: var(--space-lg);
   margin-top: var(--space-2xl);
 }
 
@@ -358,7 +362,7 @@ gap: var(--space-lg);
 .rtx-impact-card h3 {
   font-size: 2.1rem;
   color: var(--clr-blue);
-    margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
   text-shadow: 0 0 14px var(--blue-06);
 }
 
@@ -385,7 +389,6 @@ gap: var(--space-lg);
   box-shadow: 0 6px 16px var(--border-light-2);
 }
 
-
 /* ======================================================
    COMPANY PHILOSOPHY
 ====================================================== */
@@ -402,7 +405,7 @@ gap: var(--space-lg);
   line-height: 1.4;
   color: var(--clr-white);
   max-width: 900px;
-margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-xl);
   position: relative;
 }
 
@@ -428,7 +431,7 @@ margin: 0 auto var(--space-xl);
   line-height: 1.75;
   color: var(--clr-text-light);
   max-width: 780px;
-margin: var(--space-md) auto 0;
+  margin: var(--space-md) auto 0;
 }
 
 /* ======================================================
@@ -443,32 +446,34 @@ margin: var(--space-md) auto 0;
   color: var(--clr-text-soft);
 }
 
-
-
 /* ======================================================
    COMPANY OVERVIEW END
 ====================================================== */
 
-  /* ======================================================
+/* ======================================================
     CULTURE START
   ====================================================== */
-  /* ======================================================
+/* ======================================================
     CULTURE HERO — EDITORIAL
   ====================================================== */
 
-  .rtx-culture-hero {
-    position: relative;
-  }
+.rtx-culture-hero {
+  position: relative;
+  padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
+}
+.rtx-culture-strip {
+  padding: var(--section-py-md) var(--section-px);
+}
 
-  /* LAYOUT */
-  .rtx-culture-hero-layout {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-     gap: var(--space-3xl);
-    align-items: center;
-  }
+/* LAYOUT */
+.rtx-culture-hero-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
 
-  /* LEFT CONTENT */
+/* LEFT CONTENT */
 .rtx-culture-eyebrow {
   display: inline-block;
   margin-bottom: var(--space-md);
@@ -482,170 +487,167 @@ margin: var(--space-md) auto 0;
   padding: var(--space-xs) var(--space-md);
 }
 
-  .rtx-culture-hero-title {
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: var(--clr-white);
-    line-height: 1.12;
-  }
+.rtx-culture-hero-title {
+  font-weight: var(--fw-title);
+  font-size: var(--fs-3xl);
+  color: var(--clr-white);
+  line-height: 1.12;
+}
 
-  .rtx-culture-hero-title span {
-    color: var(--clr-blue);
-    text-shadow: 0 0 16px var(--blue-06);
-  }
+.rtx-culture-hero-title span {
+  color: var(--clr-blue);
+  text-shadow: 0 0 16px var(--blue-06);
+}
 
-  .rtx-culture-hero-text {
-      margin-top: var(--space-lg);
-    font-size: 1.1rem;
-    color: var(--clr-text-light);
-    max-width: 520px;
-    line-height: 1.75;
-  }
+.rtx-culture-hero-text {
+  margin-top: var(--space-lg);
+  font-size: 1.1rem;
+  color: var(--clr-text-light);
+  max-width: 520px;
+  line-height: 1.75;
+}
 
-  /* RIGHT IMAGES */
+/* RIGHT IMAGES */
 .rtx-culture-hero-images {
   position: relative;
   min-height: 420px;
   margin: 0 auto;
 }
 
-  /* MAIN IMAGE */
-  .rtx-culture-img.main-img {
-    width: 100%;
-    height: 380px;
-    border-radius: 22px;
-    background: var(--white-05);
-    border: 1px solid var(--white-12);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 20px 40px var(--shadow-dark-2);
-  }
+/* MAIN IMAGE */
+.rtx-culture-img.main-img {
+  width: 100%;
+  height: 380px;
+  border-radius: 22px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px var(--shadow-dark-2);
+}
 
-  /* FLOATING IMAGES */
-  .rtx-culture-img.floating-img {
-    position: absolute;
-    width: 180px;
-    height: 140px;
-    border-radius: 16px;
-    background: var(--white-05);
-    border: 1px solid var(--white-12);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 16px 34px var(--shadow-dark-1);
-  }
+/* FLOATING IMAGES */
+.rtx-culture-img.floating-img {
+  position: absolute;
+  width: 180px;
+  height: 140px;
+  border-radius: 16px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 16px 34px var(--shadow-dark-1);
+}
 
-  .rtx-culture-img.img-1 {
-    bottom: -30px;
-    left: -40px;
-  }
+.rtx-culture-img.img-1 {
+  bottom: -30px;
+  left: -40px;
+}
 
-  .rtx-culture-img.img-2 {
-    top: -30px;
-    right: -40px;
-  }
+.rtx-culture-img.img-2 {
+  top: -30px;
+  right: -40px;
+}
 
-  /* HOVER */
-  .rtx-culture-img:hover {
-    transform: translateY(-6px);
-    border-color: var(--blue-02);
-    box-shadow: 0 18px 40px var(--blue-02);
-    transition: 0.35s ease;
-  }
+/* HOVER */
+.rtx-culture-img:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue-02);
+  box-shadow: 0 18px 40px var(--blue-02);
+  transition: 0.35s ease;
+}
 
-  .rtx-culture-festivals-main-img:hover {
+.rtx-culture-festivals-main-img:hover {
   transform: translateY(-6px);
   border-color: var(--blue-02);
   box-shadow: 0 16px 36px var(--blue-02);
 }
 
-  /* ======================================================
+/* ======================================================
     CULTURE — IMAGE STRIP
   ====================================================== */
 
+/* MICRO TEXT */
+.rtx-culture-strip-text {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  font-weight: var(--fw-title);
+}
 
-  /* MICRO TEXT */
-  .rtx-culture-strip-text {
-    font-size: 0.95rem;
-    color: var(--clr-text-muted);
-      margin-bottom: var(--space-lg);
-    max-width: 420px;
-  }
+/* IMAGE ROW */
+.rtx-culture-strip-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
 
-  /* IMAGE ROW */
-  .rtx-culture-strip-images {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-   gap: var(--space-md);
-  }
+/* IMAGE */
+.rtx-strip-img {
+  height: 220px;
+  border-radius: 20px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 36px var(--shadow-dark-1);
+  transition: 0.4s ease;
+}
 
-  /* IMAGE */
-  .rtx-strip-img {
-    height: 220px;
-    border-radius: 20px;
-    background: var(--white-05);
-    border: 1px solid var(--white-12);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 14px 36px var(--shadow-dark-1);
-    transition: 0.4s ease;
-  }
+/* HOVER EFFECT */
+.rtx-strip-img:hover {
+  transform: translateY(-10px);
+  border-color: var(--blue-02);
+  box-shadow: 0 20px 44px var(--blue-02);
+}
 
-  /* HOVER EFFECT */
-  .rtx-strip-img:hover {
-    transform: translateY(-10px);
-    border-color: var(--blue-02);
-    box-shadow: 0 20px 44px var(--blue-02);
-  }
-
-
-  /* ======================================================
+/* ======================================================
     CULTURE — TOGETHERNESS (EDITORIAL)
   ====================================================== */
 
-  .rtx-culture-togetherness {
-    position: relative;
-  }
+.rtx-culture-togetherness {
+  position: relative;
+  padding: var(--section-py-md) var(--section-px);
+}
 
-  /* LAYOUT */
-  .rtx-culture-togetherness-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
+/* LAYOUT */
+.rtx-culture-togetherness-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
 
-  /* TEXT */
-  .rtx-culture-togetherness-content {
-    max-width: 520px;
-  }
+/* TEXT */
+.rtx-culture-togetherness-content {
+  max-width: 520px;
+}
 
-  .rtx-culture-togetherness-text {
-    margin-top: var(--space-md);
-    font-size: 1.08rem;
-    color: var(--clr-text-light);
-    line-height: 1.8;
-  }
+.rtx-culture-togetherness-text {
+  margin-top: var(--space-md);
+  font-size: 1.08rem;
+  color: var(--clr-text-light);
+  line-height: 1.8;
+}
 
-  /* IMAGE GRID */
-  .rtx-culture-togetherness-images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
-  }
+/* IMAGE GRID */
+.rtx-culture-togetherness-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
 
-  .rtx-together-img {
-    height: 200px;
-    border-radius: 18px;
-    background: var(--white-05);
-    border: 1px solid var(--white-12);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 14px 36px var(--shadow-dark-1);
-    transition: 0.4s ease;
-  }
+.rtx-together-img {
+  height: 200px;
+  border-radius: 18px;
+  background: var(--white-05);
+  border: 1px solid var(--white-12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 36px var(--shadow-dark-1);
+  transition: 0.4s ease;
+}
 
-  .rtx-together-img:hover {
-    transform: translateY(-8px);
-    border-color: var(--blue-02);
-    box-shadow: 0 18px 42px var(--blue-02);
-  }
-
+.rtx-together-img:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-02);
+  box-shadow: 0 18px 42px var(--blue-02);
+}
 
 /* ======================================================
    CULTURE — CELEBRATIONS (GALLERY)
@@ -698,13 +700,13 @@ margin: var(--space-md) auto 0;
   box-shadow: 0 20px 44px var(--blue-02);
 }
 
-
 /* ======================================================
    CULTURE — FESTIVALS AT WORK (CONTRAST)
 ====================================================== */
 
 .rtx-culture-festivals {
   position: relative;
+  padding: var(--section-py-md) var(--section-px);
 }
 
 /* LAYOUT */
@@ -732,7 +734,7 @@ margin: var(--space-md) auto 0;
 }
 
 .rtx-culture-festivals-text {
-   margin-top: var(--space-md);
+  margin-top: var(--space-md);
   font-size: 1.08rem;
   color: var(--clr-text-light);
   line-height: 1.75;
@@ -740,10 +742,10 @@ margin: var(--space-md) auto 0;
 
 /* SUB IMAGES */
 .rtx-culture-festivals-sub-images {
-   margin-top: var(--space-lg);
+  margin-top: var(--space-lg);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-   gap: var(--space-sm);
+  gap: var(--space-sm);
 }
 
 .rtx-festival-img {
@@ -762,21 +764,20 @@ margin: var(--space-md) auto 0;
   box-shadow: 0 16px 36px var(--blue-02);
 }
 
-
-
 /* ======================================================
    CULTURE — TEAM BONDING (LIFESTYLE)
 ====================================================== */
 
 .rtx-culture-bonding {
   position: relative;
+  padding: var(--section-py-md) var(--section-px);
 }
 
 /* LAYOUT */
 .rtx-culture-bonding-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-   gap: var(--space-xl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -809,7 +810,7 @@ margin: var(--space-md) auto 0;
   margin-left: 20px;
 }
 .rtx-culture-bonding-text {
- margin-top: var(--space-md);
+  margin-top: var(--space-md);
   font-size: 1.08rem;
   color: var(--clr-text-light);
   line-height: 1.75;
@@ -870,13 +871,21 @@ margin: var(--space-md) auto 0;
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0 }
-  to { opacity: 1 }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
-  from { transform: scale(0.96) }
-  to { transform: scale(1) }
+  from {
+    transform: scale(0.96);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* ======================================================
@@ -893,12 +902,12 @@ margin: var(--space-md) auto 0;
 
 .rtx-vm-hero {
   position: relative;
-   padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
+  padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
 }
 
 /* Eyebrow */
 .rtx-vm-eyebrow {
- display: inline-block;
+  display: inline-block;
   margin-bottom: var(--space-md);
   font-size: 0.8rem;
   font-weight: 600;
@@ -912,7 +921,7 @@ margin: var(--space-md) auto 0;
 
 /* Big statement */
 .rtx-vm-title {
-  font-size: clamp(3rem, 6.5vw, 4.8rem);
+  font-size: clamp(2.8rem, 6.5vw, 3.2rem);
   font-weight: 700;
   line-height: 1.15;
   color: var(--clr-white);
@@ -922,13 +931,13 @@ margin: var(--space-md) auto 0;
 
 /* Supporting text */
 .rtx-vm-subtext {
-   margin-top: var(--space-lg);
+  margin-top: var(--space-lg);
   font-size: 1.1rem;
   color: var(--clr-text-light);
 }
 
 .rtx-vm-missiontext {
-  font-size: clamp(4rem, 6.5vw, 3rem);
+  font-size: clamp(2.8rem, 6.5vw, 3.2rem);
   color: var(--clr-blue);
 }
 /* ======================================================
@@ -943,7 +952,6 @@ margin: var(--space-md) auto 0;
   color: var(--clr-text-soft);
 }
 
-
 /* ======================================================
    VISION SECTION
 ====================================================== */
@@ -954,7 +962,8 @@ margin: var(--space-md) auto 0;
 
 /* Title */
 .rtx-vision-title {
-  font-size: 2.6rem;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-title);
   margin-bottom: var(--space-lg);
   color: var(--clr-white);
 }
@@ -965,7 +974,7 @@ margin: var(--space-md) auto 0;
   font-weight: 500;
   line-height: 1.5;
   max-width: 900px;
-   margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-lg);
   color: var(--clr-white);
 }
 
@@ -990,7 +999,6 @@ margin: var(--space-md) auto 0;
   color: var(--clr-text-soft);
 }
 
-
 /* ======================================================
    MISSION SECTION
 ====================================================== */
@@ -1003,13 +1011,13 @@ margin: var(--space-md) auto 0;
 .rtx-mission-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-   gap: var(--space-3xl);
+  gap: var(--space-3xl);
   align-items: center;
 }
 
 /* Text */
 .rtx-mission-text .u-title {
-    margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
 .rtx-mission-statement {
@@ -1025,7 +1033,7 @@ margin: var(--space-md) auto 0;
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--clr-text-light);
-    margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
   max-width: 640px;
 }
 
@@ -1043,11 +1051,7 @@ margin: var(--space-md) auto 0;
 .vm-line {
   width: 180px;
   height: 3px;
-  background: linear-gradient(
-    to right,
-    var(--clr-blue),
-    transparent
-  );
+  background: linear-gradient(to right, var(--clr-blue), transparent);
   box-shadow: 0 0 12px var(--blue-06);
 }
 
@@ -1069,11 +1073,11 @@ margin: var(--space-md) auto 0;
 
 /* Title */
 .rtx-vm-closing-title {
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-title);
   line-height: 1.4;
   max-width: 900px;
- margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-lg);
   color: var(--clr-white);
 }
 

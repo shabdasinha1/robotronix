@@ -390,7 +390,7 @@
   .rtx-cpage-hero-wrapper {
     padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
-  .rtx-cpage-quick .divider{
+  .rtx-cpage-quick .divider {
     display: none;
   }
 }
@@ -466,6 +466,27 @@
    SERVICES PAGE — HERO RESPONSIVE
 ====================================================== */
 
+@media (min-width: 769px) {
+  .rtx-service-hero-wrapper {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
+  }
+
+  .rtx-service-hero-stats .card {
+    width: 200px;
+    min-height: 130px;
+  }
+
+  /* change */
+  .rtx-service-overview-section,
+  .rtx-service-approach-section,
+  .rtx-service-industries-section,
+  .rtx-service-why-section,
+  .rtx-service-impact-section,
+  .rtx-cta-wrapper {
+    padding: var(--section-py-md) var(--section-px);
+  }
+}
+/* 
 @media (max-width: 1024px) {
   .rtx-service-hero-wrapper {
     padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
@@ -475,7 +496,7 @@
     width: 200px;
     min-height: 130px;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .rtx-service-hero-wrapper {
@@ -856,6 +877,7 @@
 
   .u-title {
     text-align: center;
+     line-height: 1.2;
   }
 
   .rtx-strip-img {
@@ -985,7 +1007,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     gap: 48px;
   }
 
-   .rtx-culture-bonding-content {
+  .rtx-culture-bonding-content {
     order: 1;
   }
 

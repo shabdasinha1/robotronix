@@ -63,9 +63,9 @@
 .rtx-portfolio-title {
   max-width: 920px;
   margin: 0 auto var(--space-md);
-  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
   line-height: 1.15;
-  font-weight: 600;
+  font-weight: var(--fw-title);
   color: var(--clr-white);
 }
 
@@ -436,9 +436,10 @@ font-size: var(--fs-card-title);
 .rtx-portfolio-cta-title {
   max-width: 900px;
     margin: 0 auto var(--space-md);
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   line-height: 1.15;
   color: var(--clr-white);
+  font-weight: var(--fw-title);
 }
 
 .rtx-portfolio-cta-title span {

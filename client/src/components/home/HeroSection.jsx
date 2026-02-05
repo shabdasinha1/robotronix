@@ -10,7 +10,7 @@ const HeroSection = React.memo(() => {
   const stats = useMemo(
     () => [
       {
-        value: "500+",
+        value: "2000+",
         label: "Projects Delivered",
         className: "rtx-stat-drop-1",
       },

@@ -10,6 +10,7 @@ import {
   FaYoutube,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import logo from "../../assets/images/logo_c1.webp";
 import { FaXTwitter } from "react-icons/fa6";
 
 /*==================================================================
@@ -88,7 +89,7 @@ const Footer = React.memo(() => {
 
           {/* CONTACT */}
           <div className="rtx-footer-contact">
-            <h4>India</h4>
+            <img src={logo} alt="" loading="lazy" className="rtx-footer-robo-logo"/>
 
             <p>📞 +91 99931 50998</p>
             <p>📞 +91 77248 52726</p>

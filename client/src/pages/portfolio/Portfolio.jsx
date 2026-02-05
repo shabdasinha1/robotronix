@@ -471,9 +471,12 @@ const techStack = [
       "Flutter (Android & iOS)",
       "Dart",
       "Firebase Authentication",
+      "Google Ads",
       "Google Sign-In",
+      "SignIn with apple",
       "REST APIs",
       "SQLite (Offline Storage)",
+      
     ],
   },
   {

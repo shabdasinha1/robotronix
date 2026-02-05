@@ -39,13 +39,34 @@
   --fs-md: 1rem;
   --fs-lg: 1.1rem;
   --fs-xl: 1.4rem;
-  --fs-2xl: 2rem;
+  --fs-2xl: 2.8rem;
   --fs-3xl: 3.2rem;
 
   --fs-card-title: 1.25rem;
   --fs-card-desc: 0.95rem;
   --fs-card-meta: 0.85rem;
   --fs-chip: 0.75rem;
+
+
+  /* FONT WEIGHT SCALE (GLOBAL) */
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* UI / Component specific */
+  --fw-body: var(--fw-regular);
+  --fw-heading: var(--fw-semibold);
+  --fw-title: var(--fw-bold);
+  --fw-subtitle: var(--fw-medium);
+  --fw-meta: var(--fw-regular);
+  --fw-chip: var(--fw-medium);
+  --fw-button: var(--fw-semibold);
 }
 
 /* ======================================================
@@ -210,6 +231,7 @@
   --blue-03: rgba(0, 123, 255, 0.30);
   --blue-03s: rgba(0, 123, 255, 0.30);
   --blue-008: rgba(0, 123, 255, 0.08);
+  --blue-06: rgba(0, 153, 255, 0.6);
 
   /* =========================
      TRANSPARENT WHITES

@@ -125,10 +125,10 @@ const Culture = () => {
 
           {/* OPTIONAL MICRO TEXT */}
           <p
-            className="rtx-culture-strip-text u-drop"
+            className="rtx-culture-strip-text u-drop u-title"
             style={{ "--delay": "0.1s" }}
           >
-            Culture is built in shared moments, not just meetings.
+            Shared Moments<span> & Stronger Culture</span>
           </p>
 
           {/* IMAGE STRIP */}

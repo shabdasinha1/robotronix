@@ -95,7 +95,7 @@ const AIML = () => {
         subtitle="Unlock automation, insights, and innovation with advanced AI & ML systems."
         primaryText="Get a Consultation →"
         primaryLink="/contact-us"
-        secondaryText="Explore Case Studies"
+        secondaryText="Explore Work"
         secondaryLink="/portfolio"
         stats={[
           { value: "30+", label: "Gen AI Tools Built" },
