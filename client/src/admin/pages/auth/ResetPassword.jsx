@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 import useApi from "../../../hooks/useApi";
@@ -39,11 +39,11 @@ const ResetPassword = () => {
     );
   };
 
-  if (!email) {
-    navigate("/admin/forgot-password");
-    return null;
-  }
-
+  useEffect(() => {
+    if (!email) {
+      navigate("/admin/forgot-password");
+    }
+  }, [email, navigate]);
   return (
     <section
       ref={ref}

@@ -727,7 +727,7 @@ margin: var(--space-md) auto 0;
 
 /* CONTENT */
 .rtx-culture-festivals-content {
-  max-width: 540px;
+  /* max-width: 540px;   */
   margin-left: 20px;
 }
 
