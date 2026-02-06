@@ -19,10 +19,6 @@ const steps = [
     desc: "Building intelligent models that forecast trends, automate decisions, and enhance operational efficiency.",
   },
   {
-    title: "Data Visualization & Reporting",
-    desc: "Transforming complex data into intuitive dashboards and reports for instant stakeholder insights.",
-  },
-  {
     title: "Deployment & Continuous Optimization",
     desc: "Deploying models into live systems with real-time analytics and continuous performance improvement.",
   },
@@ -41,7 +37,7 @@ const industries = [
   },
   {
     icon: "🛒",
-    title: "Retail & E-commerce",
+    title: <>Retail & <br /> E-commerce</>,
     desc: "Customer behavior analysis, demand forecasting, and personalized product recommendations.",
   },
   {
@@ -64,7 +60,13 @@ const industries = [
     title: "Smart Cities & IoT",
     desc: "Urban analytics, smart device data processing, and intelligent infrastructure planning.",
   },
+  {
+    icon: "🚚",
+    title: <>Logistics & <br /> Supply Chain</>,
+    desc: "Demand forecasting, route optimization, and inventory analytics for smarter, cost-efficient supply chains.",
+  },
 ];
+
 
 const points = [
   {
@@ -112,12 +114,24 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
-const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
-const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
-const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
-const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
-const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
+const ServicesOverview = lazy(
+  () => import("../../../components/services/ServicesOverview"),
+);
+const ServicesApproach = lazy(
+  () => import("../../../components/services/ServicesApproach"),
+);
+const ServicesIndustries = lazy(
+  () => import("../../../components/services/ServicesIndustries"),
+);
+const ServicesWhyChoose = lazy(
+  () => import("../../../components/services/ServicesWhyChoose"),
+);
+const ServicesImpact = lazy(
+  () => import("../../../components/services/ServicesImpact"),
+);
+const ServicesCTA = lazy(
+  () => import("../../../components/services/ServicesCTA"),
+);
 
 const DataScience = () => {
   return (
@@ -146,8 +160,9 @@ const DataScience = () => {
           title="What is"
           accent="Data Science?"
           paragraphs={[
-            "Data Science is the discipline of extracting meaningful insights and patterns from data using a combination of mathematics, programming, and business understanding.",
+            "Data Science is the discipline of extracting meaningful insights and patterns from data using mathematics, statistics, and advanced programming techniques. It combines data analysis, machine learning, and domain expertise to turn raw data into actionable intelligence. By uncovering trends, predicting outcomes, and optimizing decisions, data science helps businesses make smarter, data-driven choices. These insights enable organizations to improve performance, reduce risk, and drive sustainable growth.",
             "By leveraging technologies such as Python, R, SQL, machine learning, and big data frameworks, Data Science enables organizations to predict trends, optimize performance, and innovate with confidence.",
+            "At Robotronix, this approach is extended into scalable implementations rather than standalone analysis.",
           ]}
           infoCards={infoCards}
         />

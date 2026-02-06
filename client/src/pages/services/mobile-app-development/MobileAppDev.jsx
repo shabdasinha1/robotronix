@@ -41,7 +41,7 @@ const industries = [
     desc: "Flutter apps for digital wallets, banking, payments, and financial dashboards.",
   },
   {
-    icon: "🚗",
+    icon: "🚚",
     title: "Logistics & Transportation",
     desc: "Real-time tracking, fleet management, and delivery optimization apps.",
   },

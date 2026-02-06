@@ -106,8 +106,10 @@ const GenerativeAI = () => {
           title="What is"
           accent="Generative AI?"
           paragraphs={[
-            "Generative AI (Gen AI) enables machines to create original content — including text, images, video, code, and designs using deep learning and LLMs.",
-            "Robotronix builds cutting-edge Gen AI tools that accelerate creativity, enhance workflows, and deliver high-impact automation.",
+            "Generative AI (Gen AI) enables machines to create original content—including text, images, video, code, and designs—using advanced deep learning models and large language models (LLMs). These capabilities are transforming how businesses generate ideas, build, and scale digital products.",
+"At Robotronix, we build cutting-edge Gen AI tools that accelerate creativity, enhance workflows, and automate complex tasks across business functions. Our solutions help teams work faster while maintaining quality and control.",
+"We engineer production-ready Gen AI solutions designed for scalability, security, and real-world adoption. From intelligent assistants to content generation and workflow automation, our systems deliver measurable productivity gains and long-term business impact.",
+
           ]}
           infoCards={infoCards}
         />

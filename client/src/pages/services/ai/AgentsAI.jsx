@@ -42,13 +42,28 @@ const industries = [
   },
   {
     icon: "🛒",
-    title: "Retail & E-commerce",
+    title: <>Retail & <br /> E-commerce</>,
     desc: "Shopping assistants execute purchases, process returns, and autonomously resolve customer inquiries.",
   },
   {
     icon: "👔",
     title: "Human Resources",
     desc: "Recruitment agents source talent, screen candidates, manage documents, and streamline onboarding.",
+  },
+  {
+    icon: "✈️",
+    title: "Travel & Hospitality",
+    desc: "Autonomous agents manage bookings, handle customer requests, personalize travel experiences, and optimize operations.",
+  },
+  {
+    icon: "📦",
+    title: "Supply Chain & Procurement",
+    desc: "Agents forecast demand, automate vendor interactions, optimize procurement, and manage inventory workflows.",
+  },
+  {
+    icon: "🎓",
+    title: <>Education & <br /> E-Learning</>,
+    desc: "Intelligent agents personalize learning paths, automate assessments, support students, and manage academic workflows.",
   },
 ];
 
@@ -153,7 +168,8 @@ const AgentsAI = React.memo(() => {
           accent="AI Agents?"
           paragraphs={[
             "AI Agents are autonomous systems capable of perceiving their environment, reasoning through steps, and executing tasks independently. Unlike traditional AI that only provides insights, agents take real actions—browsing the web, interacting with APIs, managing workflows, and performing end-to-end tasks like a digital employee.",
-            "Robotronix builds reliable, secure, and intelligent AI agents that integrate seamlessly into your business processes to transform productivity.",
+            "Robotronix builds reliable, secure, and intelligent AI agents that integrate seamlessly into your business processes, automating workflows, improving operational efficiency, and delivering measurable productivity gains.",
+            "Robotronix builds cutting-edge Gen AI solutions that streamline workflows, boost productivity, and deliver scalable, real-world impact across business operations.",
           ]}
           infoCards={infoCards}
         />

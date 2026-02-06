@@ -418,11 +418,13 @@ const techStack = [
     group: "Web Development – Frontend",
     items: [
       "HTML",
-      "CSS (Bootstrap 3, 4)",
+      "CSS (Bootstrap)",
       "JavaScript",
+      "TypeScript",
       "jQuery",
       "React JS",
       "Angular",
+      "Next JS"
     ],
   },
   {
@@ -434,6 +436,7 @@ const techStack = [
       "Node.js",
       "REST APIs",
       "Microservices",
+      "Apache Kafka"
     ],
   },
   {
@@ -446,6 +449,7 @@ const techStack = [
       "DynamoDB",
       "BigQuery",
       "SQLite",
+      "InfluxDB"
     ],
   },
   {
@@ -548,6 +552,7 @@ const techStack = [
       "Wi-Fi & BLE Firmware",
       "MQTT (Mosquitto, EMQX)",
       "Edge IoT",
+      "nRF (Nordic BLE / IoT SoCs)",
     ],
   },
   {

@@ -8,23 +8,19 @@ import ServicesHero from "../../../components/services/ServicesHero";
 const steps = [
   {
     title: "Requirement Discovery & Scoping",
-    desc: "We analyze your business problem, workflows, users, and goals to define the right software solution.",
+    desc: "We analyze your business challenges, workflows, users, and goals to define clear requirements and the right software scope.",
   },
   {
     title: "Architecture & Technology Planning",
-    desc: "Designing scalable, secure system architecture tailored to performance and future growth.",
+    desc: "We design scalable, secure system architecture and select the right technologies for performance and future growth.",
   },
   {
-    title: "Custom Software Development",
-    desc: "End-to-end development of tailored software aligned with your exact business needs.",
-  },
-  {
-    title: "Testing, QA & Validation",
-    desc: "Rigorous functional, performance, and security testing before production release.",
+    title: "Development, Testing & QA",
+    desc: "End-to-end software development with rigorous functional, performance, and security testing to ensure production-ready quality.",
   },
   {
     title: "Deployment & Continuous Support",
-    desc: "Production deployment, monitoring, enhancements, and long-term support.",
+    desc: "Production deployment, monitoring, enhancements, and long-term support to ensure stability and continuous improvement.",
   },
 ];
 
@@ -58,6 +54,16 @@ const industries = [
     icon: "🏭",
     title: "Manufacturing & Logistics",
     desc: "ERP modules, tracking systems, and operational automation tools.",
+  },
+  {
+    icon: "🎓",
+    title: "Education & EdTech",
+    desc: "Learning management systems, student portals, and digital learning solutions.",
+  },
+  {
+    icon: "📡",
+    title: "Telecom & Media",
+    desc: "Billing systems, customer portals, network management tools, and analytics solutions.",
   },
 ];
 
@@ -107,12 +113,24 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
-const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
-const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
-const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
-const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
-const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
+const ServicesOverview = lazy(
+  () => import("../../../components/services/ServicesOverview"),
+);
+const ServicesApproach = lazy(
+  () => import("../../../components/services/ServicesApproach"),
+);
+const ServicesIndustries = lazy(
+  () => import("../../../components/services/ServicesIndustries"),
+);
+const ServicesWhyChoose = lazy(
+  () => import("../../../components/services/ServicesWhyChoose"),
+);
+const ServicesImpact = lazy(
+  () => import("../../../components/services/ServicesImpact"),
+);
+const ServicesCTA = lazy(
+  () => import("../../../components/services/ServicesCTA"),
+);
 
 const OnDemandSoftwareDev = () => {
   return (
@@ -143,6 +161,7 @@ const OnDemandSoftwareDev = () => {
           paragraphs={[
             "On-Demand Software Development focuses on building custom software solutions tailored precisely to your business requirements. Unlike off-the-shelf products, custom software adapts to your workflows, users, and long-term goals.",
             "Robotronix Engineering Tech Pvt. Ltd. partners with organizations to design, develop, and maintain software that improves efficiency, reduces operational friction, and enables digital transformation.",
+            "Robotronix delivers end-to-end custom software solutions designed to scale with your business, integrate seamlessly with existing systems, and drive long-term operational efficiency and growth.",
           ]}
           infoCards={infoCards}
         />
