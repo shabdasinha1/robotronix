@@ -28,7 +28,7 @@ const industries = [
   { icon: "🏭", title: "Manufacturing", desc: "Predictive maintenance, defect detection, and smart production systems." },
   { icon: "🏦", title: "Finance & Banking", desc: "Fraud detection, credit scoring, algorithmic trading, customer analytics." },
   { icon: "🏥", title: "Healthcare", desc: "Medical imaging, diagnosis prediction, patient data analysis." },
-  { icon: "🛒", title: "Retail & E-commerce", desc: "Demand forecasting, recommendations, customer behavior intelligence." },
+ { icon: "🛒", title: <>Retail & <br /> E-commerce</>, desc: "Demand forecasting, recommendations, customer behavior intelligence." },
   { icon: "🚘", title: "Automotive", desc: "Autonomous systems, vehicle monitoring, sensor data modeling." },
   { icon: "🏫", title: "Education", desc: "AI tutoring, performance analytics, personalized learning systems." },
   { icon: "📊", title: "Business & Marketing", desc: "Trend forecasting, campaign optimization, engagement analytics." },

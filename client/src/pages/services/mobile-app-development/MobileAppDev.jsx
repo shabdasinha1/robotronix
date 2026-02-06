@@ -7,24 +7,20 @@ import ServicesHero from "../../../components/services/ServicesHero";
 
 const steps = [
   {
-    title: "Product Discovery & UI/UX Design",
-    desc: "Understanding business goals, user journeys, and crafting intuitive Flutter-first UI/UX designs.",
+    title: "Discovery & UI/UX",
+    desc: "Aligning business goals with user journeys to design intuitive, Flutter-first digital experiences that engage users effectively.",
   },
   {
-    title: "Flutter Architecture Setup",
-    desc: "Scalable Flutter architecture using clean code principles, state management, and modular design.",
+    title: "Flutter Architecture",
+    desc: "Building scalable, clean Flutter apps with a single high-performance codebase for Android & iOS platforms at scale.",
   },
   {
-    title: "Cross-Platform Development",
-    desc: "Single Flutter codebase delivering high-performance Android and iOS applications.",
+    title: "Backend & Cloud",
+    desc: "Integrating secure APIs, Firebase, and cloud services for real-time, scalable application connectivity and data flow.",
   },
   {
-    title: "Backend & API Integration",
-    desc: "Secure integration with REST APIs, Firebase, cloud services, and third-party SDKs.",
-  },
-  {
-    title: "Testing, Deployment & Optimization",
-    desc: "Thorough testing, App Store & Play Store deployment, and performance optimization.",
+    title: "Testing & Launch",
+    desc: "Ensuring quality through testing, store deployment, CI/CD, and continuous performance optimization for production readiness.",
   },
 ];
 
@@ -55,10 +51,21 @@ const industries = [
     desc: "Learning platforms, course apps, live classes, and student engagement solutions.",
   },
   {
-    icon: "🏠",
-    title: "Real Estate",
-    desc: "Property listing apps, virtual tours, CRM integration, and lead management.",
-  },
+  icon: "🏠",
+  title: "Real Estate",
+  desc: "Property listing apps, virtual tours, CRM integration, and lead management.",
+},
+{
+  icon: "🍔",
+  title: "Food & Restaurant",
+  desc: "Food delivery apps, online ordering, table booking, and restaurant management.",
+},
+{
+  icon: "🏢",
+  title: "Enterprise & Business Apps",
+  desc: "Enterprise apps, workflow automation, internal dashboards, and business management.",
+},
+
 ];
 
 const points = [
@@ -107,12 +114,24 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
-const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
-const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
-const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
-const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
-const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
+const ServicesOverview = lazy(
+  () => import("../../../components/services/ServicesOverview"),
+);
+const ServicesApproach = lazy(
+  () => import("../../../components/services/ServicesApproach"),
+);
+const ServicesIndustries = lazy(
+  () => import("../../../components/services/ServicesIndustries"),
+);
+const ServicesWhyChoose = lazy(
+  () => import("../../../components/services/ServicesWhyChoose"),
+);
+const ServicesImpact = lazy(
+  () => import("../../../components/services/ServicesImpact"),
+);
+const ServicesCTA = lazy(
+  () => import("../../../components/services/ServicesCTA"),
+);
 
 const MobileAppDev = () => {
   return (
@@ -137,13 +156,13 @@ const MobileAppDev = () => {
 
       {/* BELOW THE FOLD */}
       <Suspense fallback={<></>}>
-      <ServicesOverview
+        <ServicesOverview
           title="Flutter"
           accent="Mobile App Development"
           paragraphs={[
             "At Robotronix Engineering Tech Pvt. Ltd., we specialize exclusively in Flutter mobile application development. Our focus allows us to build faster, more reliable, and cost-effective mobile apps without compromising on performance or user experience.",
             "Using Flutter, we create cross-platform applications with native-like performance, beautiful UI, and seamless user interactions — all from a single, maintainable codebase.",
-            "Our expertise goes beyond front-end development into scalable system integration and advanced features. We build applications with real-time data, APIs, cloud services, offline support, and modular architectures. Using modern workflows, CI/CD pipelines, and rigorous testing, we ensure stability, quality, and faster releases."
+            "Our expertise goes beyond front-end development into scalable system integration and advanced features. We build applications with real-time data, APIs, cloud services, offline support, and modular architectures. Using modern workflows, CI/CD pipelines, and rigorous testing, we ensure stability, quality, and faster releases.",
           ]}
           infoCards={infoCards}
         />

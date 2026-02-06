@@ -4,27 +4,45 @@ import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
 
 const techItems = [
+  // Frontend
   { name: "React", type: "Frontend" },
   { name: "Angular", type: "Frontend" },
 
+  // Backend
   { name: "Node.js", type: "Backend" },
-  { name: "Python", type: "Backend / AI" },
   { name: "Java (Spring Boot)", type: "Backend" },
 
+  // Backend / AI
+  { name: "Python", type: "Backend / AI" },
+
+  // Messaging & Streaming
+  { name: "Apache Kafka", type: "Event Streaming" },
+
+  // Databases
   { name: "PostgreSQL", type: "Database" },
   { name: "MongoDB", type: "Database" },
 
+  // Backend as a Service
+  { name: "Firebase", type: "Backend as a Service" },
+
+  // Cloud & DevOps
   { name: "AWS", type: "Cloud" },
   { name: "Docker", type: "DevOps" },
 
+  // Automation & Integration
+  { name: "N8N", type: "Workflow Automation" },
+  
+  // AI / ML
   { name: "TensorFlow", type: "AI / ML" },
   { name: "YOLO", type: "Computer Vision" },
-
   { name: "LangChain", type: "Generative AI" },
 
+  // Mobile
+  { name: "Dart", type: "Mobile Apps" },
   { name: "Flutter", type: "Mobile Apps" },
 
-  { name: "IoT & Embedded", type: "Hardware + Edge" },
+  // Hardware
+  { name: "IoT & Embedded", type: "Hardware & Edge Computing" },
 ];
 
 const TechStack = React.memo(() => {

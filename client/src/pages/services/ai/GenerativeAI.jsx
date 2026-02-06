@@ -27,7 +27,7 @@ const steps = [
 const industries = [
   { icon: "🏢", title: "Corporate & Business", desc: "AI-powered documents, presentations, automation, and enterprise content generation." },
   { icon: "🎨", title: "Media & Entertainment", desc: "Scripts, visuals, VFX, content creation, and creative ideation." },
-  { icon: "🏬", title: "Retail & E-commerce", desc: "Product descriptions, ads, personalization engines, and automation tools." },
+  { icon: "🏬", title: <>Retail & <br /> E-commerce</>, desc: "Product descriptions, ads, personalization engines, and automation tools." },
   { icon: "🏫", title: "Education & Training", desc: "AI tutors, course generation, assessments, and learning personalization." },
   { icon: "🏥", title: "Healthcare", desc: "AI-generated clinical documents, reports, and patient interaction automation." },
   { icon: "💻", title: "Technology & Software", desc: "Code generation, debugging, documentation, and UX design support." },

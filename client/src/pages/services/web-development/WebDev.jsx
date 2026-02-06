@@ -7,64 +7,69 @@ import ServicesHero from "../../../components/services/ServicesHero";
 
 const steps = [
   {
-    title: "Business Requirement Analysis",
-    desc: "We understand your business processes, goals, and digital challenges before designing the solution.",
+    title: "Requirement Analysis",
+    desc: "Understanding business goals, user needs, and technical requirements to define a clear and effective development roadmap.",
   },
   {
-    title: "MERN Architecture Design",
-    desc: "Scalable system architecture using MongoDB, Express, React, and Node.js.",
+    title: "Architecture & Planning",
+    desc: "Designing scalable system architecture using the right technology stack for performance, security, and future growth.",
   },
   {
-    title: "Frontend Development (React)",
-    desc: "High-performance, responsive, and interactive UI built with React.",
+    title: "Development & Testing",
+    desc: "Building responsive applications with clean code, while ensuring quality through continuous testing and validation.",
   },
   {
-    title: "Backend & API Development",
-    desc: "Secure REST APIs, authentication, and business logic using Node.js and Express.",
-  },
-  {
-    title: "Deployment, Optimization & Scaling",
-    desc: "Cloud deployment, performance tuning, monitoring, and long-term scalability.",
+    title: "Deployment & Scaling",
+    desc: "Deploying to the cloud with performance optimization, monitoring, security, and long-term scalability support.",
   },
 ];
-
 const industries = [
   {
     icon: "🏢",
     title: "Enterprise Digital Platforms",
-    desc: "Internal tools, admin dashboards, CRMs, and workflow automation systems.",
+    desc: "Custom internal tools including CRMs, admin dashboards, role-based access systems, workflow automation, and scalable enterprise architectures.",
   },
   {
     icon: "📊",
     title: "Business Analytics & Dashboards",
-    desc: "Data-driven dashboards and reporting platforms for decision-makers.",
+    desc: "Real-time data dashboards, KPI tracking, data visualization, reporting systems, and integrations with third-party analytics tools.",
   },
   {
     icon: "🛒",
     title: "E-Commerce Solutions",
-    desc: "Custom MERN-based e-commerce platforms with payments and inventory.",
+    desc: "MERN-based e-commerce platforms with secure payments, product catalogs, inventory management, order tracking, and admin control panels.",
   },
   {
     icon: "📦",
     title: "SaaS Applications",
-    desc: "Subscription-based digital products with role-based access and billing.",
+    desc: "Cloud-ready SaaS products with subscription billing, authentication, role-based access, performance optimization, and scalable APIs.",
   },
   {
     icon: "🎓",
     title: "EdTech Platforms",
-    desc: "Learning management systems, assessments, and digital classrooms.",
+    desc: "Learning management systems with courses, assessments, student dashboards, instructor panels, progress tracking, and certifications.",
   },
   {
     icon: "🏥",
     title: "Healthcare Digital Solutions",
-    desc: "Patient portals, admin systems, and secure healthcare platforms.",
+    desc: "Secure patient portals, appointment management, healthcare admin systems, data privacy compliance, and performance-focused platforms.",
+  },
+  {
+    icon: "💳",
+    title: "FinTech Solutions",
+    desc: "Digital wallets, payment gateways, financial dashboards, transaction management systems, and secure, compliant fintech platforms.",
+  },
+  {
+    icon: "🚚",
+    title: "Supply Chain & Logistics Systems",
+    desc: "Inventory management, order fulfillment, shipment tracking, warehouse systems, and real-time logistics monitoring dashboards.",
   },
 ];
 
 const points = [
   {
-    title: "MERN Stack Only",
-    desc: "We specialize exclusively in MongoDB, Express, React, and Node.js.",
+    title: "Modern Technology Expertise",
+    desc: "Choosing the right tech stack to match your business needs.",
   },
   {
     title: "End-to-End Digital Solutions",
@@ -90,8 +95,8 @@ const points = [
 
 const infoCards = [
   {
-    title: "Full-Stack JavaScript",
-    desc: "Single-language development for faster delivery and easier maintenance.",
+    title: "Full-Stack Development",
+    desc: "End-to-end development using modern frontend and backend technologies.",
   },
   {
     title: "Scalable Digital Platforms",
@@ -107,12 +112,24 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
-const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
-const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
-const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
-const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
-const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
+const ServicesOverview = lazy(
+  () => import("../../../components/services/ServicesOverview"),
+);
+const ServicesApproach = lazy(
+  () => import("../../../components/services/ServicesApproach"),
+);
+const ServicesIndustries = lazy(
+  () => import("../../../components/services/ServicesIndustries"),
+);
+const ServicesWhyChoose = lazy(
+  () => import("../../../components/services/ServicesWhyChoose"),
+);
+const ServicesImpact = lazy(
+  () => import("../../../components/services/ServicesImpact"),
+);
+const ServicesCTA = lazy(
+  () => import("../../../components/services/ServicesCTA"),
+);
 
 const WebDev = () => {
   return (
@@ -122,16 +139,16 @@ const WebDev = () => {
         badge="Web Development & Digital Solutions"
         title="Build Powerful"
         accent="Digital Platforms"
-        subtitle="We design and develop scalable web applications and digital solutions using the MERN stack — tailored to streamline operations and accelerate business growth."
+        subtitle="We design and develop scalable digital platforms tailored to optimize operations, enhance efficiency, and drive sustainable business growth."
         primaryText="Start Your Digital Journey →"
         primaryLink="/contact-us"
         secondaryText="Explore Work"
         secondaryLink="/portfolio"
         stats={[
           { value: "MERN", label: "Core Stack" },
-          { value: "React", label: "Modern UI" },
-          { value: "Node.js", label: "Scalable Backend" },
-          { value: "MongoDB", label: "Flexible Data Layer" },
+          { value: "Java (Spring Boot)", label: "Enterprise Backend" },
+          { value: "Python", label: "APIs & Automation" },
+          { value: "PostgreSQL", label: "Relational Database" },
         ]}
       />
 
@@ -141,8 +158,9 @@ const WebDev = () => {
           title="Web Development &"
           accent="Digital Solutions"
           paragraphs={[
-            "Robotronix Engineering Tech Pvt. Ltd. delivers modern web development and digital solutions built exclusively on the MERN stack. Our solutions are designed to automate processes, improve efficiency, and deliver exceptional user experiences.",
-            "From enterprise dashboards to SaaS platforms, we build scalable and secure digital systems that adapt as your business evolves.",
+            "Robotronix Engineering Tech Pvt. Ltd. delivers modern web and digital solutions using MERN, Java (Spring Boot), Python, and PostgreSQL. We build high-quality applications that automate processes, improve efficiency, and deliver seamless user experiences.",
+            "We combine modern frontend technologies with powerful backend frameworks to create secure, scalable, and high-performance web applications designed for complex business needs and long-term maintainability.",
+            "From enterprise dashboards to SaaS platforms, we develop reliable digital systems that scale with your business. By following clean architecture and security best practices, we ensure stability and measurable impact.",
           ]}
           infoCards={infoCards}
         />
@@ -157,7 +175,7 @@ const WebDev = () => {
         <ServicesIndustries
           title="Digital"
           accent="Solutions Across Industries"
-          subtitle="We build MERN-based digital platforms for diverse industries and use cases."
+          subtitle="We build scalable digital platforms using modern, enterprise-ready technologies across industries."
           industries={industries}
         />
 
@@ -170,7 +188,7 @@ const WebDev = () => {
 
         <ServicesImpact
           title="Transform Your Business Digitally"
-          subtitle="Our MERN-based digital solutions streamline operations, improve visibility, and enable faster decision-making."
+          subtitle="Scalable, secure digital solutions designed to optimize operations and accelerate growth."
         />
 
         <ServicesCTA

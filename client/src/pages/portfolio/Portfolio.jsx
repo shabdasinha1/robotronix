@@ -484,10 +484,12 @@ const techStack = [
     items: [
       "TensorFlow",
       "PyTorch",
+      "Instance Segmentation",
       "OpenCV",
-      "YOLO (v5 to v8)",
-      "CNN (ResNet, InceptionNet)",
+      "YOLO",
+      "CNN",
       "Object Detection & Recognition",
+      "Object Tracking"
     ],
   },
   {
@@ -511,6 +513,8 @@ const techStack = [
       "Hugging Face Transformers",
       "AWS Bedrock",
       "RAG Pipelines",
+      "N8N",
+      "Ollama"
     ],
   },
   {
@@ -558,7 +562,6 @@ const techStack = [
     ],
   },
 ];
-
 
 
   const filteredProjects =

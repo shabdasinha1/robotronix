@@ -11,10 +11,6 @@ const steps = [
     desc: "We convert real human workflows into autonomous, goal-driven agent logic for end-to-end automation.",
   },
   {
-    title: "RAG-Enhanced Memory",
-    desc: "Agents equipped with Retrieval-Augmented Generation for long-term memory and secure access to your data.",
-  },
-  {
     title: "Tool & API Integration",
     desc: "Connecting agents to CRMs, ERPs, IoT systems, browsers, and enterprise tools for real work execution.",
   },
