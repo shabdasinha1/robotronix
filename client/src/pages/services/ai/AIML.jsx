@@ -25,14 +25,50 @@ const steps = [
 ];
 
 const industries = [
-  { icon: "🏭", title: "Manufacturing", desc: "Predictive maintenance, defect detection, and smart production systems." },
-  { icon: "🏦", title: "Finance & Banking", desc: "Fraud detection, credit scoring, algorithmic trading, customer analytics." },
-  { icon: "🏥", title: "Healthcare", desc: "Medical imaging, diagnosis prediction, patient data analysis." },
- { icon: "🛒", title: <>Retail & <br /> E-commerce</>, desc: "Demand forecasting, recommendations, customer behavior intelligence." },
-  { icon: "🚘", title: "Automotive", desc: "Autonomous systems, vehicle monitoring, sensor data modeling." },
-  { icon: "🏫", title: "Education", desc: "AI tutoring, performance analytics, personalized learning systems." },
-  { icon: "📊", title: "Business & Marketing", desc: "Trend forecasting, campaign optimization, engagement analytics." },
-  { icon: "💬", title: "Customer Service", desc: "AI chatbots and virtual assistants enabling 24/7 support." },
+  {
+    icon: "🏭",
+    title: "Manufacturing",
+    desc: "Predictive maintenance, defect detection, and smart production systems.",
+  },
+  {
+    icon: "🏦",
+    title: "Finance & Banking",
+    desc: "Fraud detection, credit scoring, algorithmic trading, customer analytics.",
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare",
+    desc: "Medical imaging, diagnosis prediction, patient data analysis.",
+  },
+  {
+    icon: "🛒",
+    title: (
+      <>
+        Retail & <br /> E-commerce
+      </>
+    ),
+    desc: "Demand forecasting, recommendations, customer behavior intelligence.",
+  },
+  {
+    icon: "🚘",
+    title: "Automotive",
+    desc: "Autonomous systems, vehicle monitoring, sensor data modeling.",
+  },
+  {
+    icon: "🏫",
+    title: "Education",
+    desc: "AI tutoring, performance analytics, personalized learning systems.",
+  },
+  {
+    icon: "📊",
+    title: "Business & Marketing",
+    desc: "Trend forecasting, campaign optimization, engagement analytics.",
+  },
+  {
+    icon: "💬",
+    title: "Customer Service",
+    desc: "AI chatbots and virtual assistants enabling 24/7 support.",
+  },
 ];
 
 const points = [
@@ -64,12 +100,16 @@ const points = [
 
 const infoCards = [
   {
-    title: "What is AI?",
-    desc: "AI enables machines to simulate human intelligence — reasoning, decision-making, automation, vision, and language understanding.",
+    title: "Decision Intelligence",
+    desc: "Enable data-driven decisions through predictive and prescriptive ML models.",
   },
   {
-    title: "What is Machine Learning?",
-    desc: "ML allows systems to learn from data, detect patterns, and make predictions without manual programming.",
+    title: "Operational Optimization",
+    desc: "Improve efficiency, reduce costs, and enhance performance using intelligent systems.",
+  },
+  {
+    title: "Scalable ML Systems",
+    desc: "End-to-end ML pipelines built for growth, reliability, and long-term use.",
   },
 ];
 
@@ -77,12 +117,24 @@ const infoCards = [
    LAZY SECTIONS
 =============================== */
 
-const ServicesOverview = lazy(() => import("../../../components/services/ServicesOverview"));
-const ServicesApproach = lazy(() => import("../../../components/services/ServicesApproach"));
-const ServicesIndustries = lazy(() => import("../../../components/services/ServicesIndustries"));
-const ServicesWhyChoose = lazy(() => import("../../../components/services/ServicesWhyChoose"));
-const ServicesImpact = lazy(() => import("../../../components/services/ServicesImpact"));
-const ServicesCTA = lazy(() => import("../../../components/services/ServicesCTA"));
+const ServicesOverview = lazy(
+  () => import("../../../components/services/ServicesOverview"),
+);
+const ServicesApproach = lazy(
+  () => import("../../../components/services/ServicesApproach"),
+);
+const ServicesIndustries = lazy(
+  () => import("../../../components/services/ServicesIndustries"),
+);
+const ServicesWhyChoose = lazy(
+  () => import("../../../components/services/ServicesWhyChoose"),
+);
+const ServicesImpact = lazy(
+  () => import("../../../components/services/ServicesImpact"),
+);
+const ServicesCTA = lazy(
+  () => import("../../../components/services/ServicesCTA"),
+);
 
 const AIML = () => {
   return (
@@ -95,7 +147,7 @@ const AIML = () => {
         subtitle="Unlock automation, insights, and innovation with advanced AI & ML systems."
         primaryText="Get a Consultation →"
         primaryLink="/contact-us"
-        secondaryText="Explore Work"
+        secondaryText="Explore Case Studies"
         secondaryLink="/portfolio"
         stats={[
           { value: "30+", label: "Gen AI Tools Built" },
@@ -111,8 +163,9 @@ const AIML = () => {
           title="AI & Machine Learning"
           accent="Overview"
           paragraphs={[
-            "Artificial Intelligence and Machine Learning empower modern businesses to automate processes, analyze data intelligently, and unlock predictive insights that accelerate digital transformation.",
+            "Artificial Intelligence and Machine Learning empower modern businesses to automate processes, analyze data intelligently, and unlock predictive insights that accelerate digital transformation and innovation across industries.",
             "These technologies help systems learn, evolve, and make smarter decisions — enabling organizations to stay competitive in a rapidly-changing world.",
+            "At Robotronix, we engineer AI and ML solutions that move beyond prototypes into production-grade systems. Our solutions are designed for reliability, scalability, and measurable business outcomes.",
           ]}
           infoCards={infoCards}
         />
