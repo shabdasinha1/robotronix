@@ -196,18 +196,20 @@ const iotProjects = [
   {
     title: "Sleep Monitoring IoT Device",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & Edge IoT",
     industry: "Healthcare & Wellness",
     description:
       "Multi-sensor IoT device designed to monitor sleep patterns and environmental factors such as light, noise, temperature, and motion. Integrated edge computing using AWS Greengrass for real-time analysis and insights.",
-    tech: ["IoT Sensors", "Embedded Systems", "AWS Greengrass", "Edge Computing"],
+    tech: ["IoT Sensors", "Embedded Systems", "AWS Greengrass", "Edge Computing","Raspberry Pi 5", "Radar System"],
   },
   {
-    title: "Smart Pet Activity Tracker",
+    title: "Pawzmo - Smart Pet Activity Tracker",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & IoT",
     industry: "Pet Care & Wearables",
     description:
       "Wearable IoT device and companion mobile app for tracking pet activities like walking, running, sleeping, and eating using IMU and temperature sensors with BLE and Wi-Fi connectivity.",
-    tech: ["IMU Sensors", "BLE", "Wi-Fi", "Mobile App", "IoT"],
+    tech: ["nRF","BLE","IoT", "ESP", "IMU Sensors", "Mobile App", ],
   },
   {
     title: "UV Disinfectant Shelf",
@@ -220,6 +222,7 @@ const iotProjects = [
   {
     title: "Wireless UV Disinfectant Machine",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems",
     industry: "Public Safety & Hygiene",
     description:
       "Remote-controlled UV disinfection machine leveraging UVC light and RF-based wireless activation to safely sanitize environments and surfaces.",
@@ -244,6 +247,7 @@ const iotProjects = [
   {
     title: "Secured LoRa-Based Communication System",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems",
     industry: "Defense & Military Communication",
     description:
       "Secure bidirectional LoRaWAN-based communication system for military environments, implementing AES and PBKDF2 encryption for confidential data transmission.",
@@ -260,14 +264,16 @@ const iotProjects = [
   {
     title: "Women Safety & Emergency Response System",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & edge IoT",
     industry: "Public Safety",
     description:
       "IoT-enabled women safety system combining sensors, AI analysis, GPS tracking, camera capture, and emergency alerts to pre-stored contacts during critical situations.",
     tech: ["IoT Sensors", "GPS", "Camera Module", "AI Integration"],
   },
   {
-    title: "Anxiety Detection using AI & Biometric Sensors",
+    title: "AI-Powered Arrhythmia Detection System",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & edge IoT",
     industry: "Mental Health & Wellness",
     description:
       "AI-powered anxiety detection system using EEG, heart rate, GSR, and brainwave sensors integrated with IoT controllers for real-time emotional state assessment.",
@@ -276,6 +282,7 @@ const iotProjects = [
   {
     title: "AI-Based Fire Detection using CCTV",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & edge IoT",
     industry: "Safety & Surveillance",
     description:
       "AI-driven fire detection system utilizing existing CCTV infrastructure and RTSP streams to detect fire patterns in real time and trigger alerts via a monitoring GUI.",
@@ -292,6 +299,7 @@ const iotProjects = [
   {
     title: "Humanoid Robot – Ahilya (Arya V1 & V2)",
     category: "Embedded Systems & IoT",
+    heading:"Embedded Systems & Robotics",
     industry: "Robotics & Smart Automation",
     description:
       "Humanoid robots designed for interactive assistance, hospitality, and guided tours with speech recognition, face recognition, and personalized user interaction.",
@@ -300,6 +308,7 @@ const iotProjects = [
   {
     title: "Kevin – Humanoid Serving Robot",
     category: "Embedded Systems & IoT",
+    heading: "Embedded Systems & Robotics",
     industry: "Service Robotics",
     description:
       "IoT-enabled humanoid serving robot controlled via a mobile app, capable of navigation, object delivery, and interactive service in hospitality and healthcare environments.",
@@ -727,7 +736,7 @@ useEffect(() => {
                 style={{ "--delay": `${0.15 + i * 0.1}s` }}
               >
                 <span className="rtx-project-category">
-                  {item.category}
+                  {(item.heading) ? item.heading : item.category}
                 </span>
 
                 <h3>{item.title}</h3>

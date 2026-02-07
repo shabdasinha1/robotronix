@@ -8,24 +8,21 @@ import ServicesHero from "../../../components/services/ServicesHero";
 const steps = [
   {
     title: "Research & System Architecture",
-    desc: "In-depth R&D to define hardware requirements, system architecture, and communication protocols for scalable embedded and IoT systems.",
+    desc: "In-depth research to define requirements, system architecture, hardware selection, and communication protocols for scalable embedded and IoT solutions.",
   },
   {
-    title: "Hardware Development & PCB Design",
-    desc: "Design and development of reliable 2-layer and multilayer PCBs using DipTrace, EAGLE, and KiCAD.",
-  },
-  {
-    title: "Firmware Development",
-    desc: "Optimized and secure firmware development for microcontrollers and processors using C/C++, Lua, and Python.",
+    title: "Hardware & Firmware Development",
+    desc: "Design and development of reliable PCBs and secure, optimized firmware for microcontrollers and processors using C/C++, Lua, and Python.",
   },
   {
     title: "IoT Integration & Edge Computing",
-    desc: "Connecting devices, sensors, and cloud platforms using MQTT, AWS IoT Core, and AWS Greengrass for real-time intelligence.",
+    desc: "Seamless integration of devices, sensors, and cloud platforms using MQTT, AWS IoT Core, and edge computing for real-time data processing.",
   },
   {
     title: "Testing, Deployment & Optimization",
-    desc: "Simulation, testing, and optimization to ensure reliability, performance, and long-term scalability.",
+    desc: "Comprehensive testing, simulation, deployment, and performance optimization to ensure reliability, scalability, and long-term system stability.",
   },
+  
 ];
 
 const industries = [
@@ -151,8 +148,10 @@ const EmbeddedIoT = () => {
           title="Embedded Systems &"
           accent="IoT Solutions"
           paragraphs={[
-            "At Robotronix Engineering Tech Pvt. Ltd., we specialize in Embedded Systems and Internet of Things (IoT) development — creating intelligent, connected, and high-performance solutions for modern industries.",
-            "Our expertise spans hardware design, firmware development, edge computing, and IoT integration, enabling smarter automation, operational efficiency, and real-time insights across industries.",
+            "At Robotronix Engineering Tech Pvt. Ltd., we specialize in Embedded Systems and IoT solutions, delivering intelligent, secure, and scalable technology for next-generation applications while bridging hardware and software seamlessly.",
+"With expertise in custom hardware design, firmware development, real-time embedded software, and edge computing, we help businesses turn ideas into reliable, production-ready products with a focus on stability and scalability.",
+"From sensor-level data acquisition to cloud connectivity and analytics, we build end-to-end IoT solutions that enable smarter automation, operational efficiency, and real-time decision-making."
+
           ]}
           infoCards={infoCards}
         />
