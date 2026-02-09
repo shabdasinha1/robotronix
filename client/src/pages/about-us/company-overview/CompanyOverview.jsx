@@ -1,63 +1,83 @@
 import React from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
+import Card from "../../../components/common/Card";
 
-  const steps = [
-    {
-      title: "Understand & Discover",
-      desc:
-        "We analyze business needs, challenges, and long-term objectives to define a clear direction.",
-    },
-    {
-      title: "Design with Precision",
-      desc:
-        "Architectures, workflows, and experiences are designed for clarity, scalability, and performance.",
-    },
-    {
-      title: "Build & Engineer",
-      desc:
-        "Solutions are engineered using robust practices to ensure reliability and future readiness.",
-    },
-    {
-      title: "Test, Optimize & Secure",
-      desc:
-        "Continuous testing and optimization ensure performance, stability, and security.",
-    },
-    {
-      title: "Deploy, Support & Evolve",
-      desc:
-        "We deliver, support, and continuously improve solutions as technology and needs evolve.",
-    },
-  ];
+const steps = [
+  {
+    title: "Understand & Discover",
+    desc: "We analyze business needs, challenges, and long-term objectives to define a clear direction.",
+  },
+  {
+    title: "Design with Precision",
+    desc: "Architectures, workflows, and experiences are designed for clarity, scalability, and performance.",
+  },
+  {
+    title: "Build & Engineer",
+    desc: "Solutions are engineered using robust practices to ensure reliability and future readiness.",
+  },
+  {
+    title: "Test, Optimize & Secure",
+    desc: "Continuous testing and optimization ensure performance, stability, and security.",
+  },
+  {
+    title: "Deploy, Support & Evolve",
+    desc: "We deliver, support, and continuously improve solutions as technology and needs evolve.",
+  },
+];
 
-  const strengths = [
-    {
-      title: "Customer-Centric Engineering",
-      desc:
-        "Every solution is designed around real business needs, ensuring measurable value and long-term success.",
-    },
-    {
-      title: "Product Development Expertise",
-      desc:
-        "We specialize in building scalable, secure, and high-performance products across industries.",
-    },
-    {
-      title: "Innovation-Driven Mindset",
-      desc:
-        "From AI and IoT to cloud-native systems, innovation is embedded into everything we create.",
-    },
-    {
-      title: "End-to-End Capability",
-      desc:
-        "From ideation and design to deployment and support, we deliver complete technology lifecycles.",
-    },
-  ];
+const strengths = [
+  {
+    title: "Customer-Centric Engineering",
+    desc: "Every solution is designed around real business needs, ensuring measurable value and long-term success.",
+  },
+  {
+    title: "Product Development Expertise",
+    desc: "We specialize in building scalable, secure, and high-performance products across industries.",
+  },
+  {
+    title: "Innovation-Driven Mindset",
+    desc: "From AI and IoT to cloud-native systems, innovation is embedded into everything we create.",
+  },
+  {
+    title: "End-to-End Capability",
+    desc: "From ideation and design to deployment and support, we deliver complete technology lifecycles.",
+  },
+];
 
-  const stats = [
-    { value: "15+", label: "Years of Engineering Experience" },
-    { value: "Multiple", label: "Industries Served" },
-    { value: "End-to-End", label: "Technology Solutions" },
-    { value: "Long-Term", label: "Client Partnerships" },
-  ];
+const stats = [
+  { value: "10+", label: "Years of Engineering Experience" },
+  { value: "Multiple", label: "Industries Served" },
+  { value: "End-to-End", label: "Technology Solutions" },
+  { value: "Long-Term", label: "Client Partnerships" },
+];
+
+const glanceCard = [
+  {
+    value: "2000+",
+    title: "Projects Delivered",
+    desc: "Successfully delivered solutions across embedded, IoT, and digital platforms.",
+    icon: "📦",
+  },
+  {
+    value: "98%",
+    title: "Client Satisfaction",
+    desc: "Consistently trusted for quality, reliability, and long-term partnerships.",
+    icon: "⭐",
+  },
+  {
+    value: "10+ yrs",
+    title: "Delivery Excellence",
+    desc: "Over a decade of experience delivering scalable, future-ready solutions.",
+    icon: "🚀",
+  },
+  {
+    value: "24/7",
+    title: "Support Available",
+    desc: "Round-the-clock technical support for uninterrupted operations.",
+    icon: "🛠️",
+  },
+];
+
 
 const CompanyOverview = () => {
   const hero = useRevealOnScroll({ threshold: 0.2, once: true });
@@ -66,8 +86,6 @@ const CompanyOverview = () => {
   const strengthsSec = useRevealOnScroll({ threshold: 0.2, once: true });
   const impact = useRevealOnScroll({ threshold: 0.2, once: true });
   const philosophy = useRevealOnScroll({ threshold: 0.2, once: true });
-
-
 
   return (
     <>
@@ -90,9 +108,9 @@ const CompanyOverview = () => {
           <p className="u-subtext u-drop" style={{ "--delay": "0.5s" }}>
             Robotronix Engineering Tech Pvt. Ltd. is a pioneering product
             development and service-based organization founded in 2010 and
-            headquartered in Indore, India. We deliver high-end, customer-centric
-            technology solutions that drive innovation, scalability, and
-            real-world impact.
+            headquartered in Indore, India. We deliver high-end,
+            customer-centric technology solutions that drive innovation,
+            scalability, and real-world impact.
           </p>
 
           <div
@@ -144,13 +162,33 @@ const CompanyOverview = () => {
             </p>
           </div>
 
-          <div className="rtx-who-visual u-drop-right">
+          {/* <div className="rtx-who-visual u-drop-right">
             <div className="rtx-who-core">
               <span className="node n1" />
               <span className="node n2" />
               <span className="node n3" />
               <span className="node n4" />
             </div>
+          </div> */}
+          <div className="rtx-who-glance">
+
+              <Card>
+              <h3>Company at a Glance</h3>
+                {glanceCard.map((item, index) => {
+                  return (
+                    <div key={index} className="rtx-who-subcard-grid">
+                      <span className="rtx-who-glance-icon">{item.icon}</span>
+
+                      <div className="rtx-who-glance-content">
+                        <h5>
+                          {item.value} <span>{item.title}</span>
+                        </h5>
+                        <p className="u-subtext rtx-who-desc">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Card>
           </div>
         </div>
       </section>
@@ -203,9 +241,9 @@ const CompanyOverview = () => {
               Our <span>Core Strengths</span>
             </h2>
             <p className="u-subtext">
-              Our strengths are built on years of engineering expertise, customer
-              focus, and a relentless drive to deliver impactful technology
-              solutions.
+              Our strengths are built on years of engineering expertise,
+              customer focus, and a relentless drive to deliver impactful
+              technology solutions.
             </p>
           </div>
 

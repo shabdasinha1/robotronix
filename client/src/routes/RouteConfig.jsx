@@ -86,14 +86,14 @@ export const routesConfig = [
     label: "Culture",
     nav: "about",
   },
-  // {
-  //   path: ROUTE_PATHS.VISION_MISSION,
-  //   component: lazy(() =>
-  //     import("../pages/about-us/vision-mission/VisionMission")
-  //   ),
-  //   label: "Vision & Mission",
-  //   nav: "about",
-  // },
+  {
+    path: ROUTE_PATHS.VISION_MISSION,
+    component: lazy(() =>
+      import("../pages/about-us/vision-mission/VisionMission")
+    ),
+    label: "Vision & Mission",
+    nav: "about",
+  },
 
   // ===== MAIN =====
   {

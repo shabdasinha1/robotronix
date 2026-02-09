@@ -685,10 +685,6 @@
   margin-top: var(--space-sm);
   color: var(--clr-white);
 }
-.rtx-test-client-designation{
-  font-size: 0.9rem;
-  font-weight: 500;
-}
 
 .rtx-test-role {
   font-size: 0.9rem;

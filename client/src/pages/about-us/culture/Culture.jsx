@@ -331,8 +331,35 @@ const Culture = () => {
           }`}
       >
         <div className="u-container rtx-culture-bonding-layout">
+          {/* left — CONTENT */}
+          <div className="rtx-culture-bonding-content">
+            <h2
+              className="u-title u-drop"
+              style={{ "--delay": "0.1s" }}
+            >
+              Team <span>Bonding Activities</span>
+            </h2>
 
-          {/* LEFT — IMAGES */}
+            <p
+              className="rtx-culture-bonding-text u-drop"
+              style={{ "--delay": "0.35s" }}
+            >
+              Regular team-building activities, outings, and informal gatherings
+              help strengthen relationships, improve collaboration, and create a
+              friendly work atmosphere.
+            </p>
+
+            <p
+              className="rtx-culture-bonding-text u-drop"
+              style={{ "--delay": "0.5s" }}
+            >
+              By spending time together outside formal work settings, teams build
+              trust naturally, communicate openly, and enjoy working together
+              every day.
+            </p>
+          </div>
+
+          {/* Right — IMAGES */}
           <div
             className="rtx-culture-bonding-images u-drop-left"
             style={{ "--delay": "0.2s" }}
@@ -368,33 +395,7 @@ const Culture = () => {
 
           </div>
 
-          {/* RIGHT — CONTENT */}
-          <div className="rtx-culture-bonding-content">
-            <h2
-              className="u-title u-drop"
-              style={{ "--delay": "0.1s" }}
-            >
-              Team <span>Bonding Activities</span>
-            </h2>
-
-            <p
-              className="rtx-culture-bonding-text u-drop"
-              style={{ "--delay": "0.35s" }}
-            >
-              Regular team-building activities, outings, and informal gatherings
-              help strengthen relationships, improve collaboration, and create a
-              friendly work atmosphere.
-            </p>
-
-            <p
-              className="rtx-culture-bonding-text u-drop"
-              style={{ "--delay": "0.5s" }}
-            >
-              By spending time together outside formal work settings, teams build
-              trust naturally, communicate openly, and enjoy working together
-              every day.
-            </p>
-          </div>
+          
 
         </div>
       </section>

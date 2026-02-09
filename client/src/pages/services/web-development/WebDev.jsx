@@ -143,7 +143,7 @@ const WebDev = () => {
         primaryText="Start Your Digital Journey →"
         primaryLink="/contact-us"
         secondaryText="Explore Work"
-        secondaryLink="/portfolio"
+        secondaryLink="/portfolio?category=web-enterprise"
         stats={[
           { value: "MERN", label: "Core Stack" },
           { value: "Java (Spring Boot)", label: "Enterprise Backend" },

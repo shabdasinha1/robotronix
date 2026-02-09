@@ -193,6 +193,33 @@
   transform: translateY(-50%);
 }
 
+/* =======================================
+            Glance Card
+ ========================================= */
+
+.rtx-who-glance h3 {
+  color: var(--clr-text-light);
+  margin-bottom: 20px;
+}
+.rtx-who-subcard-grid {
+  display: flex;
+  border-bottom: 1px solid var(--header-solid-border);
+  margin-top: 10px;
+}
+.rtx-who-glance-content h5 {
+  color: var(--clr-text-light);
+}
+.rtx-who-glance-icon {
+  width: 20%;
+  font-size: 37px;
+  margin: 0 10px 0 0;
+}
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-02);
+  box-shadow: 0 8px 22px var(--blue-02);
+}
+
 /* ======================================================
    LIGHT THEME
 ====================================================== */
@@ -805,10 +832,10 @@
 }
 
 /* CONTENT */
-.rtx-culture-bonding-content {
+/* .rtx-culture-bonding-content {
   max-width: 520px;
   margin-left: 20px;
-}
+} */
 .rtx-culture-bonding-text {
   margin-top: var(--space-md);
   font-size: 1.08rem;
@@ -960,12 +987,21 @@
   position: relative;
 }
 
+.rtx-vision-content {
+  text-align: left;
+}
 /* Title */
 .rtx-vision-title {
   font-size: var(--fs-2xl);
   font-weight: var(--fw-title);
   margin-bottom: var(--space-lg);
   color: var(--clr-white);
+}
+.rtx-vision-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--space-3xl);
+  align-items: center;
 }
 
 /* Main vision statement */

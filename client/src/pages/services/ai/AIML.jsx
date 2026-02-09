@@ -148,7 +148,7 @@ const AIML = () => {
         primaryText="Get a Consultation →"
         primaryLink="/contact-us"
         secondaryText="Explore Case Studies"
-        secondaryLink="/portfolio"
+        secondaryLink="/portfolio?category=ai-ml"
         stats={[
           { value: "30+", label: "Gen AI Tools Built" },
           { value: "10k+", label: "Automated Content Hours" },

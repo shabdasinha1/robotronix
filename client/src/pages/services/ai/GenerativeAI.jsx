@@ -91,7 +91,7 @@ const GenerativeAI = () => {
         primaryText="Get Started →"
         primaryLink="/contact-us"
         secondaryText="Explore Work"
-        secondaryLink="/portfolio"
+        secondaryLink="/portfolio?category=gen-ai"
         stats={[
           { value: "30+", label: "Gen AI Tools Built" },
           { value: "10k+", label: "Automated Content Hours" },

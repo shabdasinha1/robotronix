@@ -133,7 +133,7 @@ const EmbeddedIoT = () => {
         primaryText="Start Your IoT Project →"
         primaryLink="/contact-us"
         secondaryText="Explore Work"
-        secondaryLink="/portfolio"
+        secondaryLink="/portfolio?category=iot"
         stats={[
           { value: "End-to-End", label: "Embedded Solutions" },
           { value: "Real-Time", label: "IoT Intelligence" },

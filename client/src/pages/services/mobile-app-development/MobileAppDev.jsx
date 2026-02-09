@@ -145,7 +145,7 @@ const MobileAppDev = () => {
         primaryText="Build Your App →"
         primaryLink="/contact-us"
         secondaryText="Explore Work"
-        secondaryLink="/portfolio"
+        secondaryLink="/portfolio?category=mobile-app"
         stats={[
           { value: "Flutter", label: "Only Focus" },
           { value: "Android + iOS", label: "Single Codebase" },
