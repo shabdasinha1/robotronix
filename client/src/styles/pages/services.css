@@ -68,7 +68,7 @@
 
 .rtx-service-hero-stats {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
    gap: var(--space-lg);
   margin-top: var(--space-2xl);

@@ -47,7 +47,11 @@ const VisionMissionHero = () => {
         }`}
       >
         <div className="u-container-center rtx-vision-grid">
-          <div className="rtx-vision-img"><Card><span style={{height:"40vh"}}></span></Card></div>
+          <div className="rtx-vision-img">
+            <Card>
+              <span style={{ height: "40vh" }}></span>
+            </Card>
+          </div>
           <div className="rtx-vision-content">
             <h2
               className="rtx-vision-title u-drop u-title"
@@ -112,7 +116,11 @@ const VisionMissionHero = () => {
             <span className="vm-line" />
             <span className="vm-line" />
           </div> */}
-          <div className="rtx-mission-img"><Card><span style={{height:"40vh"}}></span></Card></div>
+          <div className="rtx-mission-img">
+            <Card>
+              <span style={{ height: "40vh" }}></span>
+            </Card>
+          </div>
         </div>
       </section>
 

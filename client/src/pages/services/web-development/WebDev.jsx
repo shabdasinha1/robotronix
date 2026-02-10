@@ -148,7 +148,7 @@ const WebDev = () => {
           { value: "MERN", label: "Core Stack" },
           { value: "Java (Spring Boot)", label: "Enterprise Backend" },
           { value: "Python", label: "APIs & Automation" },
-          { value: "PostgreSQL", label: "Relational Database" },
+          { value: "PHP", label: "Server-Side Development" },
         ]}
       />
 

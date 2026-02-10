@@ -63,12 +63,22 @@
   .u-grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  .u-grid-auto .card-md {
+    padding: 25px;
+  }
 }
 @media (max-width: 768px) {
   .u-grid-auto {
     gap: 18px;
     margin-top: 30px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+@media (max-width: 950px) {
+  .u-grid-auto {
+    gap: 18px;
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
@@ -82,7 +92,7 @@
    CARDS
 ====================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 790px) {
   .card {
     padding: 22px;
     border-radius: 14px;
@@ -478,7 +488,8 @@
   }
 
   .rtx-service-hero-stats .card {
-    width: 220px;
+    /* width: 220px; */
+    width: 40%;
     min-height: 130px;
   }
 
@@ -503,12 +514,15 @@
     min-height: 130px;
   }
 } */
-
-@media (min-width: 968px) {
-  .rtx-service-hero-stats{
+@media (max-width: 968px) {
+  /* .rtx-service-hero-stats .card{
+    max-width: 150px;
+  } */
+}
+@media (min-width: 900px) {
+  .rtx-service-hero-stats {
     flex-wrap: nowrap;
   }
-  
 }
 @media (max-width: 768px) {
   .rtx-service-hero-wrapper {
@@ -523,12 +537,14 @@
     margin-top: 60px;
     gap: 18px;
     /* flex-direction: column; */
+    flex-wrap: wrap;
     align-items: center;
   }
   .rtx-service-hero-stats .card {
     width: 100%;
-    max-width: 320px;
-    min-height: 120px;
+    /* max-width: 320px; */
+    max-width: 40%;
+    min-height: 140px;
   }
 }
 
@@ -747,7 +763,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .rtx-who-glance-content{
+  .rtx-who-glance-content {
     text-align: left;
   }
 }
@@ -771,6 +787,12 @@
   .rtx-approach-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
+  .rtx-approach-flow {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 426px) {
   .rtx-approach-flow {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -802,11 +824,16 @@
     padding: var(--section-py-xs) var(--section-px);
   }
   .rtx-impact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+}
+@media (max-width: 426px) {
+  .rtx-impact-grid {
     grid-template-columns: 1fr;
     gap: 22px;
   }
 }
-
 /* ======================================================
    COMPANY PHILOSOPHY — RESPONSIVE
 ====================================================== */
@@ -835,22 +862,33 @@
 ====================================================== */
 
 @media (max-width: 1024px) {
+  .rtx-culture-hero {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
+  }
   .rtx-culture-hero-layout {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     gap: 60px;
   }
 
   .rtx-culture-hero-images {
     min-height: 360px;
   }
+  /* .rtx-culture-hero-content{
+    text-align: center;
+  } */
+  .rtx-culture-hero-text {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .rtx-culture-hero {
     text-align: center;
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
   }
 
   .rtx-culture-hero-layout {
+    grid-template-columns: 1fr;
     gap: 48px;
   }
 
@@ -864,12 +902,14 @@
 }
 @media (max-width: 426px) {
   .rtx-culture-hero {
-    padding: var(--section-py-md) var(--section-px) var(--section-py-sm);
+    padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
   }
   .rtx-culture-bonding-text {
-    text-align: center;
+    text-align: left;
   }
-  
+  .rtx-culture-hero-text{
+    text-align: left;
+  }
 }
 /* ======================================================
    CULTURE — IMAGE STRIP (RESPONSIVE)
@@ -879,6 +919,9 @@
   .rtx-culture-strip-images {
     grid-template-columns: repeat(2, 1fr);
   }
+  .rtx-culture-strip {
+    padding: var(--section-py-md) var(--section-px);
+  }
 
   .rtx-strip-img {
     height: 200px;
@@ -886,6 +929,9 @@
 }
 
 @media (max-width: 768px) {
+  .rtx-culture-strip {
+    padding: var(--section-py-sm) var(--section-px);
+  }
   .rtx-culture-strip-text {
     max-width: 100%;
     text-align: center;
@@ -893,7 +939,7 @@
 
   .u-title {
     text-align: center;
-     line-height: 1.2;
+    line-height: 1.2;
   }
 
   .rtx-strip-img {
@@ -901,6 +947,9 @@
   }
 }
 @media (max-width: 426px) {
+  .rtx-culture-strip {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-culture-strip-images {
     grid-template-columns: 1fr;
   }
@@ -919,18 +968,27 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 1024px) {
   .rtx-culture-togetherness-layout {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     gap: 60px;
   }
 
   .rtx-culture-togetherness-content {
     max-width: 100%;
+    /* text-align: center; */
   }
 }
 
 @media (max-width: 768px) {
   .rtx-culture-togetherness-layout {
+    grid-template-columns: 1fr;
     gap: 48px;
+  }
+  .rtx-culture-togetherness-content {
+    /* max-width: 100%; */
+    text-align: center;
+  }
+  .rtx-culture-togetherness-text {
+    text-align: center;
   }
 }
 @media (max-width: 426px) {
@@ -938,7 +996,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     grid-template-columns: repeat(1, 1fr);
   }
   .rtx-culture-togetherness-text {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -974,7 +1032,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 1024px) {
   .rtx-culture-festivals-layout {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     gap: 60px;
   }
 
@@ -989,7 +1047,11 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 768px) {
   .rtx-culture-festivals-layout {
+    grid-template-columns: 1fr;
     gap: 48px;
+  }
+  .rtx-culture-festivals-text {
+    text-align: center;
   }
 }
 @media (max-width: 426px) {
@@ -997,7 +1059,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     grid-template-columns: repeat(1, 1fr);
   }
   .rtx-culture-festivals-text {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -1007,19 +1069,14 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 1024px) {
   .rtx-culture-bonding-layout {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     gap: 60px;
-  }
-
-  .rtx-culture-bonding-content,
-  .rtx-culture-festivals-content {
-    max-width: 100%;
-    margin-left: 0;
   }
 }
 
 @media (max-width: 768px) {
   .rtx-culture-bonding-layout {
+    grid-template-columns: 1fr;
     gap: 48px;
   }
 
@@ -1029,6 +1086,12 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
   .rtx-culture-bonding-images {
     order: 2;
+  }
+  .rtx-culture-bonding-content,
+  .rtx-culture-festivals-content {
+    max-width: 100%;
+    margin-left: 0;
+    text-align: center;
   }
 }
 @media (max-width: 426px) {
@@ -1074,11 +1137,11 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-vision-section {
     padding: var(--section-py-sm) var(--section-px);
   }
-  .rtx-vision-grid{
+  .rtx-vision-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
-  .rtx-vision-content{
+  .rtx-vision-content {
     text-align: center;
   }
 }
@@ -1136,8 +1199,9 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-mission-desc {
     text-align: left;
   }
-  .rtx-mission-statement, .rtx-mission-desc{
-    text-align: left
+  .rtx-mission-statement,
+  .rtx-mission-desc {
+    text-align: left;
   }
 }
 /* ======================================================
@@ -1355,7 +1419,7 @@ CAREER — Why Work With Us (RESPONSIVE)
   .rtx-about-text,
   /* .rtx-choose-subtext, */
   .rtx-choose-text-justifty,
-  .rtx-test-text,
+  /* .rtx-test-text,  */
   /* .rtx-tech-subtext, */
   .rtx-test-card-text,
   /* .rtx-contact-sub, */

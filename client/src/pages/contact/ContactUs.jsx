@@ -2,13 +2,13 @@ import React, { useState, useMemo, useCallback } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink } from "react-router-dom";
 
-import atulya1 from "../../assets/images/atulya1.webp";
+// import atulya1 from "../../assets/images/atulya1.webp";
+import atulya1 from "../../assets/images/atulya2.webp";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
 import { useToast } from "../../components/common/ToastContext";
 
 const ContactUs = React.memo(() => {
-  
   /* ===============================
      SHARED REVEAL CONFIG
   =============================== */
@@ -30,8 +30,15 @@ const ContactUs = React.memo(() => {
     message: "",
   });
 
+  /* =======================================================================
+      STATE AND ENVENT HANDLER FOR EXPANDABLE IMAGE
+   ======================================================================= */
+  const [previewImg, setPreviewImg] = useState(null);
+  const openPreview = (src) => setPreviewImg(src);
+  const closePreview = () => setPreviewImg(null);
+
   const [loading, setLoading] = useState(false);
-const { showToast } = useToast();
+  const { showToast } = useToast();
   /* ===============================
      STATIC INFO DATA (MEMOIZED)
   =============================== */
@@ -51,7 +58,11 @@ const { showToast } = useToast();
       {
         icon: "📞",
         title: "Phone",
-        desc: <>+91 99931 50998 <br /> +91 77248 52726</>,
+        desc: (
+          <>
+            +91 99931 50998 <br /> +91 77248 52726
+          </>
+        ),
         link: "tel:+919993150998",
       },
       {
@@ -60,7 +71,7 @@ const { showToast } = useToast();
         desc: "Mon – Sat: 10 AM – 7 PM",
       },
     ],
-    []
+    [],
   );
 
   /* ===============================
@@ -71,31 +82,31 @@ const { showToast } = useToast();
     setFormData((prev) => ({ ...prev, [name]: value }));
   }, []);
 
-const handleSubmit = useCallback(
-  async (e) => {
-    e.preventDefault();
-    if (loading) return;
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (loading) return;
 
-    try {
-      setLoading(true);
-      await messagesApi.createMessage(formData);
+      try {
+        setLoading(true);
+        await messagesApi.createMessage(formData);
 
-      showToast("Message sent successfully!", "success");
+        showToast("Message sent successfully!", "success");
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch (err) {
-      showToast("Failed to send message", "error");
-    } finally {
-      setLoading(false);
-    }
-  },
-  [formData, loading, showToast]
-);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } catch (err) {
+        showToast("Failed to send message", "error");
+      } finally {
+        setLoading(false);
+      }
+    },
+    [formData, loading, showToast],
+  );
 
   const scrollToContactForm = useCallback(() => {
     const el = document.getElementById("contact-form");
@@ -117,7 +128,9 @@ const handleSubmit = useCallback(
         <div className="rtx-cpage-hero-particles"></div>
 
         <div className="u-container-center">
-          <span className="rtx-cpage-hero-badge u-drop">We’re Here to Help</span>
+          <span className="rtx-cpage-hero-badge u-drop">
+            We’re Here to Help
+          </span>
 
           <h1 className="rtx-cpage-hero-title u-drop">
             Get in Touch with <br />
@@ -145,16 +158,11 @@ const handleSubmit = useCallback(
           </div>
 
           <div className="rtx-cpage-quick">
-           <a href="mailto:info@robotronix.co.in">
-  📧 info@robotronix.co.in
-</a>
+            <a href="mailto:info@robotronix.co.in">📧 info@robotronix.co.in</a>
 
-<span className="divider">•</span>
+            <span className="divider">•</span>
 
-<a href="tel:+919993150998">
-  📞 +91 9993150998, +91 77248 52726
-</a>
-
+            <a href="tel:+919993150998">📞 +91 9993150998, +91 77248 52726</a>
           </div>
         </div>
       </section>
@@ -191,7 +199,7 @@ const handleSubmit = useCallback(
       >
         <div className="u-container rtx-cpage-office-container">
           <div className="rtx-cpage-office-image u-drop">
-            <img src={atulya1} alt="Robotronix Office" />
+            <img src={atulya1} alt="Robotronix Office" onClick={() => openPreview(atulya1)} />
           </div>
 
           <div className="rtx-office-content u-drop">
@@ -201,8 +209,7 @@ const handleSubmit = useCallback(
 
             <p className="rtx-cpage-office-text">
               ✔ Product & service-based organization <br />
-              ✔ Exceeding client expectations <br />
-              ✔ Driving tech innovation
+              ✔ Exceeding client expectations <br />✔ Driving tech innovation
             </p>
 
             <button
@@ -215,6 +222,30 @@ const handleSubmit = useCallback(
         </div>
       </section>
 
+
+      {/*
+       ================================================================================================
+                  EXPANDABLE OFFICE IMAGE (ATULYA IT PARK)
+       ================================================================================================
+       */}
+      {previewImg && (
+        <div className="rtx-image-preview-overlay" onClick={closePreview}>
+          <button
+            className="rtx-image-preview-close"
+            onClick={closePreview}
+            aria-label="Close preview"
+          >
+            ✕
+          </button>
+
+          <img
+            src={previewImg}
+            alt="Preview"
+            className="rtx-image-preview-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       {/* ================= FORM ================= */}
       <section
         id="contact-form"
@@ -270,7 +301,6 @@ const handleSubmit = useCallback(
               <div className="rtx-cpage-input-group rtx-cpage-textarea-group">
                 <MessageSquare className="rtx-cpage-input-icon" />
                 <textarea
-                
                   name="message"
                   rows="5"
                   placeholder="Your Message"
@@ -291,15 +321,20 @@ const handleSubmit = useCallback(
 
           <div className="rtx-cpage-contact-info card card-glass u-drop">
             <h3 className="text-accent">Quick Contact</h3>
-            <a href="mailto:info@robotronix.co.in" className="rtx-cpage-info-box">
+            <a
+              href="mailto:info@robotronix.co.in"
+              className="rtx-cpage-info-box"
+            >
               <Mail /> info@robotronix.co.in
             </a>
             <div className="rtx-cpage-info-box">
               <Phone /> +91 9993150998, +91 77248 52726
             </div>
             <div className="rtx-cpage-info-box">
-              <MapPin /> 402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
-              Opposite Indian Coffee House,<br />
+              <MapPin /> 402, Atulya IT PARK, MPIDC, Khandwa Rd,
+              <br />
+              Opposite Indian Coffee House,
+              <br />
               Indore, Madhya Pradesh - 452001
             </div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
