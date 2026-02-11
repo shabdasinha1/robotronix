@@ -64,6 +64,7 @@ const Footer = React.memo(() => {
               <li><ScrollNavLink to="/ai-ml">AI and ML</ScrollNavLink></li>
               <li><ScrollNavLink to="/generative-ai">Generative AI</ScrollNavLink></li>
               <li><ScrollNavLink to="/agents-ai">Agents AI</ScrollNavLink></li>
+              <li><ScrollNavLink to="/computer-vision">Computer Vision</ScrollNavLink></li>
               <li><ScrollNavLink to="/embedded-iot">IoT Development</ScrollNavLink></li>
               <li><ScrollNavLink to="/data-science">Data Science</ScrollNavLink></li>
               <li><ScrollNavLink to="/mobile-application-development">Mobile App Development</ScrollNavLink></li>
