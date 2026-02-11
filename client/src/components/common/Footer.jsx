@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import logo from "../../assets/images/logo_c1.webp";
 import { FaXTwitter } from "react-icons/fa6";
+import clutchLogo from "../../assets/images/logo/clutch.webp";
+import upworkLogo from "../../assets/images/logo/upwork.webp";
 
 /*==================================================================
     SMOOTH SCROLLING TO TOP (OPTIMIZED)
@@ -176,7 +178,10 @@ const Footer = React.memo(() => {
                 className="rtx-rating-link"
                 aria-label="View Clutch Reviews"
               >
-                ⭐⭐⭐⭐⭐ <span>5.0 — Clutch Reviews</span>
+                <img src={clutchLogo} alt="Clutch" className="rtx-rating-logo" />
+    <div>
+      ⭐⭐⭐⭐⭐ <span>5.0 — Clutch Reviews</span>
+    </div>
               </a>
 
               <a
@@ -186,7 +191,10 @@ const Footer = React.memo(() => {
                 className="rtx-rating-link"
                 aria-label="View Upwork Profile"
               >
-                ⭐⭐⭐⭐⭐ <span>Top Rated on Upwork</span>
+                  <img src={upworkLogo} alt="Upwork" className="rtx-rating-logo" />
+    <div>
+      ⭐⭐⭐⭐⭐ <span>5.0 — Upwork Reviews</span>
+    </div>
               </a>
             </div>
           </div>

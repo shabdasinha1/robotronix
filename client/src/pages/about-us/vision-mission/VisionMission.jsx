@@ -1,10 +1,13 @@
 import React from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
-import Card from "../../../components/common/Card";
+
+import vision from "../../../assets/images/vision.webp";
+import missionImg from "../../../assets/images/mission.webp";
+
 
 const VisionMissionHero = () => {
   const hero = useRevealOnScroll({ threshold: 0.15, once: true });
-  const vision = useRevealOnScroll({ threshold: 0.15, once: true });
+  const visionSection = useRevealOnScroll({ threshold: 0.15, once: true });
   const mission = useRevealOnScroll({ threshold: 0.15, once: true });
   const closing = useRevealOnScroll({ threshold: 0.15, once: true });
 
@@ -13,9 +16,8 @@ const VisionMissionHero = () => {
       {/* ------------ Vision & Mission Hero -------------- */}
       <section
         ref={hero.ref}
-        className={`u-section u-section-lg rtx-vm-hero ${
-          hero.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section u-section-lg rtx-vm-hero ${hero.visible ? "u-drop-visible" : ""
+          }`}
       >
         <div className="u-container-center">
           <span className="rtx-vm-eyebrow u-drop" style={{ "--delay": "0.1s" }}>
@@ -41,17 +43,15 @@ const VisionMissionHero = () => {
 
       {/*--------------------- Our Vision ---------------- */}
       <section
-        ref={vision.ref}
-        className={`u-section rtx-vision-section ${
-          vision.visible ? "u-drop-visible" : ""
-        }`}
+        ref={visionSection.ref}
+        className={`u-section rtx-vision-section ${visionSection.visible ? "u-drop-visible" : ""
+          }`}
       >
         <div className="u-container-center rtx-vision-grid">
           <div className="rtx-vision-img">
-            <Card>
-              <span style={{ height: "40vh" }}></span>
-            </Card>
-          </div>
+  <img src={vision} alt="Vision" loading="lazy" className="vision-img" />
+</div>
+
           <div className="rtx-vision-content">
             <h2
               className="rtx-vision-title u-drop u-title"
@@ -81,9 +81,8 @@ const VisionMissionHero = () => {
       {/*--------------------- Mission Section --------------------- */}
       <section
         ref={mission.ref}
-        className={`u-section rtx-mission-section ${
-          mission.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section rtx-mission-section ${mission.visible ? "u-drop-visible" : ""
+          }`}
       >
         <div className="u-container rtx-mission-grid">
           <div className="rtx-mission-text u-drop-left">
@@ -117,19 +116,17 @@ const VisionMissionHero = () => {
             <span className="vm-line" />
           </div> */}
           <div className="rtx-mission-img">
-            <Card>
-              <span style={{ height: "40vh" }}></span>
-            </Card>
-          </div>
+  <img src={missionImg} alt="Mission" loading="lazy" className="mission-img" />
+</div>
+
         </div>
       </section>
 
       {/*---------------- Future Statement Section------------------- */}
       <section
         ref={closing.ref}
-        className={`u-section u-section-sm rtx-vm-closing ${
-          closing.visible ? "u-drop-visible" : ""
-        }`}
+        className={`u-section u-section-sm rtx-vm-closing ${closing.visible ? "u-drop-visible" : ""
+          }`}
       >
         <div className="u-container-center">
           <h2
