@@ -7,6 +7,8 @@ import atulya1 from "../../assets/images/atulya2.webp";
 import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
 import messagesApi from "../../api/messages.api";
 import { useToast } from "../../components/common/ToastContext";
+import { GiDiscussion } from "react-icons/gi";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 const ContactUs = React.memo(() => {
   /* ===============================
@@ -59,16 +61,27 @@ const ContactUs = React.memo(() => {
         icon: "📞",
         title: "Phone",
         desc: (
-          <>
-            +91 99931 50998 <br /> +91 77248 52726
-          </>
+          <span style={{lineHeight:"30px"}}>
+            +91 99931 50998 <br /> +91 77248 52726 <br/> 0731-2970998
+          </span>
         ),
         link: "tel:+919993150998",
       },
+      // {
+      //   icon: "🕒",
+      //   title: "Working Hours",
+      //   desc: "Mon – Sat: 10 AM – 7 PM",
+      // },
       {
-        icon: "🕒",
-        title: "Working Hours",
-        desc: "Mon – Sat: 10 AM – 7 PM",
+        icon: "⭐",
+        title: "Why Choose Us",
+        desc: (
+          <>
+            🤝 Expert Engineering Team <br />
+            🔐 Secure & Confidential <br />
+            💡 Free Initial Consultation
+          </>
+        ),
       },
     ],
     [],
@@ -140,8 +153,7 @@ const ContactUs = React.memo(() => {
           </h1>
 
           <p className="rtx-cpage-hero-subtext u-drop">
-            Whether you want support, collaboration, or a custom project — our
-            team is ready to assist you 24/7.
+           Whether you need support, collaboration, or a custom solution — our team is ready to assist you.
           </p>
 
           <div className="rtx-contact-hero-btn-group u-drop">
@@ -157,13 +169,13 @@ const ContactUs = React.memo(() => {
             </NavLink>
           </div>
 
-          <div className="rtx-cpage-quick">
+          {/* <div className="rtx-cpage-quick">
             <a href="mailto:info@robotronix.co.in">📧 info@robotronix.co.in</a>
 
             <span className="divider">•</span>
 
             <a href="tel:+919993150998">📞 +91 9993150998, +91 77248 52726</a>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -199,7 +211,11 @@ const ContactUs = React.memo(() => {
       >
         <div className="u-container rtx-cpage-office-container">
           <div className="rtx-cpage-office-image u-drop">
-            <img src={atulya1} alt="Robotronix Office" onClick={() => openPreview(atulya1)} />
+            <img
+              src={atulya1}
+              alt="Robotronix Office"
+              onClick={() => openPreview(atulya1)}
+            />
           </div>
 
           <div className="rtx-office-content u-drop">
@@ -221,7 +237,6 @@ const ContactUs = React.memo(() => {
           </div>
         </div>
       </section>
-
 
       {/*
        ================================================================================================
@@ -320,22 +335,20 @@ const ContactUs = React.memo(() => {
           </div>
 
           <div className="rtx-cpage-contact-info card card-glass u-drop">
-            <h3 className="text-accent">Quick Contact</h3>
-            <a
-              href="mailto:info@robotronix.co.in"
-              className="rtx-cpage-info-box"
-            >
-              <Mail /> info@robotronix.co.in
-            </a>
+            <h3 className="text-accent">What Happens Next?</h3>
             <div className="rtx-cpage-info-box">
-              <Phone /> +91 9993150998, +91 77248 52726
+              <Mail /> We review your message
             </div>
             <div className="rtx-cpage-info-box">
-              <MapPin /> 402, Atulya IT PARK, MPIDC, Khandwa Rd,
-              <br />
-              Opposite Indian Coffee House,
-              <br />
-              Indore, Madhya Pradesh - 452001
+              <Phone /> Our team contacts you
+            </div>
+            <div className="rtx-cpage-info-box">
+              <GiDiscussion />
+              Requirement discussion
+            </div>
+            <div className="rtx-cpage-info-box">
+              <IoDocumentTextOutline />
+              Proposal & roadmap
             </div>
             <p className="rtx-cpage-info-text">We respond within 24 hours.</p>
           </div>
