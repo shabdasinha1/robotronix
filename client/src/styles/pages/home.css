@@ -636,7 +636,7 @@
   max-width: 900px; /* keeps it premium & readable */
   height: 360px; /* FIXED HEIGHT */
   margin: 0 auto var(--space-xl);
-  overflow: hidden; /* prevents layout jump */
+  /* overflow: hidden; */
 }
 
 .rtx-test-slide {
@@ -779,9 +779,9 @@
   background: var(--white-055);
   border: 1px solid var(--border-light-1);
   backdrop-filter: blur(12px);
-  /* box-shadow:
+  box-shadow:
     0 8px 22px var(--border-light-2),
-    0 4px 12px var(--blue-01); */
+    0 4px 12px var(--blue-01);
 }
 
 :root[data-theme="light"] .rtx-test-rating {

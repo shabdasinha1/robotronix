@@ -23,6 +23,12 @@ const servicesList = [
     path: "/agents-ai",
   },
   {
+    title: "Computer Vision Solutions",
+    desc: "AI-powered image and video intelligence systems for object detection, inspection, monitoring, and real-time visual automation.",
+    icon: "👁️",
+    path: "/computer-vision",
+  },
+  {
     title: "Embedded System & IoT Solutions",
     desc: "Smart embedded systems, IoT-connected devices, and real-time monitoring solutions.",
     icon: "📡",

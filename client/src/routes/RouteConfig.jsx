@@ -29,6 +29,12 @@ export const routesConfig = [
     nav: "services",
   },
   {
+    path: ROUTE_PATHS.COMPUTER_VISION,
+    component: lazy(()=> import("../pages/services/ai/ComputerVision")),
+    label: "Computer Vision",
+    nav: "services",
+  },
+  {
     path: ROUTE_PATHS.EMBEDDED_IOT,
     component: lazy(() =>
       import("../pages/services/embedded-Iot/EmbeddedIoT")
