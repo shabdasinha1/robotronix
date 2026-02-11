@@ -38,10 +38,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: `The whole process amazed us.`,
-    name: "Client Review",
-    role: "Rotor Blade Inspection Bot Development",
-    company: "Renewable Energy Company",
+    text: `One of the best team i have worked with so far. They are very professional, and i got the reports before time. Great experience in visualization / PowerBi. Highly Recommended`,
+    name: "Ambuj Shukla",
+    role: "",
+    company: "Upwork Client",
     rating: 5,
   },
   {
