@@ -255,7 +255,10 @@
 .rtx-footer-robo-logo{
   max-width: 200px;
 }
-
+.rtx-footer-cmp-name{
+  font-weight: var(--fw-bold);
+    font-size: var(--fs-lg);
+}
 /* ===============================
    RATING LOGO STYLE
 ================================ */

@@ -92,6 +92,7 @@ const Footer = React.memo(() => {
           {/* CONTACT */}
           <div className="rtx-footer-contact">
             <img src={logo} alt="" loading="lazy" className="rtx-footer-robo-logo"/>
+            <p className="rtx-footer-cmp-name">Robotronix Engineering Tech Pvt. Ltd.</p>
 
             <p>📞 +91 99931 50998</p>
             <p>📞 +91 77248 52726</p>

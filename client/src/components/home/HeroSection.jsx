@@ -25,8 +25,8 @@ const HeroSection = React.memo(() => {
         className: "rtx-stat-drop-3",
       },
       {
-        value: "24/7",
-        label: "Support Available",
+        value: "99%",
+        label: "On-Time Delivery",
         className: "rtx-stat-drop-4",
       },
     ],
