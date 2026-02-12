@@ -222,6 +222,9 @@
 ====================================================== */
 
 @media (max-width: 1024px) {
+  .rtx-overview-hero {
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-md);
+  }
   .rtx-about-wrapper {
     padding: var(--section-py-md) var(--section-px);
   }
@@ -235,7 +238,7 @@
 
 @media (max-width: 768px) {
   .rtx-overview-hero {
-    padding: var(--section-py-lg) var(--section-px) var(--section-py-xs);
+    padding: var(--section-py-lg) var(--section-px) var(--section-py-sm);
   }
   .rtx-about-wrapper {
     padding: var(--section-py-sm) var(--section-px);
@@ -750,7 +753,7 @@
 
 @media (max-width: 768px) {
   .rtx-who-wrapper {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-who-grid {
     grid-template-columns: 1fr;
@@ -766,6 +769,12 @@
   .rtx-who-glance-content {
     text-align: left;
   }
+}
+@media (max-width: 426px) {
+   .rtx-who-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  
 }
 
 /* ======================================================
@@ -785,7 +794,7 @@
 
 @media (max-width: 768px) {
   .rtx-approach-wrapper {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-approach-flow {
     grid-template-columns: 1fr 1fr;
@@ -793,6 +802,9 @@
   }
 }
 @media (max-width: 426px) {
+  .rtx-approach-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-approach-flow {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -804,8 +816,14 @@
 ====================================================== */
 @media (max-width: 768px) {
   .rtx-strengths-wrapper {
+    padding: var(--section-py-sm) var(--section-px);
+  }
+}
+@media (max-width: 426px) {
+  .rtx-strengths-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
+  
 }
 
 /* ======================================================
@@ -821,7 +839,7 @@
 
 @media (max-width: 768px) {
   .rtx-impact-wrapper {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-impact-grid {
     grid-template-columns: 1fr 1fr;
@@ -829,6 +847,9 @@
   }
 }
 @media (max-width: 426px) {
+  .rtx-impact-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
   .rtx-impact-grid {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -846,7 +867,7 @@
 
 @media (max-width: 768px) {
   .rtx-philosophy-wrapper {
-    padding: var(--section-py-xs) var(--section-px);
+    padding: var(--section-py-sm) var(--section-px);
   }
   .rtx-philosophy-quote {
     margin-bottom: 26px;
@@ -857,6 +878,12 @@
   }
 }
 
+@media (max-width:426px) {
+  .rtx-philosophy-wrapper {
+    padding: var(--section-py-xs) var(--section-px);
+  }
+  
+}
 /* ======================================================
    CULTURE HERO — RESPONSIVE
 ====================================================== */
@@ -907,7 +934,7 @@
   .rtx-culture-bonding-text {
     text-align: left;
   }
-  .rtx-culture-hero-text{
+  .rtx-culture-hero-text {
     text-align: left;
   }
 }
@@ -1112,24 +1139,17 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
 }
 
-@media (max-width: 992px) {
-  .rtx-vision-grid,
-  .rtx-mission-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .rtx-vision-content,
-  .rtx-mission-text {
-    text-align: center;
-  }
-
+@media (max-width: 768px) {
   .rtx-vision-img,
-  .rtx-mission-img {
-    margin-bottom: var(--space-xl);
+  .vision-img,
+  .rtx-mission-img,
+  .rtx-mission-img .mission-img {
+    max-width: 100%;
+    place-items: start;
+    aspect-ratio: 0;
+    margin-bottom: 0 !important;
   }
 }
-
 
 @media (max-width: 768px) {
   .rtx-vm-hero {
@@ -1183,7 +1203,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     padding: var(--section-py-md) var(--section-px);
   }
   .rtx-mission-grid {
-    grid-template-columns: 1fr 0.3fr;
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
   }
 }
@@ -1272,7 +1292,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
 
 @media (max-width: 1024px) {
   .rtx-career-hero-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
   }
 
@@ -1286,6 +1306,7 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
     text-align: center;
   }
   .rtx-career-hero-layout {
+    grid-template-columns: 1fr;
     gap: 48px;
   }
   .rtx-career-eyebrow {
@@ -1400,6 +1421,12 @@ CAREER — Why Work With Us (RESPONSIVE)
     gap: 20px;
   }
 }
+@media (max-width: 768px) {
+  .rtx-career-job-card a{
+    width: 100%;
+  }
+  
+}
 @media (max-width: 426px) {
   .rtx-career-jobs {
     padding: var(--section-py-xs) var(--section-px);
@@ -1407,8 +1434,8 @@ CAREER — Why Work With Us (RESPONSIVE)
   .rtx-career-job-card {
     flex-direction: column;
     align-items: flex-start;
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 100%;
+    /* margin: 0 auto; */
     padding: var(--space-md) var(--space-md);
   }
 }

@@ -89,6 +89,7 @@ margin-bottom: var(--space-md);
   padding-left: 18px;
   position: relative;
 margin-bottom: var(--space-sm);
+text-align: left
 }
 
 .rtx-career-hero-card li::before {
@@ -316,6 +317,7 @@ margin-bottom: var(--space-sm);
   background: var(--white-05);
   border: 1px solid var(--white-12);
   backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px var(--border-light-2), 0 4px 12px var(--blue-01);
   transition: 0.35s ease;
 }
 

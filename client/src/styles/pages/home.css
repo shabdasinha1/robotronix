@@ -53,13 +53,13 @@
 }
 
 /* TITLE */
-  .rtx-hero-title {
-    color: var(--clr-white);
-    font-weight: var(--fw-title);
-    font-size: var(--fs-3xl);
-    line-height: 1.2;
-    margin-top: var(--space-sm);
-  }
+.rtx-hero-title {
+  color: var(--clr-white);
+  font-weight: var(--fw-title);
+  font-size: var(--fs-3xl);
+  line-height: 1.2;
+  margin-top: var(--space-sm);
+}
 
 .rtx-hero-accent {
   color: var(--clr-blue-medium);
@@ -309,7 +309,7 @@
 /* TITLE */
 .rtx-about-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
   margin-bottom: var(--space-sm);
 }
@@ -402,7 +402,7 @@
 /* TITLE */
 .rtx-tech-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -496,7 +496,7 @@
 /* TITLE */
 .rtx-choose-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -614,7 +614,7 @@
 /* TITLE */
 .rtx-test-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -839,7 +839,7 @@
 /* TITLE */
 .rtx-contact-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 
@@ -932,6 +932,8 @@
 
 .rtx-info-card p {
   color: var(--clr-text-light);
+  gap: 10px;
+
 }
 
 /* BOTTOM BANNER */
@@ -1014,7 +1016,7 @@
 /* TITLE */
 .rtx-partners-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-2xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-white);
 }
 

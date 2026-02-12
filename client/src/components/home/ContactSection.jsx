@@ -3,7 +3,7 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
 import { useToast } from "../common/ToastContext";
-
+import { Mail, Phone, MapPin } from "lucide-react";
 const ContactSection = React.memo(() => {
   const { showToast } = useToast();
   /* ===============================
@@ -16,7 +16,7 @@ const ContactSection = React.memo(() => {
       rootMargin: "0px 0px -120px 0px",
       once: true,
     }),
-    []
+    [],
   );
 
   const { ref, visible } = useRevealOnScroll(revealOptions);
@@ -34,7 +34,6 @@ const ContactSection = React.memo(() => {
 
   const [loading, setLoading] = useState(false);
 
-
   /* ===============================
      HANDLERS (MEMOIZED)
   =============================== */
@@ -48,33 +47,31 @@ const ContactSection = React.memo(() => {
   }, []);
 
   const handleSubmit = useCallback(
-  async (e) => {
-    e.preventDefault();
-    if (loading) return;
+    async (e) => {
+      e.preventDefault();
+      if (loading) return;
 
-    setLoading(true);
+      setLoading(true);
 
-    try {
-  await messagesApi.createMessage(formData);
+      try {
+        await messagesApi.createMessage(formData);
 
-  showToast("Message sent successfully!", "success");
+        showToast("Message sent successfully!", "success");
 
-  setFormData({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-} catch (err) {
-  showToast("Failed to send message", "error");
-}
- finally {
-      setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN
-    }
-  },
-  [formData, loading]
-);
-
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+      } catch (err) {
+        showToast("Failed to send message", "error");
+      } finally {
+        setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN
+      }
+    },
+    [formData, loading],
+  );
 
   return (
     <section
@@ -85,17 +82,11 @@ const ContactSection = React.memo(() => {
     >
       <div className="rtx-contact-container u-container-center">
         {/* TITLE */}
-        <h2
-          className="rtx-contact-title u-drop"
-          style={{ "--delay": "0.2s" }}
-        >
+        <h2 className="rtx-contact-title u-drop" style={{ "--delay": "0.2s" }}>
           Let’s Build Something <span>Amazing Together</span>
         </h2>
 
-        <p
-          className="rtx-contact-sub u-drop"
-          style={{ "--delay": "0.4s" }}
-        >
+        <p className="rtx-contact-sub u-drop" style={{ "--delay": "0.4s" }}>
           Ready to transform your business? Get in touch and let's discuss your
           next project.
         </p>
@@ -159,16 +150,15 @@ const ContactSection = React.memo(() => {
               />
             </div>
 
-           <Button
-  type="submit"
-  variant="primary"
-  size="lg"
-  className="w-100"
-  disabled={loading}
->
-  {loading ? "Sending..." : "Send Message ✈"}
-</Button>
-
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="w-100"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Send Message ✈"}
+            </Button>
           </form>
 
           {/* RIGHT — INFO */}
@@ -185,30 +175,36 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Email Us</h4>
-              <p>info@robotronix.co.in</p>
+              <p className="d-flex">
+                <Mail /> <p> info@robotronix.co.in</p>
+              </p>
             </div>
 
             <div className="rtx-info-card">
               <h4>Call Us</h4>
-              <p>+91 99931 50998, +91 77248 52726</p>
+              <p className="d-flex">
+                <Phone /> <p>+91 99931 50998, +91 77248 52726</p>
+              </p>
             </div>
 
             <div className="rtx-info-card">
               <h4>Visit Us</h4>
-              <p>
-                402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
-                Opposite Indian Coffee House,<br />
-                Indore, Madhya Pradesh - 452001
+              <p className="d-flex">
+                <MapPin />
+                <p>
+                  402, Atulya IT PARK, MPIDC, Khandwa Rd,
+                  <br />
+                  Opposite Indian Coffee House,
+                  <br />
+                  Indore, Madhya Pradesh - 452001
+                </p>
               </p>
             </div>
           </div>
         </div>
 
         {/* BOTTOM BANNER */}
-        <div
-          className="rtx-contact-banner u-drop"
-          style={{ "--delay": "1s" }}
-        >
+        <div className="rtx-contact-banner u-drop" style={{ "--delay": "1s" }}>
           <h4>⚡ Quick Response</h4>
           <p>We typically respond within 24 hours during business days.</p>
         </div>

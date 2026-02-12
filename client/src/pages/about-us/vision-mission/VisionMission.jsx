@@ -41,12 +41,14 @@ const VisionMissionHero = () => {
           </span>
 
           <h1 className="rtx-vm-title u-drop" style={{ "--delay": "0.3s" }}>
-            Our vision defines where we are headed.
+            {/* Our vision defines where we are headed. */}
             {/* Vision That Leads. */}
+            Vision sets our direction.
             <br />
             <span className="rtx-vm-missiontext">
-              Our mission defines how we get there.
+              {/* Our mission defines how we get there. */}
               {/* Mission That Delivers. */}
+              Mission drives our actions.
             </span>
           </h1>
 

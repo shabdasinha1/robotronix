@@ -14,6 +14,8 @@ import logo from "../../assets/images/logo_c1.webp";
 import { FaXTwitter } from "react-icons/fa6";
 import clutchLogo from "../../assets/images/logo/clutch.webp";
 import upworkLogo from "../../assets/images/logo/upwork.webp";
+import { Phone, PhoneCall } from "lucide-react";
+import { GiRotaryPhone } from "react-icons/gi";
 
 /*==================================================================
     SMOOTH SCROLLING TO TOP (OPTIMIZED)
@@ -95,9 +97,9 @@ const Footer = React.memo(() => {
             <img src={logo} alt="" loading="lazy" className="rtx-footer-robo-logo"/>
             <p className="rtx-footer-cmp-name">Robotronix Engineering Tech Pvt. Ltd.</p>
 
-            <p>📞 +91 99931 50998</p>
-            <p>📞 +91 77248 52726</p>
-            <p>☎️ 0731-2970998</p>
+            <p><Phone/> +91 99931 50998</p>
+            <p><Phone/> +91 77248 52726</p>
+            <p><GiRotaryPhone size={27} /> 0731-2970998</p>
 
             <p className="rtx-footer-mail">info@robotronix.co.in</p>
 

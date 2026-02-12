@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 // import atulya1 from "../../assets/images/atulya1.webp";
 import atulya1 from "../../assets/images/atulya2.webp";
-import { Mail, Phone, MapPin, User, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, User, MessageSquare, Star } from "lucide-react";
 import messagesApi from "../../api/messages.api";
 import { useToast } from "../../components/common/ToastContext";
 import { GiDiscussion } from "react-icons/gi";
@@ -47,18 +47,18 @@ const ContactUs = React.memo(() => {
   const info = useMemo(
     () => [
       {
-        icon: "📍",
+        icon: <MapPin />,
         title: "Office Address",
         desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001",
       },
       {
-        icon: "✉️",
+        icon: <Mail/>,
         title: "Email",
         desc: "info@robotronix.co.in",
         link: "mailto:info@robotronix.co.in",
       },
       {
-        icon: "📞",
+        icon: <Phone/>,
         title: "Phone",
         desc: (
           <span style={{lineHeight:"30px"}}>
@@ -67,13 +67,8 @@ const ContactUs = React.memo(() => {
         ),
         link: "tel:+919993150998",
       },
-      // {
-      //   icon: "🕒",
-      //   title: "Working Hours",
-      //   desc: "Mon – Sat: 10 AM – 7 PM",
-      // },
       {
-        icon: "⭐",
+        icon: <Star/>,
         title: "Why Choose Us",
         desc: (
           <>
