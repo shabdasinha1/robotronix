@@ -45,7 +45,7 @@ const strengths = [
 ];
 
 const stats = [
-  { value: "10+", label: "Years of Engineering Experience" },
+  { value: "15+", label: "Years of Engineering Experience" },
   { value: "Multiple", label: "Industries Served" },
   { value: "End-to-End", label: "Technology Solutions" },
   { value: "Long-Term", label: "Client Partnerships" },
@@ -65,7 +65,7 @@ const glanceCard = [
     icon: "⭐",
   },
   {
-    value: "10+ yrs",
+    value: "15+ yrs",
     title: "Delivery Excellence",
     desc: "Over a decade of experience delivering scalable, future-ready solutions.",
     icon: "🚀",

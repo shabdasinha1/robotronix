@@ -20,7 +20,7 @@ const HeroSection = React.memo(() => {
         className: "rtx-stat-drop-2",
       },
       {
-        value: "10+ yrs",
+        value: "15+ yrs",
         label: "Delivery Excellence",
         className: "rtx-stat-drop-3",
       },

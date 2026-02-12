@@ -5,7 +5,7 @@ import Card from "../../components/common/Card";
 const stats = [
   { icon: "👥", value: 1000, suffix: "+", label: "Happy Clients" },
   { icon: "💻", value: 2000, suffix: "+", label: "Projects Completed" },
-  { icon: "🏅", value: 10, suffix: "+ yrs", label: "Delivery Excellence" },
+  { icon: "🏅", value: 15, suffix: "+ yrs", label: "Delivery Excellence" },
   { icon: "🌍", value: 10, suffix: "+", label: "Countries Served" },
 ];
 
