@@ -95,6 +95,20 @@ const ContactUs = React.memo(() => {
       e.preventDefault();
       if (loading) return;
 
+      const wordCount = formData.message
+  .trim()
+  .split(/\s+/)
+  .filter(Boolean).length;
+
+if (wordCount < 40) {
+  showToast(
+    "Your message must contain at least 40 words.",
+    "error"
+  );
+  return;
+}
+
+
       try {
         setLoading(true);
         await messagesApi.createMessage(formData);

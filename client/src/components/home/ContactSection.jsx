@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 import messagesApi from "../../api/messages.api";
@@ -51,6 +51,17 @@ const ContactSection = React.memo(() => {
       e.preventDefault();
       if (loading) return;
 
+      const wordCount = formData.message
+  .trim()
+  .split(/\s+/)
+  .filter(Boolean).length;
+
+if (wordCount < 40) {
+  showToast("Project details must be at least 40 words.", "error");
+  return;
+}
+
+
       setLoading(true);
 
       try {
@@ -70,7 +81,7 @@ const ContactSection = React.memo(() => {
         setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN
       }
     },
-    [formData, loading],
+    [formData, loading, showToast],
   );
 
   return (
