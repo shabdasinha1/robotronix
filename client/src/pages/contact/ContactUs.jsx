@@ -91,44 +91,42 @@ const ContactUs = React.memo(() => {
   }, []);
 
   const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      if (loading) return;
+  async (e) => {
+    e.preventDefault();
+    if (loading) return;
 
-      const wordCount = formData.message
-  .trim()
-  .split(/\s+/)
-  .filter(Boolean).length;
+    // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
+    const messageLength = formData.message.trim().length;
 
-if (wordCount < 40) {
-  showToast(
-    "Your message must contain at least 40 words.",
-    "error"
-  );
-  return;
-}
+    if (messageLength < 40) {
+      showToast(
+        "Your message must contain at least 40 characters.",
+        "error"
+      );
+      return;
+    }
 
+    try {
+      setLoading(true);
 
-      try {
-        setLoading(true);
-        await messagesApi.createMessage(formData);
+      await messagesApi.createMessage(formData);
 
-        showToast("Message sent successfully!", "success");
+      showToast("Message sent successfully!", "success");
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-      } catch (err) {
-        showToast("Failed to send message", "error");
-      } finally {
-        setLoading(false);
-      }
-    },
-    [formData, loading, showToast],
-  );
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (err) {
+      showToast("Failed to send message", "error");
+    } finally {
+      setLoading(false);
+    }
+  },
+  [formData, loading, showToast],
+);
 
   const scrollToContactForm = useCallback(() => {
     const el = document.getElementById("contact-form");

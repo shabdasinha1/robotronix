@@ -46,43 +46,44 @@ const ContactSection = React.memo(() => {
     }));
   }, []);
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      if (loading) return;
+ const handleSubmit = useCallback(
+  async (e) => {
+    e.preventDefault();
+    if (loading) return;
 
-      const wordCount = formData.message
-  .trim()
-  .split(/\s+/)
-  .filter(Boolean).length;
+    // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
+    const messageLength = formData.message.trim().length;
 
-if (wordCount < 40) {
-  showToast("Project details must be at least 40 words.", "error");
-  return;
-}
+    if (messageLength < 40) {
+      showToast(
+        "Project details must contain at least 40 characters.",
+        "error"
+      );
+      return;
+    }
 
+    setLoading(true);
 
-      setLoading(true);
+    try {
+      await messagesApi.createMessage(formData);
 
-      try {
-        await messagesApi.createMessage(formData);
+      showToast("Message sent successfully!", "success");
 
-        showToast("Message sent successfully!", "success");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    } catch (err) {
+      showToast("Failed to send message", "error");
+    } finally {
+      setLoading(false);
+    }
+  },
+  [formData, loading, showToast],
+);
 
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
-      } catch (err) {
-        showToast("Failed to send message", "error");
-      } finally {
-        setLoading(false); // 🔥 THIS WILL NOW ALWAYS RUN
-      }
-    },
-    [formData, loading, showToast],
-  );
 
   return (
     <section

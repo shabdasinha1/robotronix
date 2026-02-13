@@ -43,7 +43,7 @@ app.use(limiter);
 const allowedOrigins = [
   "https://robotronix.co.in",
   "https://www.robotronix.co.in",
-  "http://localhost:5173",
+  "http://localhost:3000",
 ];
 
 app.use(
