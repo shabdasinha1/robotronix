@@ -1,8 +1,8 @@
 import IndustryLeader from "./industryLeader.model.js";
 import fs from "fs";
 
-export const createLeader = async (imagePath) => {
-  return await IndustryLeader.create({ image: imagePath });
+export const createLeader = async (data) => {
+  return await IndustryLeader.create(data);
 };
 
 export const getAllLeaders = async () => {

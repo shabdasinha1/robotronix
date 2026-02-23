@@ -4,7 +4,7 @@ import {
   deleteLeader,
 } from "./industryLeader.service.js";
 
-/*-----------------------UPLOAD IMAGE----------------------- */
+/*-----------------------CREATE LEADER----------------------- */
 export const uploadLeaderImage = async (req, res) => {
   try {
     if (!req.file) {
@@ -14,16 +14,37 @@ export const uploadLeaderImage = async (req, res) => {
       });
     }
 
+    const { leaderName, isActive } = req.body;
+
+    if (!leaderName) {
+      return res.status(400).json({
+        success: false,
+        message: "Leader name is required",
+      });
+    }
+
     const imagePath = req.file.path;
 
-    const leader = await createLeader(imagePath);
+    const leader = await createLeader({
+      leaderName,
+      image: imagePath,
+      isActive,
+    });
 
     res.status(201).json({
       success: true,
-      message: "Image uploaded successfully",
+      message: "Leader created successfully",
       data: leader,
     });
   } catch (error) {
+    // Duplicate error
+    if (error.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        message: "Leader name already exists",
+      });
+    }
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -31,7 +52,7 @@ export const uploadLeaderImage = async (req, res) => {
   }
 };
 
-/*-----------------------GET ALL IMAGE OF LEADERS----------------------- */
+/*-----------------------GET ALL LEADERS----------------------- */
 export const getLeaders = async (req, res) => {
   try {
     const leaders = await getAllLeaders();
@@ -47,7 +68,8 @@ export const getLeaders = async (req, res) => {
     });
   }
 };
-/*-----------------------DELETE IMAGE OF LEADERS----------------------- */
+
+/*-----------------------DELETE LEADER----------------------- */
 export const removeLeader = async (req, res) => {
   try {
     const { id } = req.params;
@@ -56,7 +78,7 @@ export const removeLeader = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Image deleted successfully",
+      message: "Leader deleted successfully",
     });
   } catch (error) {
     res.status(404).json({
