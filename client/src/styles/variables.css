@@ -47,7 +47,6 @@
   --fs-card-meta: 0.85rem;
   --fs-chip: 0.75rem;
 
-
   /* FONT WEIGHT SCALE (GLOBAL) */
   --fw-thin: 100;
   --fw-extralight: 200;
@@ -109,7 +108,6 @@
    DARK THEME (DEFAULT)
 ========================================= */
 :root[data-theme="dark"] {
-
   /* =========================
      BRAND COLORS
   ========================= */
@@ -147,6 +145,8 @@
   --white-12: rgba(255, 255, 255, 0.12);
   --white-15: rgba(255, 255, 255, 0.15);
 
+  --white-07: rgba(255, 255, 255, 0.9);
+
   /* =========================
      BLUE OPACITIES
   ========================= */
@@ -161,6 +161,7 @@
   --blue-012s: rgba(0, 153, 255, 0.12);
   --blue-012b: rgba(0, 180, 255, 0.12);
   --blue-005b: rgba(0, 180, 255, 0.05);
+  /* --white-07: rgba(0, 180, 255, 0.05); */
 
   /* =========================
      SHADOWS
@@ -190,46 +191,45 @@
    LIGHT THEME
 ========================================= */
 :root[data-theme="light"] {
-
   /* =========================
      BRAND COLORS
   ========================= */
-  --clr-blue: #008CFF;
-  --clr-blue-light: #3BB3FF;
-  --clr-blue-medium: #007BFF;
-  --clr-blue-btn: #007BFF;
-  --clr-blue-btn-hover: #0062CC;
-  --clr-blue-cta-hover: #0099FF;
+  --clr-blue: #008cff;
+  --clr-blue-light: #3bb3ff;
+  --clr-blue-medium: #007bff;
+  --clr-blue-btn: #007bff;
+  --clr-blue-btn-hover: #0062cc;
+  --clr-blue-cta-hover: #0099ff;
 
   /* =========================
      TEXT COLORS
   ========================= */
-  --clr-white: #0A0F18;
-  --clr-text-light: #1C2A3A;
-  --clr-text-soft: #2E3D50;
-  --clr-text-muted: #667A90;
+  --clr-white: #0a0f18;
+  --clr-text-light: #1c2a3a;
+  --clr-text-soft: #2e3d50;
+  --clr-text-muted: #667a90;
 
   /* =========================
      BACKGROUND COLORS
   ========================= */
-  --bg-dark-1: linear-gradient(135deg, #F4F7FB 0%, #E9EEF5 45%, #F7FAFD 100%);
+  --bg-dark-1: linear-gradient(135deg, #f4f7fb 0%, #e9eef5 45%, #f7fafd 100%);
   --bg-dark-2: rgba(255, 255, 255, 0.65);
   --bg-dark-3: rgba(255, 255, 255, 0.45);
 
-  --light-bg-1: #FAFCFF;
-  --light-bg-2: #F3F7FC;
-  --light-bg-3: #FFFFFF;
+  --light-bg-1: #fafcff;
+  --light-bg-2: #f3f7fc;
+  --light-bg-3: #ffffff;
 
   /* =========================
      BLUE OPACITIES
   ========================= */
-  --blue-01: rgba(0, 123, 255, 0.10);
+  --blue-01: rgba(0, 123, 255, 0.1);
   --blue-012s: rgba(0, 140, 255, 0.12);
   --blue-012: rgba(0, 140, 255, 0.12);
-  --blue-02: rgba(0, 123, 255, 0.20);
+  --blue-02: rgba(0, 123, 255, 0.2);
   --blue-025s: rgba(0, 123, 255, 0.25);
-  --blue-03: rgba(0, 123, 255, 0.30);
-  --blue-03s: rgba(0, 123, 255, 0.30);
+  --blue-03: rgba(0, 123, 255, 0.3);
+  --blue-03s: rgba(0, 123, 255, 0.3);
   --blue-008: rgba(0, 123, 255, 0.08);
   --blue-06: rgba(0, 153, 255, 0.25);
   /* --blue-06: 0 2px 8px rgba(0, 153, 255, 0.6);; */
@@ -237,16 +237,16 @@
   /* =========================
      TRANSPARENT WHITES
   ========================= */
-  --white-01: rgba(255, 255, 255, 0.10);
+  --white-01: rgba(255, 255, 255, 0.1);
   --white-02: rgba(255, 255, 255, 0.15);
-  --white-03: rgba(255, 255, 255, 0.20);
+  --white-03: rgba(255, 255, 255, 0.2);
   --white-05: rgba(255, 255, 255, 0.28);
   /* --white-055: rgba(255, 255, 255, 0.28); */
   --white-06: rgba(255, 255, 255, 0.35);
   --white-10: rgba(255, 255, 255, 0.45);
   --white-12: rgba(255, 255, 255, 0.55);
   --white-15: rgba(255, 255, 255, 0.65);
-
+  --white-07: rgba(255, 255, 255, 0.4);
   /* =========================
      SHADOWS
   ========================= */
@@ -272,5 +272,5 @@
   --header-dropdown-bg: rgba(255, 255, 255, 1);
   --header-dropdown-border: rgba(0, 0, 0, 0.05);
   --header-dropdown-hover-bg: rgba(0, 0, 0, 0.04);
-  --header-mobile-backdrop: rgba(255, 255, 255, 0.60);
+  --header-mobile-backdrop: rgba(255, 255, 255, 0.6);
 }

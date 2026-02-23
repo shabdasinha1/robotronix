@@ -3,7 +3,7 @@ import axios from "axios";
 /* ===============================
    AXIOS INSTANCE
 ================================ */
-const api = axios.create({
+export const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   timeout: 15000,
   headers: {
@@ -25,7 +25,7 @@ api.interceptors.request.use(
 
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 /* ===============================
@@ -47,9 +47,36 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(
-      error.response?.data || { message: "Something went wrong" }
+      error.response?.data || { message: "Something went wrong" },
     );
-  }
+  },
 );
 
-export default api;
+// export default api;
+
+/* ===============================
+   PUBLIC AXIOS INSTANCE
+================================ */
+export const publicApi = axios.create({
+  baseURL:
+    process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api/v1/",
+  timeout: 15000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+/* ===============================
+   RESPONSE INTERCEPTOR
+   → Simple error handling
+================================ */
+publicApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    return Promise.reject(
+      error.response?.data || { message: "Something went wrong" },
+    );
+  },
+);
+
+// export default publicApi;

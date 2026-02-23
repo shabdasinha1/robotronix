@@ -3,6 +3,7 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 import logo1 from "../../assets/images/logo/logo1.webp";
 import logo2 from "../../assets/images/logo/logo2.webp";
+
 import logo3 from "../../assets/images/logo/logo3.webp";
 import logo4 from "../../assets/images/logo/logo4.webp";
 import logo5 from "../../assets/images/logo/logo5.webp";

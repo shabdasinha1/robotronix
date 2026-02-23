@@ -933,7 +933,6 @@
 .rtx-info-card p {
   color: var(--clr-text-light);
   gap: 10px;
-
 }
 
 /* BOTTOM BANNER */
@@ -1072,6 +1071,10 @@
   opacity: 0.85;
   transition: 0.25s ease;
   filter: brightness(0.9);
+  /* background: white; */
+  background: var(--white-07);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .rtx-marquee-set img:hover {
@@ -1113,6 +1116,7 @@
 
 :root[data-theme="light"] .rtx-marquee-set img {
   filter: brightness(0.8);
+  /* background: var(--light-bg-1); */
 }
 
 /* ======================================================
