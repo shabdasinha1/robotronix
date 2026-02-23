@@ -11,7 +11,7 @@
 .rtx-career-hero-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
- gap: var(--space-3xl);
+  gap: var(--space-3xl);
   align-items: center;
 }
 
@@ -28,7 +28,7 @@
 /* TITLE */
 .rtx-career-hero-title {
   font-weight: var(--fw-title);
-    font-size: var(--fs-3xl);
+  font-size: var(--fs-3xl);
   color: var(--clr-white);
   line-height: 1.15;
 }
@@ -50,8 +50,8 @@
 /* ACTIONS */
 .rtx-career-hero-actions {
   display: flex;
-gap: var(--space-md);
-margin-top: var(--space-lg);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
   flex-wrap: wrap;
 }
 
@@ -62,7 +62,7 @@ margin-top: var(--space-lg);
 }
 
 .rtx-career-hero-card {
- padding: var(--space-xl);
+  padding: var(--space-xl);
   border-radius: 22px;
   background: var(--white-05);
   border: 1px solid var(--white-12);
@@ -74,7 +74,7 @@ margin-top: var(--space-lg);
 .rtx-career-hero-card h4 {
   font-size: 1.25rem;
   color: var(--clr-white);
-margin-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 .rtx-career-hero-card ul {
@@ -88,8 +88,8 @@ margin-bottom: var(--space-md);
   color: var(--clr-text-light);
   padding-left: 18px;
   position: relative;
-margin-bottom: var(--space-sm);
-text-align: left
+  margin-bottom: var(--space-sm);
+  text-align: left;
 }
 
 .rtx-career-hero-card li::before {
@@ -98,7 +98,6 @@ text-align: left
   left: 0;
   color: var(--clr-blue);
 }
-
 
 /* ======================================================
    CAREER — WHY WORK WITH US
@@ -113,7 +112,7 @@ text-align: left
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--clr-white);
- margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 /* CARD TEXT */
@@ -127,7 +126,6 @@ text-align: left
 :root[data-theme="light"] .rtx-career-why-title {
   color: var(--clr-white);
 }
-
 
 /* ======================================================
    CAREER — LIFE AT ROBOTRONIX
@@ -151,7 +149,7 @@ text-align: left
 }
 
 .rtx-career-life-text {
- margin-top: var(--space-md);
+  margin-top: var(--space-md);
   font-size: 1.08rem;
   color: var(--clr-text-light);
   line-height: 1.75;
@@ -161,30 +159,32 @@ text-align: left
 .rtx-career-life-images {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
- gap: var(--space-md);
+  gap: var(--space-md);
 }
 
 .rtx-life-img {
   position: relative;
   height: 160px;
-  border-radius: 20px;              /* smoother corners */
-  overflow: hidden;                /* IMPORTANT for img radius */
+  border-radius: 20px; /* smoother corners */
+  overflow: hidden; /* IMPORTANT for img radius */
   background: var(--white-05);
   border: 1px solid var(--white-12);
   backdrop-filter: blur(6px);
   box-shadow: 0 14px 34px var(--shadow-dark-1);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .rtx-life-img img {
   width: 100%;
   height: 100%;
-    cursor: pointer;
+  cursor: pointer;
   object-fit: cover;
   display: block;
   border-radius: inherit; /* keeps corners smooth */
 }
-
 
 .rtx-life-img:hover {
   transform: translateY(-6px);
@@ -228,7 +228,7 @@ text-align: left
   border: 1px solid var(--white-30);
 
   background: rgba(0, 0, 0, 0.65); /* works in light + dark */
-  color: #ffffff;                 /* force visibility */
+  color: #ffffff; /* force visibility */
 
   font-size: 1.6rem;
   font-weight: 600;
@@ -246,7 +246,6 @@ text-align: left
   background: rgba(0, 0, 0, 0.85);
   transform: scale(1.05);
 }
-
 
 /* ======================================================
    CAREER — INTERNSHIP OPPORTUNITIES
@@ -291,7 +290,6 @@ text-align: left
   color: var(--clr-white);
 }
 
-
 /* ======================================================
    CAREER — OPEN POSITIONS
 ====================================================== */
@@ -304,7 +302,7 @@ text-align: left
 .rtx-career-job-list {
   display: flex;
   flex-direction: column;
-    gap: var(--space-md);
+  gap: var(--space-md);
 }
 
 /* JOB CARD */
@@ -317,7 +315,9 @@ text-align: left
   background: var(--white-05);
   border: 1px solid var(--white-12);
   backdrop-filter: blur(8px);
-  box-shadow: 0 6px 18px var(--border-light-2), 0 4px 12px var(--blue-01);
+  box-shadow:
+    0 6px 18px var(--border-light-2),
+    0 4px 12px var(--blue-01);
   transition: 0.35s ease;
 }
 
@@ -349,9 +349,9 @@ text-align: left
 /* ACTION */
 .rtx-career-job-action {
   flex-shrink: 0;
+  display: flex;
+  gap: 10px;
 }
-
-
 
 /* ======================================================
    CAREER — GROWTH & LEARNING
@@ -381,7 +381,6 @@ text-align: left
   color: var(--clr-white);
 }
 
-
 /* ======================================================
    CAREER — FINAL CTA
 ====================================================== */
@@ -399,7 +398,6 @@ text-align: left
   color: var(--clr-text-light);
   line-height: 1.75;
 }
-
 
 /* ACTIONS */
 .rtx-career-cta-actions {

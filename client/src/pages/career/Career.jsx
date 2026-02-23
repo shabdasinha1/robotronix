@@ -7,9 +7,15 @@ import festival1 from "../../assets/images/culture/festival/festival5.webp";
 import festival2 from "../../assets/images/culture/festival/festival8.webp";
 import festival3 from "../../assets/images/culture/festival/festival11.webp";
 import festival4 from "../../assets/images/culture/festival/festival14.webp";
+import { getAllJobs } from "../../services/PublicServices";
+import Modal from "../../components/common/Modal";
 
 const Career = React.memo(() => {
   const [previewImg, setPreviewImg] = useState(null);
+
+  const [jobs, setJobs] = useState([]);
+  const [loadingJobs, setLoadingJobs] = useState(true);
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const openPreview = (img) => {
     setPreviewImg(img);
@@ -83,17 +89,31 @@ const Career = React.memo(() => {
     [],
   );
 
-  const jobs = useMemo(
-    () => [
-      {
-        title: "Embedded Engineer",
-        experience: "2+ Years",
-        location: "Indore",
-        type: "Full Time",
-      },
-    ],
-    [],
-  );
+  // const jobs = useMemo(
+  //   () => [
+  //     {
+  //       title: "Embedded Engineer",
+  //       experience: "2+ Years",
+  //       location: "Indore",
+  //       type: "Full Time",
+  //     },
+  //   ],
+  //   [],
+  // );
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await getAllJobs();
+        setJobs(res.data); // adjust if your response format differs
+      } catch (error) {
+        console.error("Failed to fetch jobs:", error);
+      } finally {
+        setLoadingJobs(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
 
   const growthPoints = useMemo(
     () => [
@@ -131,6 +151,8 @@ const Career = React.memo(() => {
       window.removeEventListener("keydown", handleEsc);
     };
   }, [previewImg]);
+  // console.log("Selected jobs : ",selectedJob, "Jobs : ", jobs)
+  
 
   return (
     <>
@@ -432,12 +454,19 @@ const Career = React.memo(() => {
                       <strong>Location:</strong> {job.location}
                     </li>
                     <li>
-                      <strong>Type:</strong> {job.type}
+                      <strong>Type:</strong> {job.employmentType}
                     </li>
                   </ul>
                 </div>
 
                 <div className="rtx-career-job-action">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-md"
+                    onClick={() => setSelectedJob(job)}
+                  >
+                    View Details
+                  </button>
                   <Link to="/contact-us" className="btn btn-outline btn-md">
                     Apply Now
                   </Link>
@@ -445,6 +474,29 @@ const Career = React.memo(() => {
               </div>
             ))}
           </div>
+          <Modal
+            isOpen={!!selectedJob}
+            onClose={() => setSelectedJob(null)}
+            title={selectedJob?.title}
+          >
+            {selectedJob && (
+              <>
+                <p>
+                  <strong>Experience:</strong> {selectedJob.experience}
+                </p>
+                <p>
+                  <strong>Location:</strong> {selectedJob.location}
+                </p>
+                <p>
+                  <strong>Type:</strong> {selectedJob.employmentType}
+                </p>
+
+                <div style={{ marginTop: "1rem" }}>
+                  {selectedJob.description}
+                </div>
+              </>
+            )}
+          </Modal>
         </div>
       </section>
 

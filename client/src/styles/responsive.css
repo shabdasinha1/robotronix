@@ -771,10 +771,9 @@
   }
 }
 @media (max-width: 426px) {
-   .rtx-who-wrapper {
+  .rtx-who-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
-  
 }
 
 /* ======================================================
@@ -823,7 +822,6 @@
   .rtx-strengths-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
-  
 }
 
 /* ======================================================
@@ -878,11 +876,10 @@
   }
 }
 
-@media (max-width:426px) {
+@media (max-width: 426px) {
   .rtx-philosophy-wrapper {
     padding: var(--section-py-xs) var(--section-px);
   }
-  
 }
 /* ======================================================
    CULTURE HERO — RESPONSIVE
@@ -1321,6 +1318,9 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-career-hero-card {
     padding: var(--space-xl) var(--space-2xl);
   }
+  .rtx-career-job-action {
+    flex-direction: column;
+  }
 }
 @media (max-width: 426px) {
   .rtx-career-hero-card {
@@ -1328,6 +1328,9 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   }
   .rtx-career-hero {
     padding: var(--section-py-md) var(--section-px) var(--section-py-xs);
+  }
+  .rtx-career-job-action {
+    width: 100%;
   }
 }
 @media (max-width: 376px) {
@@ -1422,10 +1425,9 @@ CAREER — Why Work With Us (RESPONSIVE)
   }
 }
 @media (max-width: 768px) {
-  .rtx-career-job-card a{
+  .rtx-career-job-card a {
     width: 100%;
   }
-  
 }
 @media (max-width: 426px) {
   .rtx-career-jobs {
