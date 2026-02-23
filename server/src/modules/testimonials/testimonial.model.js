@@ -34,4 +34,4 @@ const testimonialSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Testimonial", testimonialSchema);
+export default mongoose.model("Testimonials", testimonialSchema);

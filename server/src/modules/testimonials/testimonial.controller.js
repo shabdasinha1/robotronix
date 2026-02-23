@@ -1,5 +1,6 @@
 import * as testimonialService from "./testimonial.service.js";
-import {testimonialService_dummy} from "./testimonial.data.js";
+// import {testimonialService_dummy} from "./testimonial.data.js";
+
 
 // Create
 export const create = async (req, res) => {
@@ -22,9 +23,12 @@ export const create = async (req, res) => {
 // Get All
 export const getAll = async (req, res) => {
   try {
-    // const testimonials = await testimonialService.getAllTestimonials();
-    const testimonials = await testimonialService_dummy.filter((item) => item.isActive);
+    const testimonials = await testimonialService.getAllTestimonials();
 
+
+    /* --------------------FOR STATIC DATA---------------------- */
+    
+    // const testimonials = await testimonialService_dummy.filter((item) => item.isActive);
     // console.log("Testimonial Data : ",testimonials);
 
     res.status(200).json({

@@ -22,7 +22,7 @@ app.set("trust proxy", 1);
 app.use(
   helmet({
     contentSecurityPolicy: false, // Disable if CSP causes frontend issues
-  })
+  }),
 );
 
 /* ===============================
@@ -33,6 +33,7 @@ const allowedOrigins = [
   "https://robotronix.co.in",
   "https://www.robotronix.co.in",
   "http://localhost:3000",
+  "http://localhost:5000",
 ];
 
 const corsOptions = {
@@ -52,7 +53,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 
 /* ===============================
    RATE LIMITER (AFTER CORS)
@@ -94,6 +94,19 @@ app.get("/health", (req, res) => {
     timestamp: new Date(),
   });
 });
+
+/* ===============================
+   STATIC FOR IMAGES
+================================ */
+// app.use("/api/v1/uploads", express.static("uploads"));
+app.use(
+  "/api/v1/uploads",
+  (req, res, next) => {
+    res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+    next();
+  },
+  express.static("uploads"),
+);
 
 /* ===============================
    API ROUTES
