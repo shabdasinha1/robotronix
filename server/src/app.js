@@ -10,7 +10,7 @@ import { errorHandler } from "./middlewares/error.middleware.js";
 const app = express();
 
 /* ===============================
-   TRUST PROXY (If Deployed Behind Cloud/Nginx)
+   TRUST PROXY (If Behind Nginx/Cloudflare)
 ================================ */
 app.set("trust proxy", 1);
 
@@ -21,14 +21,48 @@ app.set("trust proxy", 1);
 // Helmet - Adds security headers
 app.use(
   helmet({
-    contentSecurityPolicy: false, // Disable if it causes frontend issues
+    contentSecurityPolicy: false, // Disable if CSP causes frontend issues
   })
 );
 
-// Rate Limiter - Prevents brute force attacks
+/* ===============================
+   CORS (MUST COME BEFORE RATE LIMIT)
+================================ */
+
+const allowedOrigins = [
+  "https://robotronix.co.in",
+  "https://www.robotronix.co.in",
+  "http://localhost:3000",
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow non-browser requests (like Postman, curl)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, false); // ❗ Do NOT throw error
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+
+
+/* ===============================
+   RATE LIMITER (AFTER CORS)
+================================ */
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per window
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
   message: {
     success: false,
     message: "Too many requests. Please try again later.",
@@ -38,34 +72,14 @@ const limiter = rateLimit({
 app.use(limiter);
 
 /* ===============================
-   CORS
-================================ */
-const allowedOrigins = [
-  "https://robotronix.co.in",
-  "https://www.robotronix.co.in",
-  "http://localhost:3000",
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
-
-/* ===============================
    BODY PARSERS
 ================================ */
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-/* LOGGING (DEV ONLY) */
+/* ===============================
+   LOGGING (DEV ONLY)
+================================ */
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
