@@ -23,3 +23,9 @@ export const getAllJobs = async () => {
   const { data } = await publicApi.get("/job");
   return data;
 };
+
+
+export const jobApply = async(payload)=>{
+  const {data} = await publicApi.post('/application', payload);
+  return data;
+}

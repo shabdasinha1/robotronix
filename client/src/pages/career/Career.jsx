@@ -9,13 +9,17 @@ import festival3 from "../../assets/images/culture/festival/festival11.webp";
 import festival4 from "../../assets/images/culture/festival/festival14.webp";
 import { getAllJobs } from "../../services/PublicServices";
 import Modal from "../../components/common/Modal";
+import ApplicationForm from "../../components/common/ApplicationForm";
 
 const Career = React.memo(() => {
   const [previewImg, setPreviewImg] = useState(null);
 
   const [jobs, setJobs] = useState([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
+  const [jobDetails, setJobDetails] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
+  // const [applicationType, setApplicationType] = useState(null);
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
 
   const openPreview = (img) => {
     setPreviewImg(img);
@@ -152,7 +156,6 @@ const Career = React.memo(() => {
     };
   }, [previewImg]);
   // console.log("Selected jobs : ",selectedJob, "Jobs : ", jobs)
-  
 
   return (
     <>
@@ -203,9 +206,13 @@ const Career = React.memo(() => {
                 View Open Positions
               </button>
 
-              <NavLink to="/contact-us" className="btn btn-outline btn-lg">
-                Send Resume
-              </NavLink>
+              <button className="btn btn-outline btn-lg" onClick={() => {
+                      // setApplicationType("job");
+                      // setSelectedJob(job);
+                      setIsApplyOpen(true);
+                    }}>
+              Send Resume
+            </button>
             </div>
           </div>
 
@@ -463,39 +470,64 @@ const Career = React.memo(() => {
                   <button
                     type="button"
                     className="btn btn-outline btn-md"
-                    onClick={() => setSelectedJob(job)}
+                    onClick={() => setJobDetails(job)}
                   >
                     View Details
                   </button>
-                  <Link to="/contact-us" className="btn btn-outline btn-md">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-md"
+                    onClick={() => {
+                      // setApplicationType("job");
+                      setSelectedJob(job);
+                      setIsApplyOpen(true);
+                    }}
+                  >
                     Apply Now
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
           </div>
           <Modal
-            isOpen={!!selectedJob}
-            onClose={() => setSelectedJob(null)}
-            title={selectedJob?.title}
+            isOpen={!!jobDetails}
+            onClose={() => setJobDetails(null)}
+            title={jobDetails?.title}
           >
-            {selectedJob && (
+            {jobDetails && (
               <>
                 <p>
-                  <strong>Experience:</strong> {selectedJob.experience}
+                  <strong>Experience:</strong> {jobDetails.experience}
                 </p>
                 <p>
-                  <strong>Location:</strong> {selectedJob.location}
+                  <strong>Location:</strong> {jobDetails.location}
                 </p>
                 <p>
-                  <strong>Type:</strong> {selectedJob.employmentType}
+                  <strong>Type:</strong> {jobDetails.employmentType}
                 </p>
 
                 <div style={{ marginTop: "1rem" }}>
-                  {selectedJob.description}
+                  {jobDetails.description}
                 </div>
               </>
             )}
+          </Modal>
+          <Modal
+            isOpen={isApplyOpen}
+            onClose={() => {
+              setIsApplyOpen(false);
+              setSelectedJob(null);
+              // setApplicationType(null);
+            }}
+            // title={
+            //   applicationType === "job"
+            //     ? `Apply for ${selectedJob?.title}`
+            //     : "Apply for Internship"
+            // }
+            title="Apply Now"
+          >
+            {/* <ApplicationForm type={applicationType} jobData={selectedJob} /> */}
+            <ApplicationForm jobData={selectedJob} />
           </Modal>
         </div>
       </section>
@@ -565,9 +597,13 @@ const Career = React.memo(() => {
               View Open Positions
             </a>
 
-            <Link to="/contact-us" className="btn btn-outline btn-lg">
+            <button className="btn btn-outline btn-lg" onClick={() => {
+                      // setApplicationType("job");
+                      // setSelectedJob(job);
+                      setIsApplyOpen(true);
+                    }}>
               Send Your Resume
-            </Link>
+            </button>
           </div>
         </div>
       </section>

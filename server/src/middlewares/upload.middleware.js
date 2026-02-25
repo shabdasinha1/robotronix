@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|webp/;
   const extName = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
+    path.extname(file.originalname).toLowerCase(),
   );
   const mimeType = allowedTypes.test(file.mimetype);
 
@@ -41,3 +41,47 @@ export const uploadIndustryLeader = multer({
   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
   fileFilter,
 }).single("image");
+
+/* =====================================================
+   RESUME UPLOAD (Job / Internship)
+===================================================== */
+
+const resumeStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = "uploads/resumes";
+    createFolderIfNotExists(uploadPath);
+    cb(null, uploadPath);
+  },
+
+  /**
+   * Rename file based on category
+   * Example:
+   * job-1700000000.pdf
+   * internship-1700000000.pdf
+   */
+  filename: (req, file, cb) => {
+    const category = req.body.category || "application";
+    const ext = path.extname(file.originalname).toLowerCase();
+
+    const uniqueName = `${category}-${Date.now()}${ext}`;
+    cb(null, uniqueName);
+  },
+});
+
+const resumeFilter = (req, file, cb) => {
+  console.log("hello");
+  console.log(file);
+  const allowedExtensions = [".pdf", ".doc", ".docx"];
+  const ext = path.extname(file.originalname).toLowerCase();
+
+  if (!allowedExtensions.includes(ext)) {
+    return cb(new Error("Only PDF/DOC/DOCX resumes allowed"));
+  }
+
+  cb(null, true);
+};
+export const uploadResume = multer({
+  storage: resumeStorage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+  fileFilter: resumeFilter,
+}).single("resume");

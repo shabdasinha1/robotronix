@@ -1,0 +1,95 @@
+/* =========================
+   APPLICATION FORM
+========================= */
+
+.rtx-apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.rtx-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.rtx-form-heading {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+}
+
+.rtx-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-sm);
+}
+
+.rtx-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rtx-form-group label {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-light);
+}
+
+.rtx-form-group input,
+.rtx-form-group textarea {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  /* border: 1px solid var(--white-10); */
+  /* background: var(--bg-dark-2); */
+  color: var(--clr-white);
+  font-size: var(--fs-sm);
+  transition: 0.3s ease;
+
+  background: var(--white-05);
+    /* color: var(--clr-text-soft); */
+    border: 1px solid var(--border-light-1);
+}
+
+.rtx-form-group input:focus,
+.rtx-form-group textarea:focus {
+  outline: none;
+  border-color: var(--clr-blue);
+  box-shadow: 0 0 0 2px var(--blue-012);
+}
+
+.rtx-form-actions {
+  margin-top: var(--space-sm);
+}
+
+.rtx-form-group select {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--white-10);
+  background: var(--bg-dark-2);
+  color: var(--clr-white);
+  font-size: var(--fs-sm);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.rtx-form-group select:focus {
+  outline: none;
+  border-color: var(--clr-blue);
+  box-shadow: 0 0 0 2px var(--blue-012);
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+/* @media (max-width: 768px) {
+  .rtx-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtx-form-actions {
+    text-align: center;
+  }
+} */

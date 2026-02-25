@@ -15,8 +15,8 @@
 .rtx-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+  /* background: rgba(0, 0, 0, 0.6); */
+  backdrop-filter: blur(10px);
   opacity: 0;
   animation: modalBackdropFade 0.25s ease forwards;
 }
@@ -40,7 +40,18 @@
   animation: modalPop 0.3s ease forwards;
   opacity: 1;
 }
+.rtx-modal::-webkit-scrollbar {
+  width: 6px;
+}
 
+.rtx-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.rtx-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
 .rtx-modal-title {
   font-size: var(--fs-xl);
   font-weight: var(--fw-title);
@@ -72,13 +83,15 @@
 /* Animations */
 
 @keyframes modalBackdropFade {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modalPop {
-    from{
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
     transform: scale(1);
