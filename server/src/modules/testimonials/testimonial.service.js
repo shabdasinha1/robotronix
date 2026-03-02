@@ -6,9 +6,10 @@ export const createTestimonial = async (data) => {
 };
 
 // Get All (only active)
-export const getAllTestimonials = async () => {
-  return await Testimonial.find({ isActive: true })
-    .sort({ createdAt: -1 });
+export const getAllTestimonials = async (filter = {}) => {
+  return await Testimonial.find(filter).sort({
+    createdAt: -1,
+  });
 };
 
 // Get Single
@@ -29,6 +30,6 @@ export const deleteTestimonial = async (id) => {
   return await Testimonial.findByIdAndUpdate(
     id,
     { isActive: false },
-    { new: true }
+    { new: true },
   );
 };

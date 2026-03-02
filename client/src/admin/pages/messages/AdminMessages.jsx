@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
-import messagesApi from "../../../api/messages.api";
+// import messagesApi from "../../../api/messages.api";
+import messagesApi from "../../services/admin-dashboard-services";
 
 const AdminMessages = () => {
   const { ref, visible } = useRevealOnScroll({

@@ -1321,6 +1321,9 @@ CULTURE — TOGETHERNESS (RESPONSIVE)
   .rtx-career-job-action {
     flex-direction: column;
   }
+  .rtx-career-job-action button {
+    width: 100%;
+  }
 }
 @media (max-width: 426px) {
   .rtx-career-hero-card {
@@ -1515,3 +1518,23 @@ CAREER — Why Work With Us (RESPONSIVE)
 /* ======================================================
    PORTFOLIO PAGE — RESPONSIVE END
 ====================================================== */
+
+/* 
+===========================================================
+          ADMIN DASHBOARD START
+===========================================================
+ */
+/* ------------------------ ADMIN DASHBOARD TESTIMONIALS --------------------- */
+@media (max-width:768px) {
+  .rtx-admin-testimonials-header{
+    flex-direction: column;
+  }
+  
+}
+.rtx-admin-testimonials-header{}
+
+/* 
+===========================================================
+ADMIN DASHBOARD END
+===========================================================
+ */

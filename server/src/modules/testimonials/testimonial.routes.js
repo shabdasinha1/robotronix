@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/", testimonialController.create);
 router.get("/alltestimonials", testimonialController.getAll);
 router.get("/:id", testimonialController.getById);
-router.put("/:id", testimonialController.update);
+router.patch("/:id", testimonialController.update);
 router.delete("/:id", testimonialController.remove);
 
 export default router;

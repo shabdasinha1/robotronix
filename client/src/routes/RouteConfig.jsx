@@ -167,6 +167,10 @@ export const adminRoutesConfig = [
     component: lazy(() => import("../admin/pages/messages/AdminMessages")),
   },
   {
+    path: "content/testimonials",
+    component: lazy(() => import("../admin/pages/testimonials/Testimonials")),
+  },
+  {
   path: "forgot-password",
   component: lazy(() => import("../admin/pages/auth/ForgotPassword")),
 },

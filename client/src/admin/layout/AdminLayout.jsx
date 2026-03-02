@@ -9,6 +9,7 @@ import "../styles/admin-dashboard.css";
 import "../styles/admin-leads.css";
 import "../styles/admin-auth.css";
 import "../styles/admin-messages.css";
+import "../styles/admin-testimonials.css";
 
 
 // Layout components (to be created next)

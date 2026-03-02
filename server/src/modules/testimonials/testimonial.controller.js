@@ -21,19 +21,21 @@ export const create = async (req, res) => {
 };
 
 // Get All
+// Get All (With Query Filter)
 export const getAll = async (req, res) => {
   try {
-    const testimonials = await testimonialService.getAllTestimonials();
+    const { isActive } = req.query;
 
+    const filter = {};
 
-    /* --------------------FOR STATIC DATA---------------------- */
-    
-    // const testimonials = await testimonialService_dummy.filter((item) => item.isActive);
-    // console.log("Testimonial Data : ",testimonials);
+    if (isActive !== undefined) {
+      filter.isActive = isActive === "true";
+    }
+
+    const testimonials = await testimonialService.getAllTestimonials(filter);
 
     res.status(200).json({
       success: true,
-      message: "Testimonials fetched successfully",
       data: testimonials,
     });
   } catch (error) {

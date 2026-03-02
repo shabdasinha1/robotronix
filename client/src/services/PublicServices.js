@@ -4,7 +4,7 @@ import { publicApi } from "../api/axios";
    GET ALL TESTIMONIALS (PUBLIC)
 ================================ */
 export const getAllTestimonials = async () => {
-  const { data } = await publicApi.get("/testimonial/alltestimonials");
+  const { data } = await publicApi.get("/testimonial/alltestimonials?isActive=true");
   return data;
 };
 /* ===============================
@@ -20,7 +20,7 @@ export const getAllIndustryLeaders = async () => {
 
 // --------------- Current Jobs --------------------
 export const getAllJobs = async () => {
-  const { data } = await publicApi.get("/job");
+  const { data } = await publicApi.get("/opportunities?type=job&isActive=true");
   return data;
 };
 

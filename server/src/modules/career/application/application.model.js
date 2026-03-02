@@ -11,8 +11,7 @@ const applicationSchema = new mongoose.Schema(
 
     jobId: {
       type: String,
-      ref: "Career",
-      required: false, // ✅ fully optional now
+      required: false,
       index: true,
     },
     fullName: {

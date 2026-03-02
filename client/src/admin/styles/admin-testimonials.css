@@ -1,0 +1,248 @@
+/* ======================================================
+   ADMIN TESTIMONIALS PAGE
+====================================================== */
+
+.rtx-admin-testimonials {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.rtx-admin-testimonials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.rtx-testimonials-action-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+/* ======================================================
+   GRID
+====================================================== */
+
+.rtx-admin-testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  background: var(--bg-dark-2);
+}
+
+/* ======================================================
+   CARD CONTENT
+====================================================== */
+
+.rtx-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  color: var(--clr-text-light);
+}
+
+.rtx-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.rtx-review {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ======================================================
+   RATING
+====================================================== */
+
+.rtx-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.rtx-star {
+  font-size: 1rem;
+  opacity: 0.3;
+}
+
+.rtx-star.active {
+  opacity: 1;
+  color: var(--brand-primary);
+}
+
+/* ======================================================
+   META SECTION
+====================================================== */
+
+.rtx-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.rtx-status-active {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 200, 100, 0.15);
+  color: #00c864;
+  font-weight: 500;
+}
+
+.rtx-status-inactive {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff5050;
+  font-weight: 500;
+}
+
+/* ======================================================
+   CARD ACTIONS
+====================================================== */
+
+.rtx-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.rtx-card-actions button {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--white-05);
+  /* background: transparent; */
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.rtx-card-actions button:hover {
+  /* background: var(--white-05); */
+}
+
+.rtx-btn-danger {
+  /* border-color: rgba(255, 80, 80, 0.4); */
+  background: #ff5050 !important;
+}
+
+.rtx-btn-danger:hover {
+  background: rgba(255, 80, 80, 0.15);
+}
+
+/* ======================================================
+   MODAL RESPONSIVENESS
+====================================================== */
+
+.rtx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+.rtx-modal {
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-dark-2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.rtx-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.rtx-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ======================================================
+   FORM
+====================================================== */
+
+.rtx-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.rtx-form-group input,
+.rtx-form-group textarea {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--white-05);
+  background: var(--bg-dark-3);
+  color: inherit;
+}
+
+.rtx-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.rtx-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ======================================================
+   RESPONSIVE BREAKPOINTS
+====================================================== */
+
+@media (max-width: 768px) {
+  .rtx-admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rtx-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .rtx-card-actions {
+    flex-direction: column;
+  }
+
+  .rtx-modal {
+    padding: 1.5rem;
+  }
+  .rtx-testimonials-action-wrapper {
+    width: 100%;
+    /* justify-content: space-between; */
+  }
+}
+
+@media (max-width: 480px) {
+  .rtx-admin-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  .rtx-testimonials-action-wrapper {
+    flex-direction: column;
+  }
+}

@@ -1,5 +1,5 @@
 import express from "express";
-import { uploadResume } from "../../middlewares/upload.middleware.js";
+import { uploadResume } from "../../../middlewares/upload.middleware.js";
 import {
   submitApplication,
   listApplications,

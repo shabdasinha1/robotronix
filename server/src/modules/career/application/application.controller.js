@@ -33,6 +33,7 @@ export const listApplications = async (req, res, next) => {
     const data = await getApplicationsService(req.query);
     res.json({ success: true, ...data });
   } catch (error) {
+    console.log("error : ",error);
     next(error);
   }
 };
