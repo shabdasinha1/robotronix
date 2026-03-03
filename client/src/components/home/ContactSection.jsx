@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
-import messagesApi from "../../api/messages.api";
+// import messagesApi from "../../api/messages.api";
 import { useToast } from "../common/ToastContext";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { createMessage } from "../../services/PublicServices";
 const ContactSection = React.memo(() => {
   const { showToast } = useToast();
   /* ===============================
@@ -65,7 +66,7 @@ const ContactSection = React.memo(() => {
     setLoading(true);
 
     try {
-      await messagesApi.createMessage(formData);
+      await createMessage(formData);
 
       showToast("Message sent successfully!", "success");
 

@@ -10,6 +10,7 @@ import "../styles/admin-leads.css";
 import "../styles/admin-auth.css";
 import "../styles/admin-messages.css";
 import "../styles/admin-testimonials.css";
+import "../styles/industry-leaders.css";
 
 
 // Layout components (to be created next)

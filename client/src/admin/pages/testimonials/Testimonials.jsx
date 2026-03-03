@@ -158,7 +158,10 @@ const Testimonials = () => {
       {/* HEADER */}
       <div className="rtx-admin-page-header rtx-admin-testimonials-header">
         <div>
-          <h2 className="u-title">Testimonials</h2>
+          <h2 className="u-title">
+            Client {" "}
+            <span>Testimonials</span>
+          </h2>
           <p className="u-subtext">
             Manage client testimonials displayed on website
           </p>
@@ -181,7 +184,7 @@ const Testimonials = () => {
       <div className="rtx-admin-testimonial-grid">
         {testimonials.map((item) => (
           <Card key={item._id} className="rtx-admin-testimonials-card">
-            <div className="rtx-card-content">
+            <div className="rtx-card-content flex-column-card">
               <h4>{item.clientName}</h4>
               <p className="rtx-subtitle">{item.companyName}</p>
 
@@ -214,7 +217,7 @@ const Testimonials = () => {
                   Delete
                 </button>
               </div> */}
-              <div className="rtx-card-actions">
+              <div className="rtx-card-actions flex-bottom">
                 {showDeleted ? (
                   <button
                     className="btn btn-primary"

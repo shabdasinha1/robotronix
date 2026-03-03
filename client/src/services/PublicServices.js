@@ -29,3 +29,9 @@ export const jobApply = async(payload)=>{
   const {data} = await publicApi.post('/application', payload);
   return data;
 }
+
+// --------------- Create Message --------------------
+export const createMessage = async (payload) => {
+  const { data } = await publicApi.post("/messages", payload);
+  return data;
+};

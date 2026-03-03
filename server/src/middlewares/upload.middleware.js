@@ -69,7 +69,6 @@ const resumeStorage = multer.diskStorage({
 });
 
 const resumeFilter = (req, file, cb) => {
-  console.log("hello");
   console.log(file);
   const allowedExtensions = [".pdf", ".doc", ".docx"];
   const ext = path.extname(file.originalname).toLowerCase();

@@ -5,10 +5,11 @@ import { NavLink } from "react-router-dom";
 // import atulya1 from "../../assets/images/atulya1.webp";
 import atulya1 from "../../assets/images/atulya2.webp";
 import { Mail, Phone, MapPin, User, MessageSquare, Star } from "lucide-react";
-import messagesApi from "../../api/messages.api";
+// import messagesApi from "../../api/messages.api";
 import { useToast } from "../../components/common/ToastContext";
 import { GiDiscussion } from "react-icons/gi";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { createMessage } from "../../services/PublicServices";
 
 const ContactUs = React.memo(() => {
   /* ===============================
@@ -109,7 +110,7 @@ const ContactUs = React.memo(() => {
     try {
       setLoading(true);
 
-      await messagesApi.createMessage(formData);
+      await createMessage(formData);
 
       showToast("Message sent successfully!", "success");
 

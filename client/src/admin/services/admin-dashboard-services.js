@@ -48,7 +48,7 @@ export const adminDashboardServices = {
 
   deleteTestimonial: async (id) => {
     const { data } = await api.delete(`/testimonial/${id}`);
-    console.log(data)
+    console.log(data);
     return data;
   },
 
@@ -101,6 +101,30 @@ export const adminDashboardServices = {
 
   deleteApplication: async (id) => {
     const { data } = await api.delete(`/application/${id}`);
+    return data;
+  },
+
+  /* =====================================================
+   INDUSTRY LEADERS MANAGEMENT
+===================================================== */
+
+  getIndustryLeaders: async (params = {}) => {
+    const { data } = await api.get("/industry-leaders", { params });
+    return data;
+  },
+
+  createIndustryLeader: async (payload) => {
+    const { data } = await api.post("/industry-leaders", payload);
+    return data;
+  },
+
+  updateIndustryLeader: async (id, payload) => {
+    const { data } = await api.patch(`/industry-leaders/${id}`, payload);
+    return data;
+  },
+
+  deleteIndustryLeader: async (id) => {
+    const { data } = await api.delete(`/industry-leaders/${id}`);
     return data;
   },
 };

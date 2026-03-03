@@ -18,12 +18,10 @@ export const createIndustryLeaderSchema = z.object({
  */
 export const updateIndustryLeaderSchema = z.object({
   body: z.object({
-    image: z.string().min(1, "Image cannot be empty").trim().optional(),
-
-    isActive: z.boolean().optional(),
+    leaderName: z.string().min(2).trim().optional(),
+    isActive: z.union([z.boolean(), z.string()]).optional(), // optional
   }),
 });
-
 /**
  * Toggle Status (Optional Separate Validation)
  */
