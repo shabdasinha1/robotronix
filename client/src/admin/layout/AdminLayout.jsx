@@ -10,6 +10,7 @@ import "../styles/admin-auth.css";
 import "../styles/admin-messages.css";
 import "../styles/admin-testimonials.css";
 import "../styles/industry-leaders.css";
+import "../styles/career.css";
 
 // Layout components (to be created next)
 import AdminSidebar from "./AdminSidebar";
@@ -55,6 +56,12 @@ const AdminLayout = () => {
       document.body.style.overflow = "auto";
     }
   }, [sidebarOpen]);
+  useEffect(() => {
+  const link = document.querySelector("link[rel~='icon']");
+  if (link) {
+    link.href = "/compony-logo.png"; // or user-logo.png
+  }
+}, []);
 
   return (
     <div

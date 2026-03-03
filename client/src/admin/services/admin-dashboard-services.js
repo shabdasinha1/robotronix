@@ -104,6 +104,10 @@ export const adminDashboardServices = {
     return data;
   },
 
+  updateApplicationStatus: async (id, payload) => {
+    const { data } = await api.patch(`/application/${id}/status`, payload);
+    return data;
+  },
   /* =====================================================
    INDUSTRY LEADERS MANAGEMENT
 ===================================================== */

@@ -67,3 +67,8 @@ export const applicationSchemaZod = z
       });
     }
   });
+export const updateStatusSchemaZod = z.object({
+  status: z.enum(["pending", "reviewed", "shortlisted", "rejected"], {
+    errorMap: () => ({ message: "Invalid status value" }),
+  }),
+});

@@ -1,0 +1,132 @@
+/* 
+=========================================================================
+            USER APPLICATION COMPONENT (JOB/INTERNSHIP) START
+=========================================================================
+ */
+
+/* =========================
+   RESPONSIVE TABLE
+========================= */
+
+.rtx-admin-table-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .rtx-admin-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .rtx-admin-table {
+    min-width: 700px;
+  }
+}
+
+/* Action buttons */
+.rtx-action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Resume button */
+.rtx-btn-resume {
+  background: var(--blue-02);
+  border: 1px solid var(--blue-03);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--clr-white);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+
+.rtx-btn-resume:hover {
+  background: var(--blue-03);
+}
+
+/* Icon Button Style */
+.rtx-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--white-08);
+  background: var(--white-05);
+  color: var(--clr-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-right: 6px;
+}
+
+.rtx-icon-btn:hover {
+  background: var(--blue-012b);
+  border-color: var(--clr-blue);
+  transform: translateY(-2px);
+}
+
+/* Status badge */
+.rtx-status {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  text-transform: capitalize;
+}
+
+.rtx-status.pending {
+  background: var(--blue-012);
+  color: var(--clr-blue);
+}
+
+.rtx-status.shortlisted {
+  background: rgba(0, 200, 100, 0.12);
+  color: #00c864;
+}
+
+.rtx-status.rejected {
+  background: rgba(255, 80, 80, 0.12);
+  color: #ff5050;
+}
+
+/* Status buttons */
+.rtx-status-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  
+}
+
+.rtx-accept {
+  background: rgba(0, 200, 100, 0.15);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  color: var(--clr-text-light)
+}
+
+.rtx-reject {
+  background: rgba(255, 80, 80, 0.15);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  color: var(--clr-text-light)
+}
+
+.rtx-pending {
+  background: var(--blue-012);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  color: var(--clr-text-light)
+}
+
+/* 
+=========================================================================
+            USER APPLICATION COMPONENT (JOB/INTERNSHIP) END
+=========================================================================
+ */

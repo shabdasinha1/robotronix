@@ -26,7 +26,8 @@ export const uploadLeaderImage = async (req, res) => {
       });
     }
 
-    const imagePath = req.file.path;
+    // const imagePath = req.file.path;
+    const imagePath = ` uploads/industryLeaders/${req.file.filename}`;
 
     const leader = await createLeader({
       leaderName,
@@ -120,7 +121,8 @@ export const updateLeader = async (req, res) => {
 
     // If new image uploaded
     if (req.file) {
-      updateData.image = req.file.path;
+      // updateData.image = req.file.path;
+      updateData.image = `uploads/industryLeaders/${req.file.filename}`;
     }
 
     const updated = await updateLeaderById(id, updateData);

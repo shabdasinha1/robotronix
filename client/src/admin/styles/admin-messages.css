@@ -53,7 +53,7 @@
 
 /* VIEW BUTTON */
 .rtx-btn-view {
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     var(--clr-blue),
     var(--clr-blue-medium)
@@ -64,7 +64,15 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.85rem;
-  transition: 0.3s ease;
+  transition: 0.3s ease; */
+  /* f */
+  flex: 1 1;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--white-05);
+  /* background: transparent; */
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .rtx-btn-view:hover {
@@ -143,6 +151,9 @@
   margin-top: 4px;
   color: var(--clr-text-soft);
   line-height: 1.5;
+  border: 1px solid var(--blue-02);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .rtx-modal-row.full p {

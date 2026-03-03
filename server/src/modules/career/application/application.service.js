@@ -30,3 +30,15 @@ export const getApplicationsService = async (query) => {
     applications,
   };
 };
+export const updateApplicationStatusService = async (id, status) => {
+  const application = await Application.findById(id);
+
+  if (!application) {
+    throw new Error("Application not found");
+  }
+
+  application.status = status;
+  await application.save();
+
+  return application;
+};

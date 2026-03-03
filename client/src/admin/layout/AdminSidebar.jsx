@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import RoboImg from "../../assets/images/robo_icon.webp";
+import RoboImg from "../../assets/images/compony-logo.png";
 import { FiX } from "react-icons/fi";
 const AdminSidebar = ({ isMobile, closeSidebar }) => {
   return (
@@ -79,6 +79,12 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
           <NavLink to="/admin/content/partners">
             <span className="rtx-admin-nav-icon">🤝</span>
             <span className="rtx-admin-nav-text">Partners</span>
+          </NavLink>
+        </li>
+        <li className="u-drop" style={{ "--delay": "0.45s" }}>
+          <NavLink to="/admin/content/applications">
+            <span className="rtx-admin-nav-icon">🤝</span>
+            <span className="rtx-admin-nav-text">Application</span>
           </NavLink>
         </li>
 

@@ -74,11 +74,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    var(--clr-blue),
-    var(--clr-blue-light)
-  );
+  background: linear-gradient(135deg, var(--clr-blue), var(--clr-blue-light));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,4 +179,46 @@
 
 :root[data-theme="light"] .rtx-toggle-bar {
   background: var(--clr-text-soft);
+}
+
+.rtx-admin-profile-wrapper {
+  position: relative;
+}
+
+/* Mobile Admin Dropdown */
+.rtx-admin-dropdown {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: 180px;
+  background: var(--bg-dark-2);
+  border: 1px solid var(--white-08);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px var(--shadow-dark-2);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  align-items: flex-start;
+}
+
+.rtx-admin-dropdown-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rtx-admin-dropdown-logout {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: var(--white-05);
+  color: var(--clr-white);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.rtx-admin-dropdown-logout:hover {
+  background: var(--blue-012b);
 }

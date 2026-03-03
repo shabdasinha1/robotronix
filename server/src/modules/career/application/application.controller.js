@@ -3,6 +3,8 @@ import {
   createApplicationService,
   getApplicationsService,
 } from "./application.service.js";
+import { updateStatusSchemaZod } from "./application.validation.js";
+import { updateApplicationStatusService } from "./application.service.js";
 
 export const submitApplication = async (req, res, next) => {
   try {
@@ -34,6 +36,27 @@ export const listApplications = async (req, res, next) => {
     res.json({ success: true, ...data });
   } catch (error) {
     console.log("error : ",error);
+    next(error);
+  }
+};
+export const updateApplicationStatus = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    // Validate body
+    const parsed = updateStatusSchemaZod.parse(req.body);
+
+    const updatedApplication = await updateApplicationStatusService(
+      id,
+      parsed.status
+    );
+
+    res.json({
+      success: true,
+      message: "Application status updated successfully",
+      data: updatedApplication,
+    });
+  } catch (error) {
     next(error);
   }
 };
