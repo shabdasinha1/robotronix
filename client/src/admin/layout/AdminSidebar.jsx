@@ -1,26 +1,34 @@
 import { NavLink } from "react-router-dom";
 import RoboImg from "../../assets/images/robo_icon.webp";
-
-const AdminSidebar = () => {
+import { FiX } from "react-icons/fi";
+const AdminSidebar = ({ isMobile, closeSidebar }) => {
   return (
     <nav className="rtx-admin-sidebar-inner">
-
       {/* ================= BRAND / LOGO ================= */}
       <div className="rtx-admin-brand u-drop">
-        <img
-          src={RoboImg}
-          alt="Robotronix"
-          className="rtx-admin-logo-img"
-        />
+        <div className="rtx-admin-brand-left">
+          <img src={RoboImg} alt="Robotronix" className="rtx-admin-logo-img" />
 
-        <h2 className="rtx-admin-logo-text">
-          Robotronix <span>Admin</span>
-        </h2>
+          <h2 className="rtx-admin-logo-text">
+            Robotronix <span>Admin</span>
+          </h2>
+        </div>
+
+        {/* ✅ MOBILE CLOSE BUTTON */}
+        {isMobile && (
+          <button
+            className="rtx-admin-sidebar-close rtx-admin-sidebar-toggle"
+            onClick={closeSidebar}
+            aria-label="Close sidebar"
+            type="button"
+          >
+            <FiX size={20} />
+          </button>
+        )}
       </div>
 
       {/* ================= NAV SECTIONS ================= */}
       <ul className="rtx-admin-nav">
-
         {/* DASHBOARD */}
         <li className="u-drop" style={{ "--delay": "0.1s" }}>
           <NavLink to="/admin/dashboard">
@@ -46,10 +54,11 @@ const AdminSidebar = () => {
         </li>
 
         {/* CONTENT MANAGEMENT */}
-        <li className="rtx-admin-nav-section u-drop" style={{ "--delay": "0.3s" }}>
-          <span className="rtx-admin-nav-section-title">
-            Content
-          </span>
+        <li
+          className="rtx-admin-nav-section u-drop"
+          style={{ "--delay": "0.3s" }}
+        >
+          <span className="rtx-admin-nav-section-title">Content</span>
         </li>
 
         <li className="u-drop" style={{ "--delay": "0.35s" }}>
@@ -74,10 +83,11 @@ const AdminSidebar = () => {
         </li>
 
         {/* SETTINGS */}
-        <li className="rtx-admin-nav-section u-drop" style={{ "--delay": "0.5s" }}>
-          <span className="rtx-admin-nav-section-title">
-            Settings
-          </span>
+        <li
+          className="rtx-admin-nav-section u-drop"
+          style={{ "--delay": "0.5s" }}
+        >
+          <span className="rtx-admin-nav-section-title">Settings</span>
         </li>
 
         <li className="u-drop" style={{ "--delay": "0.55s" }}>
@@ -86,7 +96,6 @@ const AdminSidebar = () => {
             <span className="rtx-admin-nav-text">Site Settings</span>
           </NavLink>
         </li>
-
       </ul>
     </nav>
   );

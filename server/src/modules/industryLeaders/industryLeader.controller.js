@@ -7,6 +7,8 @@ import {
 
 /*-----------------------CREATE LEADER----------------------- */
 export const uploadLeaderImage = async (req, res) => {
+  console.log(req.body)
+  console.log(req.file)
   try {
     if (!req.file) {
       return res.status(400).json({

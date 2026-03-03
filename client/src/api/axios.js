@@ -6,9 +6,9 @@ import axios from "axios";
 export const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   timeout: 15000,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  // headers: {
+  //   "Content-Type": "application/json",
+  // },
 });
 
 /* ===============================
