@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import path from "path";
 
 import routes from "./routes/index.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
@@ -105,7 +106,8 @@ app.use(
     res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
     next();
   },
-  express.static("uploads"),
+  // express.static("uploads"),
+  express.static(path.join(process.cwd(), "src/uploads")),
 );
 
 /* ===============================

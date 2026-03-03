@@ -7,8 +7,8 @@ import {
 
 /*-----------------------CREATE LEADER----------------------- */
 export const uploadLeaderImage = async (req, res) => {
-  console.log(req.body)
-  console.log(req.file)
+  // console.log(req.body)
+  // console.log(req.file)
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -104,8 +104,8 @@ export const removeLeader = async (req, res) => {
 };
 
 export const updateLeader = async (req, res) => {
-  console.log("REQ BODY:", req.body);
-  console.log("REQ FILE:", req.file);
+  // console.log("REQ BODY:", req.body);
+  // console.log("REQ FILE:", req.file);
 
   try {
     const { id } = req.params;

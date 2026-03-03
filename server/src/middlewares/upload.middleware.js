@@ -1,7 +1,10 @@
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Ensure folder exists
 const createFolderIfNotExists = (folderPath) => {
   if (!fs.existsSync(folderPath)) {
@@ -11,7 +14,8 @@ const createFolderIfNotExists = (folderPath) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = "uploads/industryLeaders";
+    // const uploadPath = "uploads/industryLeaders";
+    const uploadPath = path.join(__dirname, "../uploads/industryLeaders");
     createFolderIfNotExists(uploadPath);
     cb(null, uploadPath);
   },
@@ -48,7 +52,8 @@ export const uploadIndustryLeader = multer({
 
 const resumeStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = "uploads/resumes";
+    // const uploadPath = "uploads/resumes";
+    const uploadPath = path.join(__dirname, "../uploads/resumes");
     createFolderIfNotExists(uploadPath);
     cb(null, uploadPath);
   },
@@ -69,7 +74,7 @@ const resumeStorage = multer.diskStorage({
 });
 
 const resumeFilter = (req, file, cb) => {
-  console.log(file);
+  // console.log(file);
   const allowedExtensions = [".pdf", ".doc", ".docx"];
   const ext = path.extname(file.originalname).toLowerCase();
 
