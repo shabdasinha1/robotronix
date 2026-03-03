@@ -25,7 +25,7 @@ const VisionMissionHero = () => {
   };
 }, []);
 
-  console.log(theme);
+  // console.log(theme);
   return (
     <>
       {/* ------------ Vision & Mission Hero -------------- */}

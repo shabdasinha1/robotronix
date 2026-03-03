@@ -48,7 +48,7 @@ export const adminDashboardServices = {
 
   deleteTestimonial: async (id) => {
     const { data } = await api.delete(`/testimonial/${id}`);
-    console.log(data);
+    // console.log(data);
     return data;
   },
 
