@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 import adminDashboardServices from "../../services/admin-dashboard-services";
 import Modal from "../../../components/common/Modal";
 import { GetApiErrorMessage } from "../../../utils/ErrorHandler";
 import { useToast } from "../../../components/common/ToastContext";
-import { FiEye, FiFileText } from "react-icons/fi";
+import { FiEye, FiFileText, FiSliders } from "react-icons/fi";
+import { BiSortAlt2 } from "react-icons/bi";
 
 const UserApplications = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -16,26 +17,91 @@ const UserApplications = () => {
   const [activeApplication, setActiveApplication] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
+
+  const [filters, setFilters] = useState({
+    status: "",
+    category: "",
+    name: "",
+    dateFrom: "",
+    dateTo: "",
+  });
+
+  const [sort, setSort] = useState({
+    field: "",
+    order: "",
+  });
+  const sortRef = useRef(null);
+
   const { showToast } = useToast();
   /* ================= FETCH APPLICATIONS ================= */
-  useEffect(() => {
-    const fetchApplications = async () => {
-      try {
-        setLoading(true);
-        const res = await adminDashboardServices.getApplications();
-        setApplications(res.applications || []);
-      } catch (err) {
-        const error = GetApiErrorMessage(err);
-        showToast(error, "error");
-        // console.error("Failed to fetch applications", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchApplications = async (filterParams = {}, sortParams = {}) => {
+    try {
+      setLoading(true);
 
+      const res = await adminDashboardServices.getApplications({
+        ...filterParams,
+        ...sortParams,
+      });
+
+      setApplications(res.applications || []);
+    } catch (err) {
+      const error = GetApiErrorMessage(err);
+      showToast(error, "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchApplications();
   }, []);
 
+  const handleFilterChange = (field, value) => {
+    setFilters((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const applyFilters = () => {
+    const params = {
+      status: filters.status,
+      category: filters.category,
+      name: filters.name,
+      dateFrom: filters.dateFrom,
+      dateTo: filters.dateTo,
+    };
+
+    // fetchApplications(params);
+    fetchApplications(params, sort);
+
+    setFilterOpen(false);
+  };
+  const handleSort = (field, order) => {
+    const newSort = {
+      sortBy: field,
+      order: order,
+    };
+
+    setSort(newSort);
+
+    fetchApplications(filters, newSort);
+
+    setSortOpen(false);
+  };
+  const clearFilters = () => {
+    const empty = {
+      status: "",
+      category: "",
+      name: "",
+      dateFrom: "",
+      dateTo: "",
+    };
+
+    setFilters(empty);
+    fetchApplications();
+  };
   /* ================= RESUME URL FIX ================= */
   const getResumeUrl = (resumePath) => {
     if (!resumePath) return "";
@@ -58,6 +124,19 @@ const UserApplications = () => {
       showToast(error, "error");
     }
   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sortRef.current && !sortRef.current.contains(event.target)) {
+        setSortOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div
@@ -65,13 +144,84 @@ const UserApplications = () => {
       className={`rtx-admin-applications ${visible ? "u-drop-visible" : ""}`}
     >
       {/* ================= HEADER ================= */}
-      <div className="rtx-admin-page-header u-drop">
-        <h2 className="u-title">
-          Applications <span>Management</span>
-        </h2>
-        <p className="u-subtext">
-          Job and internship applications received from the website
-        </p>
+      <div className="rtx-admin-page-header u-drop rtx-header-flex">
+        <div>
+          <h2 className="u-title">
+            Applications <span>Management</span>
+          </h2>
+          <p className="u-subtext">
+            Job and internship applications received from the website
+          </p>
+        </div>
+
+        <div className="filter-btn-wrapper">
+          {/* SORT BY BUTTON */}
+          <div className="rtx-sort-dropdown" ref={sortRef}>
+            <button
+              className="rtx-filter-btn rtx-application-filter"
+              onClick={() => setSortOpen(!sortOpen)}
+            >
+              <BiSortAlt2 />
+              Sort By
+            </button>
+
+            {sortOpen && (
+              <div className="rtx-sort-menu">
+                <button
+                  className={
+                    sort.sortBy === "fullName" && sort.order === "asc"
+                      ? "active"
+                      : ""
+                  }
+                  onClick={() => handleSort("fullName", "asc")}
+                >
+                  Name A-Z
+                </button>
+
+                <button
+                  className={
+                    sort.sortBy === "fullName" && sort.order === "desc"
+                      ? "active"
+                      : ""
+                  }
+                  onClick={() => handleSort("fullName", "desc")}
+                >
+                  Name Z-A
+                </button>
+
+                <button
+                  className={
+                    sort.sortBy === "createdAt" && sort.order === "desc"
+                      ? "active"
+                      : ""
+                  }
+                  onClick={() => handleSort("createdAt", "desc")}
+                >
+                  Latest
+                </button>
+
+                <button
+                  className={
+                    sort.sortBy === "createdAt" && sort.order === "asc"
+                      ? "active"
+                      : ""
+                  }
+                  onClick={() => handleSort("createdAt", "asc")}
+                >
+                  Oldest
+                </button>
+              </div>
+            )}
+          </div>
+          {/* FILTER BUTTON */}
+          <button
+            className="rtx-filter-btn rtx-application-filter"
+            onClick={() => setFilterOpen(true)}
+          >
+            <FiSliders />
+            Filters
+          </button>
+        </div>
       </div>
 
       {/* ================= TABLE ================= */}
@@ -149,6 +299,93 @@ const UserApplications = () => {
         </table>
       </div>
 
+      {/* ================= FILTER MODAL ================= */}
+      <Modal
+        isOpen={filterOpen}
+        onClose={() => setFilterOpen(false)}
+        className="rtx-filter-modal"
+      >
+        <div className="rtx-modal-header">
+          <h3>Filter Applications</h3>
+        </div>
+
+        <div className="rtx-modal-body">
+          <div className="rtx-modal-row">
+            <span>Status</span>
+            <select
+              className="rtx-input"
+              value={filters.status}
+              onChange={(e) => handleFilterChange("status", e.target.value)}
+            >
+              <option value="">All</option>
+              <option value="pending">Pending</option>
+              <option value="reviewed">Reviewed</option>
+              <option value="shortlisted">Shortlisted</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div className="rtx-modal-row">
+            <span>Category</span>
+            <select
+              className="rtx-input"
+              value={filters.category}
+              onChange={(e) => handleFilterChange("category", e.target.value)}
+            >
+              <option value="">All</option>
+              <option value="job">Job</option>
+              <option value="internship">Internship</option>
+            </select>
+          </div>
+
+          <div className="rtx-modal-row">
+            <span>Name</span>
+            <input
+              type="text"
+              placeholder="Search by name"
+              className="rtx-input"
+              value={filters.name}
+              onChange={(e) => handleFilterChange("name", e.target.value)}
+            />
+          </div>
+
+          <div className="rtx-modal-row">
+            <span>Date From</span>
+            <input
+              type="date"
+              className="rtx-input"
+              value={filters.dateFrom}
+              onChange={(e) => handleFilterChange("dateFrom", e.target.value)}
+            />
+          </div>
+
+          <div className="rtx-modal-row">
+            <span>Date To</span>
+            <input
+              type="date"
+              className="rtx-input"
+              value={filters.dateTo}
+              onChange={(e) => handleFilterChange("dateTo", e.target.value)}
+            />
+          </div>
+
+          <div className="rtx-modal-filter-btn ">
+            <button
+              className="rtx-filter-btn rtx-application-filter"
+              onClick={applyFilters}
+            >
+              Apply Filters
+            </button>
+            <button
+              className="rtx-filter-btn rtx-application-filter"
+              onClick={clearFilters}
+            >
+              Clear Filters
+            </button>
+          </div>
+        </div>
+      </Modal>
+
       {/* ================= MODAL ================= */}
       {activeApplication && (
         <Modal
@@ -213,7 +450,7 @@ const UserApplications = () => {
                           "_blank",
                         )
                       }
-                      // href={getResumeUrl(activeApplication.resume)}  
+                      // href={getResumeUrl(activeApplication.resume)}
                       download
                       className="rtx-btn-resume"
                     >

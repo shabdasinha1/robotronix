@@ -109,5 +109,7 @@ const applicationSchema = new mongoose.Schema(
 // Performance Indexes
 applicationSchema.index({ category: 1, status: 1 });
 applicationSchema.index({ email: 1, jobId: 1 }, { unique: true });
+applicationSchema.index({ fullName: 1 });
+applicationSchema.index({ city: 1 });
 
 export default mongoose.model("Application", applicationSchema);

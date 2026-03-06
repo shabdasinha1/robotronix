@@ -35,7 +35,7 @@
 
   /* background: var(--bg-dark-2); */
 }
-.rtx-admin-testimonials-card{
+.rtx-admin-testimonials-card {
   background: var(--bg-dark-2) !important;
 }
 /* ======================================================
@@ -217,7 +217,7 @@
 
 @media (max-width: 768px) {
   .rtx-admin-page-header {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
   }
 
@@ -246,5 +246,9 @@
   }
   .rtx-testimonials-action-wrapper {
     flex-direction: column;
+  }
+  .rtx-header-flex {
+    flex-direction: column;
+    justify-content: center;
   }
 }
