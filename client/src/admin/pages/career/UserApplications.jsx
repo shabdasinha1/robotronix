@@ -6,6 +6,7 @@ import { GetApiErrorMessage } from "../../../utils/ErrorHandler";
 import { useToast } from "../../../components/common/ToastContext";
 import { FiEye, FiFileText, FiSliders } from "react-icons/fi";
 import { BiSortAlt2 } from "react-icons/bi";
+import Dropdown from "../../../components/common/Dropdown";
 
 const UserApplications = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -156,7 +157,7 @@ const UserApplications = () => {
 
         <div className="filter-btn-wrapper">
           {/* SORT BY BUTTON */}
-          <div className="rtx-sort-dropdown" ref={sortRef}>
+          <div className="ui-dropdown rtx-sort-dropdown" ref={sortRef}>
             <button
               className="rtx-filter-btn rtx-application-filter"
               onClick={() => setSortOpen(!sortOpen)}
@@ -166,46 +167,46 @@ const UserApplications = () => {
             </button>
 
             {sortOpen && (
-              <div className="rtx-sort-menu">
+              <div className="ui-dropdown-menu rtx-sort-menu">
                 <button
-                  className={
+                  className={`ui-dropdown-item ${
                     sort.sortBy === "fullName" && sort.order === "asc"
                       ? "active"
                       : ""
-                  }
+                  }`}
                   onClick={() => handleSort("fullName", "asc")}
                 >
                   Name A-Z
                 </button>
 
                 <button
-                  className={
+                  className={`ui-dropdown-item ${
                     sort.sortBy === "fullName" && sort.order === "desc"
                       ? "active"
                       : ""
-                  }
+                  }`}
                   onClick={() => handleSort("fullName", "desc")}
                 >
                   Name Z-A
                 </button>
 
                 <button
-                  className={
+                  className={`ui-dropdown-item ${
                     sort.sortBy === "createdAt" && sort.order === "desc"
                       ? "active"
                       : ""
-                  }
+                  }`}
                   onClick={() => handleSort("createdAt", "desc")}
                 >
                   Latest
                 </button>
 
                 <button
-                  className={
+                  className={`ui-dropdown-item ${
                     sort.sortBy === "createdAt" && sort.order === "asc"
                       ? "active"
                       : ""
-                  }
+                  }`}
                   onClick={() => handleSort("createdAt", "asc")}
                 >
                   Oldest
@@ -312,7 +313,7 @@ const UserApplications = () => {
         <div className="rtx-modal-body">
           <div className="rtx-modal-row">
             <span>Status</span>
-            <select
+            {/* <select
               className="rtx-input"
               value={filters.status}
               onChange={(e) => handleFilterChange("status", e.target.value)}
@@ -322,12 +323,24 @@ const UserApplications = () => {
               <option value="reviewed">Reviewed</option>
               <option value="shortlisted">Shortlisted</option>
               <option value="rejected">Rejected</option>
-            </select>
+            </select> */}
+            <Dropdown
+              value={filters.status}
+              placeholder="All Status"
+              options={[
+                { label: "All", value: "" },
+                { label: "Pending", value: "pending" },
+                { label: "Reviewed", value: "reviewed" },
+                { label: "Shortlisted", value: "shortlisted" },
+                { label: "Rejected", value: "rejected" },
+              ]}
+              onChange={(value) => handleFilterChange("status", value)}
+            />
           </div>
 
           <div className="rtx-modal-row">
             <span>Category</span>
-            <select
+            {/* <select
               className="rtx-input"
               value={filters.category}
               onChange={(e) => handleFilterChange("category", e.target.value)}
@@ -335,7 +348,17 @@ const UserApplications = () => {
               <option value="">All</option>
               <option value="job">Job</option>
               <option value="internship">Internship</option>
-            </select>
+            </select> */}
+            <Dropdown
+              value={filters.category}
+              placeholder="All Categories"
+              options={[
+                { label: "All", value: "" },
+                { label: "Job", value: "job" },
+                { label: "Internship", value: "internship" },
+              ]}
+              onChange={(value) => handleFilterChange("category", value)}
+            />
           </div>
 
           <div className="rtx-modal-row">

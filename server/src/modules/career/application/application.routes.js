@@ -5,6 +5,7 @@ import {
   listApplications,
   updateApplicationStatus,
 } from "./application.controller.js";
+import authMiddleware from "../../../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
@@ -16,8 +17,8 @@ router.post("/", uploadResume, submitApplication);
 /**
  * Admin: Get applications
  */
-router.get("/", listApplications);
+router.get("/", authMiddleware, listApplications);
 /* UPDATE STATUS */
-router.patch("/:id/status", updateApplicationStatus);
+router.patch("/:id/status", authMiddleware, updateApplicationStatus);
 
 export default router;

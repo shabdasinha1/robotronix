@@ -8,6 +8,7 @@ import {
 import { uploadIndustryLeader } from "../../middlewares/upload.middleware.js";
 import validate  from "../../middlewares/validate.middleware.js";
 import { createIndustryLeaderSchema, updateIndustryLeaderSchema } from "./industryLeader.validation.js";
+import authMiddleware from "../../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.post(
   "/",
   uploadIndustryLeader, // multer first
   validate(createIndustryLeaderSchema), // zod validation
+  authMiddleware,
   uploadLeaderImage,
 );
 
@@ -23,13 +25,14 @@ router.post(
 router.get("/", getLeaders);
 
 /* DELETE */
-router.delete("/:id", removeLeader);
+router.delete("/:id", authMiddleware, removeLeader);
 
 // UPDATE
 router.patch(
   "/:id",
   uploadIndustryLeader, // allow optional image
   validate(updateIndustryLeaderSchema),
+  authMiddleware,
   updateLeader
 );
 

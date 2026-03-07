@@ -192,12 +192,15 @@
 }
 
 .rtx-form-group input,
-.rtx-form-group textarea {
+.rtx-form-group textarea,
+.rtx-form-group button {
   padding: 10px 12px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--white-05);
+  /* border: 1px solid var(--white-05); */
   background: var(--bg-dark-3);
   color: inherit;
+  border: 1px solid var(--border-light-1);
+  box-shadow: 0 6px 18px var(--bg-dark-1);
 }
 
 .rtx-form-group textarea {

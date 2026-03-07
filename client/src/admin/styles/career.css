@@ -150,6 +150,7 @@
 .rtx-filter-btn:hover {
   /* background: var(--clr-blue); */
   box-shadow: 0 6px 18px var(--blue-025s);
+  z-index: 999;
 }
 
 /* Inputs */
@@ -183,7 +184,7 @@
 }
 
 /* SORT DROPDOWN */
-.rtx-sort-dropdown {
+/* .rtx-sort-dropdown {
   position: relative;
   z-index: 200;
 }
@@ -200,8 +201,8 @@
   min-width: 160px;
   display: flex;
   flex-direction: column;
-  z-index: 9999; /* increase */
-}
+  z-index: 9999; 
+} */
 .rtx-admin-table-wrapper {
   width: 100%;
   position: relative;
@@ -212,7 +213,7 @@
   z-index: 10;
 }
 
-.rtx-sort-menu button {
+/* .rtx-sort-menu button {
   background: transparent;
   border: none;
   color: var(--clr-text-light);
@@ -228,10 +229,21 @@
 }
 .rtx-sort-menu button.active {
   background: var(--blue-02);
-  /* color: var(--clr-blue); */
+  // color: var(--clr-blue);
   font-weight: 500;
+} */
+
+.rtx-modal-row input, .rtx-modal-row button {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  /* border: 1px solid var(--white-05); */
+  background: var(--bg-dark-3);
+  color: inherit;
+  border: 1px solid var(--border-light-1);
+  box-shadow: 0 6px 18px var(--bg-dark-1);
 }
 /* 
+
 =========================================================================
             USER APPLICATION COMPONENT (JOB/INTERNSHIP) END
 =========================================================================

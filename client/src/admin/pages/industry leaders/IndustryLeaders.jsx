@@ -159,16 +159,16 @@ const IndustryLeaders = () => {
         </div>
 
         <div className="rtx-industry-header-actions">
-          <Button
-            className="rtx-btn-secondary"
+          <button
+            className="rtx-filter-btn rtx-application-filter"
             onClick={() => setShowDeleted((prev) => !prev)}
           >
             {showDeleted ? "Show Active" : "Show Deleted"}
-          </Button>
+          </button>
 
-          <Button className="rtx-btn-primary" onClick={handleOpenAdd}>
+          <button className="rtx-filter-btn rtx-application-filter" onClick={handleOpenAdd}>
             + Add Leader
-          </Button>
+          </button>
         </div>
       </div>
 

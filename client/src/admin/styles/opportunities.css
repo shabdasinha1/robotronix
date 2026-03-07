@@ -1,0 +1,70 @@
+.tp-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tp-admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tp-grid {
+  /* display: grid; */
+  /* gap: 20px; */
+}
+
+.tp-grid-3 {
+  /* grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: flex-start; */
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.opportunity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opportunity-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.tp-icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.tp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tp-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.rtx-opportunity-filter-btn .ui-dropdown .rtx-input{
+    padding: 0;
+}
+
+
+@media (max-width: 426px) {
+    .tp-admin-actions{
+        flex-direction: column;
+        width: 100%;
+    }
+    
+}

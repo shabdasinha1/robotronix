@@ -19,7 +19,7 @@ router.post("/", validate(createMessageSchema), postMessage);
 /* ===============================
    PROTECTED ADMIN ROUTE
 ================================ */
-router.get("/",  fetchMessages);
+router.get("/", authMiddleware,  fetchMessages);
 // router.get("/", authMiddleware, fetchMessages);
 
 export default router;

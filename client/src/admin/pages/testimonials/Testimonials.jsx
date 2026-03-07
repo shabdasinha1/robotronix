@@ -159,23 +159,25 @@ const Testimonials = () => {
       <div className="rtx-admin-page-header rtx-admin-testimonials-header">
         <div>
           <h2 className="u-title">
-            Client {" "}
-            <span>Testimonials</span>
+            Client <span>Testimonials</span>
           </h2>
           <p className="u-subtext">
             Manage client testimonials displayed on website
           </p>
         </div>
         <div className="rtx-testimonials-action-wrapper">
-          <Button className="rtx-btn-primary" onClick={handleOpenAdd}>
+          <button
+            className="rtx-filter-btn rtx-application-filter"
+            onClick={handleOpenAdd}
+          >
             + Add Testimonial
-          </Button>
-          <Button
-            className="rtx-btn-secondary"
+          </button>
+          <button
+            className="rtx-filter-btn rtx-application-filter"
             onClick={() => setShowDeleted((prev) => !prev)}
           >
             {showDeleted ? "Show Active" : "Show Deleted"}
-          </Button>
+          </button>
         </div>
       </div>
 

@@ -47,8 +47,14 @@ export const updateOpportunity = async (id, data) => {
 };
 
 export const deleteOpportunity = async (id) => {
-  const opportunity = await Opportunity.findByIdAndDelete(id);
+  const opportunity = await Opportunity.findByIdAndUpdate(
+    id,
+    { isActive: false },
+    { new: true },
+  );
+
   if (!opportunity) throw new Error("Opportunity not found");
+
   return opportunity;
 };
 export const getCurrentOpenings = async () => {

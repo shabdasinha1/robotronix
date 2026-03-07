@@ -8,10 +8,11 @@ import industryLeaderRoutes from "../modules/industryLeaders/industryLeader.rout
 // import internshipRoutes from "../modules/career-copy/internship/internship.routes.js";
 import application from "../modules/career/application/application.routes.js";
 import opportunityRoutes from "../modules/career/opportunity/opportunity.routes.js";
+import authMiddleware from "../middlewares/auth.middleware.js";
 const router = Router();
 
-router.use("/auth", authRoutes);
-router.use("/messages", messageRoutes);
+router.use("/auth",  authRoutes);
+router.use("/messages",  messageRoutes);
 
 /*=========================================================
             HOME (HERO) PAGE API 
