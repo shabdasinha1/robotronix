@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
-const Dropdown = ({ value, options = [], placeholder = "Select", onChange }) => {
+const Dropdown = ({
+  value,
+  options = [],
+  placeholder = "Select",
+  onChange,
+  className = "",
+}) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -22,15 +28,13 @@ const Dropdown = ({ value, options = [], placeholder = "Select", onChange }) => 
   }, []);
 
   return (
-    <div className="ui-dropdown" ref={ref}>
+    <div className={`ui-dropdown ${className}`} ref={ref} onClick={toggle}>
       <button
         type="button"
         className="rtx-input"
-        onClick={toggle}
+        // onClick={toggle}
       >
-        {value
-          ? options.find((o) => o.value === value)?.label
-          : placeholder}
+        {value ? options.find((o) => o.value === value)?.label : placeholder}
       </button>
 
       {open && (

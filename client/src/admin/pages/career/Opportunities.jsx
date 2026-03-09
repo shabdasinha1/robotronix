@@ -252,8 +252,10 @@ const Opportunities = () => {
             <option value="internship">Internships</option>
           </select> */}
 
-          <div className="rtx-filter-btn rtx-application-filter rtx-opportunity-filter-btn">
+          {/* <div className="rtx-filter-btn rtx-application-filter rtx-opportunity-filter-btn"> */}
+          <div className="rtx-filter-btn-wrapper">
             <Dropdown
+              className="rtx-filter-btn rtx-application-filter rtx-opportunity-filter-btn"
               value={filterType}
               placeholder="Filter Type"
               options={typeFilterOptions}

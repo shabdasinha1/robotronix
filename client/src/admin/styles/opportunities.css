@@ -59,7 +59,9 @@
 .rtx-opportunity-filter-btn .ui-dropdown .rtx-input{
     padding: 0;
 }
-
+.rtx-filter-btn-wrapper .ui-dropdown .rtx-input{
+  padding: 0;
+}
 
 @media (max-width: 426px) {
     .tp-admin-actions{

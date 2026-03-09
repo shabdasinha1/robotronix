@@ -232,6 +232,7 @@ textarea {
   position: relative;
   display: inline-block;
   width: 100%;
+  z-index: 20;
 }
 
 .ui-dropdown-menu {
@@ -290,4 +291,8 @@ textarea {
 
 .ui-dropdown button {
   text-align: left;
+}
+.ui-dropdown .rtx-input {
+  font-size: var(--fs-sm);
+  font-weight: 500;
 }

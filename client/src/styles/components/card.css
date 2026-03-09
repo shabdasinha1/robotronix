@@ -9,6 +9,9 @@
   border: 1px solid var(--white-12);
   backdrop-filter: blur(8px);
   transition: 0.3s ease;
+  transform: translateY(0);
+  position: relative; /* ADD THIS */
+  z-index: 1; /* ADD THIS */
 }
 .card-glass:hover {
   transform: translateY(-6px);
