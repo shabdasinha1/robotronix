@@ -8,7 +8,8 @@ import industryLeaderRoutes from "../modules/industryLeaders/industryLeader.rout
 // import internshipRoutes from "../modules/career-copy/internship/internship.routes.js";
 import application from "../modules/career/application/application.routes.js";
 import opportunityRoutes from "../modules/career/opportunity/opportunity.routes.js";
-import authMiddleware from "../middlewares/auth.middleware.js";
+import portfolioRoutes from "../modules/portfolio/portfolio.routes.js";
+
 const router = Router();
 
 router.use("/auth",  authRoutes);
@@ -31,4 +32,6 @@ router.use("/opportunities", opportunityRoutes);
 
 //  ---------------- APPLICATION FOR CURRENT OPENINGS--------------------
 router.use("/application", application);
+
+router.use("/portfolio", portfolioRoutes);
 export default router;

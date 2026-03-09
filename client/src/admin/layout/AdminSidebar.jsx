@@ -98,6 +98,14 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
             <span className="rtx-admin-nav-text">Opportunities</span>
           </NavLink>
         </li>
+        <li className="u-drop" style={{ "--delay": "0.45s" }}>
+          <NavLink to="/admin/content/portfolio">
+            <span className="rtx-admin-nav-icon">
+              <FiBriefcase size={16} />
+            </span>
+            <span className="rtx-admin-nav-text">Portfolio</span>
+          </NavLink>
+        </li>
 
         {/* SETTINGS */}
         <li

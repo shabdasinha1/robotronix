@@ -131,6 +131,40 @@ export const adminDashboardServices = {
     const { data } = await api.delete(`/industry-leaders/${id}`);
     return data;
   },
+
+  /* =====================================================
+   PORTFOLIO PROJECTS MANAGEMENT
+===================================================== */
+
+  getPortfolioProjects: async (params = {}) => {
+    const { data } = await api.get("/portfolio/projects", { params });
+    return data;
+  },
+
+  getPortfolioProjectById: async (id) => {
+    const { data } = await api.get(`/portfolio/projects/${id}`);
+    return data;
+  },
+
+  createPortfolioProject: async (payload) => {
+    const { data } = await api.post("/portfolio/projects", payload);
+    return data;
+  },
+
+  updatePortfolioProject: async (id, payload) => {
+    const { data } = await api.patch(`/portfolio/projects/${id}`, payload);
+    return data;
+  },
+
+  deletePortfolioProject: async (id) => {
+    const { data } = await api.delete(`/portfolio/projects/${id}`);
+    return data;
+  },
+
+  getPortfolioCategories: async () => {
+    const { data } = await api.get("/portfolio/categories");
+    return data;
+  },
 };
 
 export default adminDashboardServices;

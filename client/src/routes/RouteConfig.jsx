@@ -183,6 +183,10 @@ export const adminRoutesConfig = [
     component: lazy(() => import("../admin/pages/career/Opportunities")),
   },
   {
+    path: "content/portfolio",
+    component: lazy(() => import("../admin/pages/portfolio/Portfolio")),
+  },
+  {
   path: "forgot-password",
   component: lazy(() => import("../admin/pages/auth/ForgotPassword")),
 },
