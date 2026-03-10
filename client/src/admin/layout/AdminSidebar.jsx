@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import RoboImg from "../../assets/images/compony-logo.png";
 import { FiX } from "react-icons/fi";
-import { FiFileText,FiBriefcase  } from "react-icons/fi";
+import { FiFileText,FiBriefcase, FiGrid  } from "react-icons/fi";
+
 const AdminSidebar = ({ isMobile, closeSidebar }) => {
   return (
     <nav className="rtx-admin-sidebar-inner">
@@ -101,7 +102,7 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
         <li className="u-drop" style={{ "--delay": "0.45s" }}>
           <NavLink to="/admin/content/portfolio">
             <span className="rtx-admin-nav-icon">
-              <FiBriefcase size={16} />
+              <FiGrid size={16} />
             </span>
             <span className="rtx-admin-nav-text">Portfolio</span>
           </NavLink>

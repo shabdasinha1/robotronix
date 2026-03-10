@@ -166,7 +166,10 @@ const IndustryLeaders = () => {
             {showDeleted ? "Show Active" : "Show Deleted"}
           </button>
 
-          <button className="rtx-filter-btn rtx-application-filter" onClick={handleOpenAdd}>
+          <button
+            className="rtx-filter-btn rtx-application-filter"
+            onClick={handleOpenAdd}
+          >
             + Add Leader
           </button>
         </div>
@@ -182,6 +185,7 @@ const IndustryLeaders = () => {
         {leaders.map((item) => (
           <Card key={item._id} className="rtx-admin-industry-card">
             <div className="rtx-leader-card-content flex-column-card">
+              {!item.isActive && <span className="deleted-badge">Deleted</span>}
               <img
                 src={
                   item.image?.startsWith("http")
@@ -240,8 +244,9 @@ const IndustryLeaders = () => {
             )}
           </div>
           <div className="rtx-form-group">
-            <label>Leader Name</label>
+            <label>Leader Name <span className="rtx-required-start">*</span></label>
             <input
+            placeholder="Enter Leader Name"
               required
               value={formData.leaderName}
               onChange={(e) =>
@@ -251,7 +256,10 @@ const IndustryLeaders = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Upload Image</label>
+            <label>
+              Upload Image <span className="rtx-required-start">*</span>
+              <div className="rtx-text-muted rtx-img-instruction">(Background of image must be removed)</div>
+            </label>
             <input
               type="file"
               accept="image/*"

@@ -2,13 +2,28 @@ import * as portfolioService from "./portfolio.service.js";
 
 export const createProject = async (req, res) => {
   try {
-    const project = await portfolioService.createProject(req.body);
+    let project;
+
+    if (Array.isArray(req.body)) {
+      // Bulk insert
+      project = await portfolioService.createManyProjects(req.body);
+    } else {
+      // Single insert
+      project = await portfolioService.createProject(req.body);
+    }
 
     res.status(201).json({
       success: true,
       data: project,
     });
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        message: "Duplicate project detected",
+      });
+    }
+
     res.status(500).json({
       success: false,
       message: error.message,
@@ -18,7 +33,7 @@ export const createProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    // console.log(req.query); 
+    // console.log(req.query);
     const { category, isActive } = req.query;
 
     const projects = await portfolioService.getProjects({
@@ -96,6 +111,22 @@ export const getCategories = async (req, res) => {
     res.json({
       success: true,
       data: categories,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+export const restoreProject = async (req, res) => {
+  
+  try {
+    const project = await portfolioService.restoreProject(req.params.id);
+
+    res.status(200).json({
+      success: true,
+      data: project,
     });
   } catch (error) {
     res.status(500).json({

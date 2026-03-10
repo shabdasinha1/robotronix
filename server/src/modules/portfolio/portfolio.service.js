@@ -3,6 +3,15 @@ import Portfolio from "./portfolio.model.js";
 export const createProject = async (data) => {
   const slug = data.category.slug.toLowerCase();
 
+  const exists = await Portfolio.findOne({
+    title: data.title,
+    "category.slug": slug,
+  });
+
+  if (exists) {
+    throw new Error("Project already exists in this category");
+  }
+
   return Portfolio.create({
     ...data,
     category: {
@@ -11,7 +20,19 @@ export const createProject = async (data) => {
     },
   });
 };
+export const createManyProjects = async (projects) => {
+  const formattedProjects = projects.map((data) => ({
+    ...data,
+    category: {
+      slug: data.category.slug.toLowerCase(),
+      label: data.category.label,
+    },
+  }));
 
+  return Portfolio.insertMany(formattedProjects, {
+    ordered: false,
+  });
+};
 export const getProjects = async ({ category, isActive }) => {
   const filter = {};
 
@@ -19,8 +40,11 @@ export const getProjects = async ({ category, isActive }) => {
     filter["category.slug"] = category;
   }
 
+  // isActive logic
   if (isActive !== undefined) {
     filter.isActive = isActive === "true";
+  } else {
+    filter.isActive = true; // default for public portfolio
   }
 
   return Portfolio.find(filter).sort({ createdAt: -1 });
@@ -71,4 +95,7 @@ export const getCategories = async () => {
       $sort: { label: 1 },
     },
   ]);
+};
+export const restoreProject = async (id) => {
+  return Portfolio.findByIdAndUpdate(id, { isActive: true }, { new: true });
 };

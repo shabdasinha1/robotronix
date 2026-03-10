@@ -39,6 +39,7 @@
   opacity: 0;
   animation: modalPop 0.3s ease forwards;
   opacity: 1;
+  backdrop-filter: blur(50px);
 }
 .rtx-modal::-webkit-scrollbar {
   width: 6px;

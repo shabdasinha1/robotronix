@@ -135,22 +135,23 @@ const Opportunities = () => {
         DELETE (SOFT DELETE)
   ================================= */
 
-  const handleDelete = async () => {
+  const handleDelete = async (projectId) => {
     try {
-      await adminDashboardServices.deleteOpportunity(selectedOpportunity._id);
+      await adminDashboardServices.deleteOpportunity(projectId);
 
-      setOpportunities((prev) =>
-        prev.filter((item) => item._id !== selectedOpportunity._id),
-      );
+      // setOpportunities((prev) =>
+      //   prev.map((item) =>
+      //     item._id === projectId ? { ...item, isActive: false } : item,
+      //   ),
+      // );
+      fetchOpportunities();
 
       showToast("Opportunity removed", "success");
-      setIsEditModalOpen(false);
     } catch (err) {
       const error = GetApiErrorMessage(err);
       showToast(error, "error");
     }
   };
-
   const handleOpenAdd = () => {
     setSelectedOpportunity(null);
 
@@ -213,6 +214,20 @@ const Opportunities = () => {
     }
   };
 
+  const handleRestore = async (item) => {
+    try {
+      await adminDashboardServices.updateOpportunity(item._id, {
+        isActive: true,
+      });
+
+      showToast("Opportunity restored", "success");
+
+      fetchOpportunities(); // refresh list
+    } catch (err) {
+      const error = GetApiErrorMessage(err);
+      showToast(error, "error");
+    }
+  };
   return (
     <div className="tp-admin-section">
       {/* ================= HEADER ================= */}
@@ -271,6 +286,7 @@ const Opportunities = () => {
         {opportunities.map((item) => (
           <Card key={item._id} className="rtx-admin-testimonials-card">
             <div className="rtx-card-content flex-column-card opportunity-card">
+              {!item.isActive && <span className="deleted-badge">Closed</span>}
               <h4>{item.title}</h4>
 
               <p className="opportunity-type">
@@ -293,20 +309,38 @@ const Opportunities = () => {
                 )}
               </p>
 
-              <div className="opportunity-actions">
+              <div className="opportunity-actions rtx-card-actions">
                 <button
                   onClick={() => handleView(item)}
-                  className="tp-icon-btn"
+                  className="btn btn-primary"
                 >
-                  <FiEye />
+                  View
                 </button>
 
-                <button
-                  onClick={() => handleEdit(item)}
-                  className="tp-icon-btn"
-                >
-                  <FiEdit />
-                </button>
+                {item.isActive && (
+                  <button
+                    type="button"
+                    className="btn btn-primary rtx-btn-danger"
+                    onClick={() => handleDelete(item._id)}
+                  >
+                    Delete
+                  </button>
+                )}
+                {item.isActive ? (
+                  <button
+                    onClick={() => handleEdit(item)}
+                    className="btn btn-primary"
+                  >
+                    Edit
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleRestore(item)}
+                    className="btn btn-primary"
+                  >
+                    Restore
+                  </button>
+                )}
               </div>
             </div>
           </Card>
@@ -363,8 +397,11 @@ const Opportunities = () => {
       >
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
-            <label>Title</label>
+            <label>
+              Title<span className="rtx-required-start">*</span>
+            </label>
             <input
+              placeholder="Enter Title"
               name="title"
               value={formData.title}
               onChange={handleChange}
@@ -373,7 +410,9 @@ const Opportunities = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Type</label>
+            <label>
+              Type<span className="rtx-required-start">*</span>
+            </label>
             {/* <select name="type" value={formData.type} onChange={handleChange}>
               <option value="job">Job</option>
               <option value="internship">Internship</option>
@@ -394,8 +433,11 @@ const Opportunities = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Location</label>
+            <label>
+              Location<span className="rtx-required-start">*</span>
+            </label>
             <input
+              placeholder="Enter Location"
               name="location"
               value={formData.location}
               onChange={handleChange}
@@ -403,7 +445,9 @@ const Opportunities = () => {
           </div>
           {formData.type === "job" && (
             <div className="rtx-form-group">
-              <label>Employment Type</label>
+              <label>
+                Employment Type<span className="rtx-required-start">*</span>
+              </label>
               <Dropdown
                 value={formData.employmentType}
                 placeholder="Select Employment Type"
@@ -418,8 +462,11 @@ const Opportunities = () => {
             </div>
           )}
           <div className="rtx-form-group">
-            <label>Description</label>
+            <label>
+              Description<span className="rtx-required-start">*</span>
+            </label>
             <textarea
+              placeholder="Enter Full Job Description"
               name="description"
               value={formData.description}
               onChange={handleChange}
@@ -429,8 +476,11 @@ const Opportunities = () => {
           {formData.type === "job" && (
             <>
               <div className="rtx-form-group">
-                <label>Experience</label>
+                <label>
+                  Experience<span className="rtx-required-start">*</span>
+                </label>
                 <input
+                  placeholder="Enter Experience"
                   name="experience"
                   value={formData.experience}
                   onChange={handleChange}
@@ -444,6 +494,7 @@ const Opportunities = () => {
               <div className="rtx-form-group">
                 <label>Duration</label>
                 <input
+                  placeholder="Enter Duration"
                   name="duration"
                   value={formData.duration}
                   onChange={handleChange}
@@ -452,6 +503,7 @@ const Opportunities = () => {
               <div className="rtx-form-group">
                 <label>Category</label>
                 <input
+                  placeholder="Enter Category"
                   type="text"
                   name="category"
                   value={formData.category}
@@ -466,7 +518,7 @@ const Opportunities = () => {
               {selectedOpportunity ? "Update" : "Add"} Opportunity
             </button>
 
-            {selectedOpportunity && (
+            {/* {selectedOpportunity && (
               <button
                 type="button"
                 className="btn btn-primary rtx-btn-danger"
@@ -474,7 +526,7 @@ const Opportunities = () => {
               >
                 Delete
               </button>
-            )}
+            )} */}
           </div>
         </form>
       </Modal>

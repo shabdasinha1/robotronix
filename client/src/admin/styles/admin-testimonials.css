@@ -204,8 +204,9 @@
 }
 
 .rtx-form-group textarea {
-  min-height: 100px;
-  resize: vertical;
+  height: 150px;        /* fixed height */
+  resize: none;         /* disable resize */
+  overflow-y: auto;     /* scroll inside */
 }
 
 .rtx-checkbox {

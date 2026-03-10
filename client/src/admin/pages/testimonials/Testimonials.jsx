@@ -13,6 +13,9 @@ const Testimonials = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [selectedReview, setSelectedReview] = useState(null);
+
   const [showDeleted, setShowDeleted] = useState(false);
   const [formData, setFormData] = useState({
     clientName: "",
@@ -24,6 +27,11 @@ const Testimonials = () => {
   });
 
   const { showToast } = useToast();
+
+  const truncateText = (text, limit = 120) => {
+    if (!text) return "";
+    return text.length > limit ? text.substring(0, limit) + "..." : text;
+  };
 
   /* ================= FETCH DATA ================= */
   useEffect(() => {
@@ -192,7 +200,8 @@ const Testimonials = () => {
 
               <div className="rtx-rating">{renderStars(item.rating)}</div>
 
-              <p className="rtx-review">{item.review}</p>
+              {/* <p className="rtx-review">{item.review}</p> */}
+              <p className="rtx-review">{truncateText(item.review, 120)}</p>
 
               <div className="rtx-card-meta">
                 <span>{item.designation}</span>
@@ -231,6 +240,15 @@ const Testimonials = () => {
                   <>
                     <button
                       className="btn-primary"
+                      onClick={() => {
+                        setSelectedReview(item);
+                        setViewModalOpen(true);
+                      }}
+                    >
+                      View
+                    </button>
+                    <button
+                      className="btn-primary"
                       onClick={() => handleEdit(item)}
                     >
                       Edit
@@ -249,6 +267,31 @@ const Testimonials = () => {
           </Card>
         ))}
       </div>
+
+      {/* --------------------VIEW MODAL ---------------------- */}
+      <Modal
+        isOpen={viewModalOpen}
+        onClose={() => setViewModalOpen(false)}
+        title="Testimonial Details"
+      >
+        {selectedReview && (
+          <div className="rtx-modal-body">
+            <h3>{selectedReview.clientName}</h3>
+
+            <p className="rtx-subtitle">{selectedReview.companyName}</p>
+
+            <div className="rtx-rating">
+              {renderStars(selectedReview.rating)}
+            </div>
+
+            <div className="rtx-project-meta">
+              <span>{selectedReview.designation}</span>
+            </div>
+
+            <p className="rtx-full-review">{selectedReview.review}</p>
+          </div>
+        )}
+      </Modal>
 
       {/* MODAL */}
       {/* {isModalOpen && (
@@ -355,8 +398,11 @@ const Testimonials = () => {
       >
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
-            <label>Client Name</label>
+            <label>
+              Client Name <span className="rtx-required-start">*</span>
+            </label>
             <input
+              placeholder="Enter Client Name"
               required
               value={formData.clientName}
               onChange={(e) =>
@@ -366,8 +412,9 @@ const Testimonials = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Company Name</label>
+            <label>Company Name </label>
             <input
+              placeholder="Enter Company Name"
               required
               value={formData.companyName}
               onChange={(e) =>
@@ -379,7 +426,7 @@ const Testimonials = () => {
           <div className="rtx-form-group">
             <label>Designation / Project</label>
             <input
-              required
+              placeholder="Enter Designation"
               value={formData.designation}
               onChange={(e) =>
                 setFormData({ ...formData, designation: e.target.value })
@@ -388,9 +435,12 @@ const Testimonials = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Review</label>
+            <label>
+              Review <span className="rtx-required-start">*</span>
+            </label>
             <textarea
               required
+              placeholder="Enter Client Review"
               value={formData.review}
               onChange={(e) =>
                 setFormData({ ...formData, review: e.target.value })
@@ -399,7 +449,9 @@ const Testimonials = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Rating (1-5)</label>
+            <label>
+              Rating (1-5) <span className="rtx-required-start">*</span>
+            </label>
             <input
               type="number"
               min="1"
@@ -414,7 +466,7 @@ const Testimonials = () => {
             />
           </div>
 
-          <div className="rtx-form-group rtx-checkbox">
+          {/* <div className="rtx-form-group rtx-checkbox">
             <label>
               <input
                 type="checkbox"
@@ -428,7 +480,7 @@ const Testimonials = () => {
               />
               Active
             </label>
-          </div>
+          </div> */}
 
           <div className="rtx-modal-actions">
             <button type="submit" className="btn btn-primary">

@@ -165,6 +165,9 @@ export const adminDashboardServices = {
     const { data } = await api.get("/portfolio/categories");
     return data;
   },
+  restorePortfolioProject: async (id) => {
+    return await api.patch(`/portfolio/projects/${id}/restore`);
+  },
 };
 
 export default adminDashboardServices;

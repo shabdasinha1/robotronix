@@ -6,7 +6,7 @@ export const createTestimonialSchema = z.object({
     companyName: z.string().optional(),
     designation: z.string().optional(),
     review: z.string().min(10, "Review must be at least 10 characters"),
-    rating: z.number().min(1).max(5).optional(),
+    rating: z.number().min(1).max(5).min(1, "Rating is required"),
   }),
 });
 

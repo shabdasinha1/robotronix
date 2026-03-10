@@ -31,7 +31,7 @@
 
 /* Resume button */
 .rtx-btn-resume {
-  background: var(--blue-02);
+  background: var(--blue-02) !important;
   border: 1px solid var(--blue-03);
   padding: 6px 12px;
   border-radius: var(--radius-sm);
@@ -98,7 +98,7 @@
 }
 
 .rtx-accept {
-  background: rgba(0, 200, 100, 0.15);
+  background: rgba(0, 200, 100, 0.5) !important;
   border: none;
   padding: 4px 8px;
   cursor: pointer;
@@ -107,7 +107,7 @@
 }
 
 .rtx-reject {
-  background: rgba(255, 80, 80, 0.15);
+  background: rgba(255, 80, 80, 0.5) !important;
   border: none;
   padding: 4px 8px;
   cursor: pointer;
@@ -116,7 +116,7 @@
 }
 
 .rtx-pending {
-  background: var(--blue-012);
+  background: var(--blue-012) !important;
   border: none;
   padding: 4px 8px;
   cursor: pointer;

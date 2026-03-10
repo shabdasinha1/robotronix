@@ -15,4 +15,6 @@ router.delete("/projects/:id", portfolioController.deleteProject);
 
 router.get("/categories", portfolioController.getCategories);
 
+router.patch("/projects/:id/restore", portfolioController.restoreProject);
+
 export default router;

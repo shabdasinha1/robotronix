@@ -1,21 +1,35 @@
 import { useState, useEffect } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { Link, NavLink, useLocation, useSearchParams } from "react-router-dom";
+import {
+  getPortfolioCategories,
+  getPortfolioProjects,
+} from "../../services/PublicServices";
+import { GetApiErrorMessage } from "../../utils/ErrorHandler";
+import { useToast } from "../../components/common/ToastContext";
 
 const Portfolio = () => {
-  const [active, setActive] = useState("ai-ml");
-  const location = useLocation();
-  const [activeCategory, setActiveCategory] = useState("ai-ml");
-
   const [searchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
+  const initialCategory = categoryFromUrl || "ai-ml";
+
+  const [active, setActive] = useState(initialCategory);
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+  const location = useLocation();
+  const {showToast} = useToast();
 
   // console.log(categoryFromUrl)
-  useEffect(() => {
-    if (categoryFromUrl) {
-      handleClick(categoryFromUrl);
-    }
-  }, [categoryFromUrl]);
+  // useEffect(() => {
+  //   if (categoryFromUrl) {
+  //     handleClick(categoryFromUrl);
+  //   }
+  // }, [categoryFromUrl]);
+  // useEffect(() => {
+  //   if (categoryFromUrl) {
+  //     setActive(categoryFromUrl);
+  //     setActiveCategory(categoryFromUrl);
+  //   }
+  // }, [categoryFromUrl]);
 
   const hero = useRevealOnScroll({
     threshold: 0.2,
@@ -45,382 +59,425 @@ const Portfolio = () => {
   });
 
   //   For Section 2 PortfolioFilters
-  const categories = [
-    {
-      label: "AI & Machine Learning",
-      slug: "ai-ml",
-    },
-    {
-      label: "Generative AI",
-      slug: "gen-ai",
-    },
-    {
-      label: "Web & Enterprise Applications",
-      slug: "web-enterprise",
-    },
-    {
-      label: "Mobile App Development",
-      slug: "mobile-app",
-    },
-    {
-      label: "Embedded Systems & IoT",
-      slug: "iot",
-    },
-  ];
+  // const categories = [
+  //   {
+  //     label: "AI & Machine Learning",
+  //     slug: "ai-ml",
+  //   },
+  //   {
+  //     label: "Generative AI",
+  //     slug: "gen-ai",
+  //   },
+  //   {
+  //     label: "Web & Enterprise Applications",
+  //     slug: "web-enterprise",
+  //   },
+  //   {
+  //     label: "Mobile App Development",
+  //     slug: "mobile-app",
+  //   },
+  //   {
+  //     label: "Embedded Systems & IoT",
+  //     slug: "iot",
+  //   },
+  // ];
 
-  const aiProjects = [
-    {
-      title: "High-Precision X-ray Image Annotation for Security Screening",
-      // category:"ai-ml",
-      category: "ai-ml",
-      industry: "Aviation Security",
-      description:
-        "Creation of a high-precision annotated X-ray image dataset for training YOLO-based object detection models to identify prohibited items such as guns, knives, and cutters in airport luggage scans.",
-      tech: ["Python", "YOLOv5", "YOLOv8", "LabelImg", "CVAT"],
-    },
-    {
-      title: "AI-Powered Multi-Camera Surveillance & Business Intelligence",
-      category: "ai-ml",
-      industry: "Smart Cities / Retail Analytics",
-      description:
-        "Real-time multi-camera surveillance system delivering people counting, queue monitoring, demographic analysis, identity tracking, and heatmap-based crowd flow insights using advanced computer vision.",
-      tech: ["Python", "OpenCV", "YOLOv8", "DeepSort", "InsightFace", "React"],
-    },
-    {
-      title: "Automated Offence Classification for Military Legal Frameworks",
-      category: "ai-ml",
-      industry: "Defense & Legal Systems",
-      description:
-        "NLP-based annotation and classification system for military legal offence data, enabling AI-assisted charge sheet generation with on-premise deployment for strict data security.",
-      tech: ["Python", "Pandas", "NLTK", "SpaCy", "Ollama", "Streamlit"],
-    },
-    {
-      title: "Microscopic Image Restoration & Enhancement Pipeline",
-      category: "ai-ml",
-      industry: "Scientific Imaging / Research",
-      description:
-        "Image processing pipeline for aligning, merging, and enhancing low-quality microscopic images with accurate RGB alignment, white balance correction, and noise reduction.",
-      tech: ["Python", "OpenCV", "Image Processing", "Feature Matching"],
-    },
-    {
-      title: "DR. AI – Intelligent Patient Care Matching System",
-      category: "ai-ml",
-      industry: "Healthcare & MedTech",
-      description:
-        "AI-driven patient onboarding and recommendation system that processes medical reports using OCR and NLP to provide personalized hospital, specialist, and vendor recommendations.",
-      tech: ["Python", "Flask", "OCR", "NLP", "Chatbot Systems"],
-    },
-    {
-      title: "LeadAngel – Retrieval Augmented Generation (RAG) System",
-      category: "gen-ai",
-      industry: "Enterprise Knowledge Systems",
-      description:
-        "End-to-end RAG system for web and document data enabling real-time contextual Q&A with semantic search, persistent chat history, and scalable ingestion pipelines.",
-      tech: ["LangChain", "Qdrant", "FastAPI", "MongoDB", "OpenAI", "React"],
-    },
-    {
-      title: "Multilingual Translation & Conversational AI Module",
-      category: "gen-ai",
-      industry: "Enterprise Platforms",
-      description:
-        "Multilingual translation and conversational AI system enabling text, voice, and document translation while maintaining backend processing consistency and contextual accuracy.",
-      tech: [
-        "NLP",
-        "Speech-to-Text",
-        "Translation Models",
-        "Conversational AI",
-      ],
-    },
-    {
-      title: "Email Summarization & Classification Engine",
-      category: "gen-ai",
-      industry: "Enterprise Communication",
-      description:
-        "Secure, on-premise AI pipeline for automatic comprehension, summarization, and classification of multi-threaded emails using LLaMA models and vLLM.",
-      tech: ["LLaMA 3.1", "vLLM", "Python", "MongoDB", "AWS S3"],
-    },
-    {
-      title: "IoT Sensor Data Annotation for Pet Activity Recognition",
-      category: "ai-ml",
-      industry: "IoT & Wearables",
-      description:
-        "End-to-end workflow for collecting, annotating, and validating time-series sensor data to train AI models for pet activity recognition with high real-world accuracy.",
-      tech: ["Python", "TensorFlow", "PyTorch", "NumPy", "Pandas"],
-    },
-    {
-      title: "Stress Recognition using Facial Landmark Annotation",
-      category: "ai-ml",
-      industry: "Human Behavior Analytics",
-      description:
-        "Facial landmark-based dataset preparation for stress and emotion recognition, enabling AI models to quantify human stress levels accurately.",
-      tech: ["MediaPipe", "OpenCV", "Python", "NumPy", "Pandas"],
-    },
-  ];
+  // const aiProjects = [
+  //   {
+  //     title: "High-Precision X-ray Image Annotation for Security Screening",
+  //     // category:"ai-ml",
+  //     category: "ai-ml",
+  //     industry: "Aviation Security",
+  //     description:
+  //       "Creation of a high-precision annotated X-ray image dataset for training YOLO-based object detection models to identify prohibited items such as guns, knives, and cutters in airport luggage scans.",
+  //     tech: ["Python", "YOLOv5", "YOLOv8", "LabelImg", "CVAT"],
+  //   },
+  //   {
+  //     title: "AI-Powered Multi-Camera Surveillance & Business Intelligence",
+  //     category: "ai-ml",
+  //     industry: "Smart Cities / Retail Analytics",
+  //     description:
+  //       "Real-time multi-camera surveillance system delivering people counting, queue monitoring, demographic analysis, identity tracking, and heatmap-based crowd flow insights using advanced computer vision.",
+  //     tech: ["Python", "OpenCV", "YOLOv8", "DeepSort", "InsightFace", "React"],
+  //   },
+  //   {
+  //     title: "Automated Offence Classification for Military Legal Frameworks",
+  //     category: "ai-ml",
+  //     industry: "Defense & Legal Systems",
+  //     description:
+  //       "NLP-based annotation and classification system for military legal offence data, enabling AI-assisted charge sheet generation with on-premise deployment for strict data security.",
+  //     tech: ["Python", "Pandas", "NLTK", "SpaCy", "Ollama", "Streamlit"],
+  //   },
+  //   {
+  //     title: "Microscopic Image Restoration & Enhancement Pipeline",
+  //     category: "ai-ml",
+  //     industry: "Scientific Imaging / Research",
+  //     description:
+  //       "Image processing pipeline for aligning, merging, and enhancing low-quality microscopic images with accurate RGB alignment, white balance correction, and noise reduction.",
+  //     tech: ["Python", "OpenCV", "Image Processing", "Feature Matching"],
+  //   },
+  //   {
+  //     title: "DR. AI – Intelligent Patient Care Matching System",
+  //     category: "ai-ml",
+  //     industry: "Healthcare & MedTech",
+  //     description:
+  //       "AI-driven patient onboarding and recommendation system that processes medical reports using OCR and NLP to provide personalized hospital, specialist, and vendor recommendations.",
+  //     tech: ["Python", "Flask", "OCR", "NLP", "Chatbot Systems"],
+  //   },
+  //   {
+  //     title: "LeadAngel – Retrieval Augmented Generation (RAG) System",
+  //     category: "gen-ai",
+  //     industry: "Enterprise Knowledge Systems",
+  //     description:
+  //       "End-to-end RAG system for web and document data enabling real-time contextual Q&A with semantic search, persistent chat history, and scalable ingestion pipelines.",
+  //     tech: ["LangChain", "Qdrant", "FastAPI", "MongoDB", "OpenAI", "React"],
+  //   },
+  //   {
+  //     title: "Multilingual Translation & Conversational AI Module",
+  //     category: "gen-ai",
+  //     industry: "Enterprise Platforms",
+  //     description:
+  //       "Multilingual translation and conversational AI system enabling text, voice, and document translation while maintaining backend processing consistency and contextual accuracy.",
+  //     tech: [
+  //       "NLP",
+  //       "Speech-to-Text",
+  //       "Translation Models",
+  //       "Conversational AI",
+  //     ],
+  //   },
+  //   {
+  //     title: "Email Summarization & Classification Engine",
+  //     category: "gen-ai",
+  //     industry: "Enterprise Communication",
+  //     description:
+  //       "Secure, on-premise AI pipeline for automatic comprehension, summarization, and classification of multi-threaded emails using LLaMA models and vLLM.",
+  //     tech: ["LLaMA 3.1", "vLLM", "Python", "MongoDB", "AWS S3"],
+  //   },
+  //   {
+  //     title: "IoT Sensor Data Annotation for Pet Activity Recognition",
+  //     category: "ai-ml",
+  //     industry: "IoT & Wearables",
+  //     description:
+  //       "End-to-end workflow for collecting, annotating, and validating time-series sensor data to train AI models for pet activity recognition with high real-world accuracy.",
+  //     tech: ["Python", "TensorFlow", "PyTorch", "NumPy", "Pandas"],
+  //   },
+  //   {
+  //     title: "Stress Recognition using Facial Landmark Annotation",
+  //     category: "ai-ml",
+  //     industry: "Human Behavior Analytics",
+  //     description:
+  //       "Facial landmark-based dataset preparation for stress and emotion recognition, enabling AI models to quantify human stress levels accurately.",
+  //     tech: ["MediaPipe", "OpenCV", "Python", "NumPy", "Pandas"],
+  //   },
+  // ];
 
-  const webProjects = [
-    {
-      title: "CaseUp AI – Interview Preparation Platform",
-      category: "web-enterprise",
-      industry: "EdTech / Career Development",
-      description:
-        "AI-powered interview preparation platform enabling users to take mock interviews, receive detailed performance analysis, and improve skills through personalized feedback and insights.",
-      tech: ["React", "Node.js", "AI APIs", "MongoDB"],
-    },
-    {
-      title: "Parser AI – Data Parsing & Summarization Platform",
-      category: "web-enterprise",
-      industry: "Data Processing / Automation",
-      description:
-        "AI-driven platform that allows users to upload CSV and PDF files and instantly extract, analyze, and generate clean, easy-to-understand summaries of structured and unstructured data.",
-      tech: ["React", "Node.js", "PDF Processing", "CSV Parsing", "AI APIs"],
-    },
-    {
-      title: "FortiTudeFashion.com – E-commerce Admin Platform",
-      category: "web-enterprise",
-      industry: "Retail / E-commerce",
-      description:
-        "Full-stack MERN-based fashion e-commerce website with a dynamic admin panel for managing products, content, and site configuration efficiently.",
-      tech: ["MongoDB", "Express", "React", "Node.js", "Admin Dashboard"],
-    },
-    {
-      title: "Lead Angel – Real-Time Chat UI",
-      category: "web-enterprise",
-      industry: "Enterprise Communication",
-      description:
-        "Modern, responsive chat user interface built with React, focusing on real-time interaction patterns, smooth UX, and scalable frontend architecture.",
-      tech: ["React", "WebSockets", "Responsive Design", "UI/UX"],
-    },
-    {
-      title: "Surveillance System Analytics Dashboard",
-      category: "web-enterprise",
-      industry: "Security / Smart Monitoring",
-      description:
-        "Analytics-driven dashboard to visualize surveillance data using charts and insights, enabling trend analysis and data-driven decision-making.",
-      tech: ["React", "Chart.js", "Data Visualization", "Dashboard UI"],
-    },
-    {
-      title: "QAPreneur – Backend Optimization Platform",
-      category: "web-enterprise",
-      industry: "SaaS / Automation",
-      description:
-        "Backend optimization and feature enhancement project focused on improving performance, scalability, and automation using Node.js and Express.",
-      tech: ["Node.js", "Express", "API Optimization", "Automation"],
-    },
-    {
-      title: "Kusum Industries – Inventory Management Dashboard",
-      category: "web-enterprise",
-      industry: "Manufacturing / Industrial Operations",
-      description:
-        "Comprehensive inventory management system for industrial operations, enabling product tracking, raw material monitoring, and real-time insights through interactive dashboards and reports.",
-      tech: ["React", "Node.js", "Charts & Reports", "Inventory Management"],
-    },
-  ];
+  // const webProjects = [
+  //   {
+  //     title: "CaseUp AI – Interview Preparation Platform",
+  //     category: "web-enterprise",
+  //     industry: "EdTech / Career Development",
+  //     description:
+  //       "AI-powered interview preparation platform enabling users to take mock interviews, receive detailed performance analysis, and improve skills through personalized feedback and insights.",
+  //     tech: ["React", "Node.js", "AI APIs", "MongoDB"],
+  //   },
+  //   {
+  //     title: "Parser AI – Data Parsing & Summarization Platform",
+  //     category: "web-enterprise",
+  //     industry: "Data Processing / Automation",
+  //     description:
+  //       "AI-driven platform that allows users to upload CSV and PDF files and instantly extract, analyze, and generate clean, easy-to-understand summaries of structured and unstructured data.",
+  //     tech: ["React", "Node.js", "PDF Processing", "CSV Parsing", "AI APIs"],
+  //   },
+  //   {
+  //     title: "FortiTudeFashion.com – E-commerce Admin Platform",
+  //     category: "web-enterprise",
+  //     industry: "Retail / E-commerce",
+  //     description:
+  //       "Full-stack MERN-based fashion e-commerce website with a dynamic admin panel for managing products, content, and site configuration efficiently.",
+  //     tech: ["MongoDB", "Express", "React", "Node.js", "Admin Dashboard"],
+  //   },
+  //   {
+  //     title: "Lead Angel – Real-Time Chat UI",
+  //     category: "web-enterprise",
+  //     industry: "Enterprise Communication",
+  //     description:
+  //       "Modern, responsive chat user interface built with React, focusing on real-time interaction patterns, smooth UX, and scalable frontend architecture.",
+  //     tech: ["React", "WebSockets", "Responsive Design", "UI/UX"],
+  //   },
+  //   {
+  //     title: "Surveillance System Analytics Dashboard",
+  //     category: "web-enterprise",
+  //     industry: "Security / Smart Monitoring",
+  //     description:
+  //       "Analytics-driven dashboard to visualize surveillance data using charts and insights, enabling trend analysis and data-driven decision-making.",
+  //     tech: ["React", "Chart.js", "Data Visualization", "Dashboard UI"],
+  //   },
+  //   {
+  //     title: "QAPreneur – Backend Optimization Platform",
+  //     category: "web-enterprise",
+  //     industry: "SaaS / Automation",
+  //     description:
+  //       "Backend optimization and feature enhancement project focused on improving performance, scalability, and automation using Node.js and Express.",
+  //     tech: ["Node.js", "Express", "API Optimization", "Automation"],
+  //   },
+  //   {
+  //     title: "Kusum Industries – Inventory Management Dashboard",
+  //     category: "web-enterprise",
+  //     industry: "Manufacturing / Industrial Operations",
+  //     description:
+  //       "Comprehensive inventory management system for industrial operations, enabling product tracking, raw material monitoring, and real-time insights through interactive dashboards and reports.",
+  //     tech: ["React", "Node.js", "Charts & Reports", "Inventory Management"],
+  //   },
+  // ];
 
-  const iotProjects = [
-    {
-      title: "Sleep Monitoring IoT Device",
-      category: "iot",
-      heading: "Embedded Systems & Edge IoT",
-      industry: "Healthcare & Wellness",
-      description:
-        "Multi-sensor IoT device designed to monitor sleep patterns and environmental factors such as light, noise, temperature, and motion. Integrated edge computing using AWS Greengrass for real-time analysis and insights.",
-      tech: [
-        "IoT Sensors",
-        "Embedded Systems",
-        "AWS Greengrass",
-        "Edge Computing",
-        "Raspberry Pi 5",
-        "Radar System",
-      ],
-    },
-    {
-      title: "Pawzmo - Smart Pet Activity Tracker",
-      category: "iot",
-      heading: "Embedded Systems & IoT",
-      industry: "Pet Care & Wearables",
-      description:
-        "Wearable IoT device and companion mobile app for tracking pet activities like walking, running, sleeping, and eating using IMU and temperature sensors with BLE and Wi-Fi connectivity.",
-      tech: ["nRF", "BLE", "IoT", "ESP", "IMU Sensors", "Mobile App"],
-    },
-    {
-      title: "UV Disinfectant Shelf",
-      category: "iot",
-      industry: "Healthcare / Hygiene Automation",
-      description:
-        "Automated UV disinfectant shelf using UVC light, sensors, motors, and microcontrollers to sterilize multiple objects simultaneously with high efficiency and reliability.",
-      tech: [
-        "Microcontrollers",
-        "UVC Technology",
-        "Sensors",
-        "Embedded Systems",
-      ],
-    },
-    {
-      title: "Wireless UV Disinfectant Machine",
-      category: "iot",
-      heading: "Embedded Systems",
-      industry: "Public Safety & Hygiene",
-      description:
-        "Remote-controlled UV disinfection machine leveraging UVC light and RF-based wireless activation to safely sanitize environments and surfaces.",
-      tech: ["UVC Light", "RF Communication", "Embedded Systems"],
-    },
-    {
-      title: "Automatic Hand Sanitizer with IoT Integration",
-      category: "iot",
-      industry: "Smart Devices / Public Hygiene",
-      description:
-        "Touchless automatic hand sanitizer dispenser with infrared sensors, liquid level monitoring, refill alerts, and IoT-based data collection.",
-      tech: ["IR Sensors", "IoT", "Embedded Systems", "Level Monitoring"],
-    },
-    {
-      title: "Drowsiness Detection Cap",
-      category: "iot",
-      industry: "Automotive Safety",
-      description:
-        "Embedded safety device installed on a cap to detect driver drowsiness using motion and vibration sensing, triggering alerts and alarms to prevent accidents.",
-      tech: ["Motion Sensors", "Embedded Systems", "Alert Systems"],
-    },
-    {
-      title: "Secured LoRa-Based Communication System",
-      category: "iot",
-      heading: "Embedded Systems",
-      industry: "Defense & Military Communication",
-      description:
-        "Secure bidirectional LoRaWAN-based communication system for military environments, implementing AES and PBKDF2 encryption for confidential data transmission.",
-      tech: ["LoRaWAN", "AES Encryption", "IoT Security", "Embedded Systems"],
-    },
-    {
-      title: "RFID-Based Race Timing System",
-      category: "iot",
-      industry: "Sports Technology",
-      description:
-        "Automated RFID-based race timing and participant classification system with real-time data transmission to a GUI server using IoT.",
-      tech: ["RFID", "IoT", "Embedded Systems", "Real-Time Monitoring"],
-    },
-    {
-      title: "Women Safety & Emergency Response System",
-      category: "iot",
-      heading: "Embedded Systems & edge IoT",
-      industry: "Public Safety",
-      description:
-        "IoT-enabled women safety system combining sensors, AI analysis, GPS tracking, camera capture, and emergency alerts to pre-stored contacts during critical situations.",
-      tech: ["IoT Sensors", "GPS", "Camera Module", "AI Integration"],
-    },
-    {
-      title: "AI-Powered Arrhythmia Detection System",
-      category: "iot",
-      heading: "Embedded Systems & edge IoT",
-      industry: "Mental Health & Wellness",
-      description:
-        "AI-powered anxiety detection system using EEG, heart rate, GSR, and brainwave sensors integrated with IoT controllers for real-time emotional state assessment.",
-      tech: ["Biometric Sensors", "AI Models", "IoT Controllers"],
-    },
-    {
-      title: "AI-Based Fire Detection using CCTV",
-      category: "iot",
-      heading: "Embedded Systems & edge IoT",
-      industry: "Safety & Surveillance",
-      description:
-        "AI-driven fire detection system utilizing existing CCTV infrastructure and RTSP streams to detect fire patterns in real time and trigger alerts via a monitoring GUI.",
-      tech: ["CCTV", "RTSP", "AI Detection", "Monitoring Dashboard"],
-    },
-    {
-      title: "Weather Monitoring Station",
-      category: "iot",
-      industry: "Environmental Monitoring",
-      description:
-        "Solar-powered IoT weather station collecting real-time data on temperature, humidity, wind speed, and pressure, visualized through an interactive GUI.",
-      tech: [
-        "IoT Sensors",
-        "Solar Power",
-        "Data Visualization",
-        "Embedded Systems",
-      ],
-    },
-    {
-      title: "Humanoid Robot – Ahilya (Arya V1 & V2)",
-      category: "iot",
-      heading: "Embedded Systems & Robotics",
-      industry: "Robotics & Smart Automation",
-      description:
-        "Humanoid robots designed for interactive assistance, hospitality, and guided tours with speech recognition, face recognition, and personalized user interaction.",
-      tech: ["Robotics", "Speech Recognition", "Face Recognition", "IoT"],
-    },
-    {
-      title: "Kevin – Humanoid Serving Robot",
-      category: "iot",
-      heading: "Embedded Systems & Robotics",
-      industry: "Service Robotics",
-      description:
-        "IoT-enabled humanoid serving robot controlled via a mobile app, capable of navigation, object delivery, and interactive service in hospitality and healthcare environments.",
-      tech: ["Robotics", "IoT", "Mobile App Control", "Automation"],
-    },
-  ];
-  const mobileProjects = [
-    {
-      title: "Pawzmo – Animal Health Monitoring Mobile App",
-      category: "mobile-app",
-      industry: "IoT / Animal Healthcare",
-      description:
-        "IoT-enabled Flutter mobile application for real-time animal health and activity monitoring using BLE-based wearable devices. Supports Android and iOS with real-time data streaming and background synchronization.",
-      tech: [
-        "Flutter",
-        "Dart",
-        "BLE",
-        "MQTT",
-        "WebSocket",
-        "Firebase",
-        "REST APIs",
-      ],
-    },
-    {
-      title: "ND Tatva – Community Engagement Application",
-      category: "mobile-app",
-      industry: "Community & Social Platforms",
-      description:
-        "Community-focused Android application providing matrimony, job postings, announcements, and social engagement features with controlled access and admin approval workflow.",
-      tech: ["Flutter", "Dart", "REST APIs"],
-    },
-    {
-      title: "Gautam Setu – Community Services Platform",
-      category: "mobile-app",
-      industry: "Community Services",
-      description:
-        "Feature-rich community application connecting members through jobs, businesses, healthcare services, notifications, and digital contact sharing with monetization via Google Ads.",
-      tech: ["Flutter", "Firebase Authentication", "REST APIs", "Google Ads"],
-    },
-    {
-      title: "QAPreneur – Learning & Career Development Platform (Mobile)",
-      category: "mobile-app",
-      industry: "EdTech / Career Platforms",
-      description:
-        "Full-scale learning and career development mobile platform offering LMS, mock interviews, certifications, job marketplace, subscription plans, and payment integration.",
-      tech: ["Flutter", "Dart", "Firebase", "REST APIs", "Payment Gateway"],
-    },
-    {
-      title: "Shourya – Secure Data Collection App for Indian Army",
-      category: "mobile-app",
-      industry: "Defense / Secure Applications",
-      description:
-        "Secure Flutter-based Android application for Indian Army personnel to collect and store sensitive data with offline-first support and automatic cloud synchronization.",
-      tech: [
-        "Flutter",
-        "Firebase Authentication",
-        "Google Sign-In",
-        "SQLite (SQFlite)",
-        "Offline Sync",
-      ],
-    },
-  ];
+  // const iotProjects = [
+  //   {
+  //     title: "Sleep Monitoring IoT Device",
+  //     category: "iot",
+  //     heading: "Embedded Systems & Edge IoT",
+  //     industry: "Healthcare & Wellness",
+  //     description:
+  //       "Multi-sensor IoT device designed to monitor sleep patterns and environmental factors such as light, noise, temperature, and motion. Integrated edge computing using AWS Greengrass for real-time analysis and insights.",
+  //     tech: [
+  //       "IoT Sensors",
+  //       "Embedded Systems",
+  //       "AWS Greengrass",
+  //       "Edge Computing",
+  //       "Raspberry Pi 5",
+  //       "Radar System",
+  //     ],
+  //   },
+  //   {
+  //     title: "Pawzmo - Smart Pet Activity Tracker",
+  //     category: "iot",
+  //     heading: "Embedded Systems & IoT",
+  //     industry: "Pet Care & Wearables",
+  //     description:
+  //       "Wearable IoT device and companion mobile app for tracking pet activities like walking, running, sleeping, and eating using IMU and temperature sensors with BLE and Wi-Fi connectivity.",
+  //     tech: ["nRF", "BLE", "IoT", "ESP", "IMU Sensors", "Mobile App"],
+  //   },
+  //   {
+  //     title: "UV Disinfectant Shelf",
+  //     category: "iot",
+  //     industry: "Healthcare / Hygiene Automation",
+  //     description:
+  //       "Automated UV disinfectant shelf using UVC light, sensors, motors, and microcontrollers to sterilize multiple objects simultaneously with high efficiency and reliability.",
+  //     tech: [
+  //       "Microcontrollers",
+  //       "UVC Technology",
+  //       "Sensors",
+  //       "Embedded Systems",
+  //     ],
+  //   },
+  //   {
+  //     title: "Wireless UV Disinfectant Machine",
+  //     category: "iot",
+  //     heading: "Embedded Systems",
+  //     industry: "Public Safety & Hygiene",
+  //     description:
+  //       "Remote-controlled UV disinfection machine leveraging UVC light and RF-based wireless activation to safely sanitize environments and surfaces.",
+  //     tech: ["UVC Light", "RF Communication", "Embedded Systems"],
+  //   },
+  //   {
+  //     title: "Automatic Hand Sanitizer with IoT Integration",
+  //     category: "iot",
+  //     industry: "Smart Devices / Public Hygiene",
+  //     description:
+  //       "Touchless automatic hand sanitizer dispenser with infrared sensors, liquid level monitoring, refill alerts, and IoT-based data collection.",
+  //     tech: ["IR Sensors", "IoT", "Embedded Systems", "Level Monitoring"],
+  //   },
+  //   {
+  //     title: "Drowsiness Detection Cap",
+  //     category: "iot",
+  //     industry: "Automotive Safety",
+  //     description:
+  //       "Embedded safety device installed on a cap to detect driver drowsiness using motion and vibration sensing, triggering alerts and alarms to prevent accidents.",
+  //     tech: ["Motion Sensors", "Embedded Systems", "Alert Systems"],
+  //   },
+  //   {
+  //     title: "Secured LoRa-Based Communication System",
+  //     category: "iot",
+  //     heading: "Embedded Systems",
+  //     industry: "Defense & Military Communication",
+  //     description:
+  //       "Secure bidirectional LoRaWAN-based communication system for military environments, implementing AES and PBKDF2 encryption for confidential data transmission.",
+  //     tech: ["LoRaWAN", "AES Encryption", "IoT Security", "Embedded Systems"],
+  //   },
+  //   {
+  //     title: "RFID-Based Race Timing System",
+  //     category: "iot",
+  //     industry: "Sports Technology",
+  //     description:
+  //       "Automated RFID-based race timing and participant classification system with real-time data transmission to a GUI server using IoT.",
+  //     tech: ["RFID", "IoT", "Embedded Systems", "Real-Time Monitoring"],
+  //   },
+  //   {
+  //     title: "Women Safety & Emergency Response System",
+  //     category: "iot",
+  //     heading: "Embedded Systems & edge IoT",
+  //     industry: "Public Safety",
+  //     description:
+  //       "IoT-enabled women safety system combining sensors, AI analysis, GPS tracking, camera capture, and emergency alerts to pre-stored contacts during critical situations.",
+  //     tech: ["IoT Sensors", "GPS", "Camera Module", "AI Integration"],
+  //   },
+  //   {
+  //     title: "AI-Powered Arrhythmia Detection System",
+  //     category: "iot",
+  //     heading: "Embedded Systems & edge IoT",
+  //     industry: "Mental Health & Wellness",
+  //     description:
+  //       "AI-powered anxiety detection system using EEG, heart rate, GSR, and brainwave sensors integrated with IoT controllers for real-time emotional state assessment.",
+  //     tech: ["Biometric Sensors", "AI Models", "IoT Controllers"],
+  //   },
+  //   {
+  //     title: "AI-Based Fire Detection using CCTV",
+  //     category: "iot",
+  //     heading: "Embedded Systems & edge IoT",
+  //     industry: "Safety & Surveillance",
+  //     description:
+  //       "AI-driven fire detection system utilizing existing CCTV infrastructure and RTSP streams to detect fire patterns in real time and trigger alerts via a monitoring GUI.",
+  //     tech: ["CCTV", "RTSP", "AI Detection", "Monitoring Dashboard"],
+  //   },
+  //   {
+  //     title: "Weather Monitoring Station",
+  //     category: "iot",
+  //     industry: "Environmental Monitoring",
+  //     description:
+  //       "Solar-powered IoT weather station collecting real-time data on temperature, humidity, wind speed, and pressure, visualized through an interactive GUI.",
+  //     tech: [
+  //       "IoT Sensors",
+  //       "Solar Power",
+  //       "Data Visualization",
+  //       "Embedded Systems",
+  //     ],
+  //   },
+  //   {
+  //     title: "Humanoid Robot – Ahilya (Arya V1 & V2)",
+  //     category: "iot",
+  //     heading: "Embedded Systems & Robotics",
+  //     industry: "Robotics & Smart Automation",
+  //     description:
+  //       "Humanoid robots designed for interactive assistance, hospitality, and guided tours with speech recognition, face recognition, and personalized user interaction.",
+  //     tech: ["Robotics", "Speech Recognition", "Face Recognition", "IoT"],
+  //   },
+  //   {
+  //     title: "Kevin – Humanoid Serving Robot",
+  //     category: "iot",
+  //     heading: "Embedded Systems & Robotics",
+  //     industry: "Service Robotics",
+  //     description:
+  //       "IoT-enabled humanoid serving robot controlled via a mobile app, capable of navigation, object delivery, and interactive service in hospitality and healthcare environments.",
+  //     tech: ["Robotics", "IoT", "Mobile App Control", "Automation"],
+  //   },
+  // ];
+  // const mobileProjects = [
+  //   {
+  //     title: "Pawzmo – Animal Health Monitoring Mobile App",
+  //     category: "mobile-app",
+  //     industry: "IoT / Animal Healthcare",
+  //     description:
+  //       "IoT-enabled Flutter mobile application for real-time animal health and activity monitoring using BLE-based wearable devices. Supports Android and iOS with real-time data streaming and background synchronization.",
+  //     tech: [
+  //       "Flutter",
+  //       "Dart",
+  //       "BLE",
+  //       "MQTT",
+  //       "WebSocket",
+  //       "Firebase",
+  //       "REST APIs",
+  //     ],
+  //   },
+  //   {
+  //     title: "ND Tatva – Community Engagement Application",
+  //     category: "mobile-app",
+  //     industry: "Community & Social Platforms",
+  //     description:
+  //       "Community-focused Android application providing matrimony, job postings, announcements, and social engagement features with controlled access and admin approval workflow.",
+  //     tech: ["Flutter", "Dart", "REST APIs"],
+  //   },
+  //   {
+  //     title: "Gautam Setu – Community Services Platform",
+  //     category: "mobile-app",
+  //     industry: "Community Services",
+  //     description:
+  //       "Feature-rich community application connecting members through jobs, businesses, healthcare services, notifications, and digital contact sharing with monetization via Google Ads.",
+  //     tech: ["Flutter", "Firebase Authentication", "REST APIs", "Google Ads"],
+  //   },
+  //   {
+  //     title: "QAPreneur – Learning & Career Development Platform (Mobile)",
+  //     category: "mobile-app",
+  //     industry: "EdTech / Career Platforms",
+  //     description:
+  //       "Full-scale learning and career development mobile platform offering LMS, mock interviews, certifications, job marketplace, subscription plans, and payment integration.",
+  //     tech: ["Flutter", "Dart", "Firebase", "REST APIs", "Payment Gateway"],
+  //   },
+  //   {
+  //     title: "Shourya – Secure Data Collection App for Indian Army",
+  //     category: "mobile-app",
+  //     industry: "Defense / Secure Applications",
+  //     description:
+  //       "Secure Flutter-based Android application for Indian Army personnel to collect and store sensitive data with offline-first support and automatic cloud synchronization.",
+  //     tech: [
+  //       "Flutter",
+  //       "Firebase Authentication",
+  //       "Google Sign-In",
+  //       "SQLite (SQFlite)",
+  //       "Offline Sync",
+  //     ],
+  //   },
+  // ];
 
   //For Section 3 Portfolio Projects
-  const projects = [
-    ...aiProjects,
-    ...webProjects,
-    ...iotProjects,
-    ...mobileProjects,
-  ];
+  // const projects = [
+  //   ...aiProjects,
+  //   ...webProjects,
+  //   ...iotProjects,
+  //   ...mobileProjects,
+  // ];
 
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+  const fetchProjects = async (categorySlug) => {
+    try {
+      setLoading(true);
+
+      const res = await getPortfolioProjects({
+        category: categorySlug,
+      });
+
+      setProjects(res.data);
+    } catch (error) {
+      const err = GetApiErrorMessage(error);
+      // showToast(err, "error");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const fetchCategories = async () => {
+    try {
+      const res = await getPortfolioCategories();
+      console.log("Category : ", res);
+
+      setCategories(res.data);
+      setLoading(false);
+    } catch (error) {
+      const err = GetApiErrorMessage(error);
+      // showToast(err, "error");
+      console.error(err); 
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+  
+  useEffect(() => {
+    if (activeCategory) {
+      fetchProjects(activeCategory);
+    }
+  }, [activeCategory]);
   // For section 4
   const industries = [
     {
@@ -597,11 +654,16 @@ const Portfolio = () => {
     },
   ];
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  // const filteredProjects =
+  //   activeCategory === "All"
+  //     ? projects
+  //     : projects.filter((p) => {
+  //         console.log("PPPP :", p);
+  //         return p.category.slug === activeCategory;
+  //       });
+  const filteredProjects = projects;
 
+  // console.log("filter project : ", filteredProjects);
   const handleClick = (cat) => {
     setActive(cat);
     setActiveCategory(cat);
@@ -746,14 +808,16 @@ const Portfolio = () => {
 
           {/* GRID */}
           <div className="rtx-projects-grid">
-            {filteredProjects.map((item, i) => (
+            {/* {filteredProjects.map((item, i) => ( */}
+            {projects.map((item, i) => (
               <article
                 key={i}
                 className="rtx-project-card u-drop-scale"
                 style={{ "--delay": `${0.15 + i * 0.1}s` }}
               >
                 <span className="rtx-project-category">
-                  {item.heading ? item.heading : item.category}
+                  {/* {item.heading ? item.heading : item.category} */}
+                  {item.heading ? item.heading : item.category?.slug}
                 </span>
 
                 <h3>{item.title}</h3>

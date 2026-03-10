@@ -53,4 +53,7 @@ const portfolioSchema = new mongoose.Schema(
 );
 portfolioSchema.index({ "category.slug": 1, isActive: 1 });
 
-export default mongoose.model("Portfolio", portfolioSchema);
+// prevent duplicates
+portfolioSchema.index({ title: 1, "category.slug": 1 }, { unique: true });
+
+export default mongoose.model("PortfolioProject", portfolioSchema);

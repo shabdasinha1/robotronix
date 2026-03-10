@@ -224,6 +224,10 @@ textarea {
   height: 140px; /* fixed height */
 }
 
+.rtx-text-muted{
+  color: var(--clr-text-muted);
+}
+
 /* ===============================
    REUSABLE DROPDOWN
 ================================ */

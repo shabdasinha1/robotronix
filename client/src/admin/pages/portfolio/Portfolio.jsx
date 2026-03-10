@@ -75,11 +75,11 @@ const Portfolio = () => {
   // Fetch categories once on mount
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [filterCategory]);
   // Fetch projects only when filter or showDeleted changes
   useEffect(() => {
     fetchProjects();
-  }, [filterCategory]);
+  }, [filterCategory, , showDeleted]);
 
   /* ================= FORM SUBMIT ================= */
 
@@ -114,9 +114,10 @@ const Portfolio = () => {
 
   /* ================= DELETE ================= */
 
-  const deleteProject = async () => {
+  const deleteProject = async (projectId) => {
     try {
-      await adminDashboardServices.deletePortfolioProject(selectedProject._id);
+      // await adminDashboardServices.deletePortfolioProject(selectedProject._id);
+      await adminDashboardServices.deletePortfolioProject(projectId);
 
       //   setProjects((prev) =>
       //     prev.map((p) =>
@@ -127,6 +128,19 @@ const Portfolio = () => {
       showToast("Project deleted", "success");
       fetchProjects();
       setIsFormOpen(false);
+    } catch (err) {
+      showToast(GetApiErrorMessage(err), "error");
+    }
+  };
+
+  /* ================= RESTORE PROJECT ================= */
+  const restoreProject = async (projectId) => {
+    try {
+      await adminDashboardServices.restorePortfolioProject(projectId);
+
+      showToast("Project restored", "success");
+
+      fetchProjects();
     } catch (err) {
       showToast(GetApiErrorMessage(err), "error");
     }
@@ -211,8 +225,17 @@ const Portfolio = () => {
 
       <div className="tp-grid portfolio-grid">
         {projects.map((project) => (
-          <Card key={project._id} className="rtx-admin-testimonials-card">
+          // <Card key={project._id} className="rtx-admin-testimonials-card">
+          <Card
+            key={project._id}
+            className={`rtx-admin-testimonials-card ${
+              !project.isActive ? "deleted-project" : ""
+            }`}
+          >
             <div className="rtx-card-content flex-column-card opportunity-card">
+              {!project.isActive && (
+                <span className="deleted-badge">Deleted</span>
+              )}
               <span className="rtx-project-category">
                 {project.heading ? project.heading : project.category.slug}
               </span>
@@ -230,37 +253,57 @@ const Portfolio = () => {
                   <span key={idx}>{t}</span>
                 ))}
               </div>
-              <div className="opportunity-actions">
+              <div className="opportunity-actions rtx-card-actions">
                 <button
-                  className="tp-icon-btn"
+                  className="btn btn-primary"
                   onClick={() => {
                     setSelectedProject(project);
                     setIsViewOpen(true);
                   }}
                 >
-                  <FiEye />
+                  View
                 </button>
 
-                <button
-                  className="tp-icon-btn"
-                  onClick={() => {
-                    setSelectedProject(project);
+                {!showDeleted && (
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      setSelectedProject(project);
 
-                    setForm({
-                      title: project.title,
-                      heading: project.heading,
-                      description: project.description,
-                      industry: project.industry,
-                      category: project.category,
-                      tech: project.tech || [],
-                      isActive: project.isActive,
-                    });
+                      setForm({
+                        title: project.title,
+                        description: project.description,
+                        industry: project.industry,
+                        category: project.category,
+                        tech: project.tech || [],
+                        isActive: project.isActive,
+                      });
 
-                    setIsFormOpen(true);
-                  }}
-                >
-                  <FiEdit />
-                </button>
+                      setIsFormOpen(true);
+                    }}
+                  >
+                    Edit
+                  </button>
+                )}
+                {!showDeleted && (
+                  <button
+                    type="button"
+                    className="btn btn-primary rtx-btn-danger"
+                    onClick={()=>deleteProject(project._id)}
+                  >
+                    {/* <FiTrash />  */}
+                    Delete
+                  </button>
+                )}
+
+                {showDeleted && (
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => restoreProject(project._id)}
+                  >
+                    Restore
+                  </button>
+                )}
               </div>
             </div>
             <div></div>
@@ -277,8 +320,11 @@ const Portfolio = () => {
       >
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
-            <label>Project Slug / Title</label>
+            <label>
+              Project Title <span className="rtx-required-start">*</span>
+            </label>
             <input
+              placeholder="Enter Project Title"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               required
@@ -286,15 +332,21 @@ const Portfolio = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Project Heading</label>
+            <label>
+              Project Heading{" "}
+              <span className="rtx-text-muteded">(Optional)</span>
+            </label>
             <input
+              placeholder="Enter Project Heading (Slug)"
               value={form.heading}
               onChange={(e) => setForm({ ...form, heading: e.target.value })}
             />
           </div>
 
           <div className="rtx-form-group">
-            <label>Category</label>
+            <label>
+              Category <span className="rtx-required-start">*</span>
+            </label>
 
             <Dropdown
               value={form.category.slug}
@@ -361,16 +413,22 @@ const Portfolio = () => {
           </div>
 
           <div className="rtx-form-group">
-            <label>Industry</label>
+            <label>
+              Industry <span className="rtx-required-start">*</span>
+            </label>
             <input
+              placeholder="Enter Industry"
               value={form.industry}
               onChange={(e) => setForm({ ...form, industry: e.target.value })}
             />
           </div>
 
           <div className="rtx-form-group">
-            <label>Description</label>
+            <label>
+              Description <span className="rtx-required-start">*</span>
+            </label>
             <textarea
+              placeholder="Enter Project Description"
               value={form.description}
               onChange={(e) =>
                 setForm({
@@ -428,7 +486,7 @@ const Portfolio = () => {
               {selectedProject ? "Update" : "Create"} Project
             </button>
 
-            {selectedProject && (
+            {/* {selectedProject && (
               <button
                 type="button"
                 className="btn btn-primary rtx-btn-danger"
@@ -436,7 +494,7 @@ const Portfolio = () => {
               >
                 <FiTrash /> Delete
               </button>
-            )}
+            )} */}
           </div>
         </form>
       </Modal>

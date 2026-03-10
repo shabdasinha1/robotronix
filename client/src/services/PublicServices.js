@@ -4,7 +4,9 @@ import { publicApi } from "../api/axios";
    GET ALL TESTIMONIALS (PUBLIC)
 ================================ */
 export const getAllTestimonials = async () => {
-  const { data } = await publicApi.get("/testimonial/alltestimonials?isActive=true");
+  const { data } = await publicApi.get(
+    "/testimonial/alltestimonials?isActive=true",
+  );
   return data;
 };
 /* ===============================
@@ -24,14 +26,23 @@ export const getAllJobs = async () => {
   return data;
 };
 
-
-export const jobApply = async(payload)=>{
-  const {data} = await publicApi.post('/application', payload);
+export const jobApply = async (payload) => {
+  const { data } = await publicApi.post("/application", payload);
   return data;
-}
+};
 
 // --------------- Create Message --------------------
 export const createMessage = async (payload) => {
   const { data } = await publicApi.post("/messages", payload);
+  return data;
+};
+
+export const getPortfolioProjects = async (params = {}) => {
+  const { data } = await publicApi.get("/portfolio/projects", { params });
+  return data;
+};
+
+export const getPortfolioCategories = async () => {
+  const { data } = await publicApi.get("/portfolio/categories");
   return data;
 };
