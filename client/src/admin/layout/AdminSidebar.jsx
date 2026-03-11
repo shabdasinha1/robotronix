@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import RoboImg from "../../assets/images/compony-logo.png";
 import { FiX } from "react-icons/fi";
-import { FiFileText,FiBriefcase, FiGrid  } from "react-icons/fi";
+import { FiFileText, FiBriefcase, FiGrid } from "react-icons/fi";
 
 const AdminSidebar = ({ isMobile, closeSidebar }) => {
   return (
@@ -72,7 +72,7 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
 
         <li className="u-drop" style={{ "--delay": "0.4s" }}>
           <NavLink to="/admin/content/testimonials">
-            <span className="rtx-admin-nav-icon">💬</span>
+            <span className="rtx-admin-nav-icon">⭐</span>
             <span className="rtx-admin-nav-text">Testimonials</span>
           </NavLink>
         </li>
@@ -86,7 +86,8 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
         <li className="u-drop" style={{ "--delay": "0.45s" }}>
           <NavLink to="/admin/content/applications">
             <span className="rtx-admin-nav-icon">
-              <FiFileText size={16} />
+              {/* <FiFileText size={16} /> */}
+              📝
             </span>
             <span className="rtx-admin-nav-text">Application</span>
           </NavLink>
@@ -94,17 +95,28 @@ const AdminSidebar = ({ isMobile, closeSidebar }) => {
         <li className="u-drop" style={{ "--delay": "0.45s" }}>
           <NavLink to="/admin/content/opportunities">
             <span className="rtx-admin-nav-icon">
-              <FiBriefcase size={16} />
+              {/* <FiBriefcase size={16} /> */}
+              💼
             </span>
             <span className="rtx-admin-nav-text">Opportunities</span>
           </NavLink>
         </li>
         <li className="u-drop" style={{ "--delay": "0.45s" }}>
-          <NavLink to="/admin/content/portfolio">
+          <NavLink to="/admin/content/portfolio/projects">
             <span className="rtx-admin-nav-icon">
-              <FiGrid size={16} />
+              {/* <FiGrid size={16} /> */}
+              📦
             </span>
-            <span className="rtx-admin-nav-text">Portfolio</span>
+            <span className="rtx-admin-nav-text">Portfolio Projects</span>
+          </NavLink>
+        </li>
+        <li className="u-drop" style={{ "--delay": "0.45s" }}>
+          <NavLink to="/admin/content/portfolio/tech-stack">
+            <span className="rtx-admin-nav-icon">
+              {/* <FiGrid size={16} /> */}
+              🧩
+            </span>
+            <span className="rtx-admin-nav-text">Portfolio Tech Stack</span>
           </NavLink>
         </li>
 

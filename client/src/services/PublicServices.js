@@ -37,12 +37,21 @@ export const createMessage = async (payload) => {
   return data;
 };
 
+/* ===============================
+   PORTFOLIO PAGE API'S
+================================ */
+
 export const getPortfolioProjects = async (params = {}) => {
   const { data } = await publicApi.get("/portfolio/projects", { params });
   return data;
 };
 
 export const getPortfolioCategories = async () => {
-  const { data } = await publicApi.get("/portfolio/categories");
+  const { data } = await publicApi.get("/portfolio/projects/categories");
   return data;
 };
+
+export const getPortfolioTechStack = async()=>{
+  const {data} = await publicApi.get("/portfolio/tech-stack");
+  return data;
+}

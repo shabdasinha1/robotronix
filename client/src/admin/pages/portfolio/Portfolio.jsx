@@ -170,7 +170,7 @@ const Portfolio = () => {
       <div className="tp-admin-header">
         <div>
           <h2 className="u-title tp-admin-title">
-            Portfolio <span>Manager</span>
+            Portfolio <span>Projects</span>
           </h2>
 
           <p className="u-subtext tp-admin-subtitle">

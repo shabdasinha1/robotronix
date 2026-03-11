@@ -162,11 +162,45 @@ export const adminDashboardServices = {
   },
 
   getPortfolioCategories: async () => {
-    const { data } = await api.get("/portfolio/categories");
+    const { data } = await api.get("/portfolio/projects/categories");
     return data;
   },
   restorePortfolioProject: async (id) => {
     return await api.patch(`/portfolio/projects/${id}/restore`);
+  },
+
+  /* =====================================================
+   PORTFOLIO TECH STACK MANAGEMENT
+===================================================== */
+
+  getTechStack: async (params = {}) => {
+    const { data } = await api.get("/portfolio/tech-stack", { params });
+    return data;
+  },
+
+  getTechStackById: async (id) => {
+    const { data } = await api.get(`/portfolio/tech-stack/${id}`);
+    return data;
+  },
+
+  createTechStack: async (payload) => {
+    const { data } = await api.post("/portfolio/tech-stack", payload);
+    return data;
+  },
+
+  updateTechStack: async (id, payload) => {
+    const { data } = await api.patch(`/portfolio/tech-stack/${id}`, payload);
+    return data;
+  },
+
+  deleteTechStack: async (id) => {
+    const { data } = await api.delete(`/portfolio/tech-stack/${id}`);
+    return data;
+  },
+
+  restoreTechStack: async (id) => {
+    const { data } = await api.patch(`/portfolio/tech-stack/${id}/restore`);
+    return data;
   },
 };
 

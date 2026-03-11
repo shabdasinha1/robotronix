@@ -1,4 +1,4 @@
-import Portfolio from "./portfolio.model.js";
+import Portfolio from "./portfolio.projects.model.js";
 
 export const createProject = async (data) => {
   const slug = data.category.slug.toLowerCase();

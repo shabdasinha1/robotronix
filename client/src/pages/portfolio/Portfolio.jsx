@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation, useSearchParams } from "react-router-dom";
 import {
   getPortfolioCategories,
   getPortfolioProjects,
+  getPortfolioTechStack,
 } from "../../services/PublicServices";
 import { GetApiErrorMessage } from "../../utils/ErrorHandler";
 import { useToast } from "../../components/common/ToastContext";
@@ -16,7 +17,7 @@ const Portfolio = () => {
   const [active, setActive] = useState(initialCategory);
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const location = useLocation();
-  const {showToast} = useToast();
+  const { showToast } = useToast();
 
   // console.log(categoryFromUrl)
   // useEffect(() => {
@@ -458,21 +459,37 @@ const Portfolio = () => {
   const fetchCategories = async () => {
     try {
       const res = await getPortfolioCategories();
-      console.log("Category : ", res);
+      // console.log("Category : ", res);
 
       setCategories(res.data);
       setLoading(false);
     } catch (error) {
       const err = GetApiErrorMessage(error);
       // showToast(err, "error");
-      console.error(err); 
+      console.error(err);
     }
   };
+  const [techStack, setTechStack] = useState([]);
+  const fetchTechStack = async () => {
+    try {
+      setLoading(true);
 
+      const res = await getPortfolioTechStack();
+      // console.log(res);
+      setTechStack(res.data);
+    } catch (error) {
+      const err = GetApiErrorMessage(error);
+      // showToast(err, "error");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     fetchCategories();
+    fetchTechStack();
   }, []);
-  
+
   useEffect(() => {
     if (activeCategory) {
       fetchProjects(activeCategory);
@@ -507,152 +524,152 @@ const Portfolio = () => {
   ];
 
   // For section 5 Technology Stack
-  const techStack = [
-    {
-      group: "Web Development – Frontend",
-      items: [
-        "HTML",
-        "CSS (Bootstrap)",
-        "JavaScript",
-        "TypeScript",
-        "jQuery",
-        "React JS",
-        "Angular",
-        "Next JS",
-      ],
-    },
-    {
-      group: "Backend Development & APIs",
-      items: [
-        "PHP (CodeIgniter, Laravel)",
-        "Java (Spring MVC, Spring Boot, Hibernate, JPA, JDBC)",
-        "Python (Flask, Django)",
-        "Node.js",
-        "REST APIs",
-        "Microservices",
-        "Apache Kafka",
-      ],
-    },
-    {
-      group: "Databases",
-      items: [
-        "MySQL",
-        "MS SQL",
-        "PostgreSQL",
-        "MongoDB",
-        "DynamoDB",
-        "BigQuery",
-        "SQLite",
-        "InfluxDB",
-      ],
-    },
-    {
-      group: "Cloud, DevOps & Tools",
-      items: [
-        "AWS EC2",
-        "AWS S3",
-        "AWS Lambda",
-        "AWS RDS",
-        "AWS IoT Core",
-        "AWS Greengrass",
-        "Docker",
-        "CI/CD Pipelines",
-        "GitHub",
-        "GitLab",
-        "Jira",
-        "GCS Services",
-      ],
-    },
-    {
-      group: "Mobile App Development",
-      items: [
-        "Flutter (Android & iOS)",
-        "Dart",
-        "Firebase Authentication",
-        "Google Ads",
-        "Google Sign-In",
-        "SignIn with apple",
-        "REST APIs",
-        "SQLite (Offline Storage)",
-      ],
-    },
-    {
-      group: "AI, Machine Learning & Computer Vision",
-      items: [
-        "TensorFlow",
-        "PyTorch",
-        "Instance Segmentation",
-        "OpenCV",
-        "YOLO",
-        "CNN",
-        "Object Detection & Recognition",
-        "Object Tracking",
-      ],
-    },
-    {
-      group: "Natural Language Processing (NLP)",
-      items: [
-        "TensorFlow NLP",
-        "SpaCy",
-        "Gensim",
-        "BERT",
-        "ALBERT",
-        "LSTM",
-        "RNN",
-      ],
-    },
-    {
-      group: "Generative AI & LLM Frameworks",
-      items: [
-        "LangChain",
-        "OpenAI Models",
-        "Gemini",
-        "Hugging Face Transformers",
-        "AWS Bedrock",
-        "RAG Pipelines",
-        "N8N",
-        "Ollama",
-      ],
-    },
-    {
-      group: "Data Analytics & ETL",
-      items: [
-        "Pandas",
-        "NumPy",
-        "Scikit-learn",
-        "Tableau",
-        "Power BI",
-        "Kafka",
-        "Kafka Connect",
-        "Kafka Streams",
-        "Apache Spark",
-        "PySpark",
-        "Airflow",
-        "Flink",
-      ],
-    },
-    {
-      group: "Embedded Systems & IoT",
-      items: [
-        "Embedded System Design",
-        "Hardware & Circuit Design",
-        "2-layer & Multilayer PCB Design",
-        "ESP Controllers",
-        "ATmega Controllers",
-        "Raspberry Pi",
-        "Jetson Orin",
-        "RF & GPS Modules",
-        "Wi-Fi & BLE Firmware",
-        "MQTT (Mosquitto, EMQX)",
-        "Edge IoT",
-        "nRF (Nordic BLE / IoT SoCs)",
-      ],
-    },
-    {
-      group: "Firmware & Low-Level Development",
-      items: ["C / C++", "Python", "Lua", "Arduino IDE", "VS Code", "DipTrace"],
-    },
-  ];
+  // const techStack = [
+  //   {
+  //     group: "Web Development – Frontend",
+  //     items: [
+  //       "HTML",
+  //       "CSS (Bootstrap)",
+  //       "JavaScript",
+  //       "TypeScript",
+  //       "jQuery",
+  //       "React JS",
+  //       "Angular",
+  //       "Next JS",
+  //     ],
+  //   },
+  //   {
+  //     group: "Backend Development & APIs",
+  //     items: [
+  //       "PHP (CodeIgniter, Laravel)",
+  //       "Java (Spring MVC, Spring Boot, Hibernate, JPA, JDBC)",
+  //       "Python (Flask, Django)",
+  //       "Node.js",
+  //       "REST APIs",
+  //       "Microservices",
+  //       "Apache Kafka",
+  //     ],
+  //   },
+  //   {
+  //     group: "Databases",
+  //     items: [
+  //       "MySQL",
+  //       "MS SQL",
+  //       "PostgreSQL",
+  //       "MongoDB",
+  //       "DynamoDB",
+  //       "BigQuery",
+  //       "SQLite",
+  //       "InfluxDB",
+  //     ],
+  //   },
+  //   {
+  //     group: "Cloud, DevOps & Tools",
+  //     items: [
+  //       "AWS EC2",
+  //       "AWS S3",
+  //       "AWS Lambda",
+  //       "AWS RDS",
+  //       "AWS IoT Core",
+  //       "AWS Greengrass",
+  //       "Docker",
+  //       "CI/CD Pipelines",
+  //       "GitHub",
+  //       "GitLab",
+  //       "Jira",
+  //       "GCS Services",
+  //     ],
+  //   },
+  //   {
+  //     group: "Mobile App Development",
+  //     items: [
+  //       "Flutter (Android & iOS)",
+  //       "Dart",
+  //       "Firebase Authentication",
+  //       "Google Ads",
+  //       "Google Sign-In",
+  //       "SignIn with apple",
+  //       "REST APIs",
+  //       "SQLite (Offline Storage)",
+  //     ],
+  //   },
+  //   {
+  //     group: "AI, Machine Learning & Computer Vision",
+  //     items: [
+  //       "TensorFlow",
+  //       "PyTorch",
+  //       "Instance Segmentation",
+  //       "OpenCV",
+  //       "YOLO",
+  //       "CNN",
+  //       "Object Detection & Recognition",
+  //       "Object Tracking",
+  //     ],
+  //   },
+  //   {
+  //     group: "Natural Language Processing (NLP)",
+  //     items: [
+  //       "TensorFlow NLP",
+  //       "SpaCy",
+  //       "Gensim",
+  //       "BERT",
+  //       "ALBERT",
+  //       "LSTM",
+  //       "RNN",
+  //     ],
+  //   },
+  //   {
+  //     group: "Generative AI & LLM Frameworks",
+  //     items: [
+  //       "LangChain",
+  //       "OpenAI Models",
+  //       "Gemini",
+  //       "Hugging Face Transformers",
+  //       "AWS Bedrock",
+  //       "RAG Pipelines",
+  //       "N8N",
+  //       "Ollama",
+  //     ],
+  //   },
+  //   {
+  //     group: "Data Analytics & ETL",
+  //     items: [
+  //       "Pandas",
+  //       "NumPy",
+  //       "Scikit-learn",
+  //       "Tableau",
+  //       "Power BI",
+  //       "Kafka",
+  //       "Kafka Connect",
+  //       "Kafka Streams",
+  //       "Apache Spark",
+  //       "PySpark",
+  //       "Airflow",
+  //       "Flink",
+  //     ],
+  //   },
+  //   {
+  //     group: "Embedded Systems & IoT",
+  //     items: [
+  //       "Embedded System Design",
+  //       "Hardware & Circuit Design",
+  //       "2-layer & Multilayer PCB Design",
+  //       "ESP Controllers",
+  //       "ATmega Controllers",
+  //       "Raspberry Pi",
+  //       "Jetson Orin",
+  //       "RF & GPS Modules",
+  //       "Wi-Fi & BLE Firmware",
+  //       "MQTT (Mosquitto, EMQX)",
+  //       "Edge IoT",
+  //       "nRF (Nordic BLE / IoT SoCs)",
+  //     ],
+  //   },
+  //   {
+  //     group: "Firmware & Low-Level Development",
+  //     items: ["C / C++", "Python", "Lua", "Arduino IDE", "VS Code", "DipTrace"],
+  //   },
+  // ];
 
   // const filteredProjects =
   //   activeCategory === "All"
@@ -913,7 +930,7 @@ const Portfolio = () => {
                 <h3>{group.group}</h3>
                 <div className="rtx-tech-items">
                   {group.items.map((item, idx) => (
-                    <span key={idx}>{item}</span>
+                    <span key={idx}>{item.name}</span>
                   ))}
                 </div>
               </div>

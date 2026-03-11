@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useRevealOnScroll from "../../../hooks/useRevealOnScroll";
 // import messagesApi from "../../../api/messages.api";
 import messagesApi from "../../services/admin-dashboard-services";
+import Modal from "../../../components/common/Modal";
 
 const AdminMessages = () => {
   const { ref, visible } = useRevealOnScroll({
@@ -74,9 +75,7 @@ const AdminMessages = () => {
                 <td>{msg.name}</td>
                 <td>{msg.email}</td>
                 <td>{msg.phone || "-"}</td>
-                <td className="rtx-message-preview">
-                  {msg.message}
-                </td>
+                <td className="rtx-message-preview">{msg.message}</td>
                 <td>
                   <button
                     className="rtx-btn-view"
@@ -92,7 +91,7 @@ const AdminMessages = () => {
       </div>
 
       {/* ================= MODAL ================= */}
-      {activeMessage && (
+      {/* {activeMessage && (
         <div
           className="rtx-modal-overlay"
           onClick={() => setActiveMessage(null)}
@@ -134,7 +133,36 @@ const AdminMessages = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+      <Modal
+        isOpen={!!activeMessage}
+        onClose={() => setActiveMessage(null)}
+        title="Message Details"
+      >
+        {activeMessage && (
+          <div className="rtx-modal-body">
+            <div className="rtx-modal-row">
+              <span>Name</span>
+              <p>{activeMessage.name}</p>
+            </div>
+
+            <div className="rtx-modal-row">
+              <span>Email</span>
+              <p>{activeMessage.email}</p>
+            </div>
+
+            <div className="rtx-modal-row">
+              <span>Phone</span>
+              <p>{activeMessage.phone || "-"}</p>
+            </div>
+
+            <div className="rtx-modal-row full">
+              <span>Message</span>
+              <p>{activeMessage.message}</p>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };

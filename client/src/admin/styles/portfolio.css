@@ -106,3 +106,16 @@ gap:16px;
 .rtx-required-start {
   color: #ff4d4f;
 }
+
+
+/* 
+===========================================================================
+              Technology STACK
+===========================================================================
+*/
+
+.rtx-card-content h3{
+  font-size: var(--fs-card-title);
+    margin-bottom: var(--space-xs);
+    color: var(--clr-white);
+}

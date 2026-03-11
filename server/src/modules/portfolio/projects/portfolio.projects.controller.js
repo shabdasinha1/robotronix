@@ -1,4 +1,4 @@
-import * as portfolioService from "./portfolio.service.js";
+import * as portfolioService from "./portfolio.projects.service.js";
 
 export const createProject = async (req, res) => {
   try {
