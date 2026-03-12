@@ -206,13 +206,16 @@ const Career = React.memo(() => {
                 View Open Positions
               </button>
 
-              <button className="btn btn-outline btn-lg" onClick={() => {
-                      // setApplicationType("job");
-                      // setSelectedJob(job);
-                      setIsApplyOpen(true);
-                    }}>
-              Send Resume
-            </button>
+              <button
+                className="btn btn-outline btn-lg"
+                onClick={() => {
+                  // setApplicationType("job");
+                  // setSelectedJob(job);
+                  setIsApplyOpen(true);
+                }}
+              >
+                Send Resume
+              </button>
             </div>
           </div>
 
@@ -526,8 +529,13 @@ const Career = React.memo(() => {
             // }
             title="Apply Now"
           >
-            {/* <ApplicationForm type={applicationType} jobData={selectedJob} /> */}
-            <ApplicationForm jobData={selectedJob} />
+            <ApplicationForm
+              jobData={selectedJob}
+              onSuccess={() => {
+                setIsApplyOpen(false); // close modal
+                setSelectedJob(null); // reset job
+              }}
+            />
           </Modal>
         </div>
       </section>
@@ -597,11 +605,14 @@ const Career = React.memo(() => {
               View Open Positions
             </a>
 
-            <button className="btn btn-outline btn-lg" onClick={() => {
-                      // setApplicationType("job");
-                      // setSelectedJob(job);
-                      setIsApplyOpen(true);
-                    }}>
+            <button
+              className="btn btn-outline btn-lg"
+              onClick={() => {
+                // setApplicationType("job");
+                // setSelectedJob(job);
+                setIsApplyOpen(true);
+              }}
+            >
               Send Your Resume
             </button>
           </div>

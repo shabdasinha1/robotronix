@@ -1,10 +1,13 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import Button from "../../components/common/Button";
 // import messagesApi from "../../api/messages.api";
 import { useToast } from "../common/ToastContext";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { createMessage } from "../../services/PublicServices";
+import {
+  createMessage,
+  getContactDetails,
+} from "../../services/PublicServices";
 const ContactSection = React.memo(() => {
   const { showToast } = useToast();
   /* ===============================
@@ -34,7 +37,21 @@ const ContactSection = React.memo(() => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [contact, setContact] = useState(null);
 
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        const res = await getContactDetails();
+        const contactData = res?.data || res;
+        setContact(contactData);
+      } catch (error) {
+        console.error("Failed to load contact details:", error);
+      }
+    };
+
+    fetchContact();
+  }, []);
   /* ===============================
      HANDLERS (MEMOIZED)
   =============================== */
@@ -47,44 +64,43 @@ const ContactSection = React.memo(() => {
     }));
   }, []);
 
- const handleSubmit = useCallback(
-  async (e) => {
-    e.preventDefault();
-    if (loading) return;
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (loading) return;
 
-    // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
-    const messageLength = formData.message.trim().length;
+      // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
+      const messageLength = formData.message.trim().length;
 
-    if (messageLength < 40) {
-      showToast(
-        "Project details must contain at least 40 characters.",
-        "error"
-      );
-      return;
-    }
+      if (messageLength < 40) {
+        showToast(
+          "Project details must contain at least 40 characters.",
+          "error",
+        );
+        return;
+      }
 
-    setLoading(true);
+      setLoading(true);
 
-    try {
-      await createMessage(formData);
+      try {
+        await createMessage(formData);
 
-      showToast("Message sent successfully!", "success");
+        showToast("Message sent successfully!", "success");
 
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
-      });
-    } catch (err) {
-      showToast("Failed to send message", "error");
-    } finally {
-      setLoading(false);
-    }
-  },
-  [formData, loading, showToast],
-);
-
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+      } catch (err) {
+        showToast("Failed to send message", "error");
+      } finally {
+        setLoading(false);
+      }
+    },
+    [formData, loading, showToast],
+  );
 
   return (
     <section
@@ -188,15 +204,31 @@ const ContactSection = React.memo(() => {
 
             <div className="rtx-info-card">
               <h4>Email Us</h4>
-              <p className="d-flex">
+              {/* <p className="d-flex">
                 <Mail /> <p> info@robotronix.co.in</p>
+              </p> */}
+              <p className="d-flex">
+                <Mail />
+                <span>{contact?.emails?.[0]?.email}</span>
               </p>
             </div>
 
             <div className="rtx-info-card">
               <h4>Call Us</h4>
-              <p className="d-flex">
+              {/* <p className="d-flex">
                 <Phone /> <p>+91 99931 50998, +91 77248 52726</p>
+              </p> */}
+              <p className="d-flex">
+                <Phone />
+                <span>
+                  {contact?.phones?.map((p, i) => (
+                    <span key={i}>
+                      {p.number}
+                      {/* <br /> */}
+                      {", "}
+                    </span>
+                  ))}
+                </span>
               </p>
             </div>
 
@@ -204,12 +236,40 @@ const ContactSection = React.memo(() => {
               <h4>Visit Us</h4>
               <p className="d-flex">
                 <MapPin />
-                <p>
+                {/* <p>
                   402, Atulya IT PARK, MPIDC, Khandwa Rd,
                   <br />
                   Opposite Indian Coffee House,
                   <br />
                   Indore, Madhya Pradesh - 452001
+                </p> */}
+                <p>
+                  {contact?.address?.line1 && (
+                    <>
+                      {contact.address.line1}
+                      {", "}
+                    </>
+                  )}
+                  {contact?.address?.area && (
+                    <>
+                      {contact.address.area}
+                      {", "}
+                      <br />
+                    </>
+                  )}
+                  {contact?.address?.landmark && (
+                    <>
+                      {contact.address.landmark}
+                      {", "}
+                      <br />
+                    </>
+                  )}
+                  {contact?.address?.city && <>{contact.address.city}, </>}
+                  {contact?.address?.state && <>{contact.address.state}, </>}
+                  {contact?.address?.country && (
+                    <>{contact.address.country} - </>
+                  )}
+                  {contact?.address?.pincode && <>{contact.address.pincode}</>}
                 </p>
               </p>
             </div>

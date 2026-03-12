@@ -924,7 +924,9 @@
 .rtx-info-card {
   margin-bottom: var(--space-sm);
 }
-
+.rtx-info-card span{
+  margin-bottom: 1rem;
+}
 .rtx-info-card h4 {
   color: var(--clr-blue);
   margin-bottom: 4px;

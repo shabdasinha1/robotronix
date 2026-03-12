@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo, useCallback, useEffect, useState } from "react";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -16,6 +16,8 @@ import clutchLogo from "../../assets/images/logo/clutch.webp";
 import upworkLogo from "../../assets/images/logo/upwork.webp";
 import { Phone, PhoneCall } from "lucide-react";
 import { GiRotaryPhone } from "react-icons/gi";
+// Public API Services
+import { getContactDetails } from "../../services/PublicServices";
 
 /*==================================================================
     SMOOTH SCROLLING TO TOP (OPTIMIZED)
@@ -40,38 +42,99 @@ const ScrollNavLink = React.memo(({ to, children, ...props }) => {
     MAIN FOOTER FUNCTION
 ==================================================================*/
 const Footer = React.memo(() => {
+  /* =====================================================
+      STATE MANAGEMENT
+      Stores contact data fetched from API
+  ===================================================== */
+
+  const [contact, setContact] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  /* =====================================================
+      FETCH CONTACT DETAILS FROM API
+      Includes proper error handling
+  ===================================================== */
+
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        setLoading(true);
+
+        const response = await getContactDetails();
+
+        // API may return {success,data} OR direct data
+        const contactData = response?.data || response;
+
+        setContact(contactData);
+      } catch (error) {
+        console.error("Failed to fetch contact details:", error);
+
+        // Optional fallback so UI never breaks
+        setContact(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchContact();
+  }, []);
+
   // Memoized options to prevent observer recreation
   const revealOptions = useMemo(
     () => ({
       threshold: 0.2,
     }),
-    []
+    [],
   );
-
+  
   const { ref, visible } = useRevealOnScroll(revealOptions);
 
   return (
     <footer className="rtx-footer-wrapper" ref={ref}>
-      <div
-        className={`u-container u-drop ${
-          visible ? "u-drop-visible" : ""
-        }`}
-      >
+      <div className={`u-container u-drop ${visible ? "u-drop-visible" : ""}`}>
         {/* -------- GRID -------- */}
         <div className="rtx-footer-grid">
           {/* SERVICES */}
           <div className="rtx-footer-col">
             <h4>Services</h4>
             <ul>
-              <li><ScrollNavLink to="/ai-ml">AI and ML</ScrollNavLink></li>
-              <li><ScrollNavLink to="/generative-ai">Generative AI</ScrollNavLink></li>
-              <li><ScrollNavLink to="/agents-ai">Agents AI</ScrollNavLink></li>
-              <li><ScrollNavLink to="/computer-vision">Computer Vision</ScrollNavLink></li>
-              <li><ScrollNavLink to="/embedded-iot">IoT Development</ScrollNavLink></li>
-              <li><ScrollNavLink to="/data-science">Data Science</ScrollNavLink></li>
-              <li><ScrollNavLink to="/mobile-application-development">Mobile App Development</ScrollNavLink></li>
-              <li><ScrollNavLink to="/web-development">Web Development</ScrollNavLink></li>
-              <li><ScrollNavLink to="/on-demand-software-development">On Demand Software</ScrollNavLink></li>
+              <li>
+                <ScrollNavLink to="/ai-ml">AI and ML</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/generative-ai">Generative AI</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/agents-ai">Agents AI</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/computer-vision">
+                  Computer Vision
+                </ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/embedded-iot">
+                  IoT Development
+                </ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/data-science">Data Science</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/mobile-application-development">
+                  Mobile App Development
+                </ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/web-development">
+                  Web Development
+                </ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/on-demand-software-development">
+                  On Demand Software
+                </ScrollNavLink>
+              </li>
             </ul>
           </div>
 
@@ -79,39 +142,97 @@ const Footer = React.memo(() => {
           <div className="rtx-footer-col">
             <h4>About Us</h4>
             <ul>
-              <li><ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink></li>
-                <li><ScrollNavLink to="/vision-mission">Vision & Mission</ScrollNavLink></li>
-              <li><ScrollNavLink to="/culture">Culture</ScrollNavLink></li>
-              <li><ScrollNavLink to="/portfolio">Portfolio</ScrollNavLink></li>
-              <li><ScrollNavLink to="/career">Career</ScrollNavLink></li>
+              <li>
+                <ScrollNavLink to="/about-us">About Robotronix</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/vision-mission">
+                  Vision & Mission
+                </ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/culture">Culture</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/portfolio">Portfolio</ScrollNavLink>
+              </li>
+              <li>
+                <ScrollNavLink to="/career">Career</ScrollNavLink>
+              </li>
             </ul>
 
             <h4 className="rtx-footer-subtitle">Quick Connect</h4>
             <ul>
-              <li><ScrollNavLink to="/contact-us">Contact Us</ScrollNavLink></li>
+              <li>
+                <ScrollNavLink to="/contact-us">Contact Us</ScrollNavLink>
+              </li>
             </ul>
           </div>
 
           {/* CONTACT */}
           <div className="rtx-footer-contact">
-            <img src={logo} alt="" loading="lazy" className="rtx-footer-robo-logo"/>
-            <p className="rtx-footer-cmp-name">Robotronix Engineering Tech Pvt. Ltd.</p>
-
-            <p><Phone/> +91 99931 50998</p>
-            <p><Phone/> +91 77248 52726</p>
-            <p><GiRotaryPhone size={27} /> 0731-2970998</p>
-
-            <p className="rtx-footer-mail">info@robotronix.co.in</p>
-
-            <p className="rtx-footer-address">
-              402, Atulya IT PARK, MPIDC, Khandwa Rd,<br />
-              Opposite Indian Coffee House,<br />
-              Indore, Madhya Pradesh - 452001
+            <img
+              src={logo}
+              alt=""
+              loading="lazy"
+              className="rtx-footer-robo-logo"
+            />
+            <p className="rtx-footer-cmp-name">
+              Robotronix Engineering Tech Pvt. Ltd.
             </p>
+
+            {/* <p>
+              <Phone /> +91 99931 50998
+            </p>
+            <p>
+              <Phone /> +91 77248 52726
+            </p>
+            <p>
+              <GiRotaryPhone size={27} /> 0731-2970998
+            </p> */}
+            {/* ================= PHONE NUMBERS ================= */}
+
+            {contact?.phones?.map((phone, index) => (
+              <p key={index}>
+                {phone.label === "landline" ? (
+                  <GiRotaryPhone size={27} />
+                ) : (
+                  <Phone />
+                )}{" "}
+                {phone.number}
+              </p>
+            ))}
+
+            {/* ================= EMAIL ================= */}
+
+            {contact?.emails?.map((email, index) => (
+              <p key={index} className="rtx-footer-mail">
+                {email.email}
+              </p>
+            ))}
+
+            {/* <p className="rtx-footer-address">
+              402, Atulya IT PARK, MPIDC, Khandwa Rd,
+              <br />
+              Opposite Indian Coffee House,
+              <br />
+              Indore, Madhya Pradesh - 452001
+            </p> */}
+            {/* ================= ADDRESS ================= */}
+
+            {contact?.address && (
+              <p className="rtx-footer-address">
+                {contact.address.line1} {contact.address.area}, <br />
+                {contact.address.landmark}, <br/>
+                {contact.address.city}, {contact.address.state} -{" "}
+                {contact.address.pincode}
+              </p>
+            )}
 
             <div className="rtx-footer-social">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD."
+                // href="https://www.google.com/maps/search/?api=1&query=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD."
+                href={contact?.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Location on Google Maps"
@@ -120,7 +241,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://www.linkedin.com/company/robotronixindia/"
+                // href="https://www.linkedin.com/company/robotronixindia/"
+                href={contact?.socialLinks?.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -129,7 +251,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://instagram.com/robotronixindia?igshid=MGNiNDI5ZTU="
+                // href="https://instagram.com/robotronixindia?igshid=MGNiNDI5ZTU="
+                href={contact?.socialLinks?.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -138,7 +261,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://www.facebook.com/robotronixindiaa/"
+                // href="https://www.facebook.com/robotronixindiaa/"
+                href={contact?.socialLinks?.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -147,7 +271,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://whatsapp.com/channel/0029Va5MOXS7YScuXQ5pqb3G"
+                // href="https://whatsapp.com/channel/0029Va5MOXS7YScuXQ5pqb3G"
+                href={contact?.socialLinks?.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -156,7 +281,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://www.youtube.com/@robotronixindiaa"
+                // href="https://www.youtube.com/@robotronixindiaa"
+                href={contact?.socialLinks?.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
@@ -165,7 +291,8 @@ const Footer = React.memo(() => {
               </a>
 
               <a
-                href="https://x.com/ROBOTRONiX2010?s=08"
+                // href="https://x.com/ROBOTRONiX2010?s=08"
+                href={contact?.socialLinks?.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
@@ -182,10 +309,14 @@ const Footer = React.memo(() => {
                 className="rtx-rating-link"
                 aria-label="View Clutch Reviews"
               >
-                <img src={clutchLogo} alt="Clutch" className="rtx-rating-logo" />
-    <div>
-      ⭐⭐⭐⭐⭐ <span>5.0 — Clutch Reviews</span>
-    </div>
+                <img
+                  src={clutchLogo}
+                  alt="Clutch"
+                  className="rtx-rating-logo"
+                />
+                <div>
+                  ⭐⭐⭐⭐⭐ <span>5.0 — Clutch Reviews</span>
+                </div>
               </a>
 
               <a
@@ -195,10 +326,14 @@ const Footer = React.memo(() => {
                 className="rtx-rating-link"
                 aria-label="View Upwork Profile"
               >
-                  <img src={upworkLogo} alt="Upwork" className="rtx-rating-logo" />
-    <div>
-      ⭐⭐⭐⭐⭐ <span>5.0 — Upwork Reviews</span>
-    </div>
+                <img
+                  src={upworkLogo}
+                  alt="Upwork"
+                  className="rtx-rating-logo"
+                />
+                <div>
+                  ⭐⭐⭐⭐⭐ <span>5.0 — Upwork Reviews</span>
+                </div>
               </a>
             </div>
           </div>

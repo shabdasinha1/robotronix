@@ -229,20 +229,20 @@ const Opportunities = () => {
     }
   };
   return (
-    <div className="tp-admin-section">
+    <div className="rtx-admin-section">
       {/* ================= HEADER ================= */}
 
-      <div className="tp-admin-header">
-        <div>
-          <h2 className="u-title tp-admin-title">
+      <div className="rtx-admin-page-header rtx-admin-header">
+        <div className="w-full">
+          <h2 className="u-title rtx-admin-title">
             Current <span>Opportunities</span>
           </h2>
-          <p className="u-subtext tp-admin-subtitle">
+          <p className="u-subtext rtx-admin-subtitle">
             Manage current job and internship openings
           </p>
         </div>
 
-        <div className="tp-admin-actions">
+        <div className="rtx-admin-actions">
           <button
             onClick={handleOpenAdd}
             className="rtx-filter-btn rtx-application-filter"
@@ -282,7 +282,7 @@ const Opportunities = () => {
 
       {/* ================= CARD GRID ================= */}
 
-      <div className="tp-grid tp-grid-3">
+      <div className="rtx-grid rtx-grid-3">
         {opportunities.map((item) => (
           <Card key={item._id} className="rtx-admin-testimonials-card">
             <div className="rtx-card-content flex-column-card opportunity-card">
@@ -355,7 +355,7 @@ const Opportunities = () => {
         title="Opportunity Details"
       >
         {selectedOpportunity && (
-          <div className="tp-modal-content">
+          <div className="rtx-modal-content">
             <h4>{selectedOpportunity.title}</h4>
 
             <p>
@@ -398,7 +398,7 @@ const Opportunities = () => {
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
             <label>
-              Title<span className="rtx-required-start">*</span>
+              Title<span className="rtx-required-star">*</span>
             </label>
             <input
               placeholder="Enter Title"
@@ -411,7 +411,7 @@ const Opportunities = () => {
 
           <div className="rtx-form-group">
             <label>
-              Type<span className="rtx-required-start">*</span>
+              Type<span className="rtx-required-star">*</span>
             </label>
             {/* <select name="type" value={formData.type} onChange={handleChange}>
               <option value="job">Job</option>
@@ -434,7 +434,7 @@ const Opportunities = () => {
 
           <div className="rtx-form-group">
             <label>
-              Location<span className="rtx-required-start">*</span>
+              Location<span className="rtx-required-star">*</span>
             </label>
             <input
               placeholder="Enter Location"
@@ -446,7 +446,7 @@ const Opportunities = () => {
           {formData.type === "job" && (
             <div className="rtx-form-group">
               <label>
-                Employment Type<span className="rtx-required-start">*</span>
+                Employment Type<span className="rtx-required-star">*</span>
               </label>
               <Dropdown
                 value={formData.employmentType}
@@ -463,7 +463,7 @@ const Opportunities = () => {
           )}
           <div className="rtx-form-group">
             <label>
-              Description<span className="rtx-required-start">*</span>
+              Description<span className="rtx-required-star">*</span>
             </label>
             <textarea
               placeholder="Enter Full Job Description"
@@ -477,7 +477,7 @@ const Opportunities = () => {
             <>
               <div className="rtx-form-group">
                 <label>
-                  Experience<span className="rtx-required-start">*</span>
+                  Experience<span className="rtx-required-star">*</span>
                 </label>
                 <input
                   placeholder="Enter Experience"

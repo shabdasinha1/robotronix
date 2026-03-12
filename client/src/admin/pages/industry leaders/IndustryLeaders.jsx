@@ -149,7 +149,7 @@ const IndustryLeaders = () => {
   return (
     <div className="rtx-admin-industry">
       <div className="rtx-admin-page-header rtx-admin-industry-header">
-        <div>
+        <div className="w-full">
           <h2 className="u-title">
             Industry <span>Leaders</span>
           </h2>
@@ -244,7 +244,7 @@ const IndustryLeaders = () => {
             )}
           </div>
           <div className="rtx-form-group">
-            <label>Leader Name <span className="rtx-required-start">*</span></label>
+            <label>Leader Name <span className="rtx-required-star">*</span></label>
             <input
             placeholder="Enter Leader Name"
               required
@@ -257,7 +257,7 @@ const IndustryLeaders = () => {
 
           <div className="rtx-form-group">
             <label>
-              Upload Image <span className="rtx-required-start">*</span>
+              Upload Image <span className="rtx-required-star">*</span>
               <div className="rtx-text-muted rtx-img-instruction">(Background of image must be removed)</div>
             </label>
             <input

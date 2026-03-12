@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { jobApply } from "../../services/PublicServices";
 import { GetApiErrorMessage } from "../../utils/ErrorHandler";
 import { useToast } from "./ToastContext";
-const ApplicationForm = ({ type = "job", jobData }) => {
+import Dropdown from "./Dropdown";
+const ApplicationForm = ({ type = "job", jobData, onSuccess }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -123,6 +124,9 @@ const ApplicationForm = ({ type = "job", jobData }) => {
       const res = await jobApply(payload);
 
       showToast("Application submitted successfully!", "success");
+      if (onSuccess) {
+        onSuccess(); // close modal
+      }
 
       // Reset
       setFormData({
@@ -159,45 +163,113 @@ const ApplicationForm = ({ type = "job", jobData }) => {
       {/* PERSONAL DETAILS */}
       <div className="rtx-form-grid">
         <div className="rtx-form-group">
-          <label>Full Name *</label>
-          <input name="fullName" onChange={handleChange} />
+          <label>
+            Full Name{" "}
+            <span className="rtx-required-star">
+              <span className="rtx-required-star">*</span>
+            </span>
+          </label>
+          <input
+            name="fullName"
+            placeholder="Enter your full name"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="rtx-form-group">
-          <label>Email *</label>
-          <input type="email" name="email" onChange={handleChange} />
+          <label>
+            Email <span className="rtx-required-star">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="rtx-form-group">
-          <label>Phone *</label>
-          <input name="phone" onChange={handleChange} />
+          <label>
+            Phone <span className="rtx-required-star">*</span>
+          </label>
+          <input
+            name="phone"
+            placeholder="Enter your phone number"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="rtx-form-group">
-          <label>City *</label>
-          <input name="city" onChange={handleChange} />
+          <label>
+            City <span className="rtx-required-star">*</span>
+          </label>
+          <input
+            name="city"
+            placeholder="Enter your city"
+            onChange={handleChange}
+          />
         </div>
       </div>
+
       <div className="rtx-form-group">
-        <label>Application Category *</label>
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="">Select Category</option>
+        <label>
+          Application Category <span className="rtx-required-star">*</span>
+        </label>
+        {/* <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="">Select Application Category</option>
           <option value="job">Job</option>
           <option value="internship">Internship</option>
-        </select>
+        </select> */}
+        <Dropdown
+          value={category}
+          options={[
+            { label: "Select Application Category", value: "" },
+            { label: "Job", value: "job" },
+            { label: "Internship", value: "internship" },
+          ]}
+          onChange={(value) => setCategory(value)}
+        />
       </div>
 
       {/* JOB SPECIFIC */}
       {category === "job" && (
         <div className="rtx-form-grid">
           <div className="rtx-form-group">
-            <label>Experience *</label>
-            <input name="experience" onChange={handleChange} />
+            <label>
+              Experience <span className="rtx-required-star">*</span>
+            </label>
+            {/* <input
+              name="experience"
+              placeholder="Enter your total experience (e.g., 2 years)"
+              onChange={handleChange}
+            /> */}
+            <Dropdown
+              value={formData.experience}
+              options={[
+                { label: "Select Experience", value: "" },
+                { label: "Fresher", value: "fresher" },
+                { label: "0-1 Year", value: "0-1 year" },
+                { label: "1-2 Years", value: "1-2 years" },
+                { label: "2-3 Years", value: "2-3 years" },
+                { label: "3-5 Years", value: "3-5 years" },
+                { label: "5+ Years", value: "5+ years" },
+              ]}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  experience: value,
+                }))
+              }
+            />
           </div>
 
           <div className="rtx-form-group">
             <label>Current Company</label>
-            <input name="currentCompany" onChange={handleChange} />
+            <input
+              name="currentCompany"
+              placeholder="Enter your current company name"
+              onChange={handleChange}
+            />
           </div>
         </div>
       )}
@@ -206,48 +278,127 @@ const ApplicationForm = ({ type = "job", jobData }) => {
       {category === "internship" && (
         <div className="rtx-form-grid">
           <div className="rtx-form-group">
-            <label>College Name *</label>
-            <input name="college" onChange={handleChange} />
+            <label>
+              College Name <span className="rtx-required-star">*</span>
+            </label>
+            <input
+              name="college"
+              placeholder="Enter your college name"
+              onChange={handleChange}
+            />
           </div>
 
           <div className="rtx-form-group">
-            <label>Degree *</label>
-            <input name="degree" onChange={handleChange} />
+            <label>
+              Degree <span className="rtx-required-star">*</span>
+            </label>
+            {/* <input
+              name="degree"
+              placeholder="Enter your degree (e.g., B.Tech, BCA)"
+              onChange={handleChange}
+            /> */}
+            <Dropdown
+              value={formData.degree}
+              options={[
+                { label: "Select Degree", value: "" },
+                { label: "B.Tech", value: "B.Tech" },
+                { label: "BCA", value: "BCA" },
+                { label: "MCA", value: "MCA" },
+                { label: "B.Sc", value: "B.Sc" },
+                { label: "M.Tech", value: "M.Tech" },
+                { label: "Diploma", value: "Diploma" },
+                { label: "Other", value: "Other" },
+              ]}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  degree: value,
+                }))
+              }
+            />
           </div>
 
           <div className="rtx-form-group">
-            <label>Current Year *</label>
-            <input name="year" onChange={handleChange} />
+            <label>
+              Current Year <span className="rtx-required-star">*</span>
+            </label>
+            {/* <input
+              name="year"
+              placeholder="Enter your current year (e.g., 3rd Year)"
+              onChange={handleChange}
+            /> */}
+            <Dropdown
+              value={formData.year}
+              options={[
+                { label: "Select Current Year", value: "" },
+                { label: "1st Year", value: "1st Year" },
+                { label: "2nd Year", value: "2nd Year" },
+                { label: "3rd Year", value: "3rd Year" },
+                { label: "4th Year", value: "4th Year" },
+                { label: "Final Year", value: "Final Year" },
+              ]}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  year: value,
+                }))
+              }
+            />
           </div>
 
           <div className="rtx-form-group">
-            <label>Internship Duration *</label>
-            <select
+            <label>
+              Internship Duration <span className="rtx-required-star">*</span>
+            </label>
+            {/* <select
               name="duration"
               value={formData.duration}
               onChange={handleChange}
               required
             >
-              <option value="">Select Duration</option>
+              <option value="">Select Internship Duration</option>
               <option value="1 month">1 Month</option>
               <option value="3 months">3 Months</option>
               <option value="6 months">6 Months</option>
               <option value="1 year">1 Year</option>
-            </select>
+            </select> */}
+            <Dropdown
+              value={formData.duration}
+              options={[
+                { label: "Select Internship Duration", value: "" },
+                { label: "1 Month", value: "1 month" },
+                { label: "3 Months", value: "3 months" },
+                { label: "6 Months", value: "6 months" },
+                { label: "1 Year", value: "1 year" },
+              ]}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  duration: value,
+                }))
+              }
+            />
           </div>
         </div>
       )}
 
       {/* Resume */}
       <div className="rtx-form-group">
-        <label>Upload Resume *</label>
+        <label>
+          Upload Resume <span className="rtx-required-star">*</span>
+        </label>
         <input type="file" name="resume" onChange={handleChange} />
       </div>
 
       {/* Cover Letter */}
       <div className="rtx-form-group">
         <label>Cover Letter</label>
-        <textarea name="coverLetter" rows="4" onChange={handleChange} />
+        <textarea
+          name="coverLetter"
+          rows="4"
+          placeholder="Write a short cover letter or introduction..."
+          onChange={handleChange}
+        />
       </div>
 
       <div className="rtx-form-actions">

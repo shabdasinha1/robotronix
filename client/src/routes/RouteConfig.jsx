@@ -191,6 +191,11 @@ export const adminRoutesConfig = [
     component: lazy(() => import("../admin/pages/portfolio/TechStack")),
   },
   {
+    path: "settings",
+    component: lazy(() => import("../admin/pages/settings/Settings")),
+  },
+
+  {
   path: "forgot-password",
   component: lazy(() => import("../admin/pages/auth/ForgotPassword")),
 },

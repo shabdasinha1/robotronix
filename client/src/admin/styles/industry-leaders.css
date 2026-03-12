@@ -166,9 +166,13 @@
   .rtx-leader-title {
     font-size: 14px;
   }
-
+.rtx-admin-page-header .w-full{
+  width: 100%;
+}
   .rtx-industry-header-actions {
     /* flex-direction: column;
     align-items: stretch; */
+    justify-content: center;
+    
   }
 }

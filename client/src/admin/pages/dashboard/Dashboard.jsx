@@ -16,7 +16,7 @@ const Dashboard = () => {
       <div className="u-container">
 
         {/* ================= HEADER ================= */}
-        <div className="rtx-admin-dashboard-header u-drop">
+        <div className="rtx-admin-dashboard-header u-drop rtx-admin-page-header">
           <h2 className="u-title">
             Dashboard <span>Overview</span>
           </h2>

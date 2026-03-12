@@ -12,6 +12,7 @@ import "../styles/admin-testimonials.css";
 import "../styles/industry-leaders.css";
 import "../styles/opportunities.css";
 import "../styles/portfolio.css";
+import "../styles/admin-settings.css";
 import "../styles/career.css";
 
 // Layout components (to be created next)

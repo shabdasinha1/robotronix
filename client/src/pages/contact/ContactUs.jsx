@@ -9,7 +9,10 @@ import { Mail, Phone, MapPin, User, MessageSquare, Star } from "lucide-react";
 import { useToast } from "../../components/common/ToastContext";
 import { GiDiscussion } from "react-icons/gi";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { createMessage } from "../../services/PublicServices";
+import {
+  createMessage,
+  getContactDetails,
+} from "../../services/PublicServices";
 
 const ContactUs = React.memo(() => {
   /* ===============================
@@ -32,6 +35,33 @@ const ContactUs = React.memo(() => {
     phone: "",
     message: "",
   });
+  /* ===============================
+   CONTACT DATA STATE
+================================ */
+
+  const [contact, setContact] = useState(null);
+
+  /* ===============================
+   FETCH CONTACT DETAILS
+   Production-safe API call
+================================ */
+
+  React.useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        const res = await getContactDetails();
+
+        // API may return {data} or direct object
+        const contactData = res?.data || res;
+
+        setContact(contactData);
+      } catch (error) {
+        console.error("Failed to load contact details:", error);
+      }
+    };
+
+    fetchContact();
+  }, []);
 
   /* =======================================================================
       STATE AND ENVENT HANDLER FOR EXPANDABLE IMAGE
@@ -50,26 +80,43 @@ const ContactUs = React.memo(() => {
       {
         icon: <MapPin />,
         title: "Office Address",
-        desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001",
+        // desc: " 402, Atulya IT PARK, MPIDC, Khandwa Rd, Opposite Indian Coffee House, Indore, Madhya Pradesh - 452001",
+        desc: `${contact?.address?.line1 || ""}, ${contact?.address?.area || ""}, ${contact?.address?.landmark || ""}, ${contact?.address?.city || ""}, ${contact?.address?.state || ""}, ${contact?.address?.country || ""} - ${contact?.address?.pincode || ""}`.trim(),
       },
       {
-        icon: <Mail/>,
+        icon: <Mail />,
         title: "Email",
-        desc: "info@robotronix.co.in",
-        link: "mailto:info@robotronix.co.in",
+        // desc: "info@robotronix.co.in",
+        // link: "mailto:info@robotronix.co.in",
+        desc: contact?.emails?.[0]?.email,
+        link: `mailto:${contact?.emails?.[0]?.email}`,
       },
       {
-        icon: <Phone/>,
+        icon: <Phone />,
         title: "Phone",
+        // desc: (
+        //   <span style={{ lineHeight: "30px" }}>
+        //     +91 99931 50998 <br /> +91 77248 52726 <br /> 0731-2970998
+        //   </span>
+        // ),
+        // link: "tel:+919993150998",
         desc: (
-          <span style={{lineHeight:"30px"}}>
-            +91 99931 50998 <br /> +91 77248 52726 <br/> 0731-2970998
+          <span style={{ lineHeight: "30px" }}>
+            {contact?.phones?.map((p, i) => (
+              <span key={i}>
+                {p.number}
+                <br />
+              </span>
+            ))}
           </span>
         ),
-        link: "tel:+919993150998",
+
+        link: contact?.phones?.[0]?.number
+          ? `tel:${contact.phones[0].number}`
+          : undefined,
       },
       {
-        icon: <Star/>,
+        icon: <Star />,
         title: "Why Choose Us",
         desc: (
           <>
@@ -80,7 +127,7 @@ const ContactUs = React.memo(() => {
         ),
       },
     ],
-    [],
+    [contact],
   );
 
   /* ===============================
@@ -92,42 +139,39 @@ const ContactUs = React.memo(() => {
   }, []);
 
   const handleSubmit = useCallback(
-  async (e) => {
-    e.preventDefault();
-    if (loading) return;
+    async (e) => {
+      e.preventDefault();
+      if (loading) return;
 
-    // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
-    const messageLength = formData.message.trim().length;
+      // ✅ CHARACTER VALIDATION (MIN 40 INCLUDING SPACES)
+      const messageLength = formData.message.trim().length;
 
-    if (messageLength < 40) {
-      showToast(
-        "Your message must contain at least 40 characters.",
-        "error"
-      );
-      return;
-    }
+      if (messageLength < 40) {
+        showToast("Your message must contain at least 40 characters.", "error");
+        return;
+      }
 
-    try {
-      setLoading(true);
+      try {
+        setLoading(true);
 
-      await createMessage(formData);
+        await createMessage(formData);
 
-      showToast("Message sent successfully!", "success");
+        showToast("Message sent successfully!", "success");
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch (err) {
-      showToast("Failed to send message", "error");
-    } finally {
-      setLoading(false);
-    }
-  },
-  [formData, loading, showToast],
-);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } catch (err) {
+        showToast("Failed to send message", "error");
+      } finally {
+        setLoading(false);
+      }
+    },
+    [formData, loading, showToast],
+  );
 
   const scrollToContactForm = useCallback(() => {
     const el = document.getElementById("contact-form");
@@ -136,7 +180,6 @@ const ContactUs = React.memo(() => {
       block: "start",
     });
   }, []);
-
   return (
     <>
       {/* ================= HERO ================= */}
@@ -161,7 +204,8 @@ const ContactUs = React.memo(() => {
           </h1>
 
           <p className="rtx-cpage-hero-subtext u-drop">
-           Whether you need support, collaboration, or a custom solution — our team is ready to assist you.
+            Whether you need support, collaboration, or a custom solution — our
+            team is ready to assist you.
           </p>
 
           <div className="rtx-contact-hero-btn-group u-drop">
@@ -172,7 +216,11 @@ const ContactUs = React.memo(() => {
               Contact Our Team →
             </button>
 
-            <NavLink to="tel:+919993150998" className="btn btn-outline btn-lg">
+            {/* <NavLink to="tel:+919993150998" className="btn btn-outline btn-lg"> */}
+            <NavLink
+              to={`tel:${contact?.phones?.[0]?.number || "+919993150998"}`}
+              className="btn btn-outline btn-lg"
+            >
               Call Us
             </NavLink>
           </div>
@@ -193,7 +241,7 @@ const ContactUs = React.memo(() => {
         className={`u-section ${infoGrid.visible ? "u-drop-visible" : ""}`}
       >
         <div className="u-container u-grid-auto">
-          {info.map((item, i) => (
+          {info?.map((item, i) => (
             <div
               key={i}
               className="card card-glass rtx-contact-info-card u-drop"
@@ -378,10 +426,20 @@ const ContactUs = React.memo(() => {
           </p>
 
           <div className="rtx-cpage-map-box u-drop">
+            {/* <iframe
+              title="Robotronix Office"
+              // src="https://www.google.com/maps?q=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD.&output=embed"
+              src={contact?.mapsEmbed}
+              loading="lazy"
+            /> */}
             <iframe
               title="Robotronix Office"
-              src="https://www.google.com/maps?q=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD.&output=embed"
+              src={
+                contact?.mapsEmbed ||
+                "https://www.google.com/maps?q=ROBOTRONIX+ENGINEERING+TECH+PVT.+LTD.&output=embed"
+              }
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>

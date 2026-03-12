@@ -6,29 +6,59 @@ const Dropdown = ({
   placeholder = "Select",
   onChange,
   className = "",
-  renderExtraInput, // optional function to render an input or any custom content
+  renderExtraInput,
 }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
+  /* ===============================
+     TOGGLE DROPDOWN
+  =============================== */
   const toggle = (e) => {
     e.stopPropagation();
+
+    // notify other dropdowns to close
+    window.dispatchEvent(new Event("closeAllDropdowns"));
+
     setOpen((prev) => !prev);
   };
 
+  /* ===============================
+     SELECT OPTION
+  =============================== */
   const handleSelect = (option) => {
     onChange(option.value);
-    // only close dropdown if no extra input
+
+    // close dropdown unless using extra input
     if (!renderExtraInput || option.value !== "other") {
       setOpen(false);
     }
   };
 
-  // close on outside click
+  /* ===============================
+     CLOSE ON OUTSIDE CLICK
+  =============================== */
   useEffect(() => {
-    const close = () => setOpen(false);
-    window.addEventListener("click", close);
-    return () => window.removeEventListener("click", close);
+    const handleOutsideClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("click", handleOutsideClick);
+
+    return () => window.removeEventListener("click", handleOutsideClick);
+  }, []);
+
+  /* ===============================
+     CLOSE WHEN OTHER DROPDOWN OPENS
+  =============================== */
+  useEffect(() => {
+    const closeDropdown = () => setOpen(false);
+
+    window.addEventListener("closeAllDropdowns", closeDropdown);
+
+    return () => window.removeEventListener("closeAllDropdowns", closeDropdown);
   }, []);
 
   const selectedLabel = options.find((o) => o.value === value)?.label;
@@ -44,14 +74,16 @@ const Dropdown = ({
           {options.map((opt) => (
             <button
               key={opt.value}
-              className={`ui-dropdown-item ${value === opt.value ? "active" : ""}`}
+              className={`ui-dropdown-item ${
+                value === opt.value ? "active" : ""
+              }`}
               onClick={() => handleSelect(opt)}
             >
               {opt.label}
             </button>
           ))}
 
-          {/* render optional extra input */}
+          {/* Optional custom input */}
           {renderExtraInput && renderExtraInput(value)}
         </div>
       )}

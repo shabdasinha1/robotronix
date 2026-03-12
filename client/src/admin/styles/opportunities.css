@@ -1,24 +1,24 @@
-.tp-admin-header {
+.rtx-admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
 
-.tp-admin-actions {
+.rtx-admin-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.tp-grid {
+.rtx-grid {
   /* display: grid; */
   /* gap: 20px; */
 }
 
-.tp-grid-3 {
+.rtx-grid-3 {
   /* grid-template-columns: repeat(auto-fill, 300px);
   justify-content: flex-start; */
   display: grid;
@@ -39,7 +39,7 @@
   justify-content: space-evenly;
 }
 
-.tp-icon-btn {
+.rtx-icon-btn {
   border: none;
   background: transparent;
   cursor: pointer;
@@ -47,29 +47,34 @@
   margin-top: var(--space-sm);
 }
 
-.tp-form {
+.rtx-form {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.tp-modal-actions {
+.rtx-modal-actions {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
-.rtx-opportunity-filter-btn .ui-dropdown .rtx-input{
-    padding: 0;
+.rtx-opportunity-filter-btn .ui-dropdown .rtx-input {
+  padding: 0;
 }
-.rtx-filter-btn-wrapper .ui-dropdown .rtx-input{
+.rtx-filter-btn-wrapper .ui-dropdown .rtx-input {
   padding: 0;
   background: transparent;
 }
 
+@media (max-width: 768px) {
+  .rtx-admin-actions {
+    justify-content: center;
+    width: 100%;
+  }
+}
 @media (max-width: 426px) {
-    .tp-admin-actions{
-        flex-direction: column;
-        width: 100%;
-    }
-    
+  .rtx-admin-actions {
+    flex-direction: column;
+    width: 100%;
+  }
 }

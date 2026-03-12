@@ -133,21 +133,21 @@ const TechStack = () => {
   /* ================= COMPONENT ================= */
 
   return (
-    <div className="tp-admin-section">
+    <div className="rtx-admin-section">
       {/* ================= HEADER ================= */}
 
-      <div className="tp-admin-header">
+      <div className="rtx-admin-page-header rtx-admin-header">
         <div>
-          <h2 className="u-title tp-admin-title">
+          <h2 className="u-title rtx-admin-title">
             Technology <span>Stack</span>
           </h2>
 
-          <p className="u-subtext tp-admin-subtitle">
+          <p className="u-subtext rtx-admin-subtitle">
             Manage technologies used in your portfolio
           </p>
         </div>
 
-        <div className="tp-admin-actions">
+        <div className="rtx-admin-actions">
           {/* ADD TECH STACK */}
 
           <button
@@ -173,7 +173,7 @@ const TechStack = () => {
 
       {/* ================= TECH GRID ================= */}
 
-      <div className="tp-grid portfolio-grid">
+      <div className="rtx-grid portfolio-grid">
         {techStacks.map((tech) => (
           <Card
             key={tech._id}
@@ -251,7 +251,7 @@ const TechStack = () => {
 
           <div className="rtx-form-group">
             <label>
-              Technology Name <span className="rtx-required-start">*</span>
+              Technology Name <span className="rtx-required-star">*</span>
             </label>
 
             <input

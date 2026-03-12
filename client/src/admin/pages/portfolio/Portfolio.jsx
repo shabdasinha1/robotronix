@@ -164,21 +164,21 @@ const Portfolio = () => {
   /* ================= COMPONENT ================= */
   //   console.log(projects);
   return (
-    <div className="tp-admin-section">
+    <div className="rtx-admin-section">
       {/* HEADER */}
 
-      <div className="tp-admin-header">
+      <div className="rtx-admin-page-header rtx-admin-header">
         <div>
-          <h2 className="u-title tp-admin-title">
+          <h2 className="u-title rtx-admin-title">
             Portfolio <span>Projects</span>
           </h2>
 
-          <p className="u-subtext tp-admin-subtitle">
+          <p className="u-subtext rtx-admin-subtitle">
             Manage portfolio projects and categories
           </p>
         </div>
 
-        <div className="tp-admin-actions">
+        <div className="rtx-admin-actions">
           <button
             onClick={() => {
               setSelectedProject(null);
@@ -223,7 +223,7 @@ const Portfolio = () => {
 
       {/* PROJECT GRID */}
 
-      <div className="tp-grid portfolio-grid">
+      <div className="rtx-grid portfolio-grid">
         {projects.map((project) => (
           // <Card key={project._id} className="rtx-admin-testimonials-card">
           <Card
@@ -321,7 +321,7 @@ const Portfolio = () => {
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
             <label>
-              Project Title <span className="rtx-required-start">*</span>
+              Project Title <span className="rtx-required-star">*</span>
             </label>
             <input
               placeholder="Enter Project Title"
@@ -345,7 +345,7 @@ const Portfolio = () => {
 
           <div className="rtx-form-group">
             <label>
-              Category <span className="rtx-required-start">*</span>
+              Category <span className="rtx-required-star">*</span>
             </label>
 
             <Dropdown
@@ -414,7 +414,7 @@ const Portfolio = () => {
 
           <div className="rtx-form-group">
             <label>
-              Industry <span className="rtx-required-start">*</span>
+              Industry <span className="rtx-required-star">*</span>
             </label>
             <input
               placeholder="Enter Industry"
@@ -425,7 +425,7 @@ const Portfolio = () => {
 
           <div className="rtx-form-group">
             <label>
-              Description <span className="rtx-required-start">*</span>
+              Description <span className="rtx-required-star">*</span>
             </label>
             <textarea
               placeholder="Enter Project Description"

@@ -10,6 +10,7 @@ import application from "../modules/career/application/application.routes.js";
 import opportunityRoutes from "../modules/career/opportunity/opportunity.routes.js";
 import portfolioRoutes from "../modules/portfolio/projects/portfolio.projects.routes.js";
 import portfolioTechStackRoutes from "../modules/portfolio/tech stack/portfolio.techStack.routes.js";
+import contactRoutes from "../modules/contact/contact.routes.js"
 
 const router = Router();
 
@@ -35,5 +36,8 @@ router.use("/opportunities", opportunityRoutes);
 router.use("/application", application);
 
 router.use("/portfolio/projects", portfolioRoutes);
+
 router.use("/portfolio/tech-stack", portfolioTechStackRoutes);
+
+router.use("/contact", contactRoutes);
 export default router;

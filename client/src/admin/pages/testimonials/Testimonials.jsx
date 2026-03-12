@@ -399,7 +399,7 @@ const Testimonials = () => {
         <form className="rtx-modal-body" onSubmit={handleSubmit}>
           <div className="rtx-form-group">
             <label>
-              Client Name <span className="rtx-required-start">*</span>
+              Client Name <span className="rtx-required-star">*</span>
             </label>
             <input
               placeholder="Enter Client Name"
@@ -436,7 +436,7 @@ const Testimonials = () => {
 
           <div className="rtx-form-group">
             <label>
-              Review <span className="rtx-required-start">*</span>
+              Review <span className="rtx-required-star">*</span>
             </label>
             <textarea
               required
@@ -450,7 +450,7 @@ const Testimonials = () => {
 
           <div className="rtx-form-group">
             <label>
-              Rating (1-5) <span className="rtx-required-start">*</span>
+              Rating (1-5) <span className="rtx-required-star">*</span>
             </label>
             <input
               type="number"

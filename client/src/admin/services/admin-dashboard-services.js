@@ -202,6 +202,20 @@ export const adminDashboardServices = {
     const { data } = await api.patch(`/portfolio/tech-stack/${id}/restore`);
     return data;
   },
+
+  /* =====================================================
+   SITE SETTINGS MANAGEMENT
+===================================================== */
+
+  getContact: async () => {
+    const { data } = await api.get("/contact/");
+    return data;
+  },
+
+  updateContact: async (payload) => {
+    const { data } = await api.patch("/contact/", payload);
+    return data;
+  },
 };
 
 export default adminDashboardServices;

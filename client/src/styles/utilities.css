@@ -224,7 +224,7 @@ textarea {
   height: 140px; /* fixed height */
 }
 
-.rtx-text-muted{
+.rtx-text-muted {
   color: var(--clr-text-muted);
 }
 
@@ -236,7 +236,9 @@ textarea {
   position: relative;
   display: inline-block;
   width: 100%;
-  z-index: 20;
+  /* z-index: 20; */
+  z-index: auto;
+  overflow: visible;
 }
 
 .ui-dropdown-menu {
@@ -299,4 +301,18 @@ textarea {
 .ui-dropdown .rtx-input {
   font-size: var(--fs-sm);
   font-weight: 500;
+}
+.ui-dropdown-menu {
+  animation: dropdownFade 0.18s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

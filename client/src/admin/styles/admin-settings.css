@@ -1,0 +1,28 @@
+.rtx-admin-contact-title {
+  /* color: var(--clr-text-light); */
+  color: var(--clr-blue);
+}
+.rtx-settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rtx-settings-list .tech-chip {
+  width: 30%;
+}
+.rtx-admin-settings-card {
+  /* max-width: 50%; */
+}
+.contact-chip{
+    background: var(--bg-dark-1);
+}
+.rtx-dashboard-social-icon{
+    flex-wrap: wrap;
+}
+
+@media (max-width:768px) {
+    .rtx-site-setting-header .rtx-admin-actions{
+        justify-content: flex-start;
+    }
+    
+}

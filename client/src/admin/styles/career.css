@@ -130,7 +130,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
   flex-wrap: wrap;
 }
 
@@ -248,3 +248,11 @@
             USER APPLICATION COMPONENT (JOB/INTERNSHIP) END
 =========================================================================
  */
+
+
+ @media (max-width:768px) {
+  .rtx-header-flex{
+    flex-direction: column;
+  }
+  
+ }

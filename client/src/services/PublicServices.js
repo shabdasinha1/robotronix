@@ -51,7 +51,16 @@ export const getPortfolioCategories = async () => {
   return data;
 };
 
-export const getPortfolioTechStack = async()=>{
-  const {data} = await publicApi.get("/portfolio/tech-stack");
+export const getPortfolioTechStack = async () => {
+  const { data } = await publicApi.get("/portfolio/tech-stack");
   return data;
-}
+};
+
+/* ===============================
+   CONTACT DETAILS (PUBLIC)
+================================ */
+
+export const getContactDetails = async () => {
+  const { data } = await publicApi.get("/contact");
+  return data;
+};
